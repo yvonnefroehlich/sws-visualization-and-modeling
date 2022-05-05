@@ -30,7 +30,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 ## Requirements
 - **Software**: _MATLAB_, tested with R2022a, R2021a,b (under Linux and Windows)
 - **Forward calculation**: _MATLAB Seismic Anisotropy Toolbox_ (MSAT) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
-- **Data**: shear wave splitting observations made with the energy-minimum method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+- **Data**: Shear wave splitting observations made with the energy-minimum method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
 - **Format**: Output (txt files) of _SplitLab_ ([**_Wüstefeld et al., 2018_**](https://doi.org/10.1016/j.cageo.2007.08.002)) version 1.2.1 (**_Poritt 2014_**) and of _StackSplit_ ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015))
 
 
