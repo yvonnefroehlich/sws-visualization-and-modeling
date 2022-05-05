@@ -39,6 +39,8 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 -
 -
 
+see also [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**.
+
 
 ## Releases
 - dev ([main branch]())
