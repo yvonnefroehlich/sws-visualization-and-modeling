@@ -44,7 +44,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 - dev ([main branch]())
 - [v1.0]()
 
-For details on the individual releases see the [changelog]()
+For details on the individual releases see the [changelog]().
 
 
 ## References
