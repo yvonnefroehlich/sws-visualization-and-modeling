@@ -49,6 +49,11 @@ see also [Supporting Information](https://academic.oup.com/gji/article/223/3/152
 For details on the individual releases see the [changelog]().
 
 
+## Contributing
+ 
+For bug reports, suggestions or recommondations feel free to open an issue or submitt a pull request directly on GitHub.
+
+
 ## References
 
 [**_Bowman, J. R. & Ando, M. (1987)_**](https://doi.org/10.1111/j.1365-246X.1987.tb01367.x).
