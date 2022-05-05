@@ -51,7 +51,7 @@ For details on the individual releases see the [changelog]().
 
 ## Contributing
  
-For bug reports, suggestions or recommondations feel free to open an issue or submitt a pull request directly on GitHub.
+For bug reports, suggestions or recommendations feel free to open an issue or submit a pull request directly here on GitHub.
 
 
 ## References
