@@ -35,11 +35,11 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 
 ## How to use
--
--
--
-
-see also [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**.
+- `001_stereoplots`
+  - see function `SWS_Analysis_BASICS_stereoplot.m`
+- `002_modelling`
+  - Supporting Inforamtion of **_Fröhlich et al. (2022)_**
+  - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 
 
 ## Releases
