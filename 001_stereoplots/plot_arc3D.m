@@ -1,0 +1,60 @@
+function P = plot_arc3D(a, b, h, k, r, colfill, coledge, facealphafill)
+
+%==========================================================================
+% This function
+%==========================================================================
+% plots a circular arc as a pie wedge
+%--------------------------------------------------------------------------
+% is
+% - based on >>> plot_arc.m <<< by Matt Fig
+%   https://de.mathworks.com/matlabcentral/answers/6322-drawing-a-segment-of-a-circle
+%   (last access 2022 June 19)
+% - extended: Michael Grund (add 3 dimensions)
+%   https://github.com/michaelgrund/sws_tools
+%   Grund PhD (2019)
+%   https://doi.org/10.5445/IR/1000091425
+%   Grund & Ritter (2020) GJI
+%   https://doi.org/10.1093/gji/ggaa388
+% - extended: Yvonne Fröhlich (add coledge, facealphafill)
+%   https://github.com/yvonnefroehlich
+%   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
+%--------------------------------------------------------------------------
+% INPUT
+%
+%   a                start of arc in radians
+%   b                end of arc in radians
+%   h,k              center
+%   r                radius
+%   colfill          fill color
+%   coledge          outline color
+%   facealphafill    transparency of fill color
+%--------------------------------------------------------------------------
+% TERMS OF USE
+%
+% The plotting routines are provided "as is" and without any warranty.
+% The author cannot be held responsible for anything that happens to you
+% or your equipment. Use it at your own risk.
+%==========================================================================
+
+
+
+t = linspace(a,b);
+x = r*cos(t) + h;
+y = r*sin(t) + k;
+
+x = [x h x(1)];
+y = [y k y(1)];
+
+P = fill3(x, y, ones(length(x))*1.01, 'r');
+% fill(x,y,'r');
+set(P, 'facecolor',colfill, 'edgecolor',coledge, 'facealpha',facealphafill)
+% axis([h-r-1 h+r+1 k-r-1 k+r+1])
+% axis tight;
+
+if ~nargout
+    clear P
+end
+
+
+%==========================================================================
+end % EOF
