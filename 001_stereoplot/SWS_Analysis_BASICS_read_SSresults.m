@@ -33,8 +33,10 @@ function RES_out = SWS_Analysis_BASICS_read_SSresults( ...
 
 predat = load(dir_res_multi.name);
 pre_RES_multi = predat.eqstack;
+res_multi = [];
 
 k = 1;
+
 for kk = 1:1:length(pre_RES_multi)
 
 %--------------------------------------------------------------------------
@@ -42,25 +44,25 @@ for kk = 1:1:length(pre_RES_multi)
     if (~strcmp(pre_RES_multi(kk).results.stack_meth,'SIMW')) && ...
        (SSmethod==1 || SSmethod==3)
 
-        res_split(k).staname = pre_RES_multi(kk).results.stnname;
-        res_split(k).sta_lon = pre_RES_multi(kk).results.slat;
-        res_split(k).sta_lat = pre_RES_multi(kk).results.slong;
-        res_split(k).stack_meth = pre_RES_multi(kk).results.stack_meth;
-        res_split(k).nsurf = pre_RES_multi(kk).results.nsurf;
-        res_split(k).minbaz = pre_RES_multi(kk).results.bazi_min;
-        res_split(k).maxbaz = pre_RES_multi(kk).results.bazi_max;
-        res_split(k).meanbaz = pre_RES_multi(kk).results.bazi_mean;
-        res_split(k).mindis = pre_RES_multi(kk).results.dist_min;
-        res_split(k).maxdis = pre_RES_multi(kk).results.dist_max;
-        res_split(k).meandis = pre_RES_multi(kk).results.dist_mean;
-        res_split(k).phimulti_err_min = pre_RES_multi(kk).results.phi_stack(1);
-        res_split(k).phimulti = pre_RES_multi(kk).results.phi_stack(2);
-        res_split(k).phimulti_err_max = pre_RES_multi(kk).results.phi_stack(3);
-        res_split(k).dtmulti_err_min = pre_RES_multi(kk).results.dt_stack(1)/scaling_factor;
-        res_split(k).dtmulti = pre_RES_multi(kk).results.dt_stack(2)/scaling_factor;
-        res_split(k).dtmulti_err_max = pre_RES_multi(kk).results.dt_stack(3)/scaling_factor;
-        res_split(k).remark = pre_RES_multi(kk).results.remark;
-        res_split(k).used_phases = pre_RES_multi(kk).results.events_in;
+        res_multi(k).staname = pre_RES_multi(kk).results.stnname;
+        res_multi(k).sta_lon = pre_RES_multi(kk).results.slat;
+        res_multi(k).sta_lat = pre_RES_multi(kk).results.slong;
+        res_multi(k).stack_meth = pre_RES_multi(kk).results.stack_meth;
+        res_multi(k).nsurf = pre_RES_multi(kk).results.nsurf;
+        res_multi(k).minbaz = pre_RES_multi(kk).results.bazi_min;
+        res_multi(k).maxbaz = pre_RES_multi(kk).results.bazi_max;
+        res_multi(k).meanbaz = pre_RES_multi(kk).results.bazi_mean;
+        res_multi(k).mindis = pre_RES_multi(kk).results.dist_min;
+        res_multi(k).maxdis = pre_RES_multi(kk).results.dist_max;
+        res_multi(k).meandis = pre_RES_multi(kk).results.dist_mean;
+        res_multi(k).phimulti_err_min = pre_RES_multi(kk).results.phi_stack(1);
+        res_multi(k).phimulti = pre_RES_multi(kk).results.phi_stack(2);
+        res_multi(k).phimulti_err_max = pre_RES_multi(kk).results.phi_stack(3);
+        res_multi(k).dtmulti_err_min = pre_RES_multi(kk).results.dt_stack(1)/scaling_factor;
+        res_multi(k).dtmulti = pre_RES_multi(kk).results.dt_stack(2)/scaling_factor;
+        res_multi(k).dtmulti_err_max = pre_RES_multi(kk).results.dt_stack(3)/scaling_factor;
+        res_multi(k).remark = pre_RES_multi(kk).results.remark;
+        res_multi(k).used_phases = pre_RES_multi(kk).results.events_in;
 
         k = k+1;
 
@@ -70,25 +72,25 @@ for kk = 1:1:length(pre_RES_multi)
             strcmp(pre_RES_multi(kk).results.Null_simw,'No ') ) && ...
            (SSmethod==2 || SSmethod==3)
 
-            res_split(k).staname = pre_RES_multi(kk).results.stnname;
-            res_split(k).sta_lon = pre_RES_multi(kk).results.slong;
-            res_split(k).sta_lat = pre_RES_multi(kk).results.slat;
-            res_split(k).stack_meth = pre_RES_multi(kk).results.stack_meth;
-            res_split(k).nsurf = pre_RES_multi(kk).results.nwave;
-            res_split(k).minbaz = pre_RES_multi(kk).results.bazi_min;
-            res_split(k).maxbaz = pre_RES_multi(kk).results.bazi_max;
-            res_split(k).meanbaz = pre_RES_multi(kk).results.bazi_mean;
-            res_split(k).mindis = pre_RES_multi(kk).results.dist_min;
-            res_split(k).maxdis = pre_RES_multi(kk).results.dist_max;
-            res_split(k).meandis = pre_RES_multi(kk).results.dist_mean;
-            res_split(k).phimulti_err_min = pre_RES_multi(kk).results.phiSC_simw(1);
-            res_split(k).phimulti = pre_RES_multi(kk).results.phiSC_simw(2);
-            res_split(k).phimulti_err_max = pre_RES_multi(kk).results.phiSC_simw(3);
-            res_split(k).dtmulti_err_min = pre_RES_multi(kk).results.dtSC_simw(1)/scaling_factor;
-            res_split(k).dtmulti = pre_RES_multi(kk).results.dtSC_simw(2)/scaling_factor;
-            res_split(k).dtmulti_err_max = pre_RES_multi(kk).results.dtSC_simw(3)/scaling_factor;
-            res_split(k).remark = pre_RES_multi(kk).results.remark;
-            res_split(k).used_phases = pre_RES_multi(kk).results.events_in;
+        res_multi(k).staname = pre_RES_multi(kk).results.stnname;
+        res_multi(k).sta_lon = pre_RES_multi(kk).results.slong;
+        res_multi(k).sta_lat = pre_RES_multi(kk).results.slat;
+        res_multi(k).stack_meth = pre_RES_multi(kk).results.stack_meth;
+        res_multi(k).nsurf = pre_RES_multi(kk).results.nwave;
+        res_multi(k).minbaz = pre_RES_multi(kk).results.bazi_min;
+        res_multi(k).maxbaz = pre_RES_multi(kk).results.bazi_max;
+        res_multi(k).meanbaz = pre_RES_multi(kk).results.bazi_mean;
+        res_multi(k).mindis = pre_RES_multi(kk).results.dist_min;
+        res_multi(k).maxdis = pre_RES_multi(kk).results.dist_max;
+        res_multi(k).meandis = pre_RES_multi(kk).results.dist_mean;
+        res_multi(k).phimulti_err_min = pre_RES_multi(kk).results.phiSC_simw(1);
+        res_multi(k).phimulti = pre_RES_multi(kk).results.phiSC_simw(2);
+        res_multi(k).phimulti_err_max = pre_RES_multi(kk).results.phiSC_simw(3);
+        res_multi(k).dtmulti_err_min = pre_RES_multi(kk).results.dtSC_simw(1)/scaling_factor;
+        res_multi(k).dtmulti = pre_RES_multi(kk).results.dtSC_simw(2)/scaling_factor;
+        res_multi(k).dtmulti_err_max = pre_RES_multi(kk).results.dtSC_simw(3)/scaling_factor;
+        res_multi(k).remark = pre_RES_multi(kk).results.remark;
+        res_multi(k).used_phases = pre_RES_multi(kk).results.events_in;
 
         k = k+1;
 
@@ -96,7 +98,7 @@ for kk = 1:1:length(pre_RES_multi)
 
 end % kk
 
-RES_out = res_split;
+RES_out = res_multi;
 
 
 %===============================================================================

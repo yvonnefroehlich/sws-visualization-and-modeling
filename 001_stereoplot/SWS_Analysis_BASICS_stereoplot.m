@@ -50,18 +50,18 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %==========================================================================
 % After processing the whole data of a station with SL (and SS)
 %
-% 1) Change to the folder with the output txt files of SL and SS
+% 1) Change to the folder with the output files of SL and SS
 %
 %    required: splitresults_*.txt, splitresultsNULL_*.txt
-%    optional: splitresultsSTACK_*.txt, splitresultsSIMW_*.txt
+%    optional: *stackresults.mat
 %
 % 2) Run this function SWS_Analysis_BASICS_stereoplot()
 %
 %    If result lists are available, they are loaded and processed
 %    completely automatically
 %
-% If bars should be color-coded with respect to the fast axis, pass the
-% colormap of your choice as input, e. g.:
+% If bars should be color-coded with respect to the fast polarization
+% direction (phi), pass the colormap of your choice as input, e. g.:
 %
 %    SWS_Analysis_BASICS_stereoplot('lajolla')
 %    SWS_Analysis_BASICS_stereoplot('viridis')
@@ -184,14 +184,33 @@ fontsize_leg = 10;
 fontsize_cb = 9;
 
 %--------------------------------------------------------------------------
-% no phi color-coding
+% no phi color-coding (default colors of MATLAB)
 splitcol = [0.3 0.3 0.3]; % dark grey
-multicol = [0 0.4470 0.7410];
+multicol_stack = [0 0.4470 0.7410]; % dark blue
+multicol_simw = [0.3010 0.7450 0.9330]; % light blue
 nullcol = [0.8500 0.3250 0.0980]; % red-orange
 
 
+
 %==========================================================================
-% colormaps
+%% NOT changebale settings
+%==========================================================================
+
+% horizontal position of legends
+startval = 0.254;
+
+% manually adjusted to fit the length to the bars plotted via plotm
+lengthbar = 0.0710;
+
+
+
+%==========================================================================
+%% colormaps
+%==========================================================================
+
+
+%==========================================================================
+% list of supported colormaps
 
 %--------------------------------------------------------------------------
 % Scientific colour maps
@@ -218,23 +237,23 @@ cmocean_cmap = {'thermal','haline','solar','ice','gray','deep','dense', ...
                 'phase'};
 
 
-
 %==========================================================================
-%% define colormap
-%==========================================================================
+% define colormap
 
 if ~exist('colmap','var') || strcmp(colmap,'parula')
     usecmap = parula(181);
     usecmap = flipud(usecmap);
     colmap = 'parulaflip';
-    fast_col=1;
+    fast_col = 1;
 elseif strcmp('none',colmap)
     fast_col = 0;
 else
     fast_col = 1;
 
 %--------------------------------------------------------------------------
-    % check for Scientific colour maps on your system
+    % check for colormaps on your system
+    %......................................................................
+    % Scientific colour maps
     if vers~=0 % MATLAB R2016b or higher
         idxpre1 = contains(crameri_cmap,colmap);
         idx1 = sum(  double( strcmp(crameri_cmap(idxpre1),colmap) )  );
@@ -248,9 +267,8 @@ else
            idx1 = 1;
         end
     end
-
-%--------------------------------------------------------------------------
-    % check for matplotlib colormaps on your system
+    %......................................................................
+    % MatPlotLib colormaps
     if vers~=0 % MATLAB R2016b or higher
         idxpre2 = contains(mpl_cmap,colmap);
         idx2 = sum(double(strcmp(mpl_cmap(idxpre2),colmap)));
@@ -264,9 +282,8 @@ else
            idx2 = 1;
         end
     end
-
-%--------------------------------------------------------------------------
-    % check for cmocean colormaps on your system
+    %......................................................................
+    % cmocean colormaps
     if vers~=0 % MATLAB R2016b or higher
         idxpre3 = contains(cmocean_cmap,colmap);
         idx3 = sum(double(strcmp(cmocean_cmap(idxpre3),colmap)));
@@ -282,7 +299,9 @@ else
     end
 
 %--------------------------------------------------------------------------
-    % search for input cmap
+    % search for input colormap
+    %......................................................................
+    % Scientific colour maps
     if idx1==1 && ~isempty(which('CrameriColourMaps7.0.mat'))
         % warning if colormap name contains upper-case letters
         if strcmp(colmap,lower(colmap))==0
@@ -301,7 +320,8 @@ else
     elseif idx1==1 && isempty(which('CrameriColourMaps7.0.mat'))
         warning('Scientific colour maps not found!')
         return
-
+    %......................................................................
+    % MatPlotLib colormaps
     elseif idx2==1 && ~isempty(which(colmap))
         usecmap = colormap([colmap '(181)']);
         disp(' ')
@@ -309,7 +329,8 @@ else
     elseif idx2==1 && isempty(which(colmap))
         warning('MatPlotLib Colormaps not found!')
         return
-
+    %......................................................................
+    % cmocean colormaps
     elseif idx3==1 && ~isempty(which('cmocean.m'))
         usecmap = cmocean(colmap,181);
         disp(' ')
@@ -317,15 +338,17 @@ else
     elseif idx3==1 && isempty(which('cmocean.m'))
         warning('cmocean colormaps not found!')
         return
-
-    % check for other build-in MATLAB colormaps (use: help colormap)
+    %......................................................................
+    % build-in MATLAB colormaps (use: help colormap)
     elseif  idx1==0 && idx2==0 && idx3==0
         if exist(colmap,'file')
             usecmap = colormap([colmap '(181)']);
         else
             error('Colormap not available!')
         end
+
     end
+
 end
 
 
@@ -368,23 +391,30 @@ method_string = {'SC';'RC';'EV'};
 %% read multi-event-analysis results if available and make query
 %==========================================================================
 
+% default
+RES_multi = [];
 plot_multi = 0; % no
+
 % corresponding to number in query
 multi_string = {'';'stack';'SIMWNN';'stackSIMWNN'};
 
-if ~exist('plot_stacks','var')
-    dir_res_multi = dir('*_stackresults.mat');
+dir_res_multi = dir('*_stackresults.mat');
 
-    if ~isempty(dir_res_multi)
-        disp(' ')
-        plot_multi = input(['Plot multi-event-analysis results (if available)? \n' ...
-                           '   [0] no  [1] stack  [2] SIMW(NN)  [3] stack & SIMW(NN)   | ']);
-        if plot_multi>0
-            RES_multi = SWS_Analysis_BASICS_read_SSresults(...
-                            dir_res_multi, 1, plot_multi);
-        end
-    else
-        RES_multi = [];
+if ~isempty(dir_res_multi)
+    disp(' ')
+    plot_multi = input(['Plot multi-event-analysis results' ...
+                        ' (if available)? \n' ...
+                        '    [0] no  [1] stack  [2] SIMW(NN)' ...
+                        '  [3] stack & SIMW(NN)   | ']);
+    if plot_multi>0
+        RES_multi = SWS_Analysis_BASICS_read_SSresults(...
+                        dir_res_multi, 1, plot_multi);
+    end
+
+    if plot_multi==1 && isempty(RES_multi)
+        error('No stack results in structur!')
+    elseif plot_multi==2 && isempty(RES_multi)
+        error('No simw results contained in structur!')
     end
 
 end
@@ -462,10 +492,11 @@ end
 %--------------------------------------------------------------------------
 % (II) multi-event analysis
 if ~isempty(RES_multi)
+
     % calculate mean incidence
+    incALLmean = nan(length(RES_multi),1);
     for ii = 1:1:length(RES_multi)
         incALL = nan(length(RES_multi(ii).used_phases),1);
-        incALLmean = nan(length(RES_multi),1);
 
         for jj = 1:1:length(RES_multi(ii).used_phases)
             incALL(jj) = RES_multi(ii).used_phases(jj).results.incline;
@@ -617,9 +648,8 @@ end
 
 
 %==========================================================================
-% mark null area in shaded gray
-% >>> uses function < plot_arc.m > to plot sector
-% modified function < plot_arc3D.m > also adds a layer in 3rd dimension <<<
+% plot sector
+% >>> function < plot_arc3D.m > is requiered, based on plot.arc <<<
 
 if exist('plot_arc3D','file')
 
@@ -699,6 +729,7 @@ if ~isempty(RES_split)
     inc  = [inc(NNull)   inc(NNull)]';
     len  = [-len(NNull)  len(NNull)]';
     azim = (bazi-[azim(NNull) azim(NNull)]');
+
 elseif ~isempty(RES_nulls)
     NNull = 1:length(RES_nulls);
 
@@ -714,7 +745,8 @@ elseif ~isempty(RES_nulls)
     azim = (bazi-[azim(NNull) azim(NNull)]');
 end
 
-if ~isempty(RES_multi)
+%--------------------------------------------------------------------------
+if ~isempty(RES_multi) && plot_multi>0
     NNull = 1:length(RES_multi);
 
     bazi_multi = bazi_multi(:);
@@ -743,7 +775,7 @@ if ~isempty(RES_split)
     hndl = plotm(latout, lonout, 'Linewidth',linew);
 
     % multi
-    if exist('RES_multi','var') && plot_multi>0
+    if ~isempty(RES_multi) && plot_multi>0
         [latout_multi, lonout_multi] = reckon(90-inc_multi, bazi_multi, ...
                                               len_multi, azim_multi, ...
                                               'degrees');
@@ -751,12 +783,14 @@ if ~isempty(RES_split)
     end
 
 %--------------------------------------------------------------------------
-    % display fast axis in color
+    % color-coding based on phi
     if fast_col==1
+
         cmap = usecmap;
         step_phi = -90:1:90;
         colormap(usecmap);
 
+        % single
         for ii = 1:1:length(hndl)
             if ~isempty(RES_split)
                 azim_rounded = floor(azim_pre(1,ii));
@@ -772,25 +806,32 @@ if ~isempty(RES_split)
             set(hndl(ii), 'linewidth',linew)
         end
 
-        if exist('RES_multi','var') && plot_multi>0
-
+        % multi
+        if ~isempty(RES_multi) && plot_multi>0
             for ii = 1:1:length(hndl_multi)
-                if ~isempty(RES_multi)
-                    azim_rounded = floor(azim_multi_pre(1,ii));
-                end
+
+                azim_rounded = floor(azim_multi_pre(1,ii));
 
                 index = step_phi==azim_rounded;
                 set(hndl_multi(ii), 'color',cmap(index,:))
                 set(hndl_multi(ii), 'linewidth',linew)
             end
-
         end
 
+    % no color-coding base on phi
     else
+        % single
         set(hndl, 'color',splitcol, 'linewidth',linew)
-        % for case colmap='none' error hndlstack not define
-        if exist('RES_multi','var') && plot_multi>1
-           set(hndl_multi, 'color',multicol, 'linewidth',linew)
+        % multi
+        if ~isempty(RES_multi) && plot_multi>0
+            for ii = 1:1:length(RES_multi)
+                if strcmp(RES_multi(ii).stack_meth,'SIMW')
+                    multicol = multicol_simw;
+                else
+                    multicol = multicol_stack;
+                end
+                set(hndl_multi(ii), 'color',multicol, 'linewidth',linew)
+            end
         end
     end
 
@@ -799,27 +840,35 @@ end
 
 %==========================================================================
 % plot legend (null, delay time reference)
+
 if strcmp(status_leg,'yes')
 
-    startval = 0.254;
-    plot([startval startval], [0.220 0.220], 'o', ...
-         'linewidth',linewcirc, 'markersize',marks, ...
-         'markerfacecolor','w', 'markeredgecolor',col_leg)
+%--------------------------------------------------------------------------
+    % null
+
+    if fast_col==0
+        col_leg_null = nullcol;
+    elseif fast_col==1
+        col_leg_null = col_leg;
+    end
+
+    plot([startval startval], ...
+         [0.220 0.220], 'o', 'linewidth',linewcirc, 'markersize',marks, ...
+         'markerfacecolor','w', 'markeredgecolor',col_leg_null)
     text(startval, 0.195, 'null', ...
          'HorizontalAlignment','center', ...
          'fontsize',fontsize_leg, 'color',col_leg)
 
-    % manually adjusted
-    % to fit the length to the bars plotted via plotm (see above)
-    lengthbar = 0.0710;
+%--------------------------------------------------------------------------
+    % delay time of splits
+
     plot([startval-lengthbar/2 startval+lengthbar/2], ...
          [0.260 0.260], '-', 'linewidth',linew, 'color',col_leg)
     text(startval, 0.243, '1 s', ...
          'HorizontalAlignment','center', ...
          'fontsize',fontsize_leg, 'color',col_leg)
 
-    lengthbar = 2*lengthbar;
-    plot([startval-lengthbar/2 startval+lengthbar/2], ...
+    plot([startval-lengthbar*2/2 startval+lengthbar*2/2], ...
          [0.295 0.295], '-', 'linewidth',linew, 'color',col_leg)
     text(startval, 0.278, '2 s', ...
          'HorizontalAlignment','center', ...
@@ -829,12 +878,16 @@ end
 
 
 %==========================================================================
-% plot colorbar (phi)
+% colorbar for phi OR legend for split single, stack split, simw split
+
 if strcmp(status_cb,'yes')
 
-    % when color-coding of the bars based on phi and also for null stations
-    % but not when no color-coding of the bars based on phi
+%--------------------------------------------------------------------------
+    % colorbar for phi
+    % phi color-coding and for null stations
+
     if ~isempty(RES_split) && fast_col==1 || isempty(RES_split)
+
         cb = colorbar('location','north');
         zlab = get(cb,'xlabel');
         set(zlab,'String','        \phi_a / N\circE');
@@ -860,7 +913,55 @@ if strcmp(status_cb,'yes')
         % use predefined size values
         set(cb,'position',[0.6150 0.94100 0.2200 0.0200])
         set(gca,'position',[0.1300 0.1100 0.7745 0.8150])
+
+%--------------------------------------------------------------------------
+    % legend for split single, stack split, simw split
+    % no phi color-coding and multi
+
+    elseif fast_col==0 && plot_multi~=0
+
+        pos_line_top = [-L -L];
+        pos_text_top = -L-0.02;
+        pos_line_mid = [-L+0.035 -L+0.035];
+        pos_text_mid = -L+0.015;
+        pos_line_bot = [-L+0.07 -L+0.07];
+        pos_text_bot = -L+0.05;
+
+        % single
+        plot([startval-lengthbar/2 startval+lengthbar/2], ...
+             pos_line_top, '-', ...
+             'linewidth',linew, 'color',splitcol)
+        text(startval, pos_text_top, 'split single', ...
+             'HorizontalAlignment','center', ...
+             'fontsize',fontsize_leg, 'color',col_leg)
+
+        if plot_multi~=1 % -> simw
+            plot([startval-lengthbar/2 startval+lengthbar/2], ...
+                 pos_line_mid, '-', ...
+                 'linewidth',linew, 'color',multicol_simw)
+            text(startval, pos_text_mid, 'split simw', ...
+                 'HorizontalAlignment','center', ...
+                 'fontsize',fontsize_leg, 'color',col_leg)
+        end
+
+        if plot_multi~=2 % -> stack
+            if plot_multi==1 % only stack
+                pos_line_stack = pos_line_mid;
+                pos_text_stack = pos_text_mid;
+            elseif plot_multi==3 % stack and simw
+                pos_line_stack = pos_line_bot;
+                pos_text_stack = pos_text_bot;
+            end
+            plot([startval-lengthbar/2 startval+lengthbar/2], ...
+                 pos_line_stack, '-', ...
+                 'linewidth',linew, 'color',multicol_stack)
+            text(startval, pos_text_stack, 'split stack', ...
+                 'HorizontalAlignment','center', ...
+                 'fontsize',fontsize_leg, 'color',col_leg)
+        end
+
     end
+
 end
 
 
