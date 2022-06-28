@@ -12,7 +12,7 @@ If you make use of this material, please acknowledge the relating publications i
 - **_Fröhlich, Yvonne, Grund, Michael & Ritter, Joachim R. R. (2022)_**. Laterally and vertically varying seismic anisotropy in the lithosphere-asthenosphere system revealed from SK(K)S splitting at neighboring sites in the Upper Rhine Graben area, Central Europe. in preparation for *Geophysical Journal International*.
 - **_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**. under review by *Journal of Seismology*.
 - [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388). Shear-wave splitting beneath Fennoscandia - Evidence for dipping structures and laterally varying multilayer anisotropy. *Geophysical Journal International*, 223, 1525-1547. https://doi.org/10.1093/gji/ggaa388.
-- [**_Grund, M. (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
+- [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
 
 
 Furthermore you can cite the [Zenodo Doi]() given above.
@@ -31,15 +31,15 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 - **Software**: _MATLAB_ , tested with R2022a, R2021a,b (under Linux and Windows)
 - **Forward calculation**: [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
-  - Output txt files (nulls, splits) of _SplitLab_ ([**_Wüstefeld et al., 2018_**](https://doi.org/10.1016/j.cageo.2007.08.002)) versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
-  - Output txt files (stack, simw) of _StackSplit_ ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015))
+  - Output txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
+  - Output txt files (stack, simw) of _StackSplit_
 - **Colormaps** (optional): color-coding of fast polarization direction
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)
     (v2.1.3, last access 2022 June 26)
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)
-    (v1.08, last access 2022 June 25; based on **_Crameri 2021_**)
+    (v1.08, last access 2022 June 25; based on [**_Crameri 2021_**](http://doi.org/10.5281/zenodo.1243862))
   - [cmocean perceptually-uniform colormaps](https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps)
-    (v2.02, last access 2022 June 18; based on **_Thyng et al. 2016_**)
+    (v2.02, last access 2022 June 18; based on [**_Thyng et al. 2016_**](http://dx.doi.org/10.5670/oceanog.2016.66))
 
 
 ## How to use
