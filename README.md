@@ -1,6 +1,6 @@
 # Visualizing and Modeling of Shear Wave Splitting
 
-_MATLAB_ functions for visualization and modeling of shear wave splitting observation:
+_MATLAB_ functions for visualizing and modeling of shear wave splitting observation:
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
 - The modeling routine is applicable for the energy-minimum method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Strongly modified and extended from https://github.com/michaelgrund/sws_tools ([**_Grund & Ritter 2020_**](https://doi.org/10.1093/gji/ggaa388)).
@@ -19,21 +19,21 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 
 ## Content
-- folder `001_stereoplot`: Stereoplot representation
-- folder `002_xxx`: General visualization (under development)
-- folder `003_modeling`: Modeling of one layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
+- [`001_stereoplot`](): Stereoplot representation
+- [`002_xxx`](): General visualization (under development)
+- [`003_modeling`](): Modeling of one layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
   - _Forward calculation_: Synthetic splitting parameters for the energy-minimum method in a ray theory reference frame
-  - _Comparison with the observations_: Minimizing the root mean square error
-  - _Result visualization_: backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
+  - _Observation Comparison_: Minimizing the root mean square error of the splitting parameters
+  - _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
 
 
 ## Requirements
 - **Software**: _MATLAB_ , tested with R2022a, R2021a,b (under Linux and Windows)
 - **Forward calculation**: [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
-  - output txt files (nulls, splits) of _SplitLab_ ([**_Wüstefeld et al., 2018_**](https://doi.org/10.1016/j.cageo.2007.08.002)) versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
-  - output txt files (stack, simw) of _StackSplit_ ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015))
-- **Colormaps** (optional)
+  - Output txt files (nulls, splits) of _SplitLab_ ([**_Wüstefeld et al., 2018_**](https://doi.org/10.1016/j.cageo.2007.08.002)) versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
+  - Output txt files (stack, simw) of _StackSplit_ ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015))
+- **Colormaps** (optional): color-coding of fast polarization direction
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)
     (v2.1.3, last access 2022 June 26)
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)
@@ -44,11 +44,11 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 ## How to use
 - `001_stereoplot`
-  - header of function `SWS_Analysis_BASICS_stereoplot.m`
+  - Header of function `SWS_Analysis_BASICS_stereoplot.m`
 - `002_xxx`
   - xxx
 - `003_modeling`
-  - seperat README
+  - Seperat [README]()
   - Supporting Information of **_Fröhlich et al. (2022)_**
   - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 
