@@ -98,7 +98,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %
 % 4) cmocean colormaps. Thyng et al. (2016) Oceanography 29(3):9–13.
 %    http://dx.doi.org/10.5670/oceanog.2016.66
-%    - MATLAB: v2.02 http://www.mathworks.com/matlabcentral/fileexchange/57773
+%    - MATLAB: v2.02 https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps
 %    (last access 2022 June 18)
 %--------------------------------------------------------------------------
 % Automatically appearing queries
@@ -196,14 +196,14 @@ nullcol = [0.8500 0.3250 0.0980]; % red-orange
 %--------------------------------------------------------------------------
 % Scientific colour maps
 % - without diverging and multi-sequential colormaps
-% - cyclic colormaps brocO, corkO, vikO, romaO
+% - cyclic colormaps bamoO, brocO, corkO, vikO, romaO
 crameri_cmap = {'batlow', ...
                 'devon','lajolla','bamako', ...
                 'davos','bilbao','nuuk', ...
                 'oslo','grayC','hawaii', ...
                 'lapaz','tokyo','buda', ...
                 'acton','turku','imola', ...
-                'brocO','corkO','vikO','romaO'};
+                'bamO','brocO','corkO','vikO','romaO'};
 
 %--------------------------------------------------------------------------
 % MatPlotLib colormaps
