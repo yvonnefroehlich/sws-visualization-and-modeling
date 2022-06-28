@@ -19,13 +19,14 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 
 ## Content
-- [`001_stereoplot`](): Stereoplot representation
+- **[Stereoplot representation]() - `001_stereoplot`**
   - different shear wave splitting measurement methods
   - singel-event and multi-event anlysis results
   - color-coding of fast polarization direction (see Requirements/Colormaps)
   - shaded background or backzimuth sector
-- [`002_xxx`](): General visualization (under development)
-- [`003_modeling`](): Modeling of one layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
+- **[General visualization]() - `002_xxx`** (under development)
+- **[Modeling]() - `003_modeling`**
+  - _Structur anisotropy models_: One layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
   - _Forward calculation_: Synthetic splitting parameters for the energy-minimum method in a ray theory reference frame
   - _Observation Comparison_: Minimizing the root mean square error of the splitting parameters
   - _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
