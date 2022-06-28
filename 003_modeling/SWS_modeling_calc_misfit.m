@@ -275,7 +275,7 @@ end
 % >>> colormap phase it part of the cmocean colormaps <<<
 % Thyng et al. (2016) Oceanography 29(3):9–13.
 % http://dx.doi.org/10.5670/oceanog.2016.66
-% - MATLAB: v2.02 http://www.mathworks.com/matlabcentral/fileexchange/57773
+% - MATLAB: v2.02 https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps
 %   (last access 2022 June 18)
 
 %--------------------------------------------------------------------------

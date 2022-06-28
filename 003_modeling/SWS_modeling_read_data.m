@@ -141,7 +141,7 @@ end
 
 % simw splits and nulls
 if isempty(dir_res_simw)
-   disp('    >>>  No file with SIMW (split or null) results found!')
+   disp('    >>> No file with SIMW (split or null) results found!')
    RES_simw_split = [];
    RES_simw_null = [];
 else

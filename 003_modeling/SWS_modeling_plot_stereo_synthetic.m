@@ -26,12 +26,6 @@ function SWS_modeling_plot_stereo_synthetic( ...
 %   https://github.com/yvonnefroehlich
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %--------------------------------------------------------------------------
-% INPUT
-%
-% - modsall_sort: struct with models sorted based on RMSE,
-%                 see function SWS_modeling_calc_misfit(_GR)
-% - plotnum: model(s) to be plotted, 1 is best based on mimium RMSE
-%--------------------------------------------------------------------------
 % LICENSE
 %
 % Copyright (C) 2020  Michael Grund
