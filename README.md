@@ -1,4 +1,4 @@
-# Visualizing and Modeling of Shear Wave Splitting Observations
+# Visualizing and Modeling of Shear Wave Splitting
 
 _MATLAB_ functions for visualization and modeling of shear wave splitting observation:
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
@@ -24,7 +24,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 - folder `003_modeling`: Modeling of one layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
   - _Forward calculation_: Synthetic splitting parameters for the energy-minimum method in a ray theory reference frame
   - _Comparison with the observations_: Minimizing the root mean square error
-  - _Visualization_: backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
+  - _Result visualization_: backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
 
 
 ## Requirements
@@ -37,9 +37,9 @@ Furthermore you can cite the [Zenodo Doi]() given above.
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)
     (v2.1.3, last access 2022 June 26)
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)
-    (v1.08, last access 2022 June 25; based on **_Crameri (2021)_**)
+    (v1.08, last access 2022 June 25; based on **_Crameri 2021_**)
   - [cmocean perceptually-uniform colormaps](https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps)
-    (v2.02, last access 2022 June 18; based on **_Thyng et al. (2016)_**)
+    (v2.02, last access 2022 June 18; based on **_Thyng et al. 2016_**)
 
 
 ## How to use
