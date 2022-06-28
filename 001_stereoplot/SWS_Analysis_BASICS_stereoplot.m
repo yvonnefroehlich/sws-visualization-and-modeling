@@ -118,7 +118,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % - multi-event analysis results of StackSplit (if available)
 %    * stacking of error surfaces - STACK - (Wolfe & Silver 1998)
 %    * simultaneous inversion of multiple waveforms - SIMW - (Roy et al. 2007)
-% - backazimuth sector in a specific background color (time intense)
+% - backazimuth sector in white, rest in gray (time intense)
 %    * no
 %    * vector [lower_BAZ_limit, upper_BAZ_limit]
 % - position of radial axis annotation (incidence angle 5, 10, 15 deg)
@@ -130,7 +130,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % -> please set them before running this function
 %
 % - plotting of legends and annotations
-% - fill color of backazimuth sector
+% - fill color of backazimuth sector or rest as well as background
 % - general appearance of symbols
 %==========================================================================
 
@@ -150,34 +150,40 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 status_cb = 'yes'; %% 'yes','no' % colorbar - phi color-coding of bars
 status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
 status_sta = 'yes'; %% 'yes','no' % station name - station code
-status_baz = 'yes'; %% 'yes','no' % angle axis - backazimuth - North, East
+status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
 
 %--------------------------------------------------------------------------
-% plot sector in specific color
+% plot sector
 % default is white between 0 and 360 degrees
-colfill = [219,219,219]./256;
+
+% selected BAZ sector
 white_value = 255.99999999;
+% rest
+colfill = [219,219,219]./256;
 
 % Examples:
-% 1) only show sector between 20 and 120 degrees in white, rest is gray
+% 1) BAZ sector between 20 and 120 deg in white, rest is gray
 %        lowlim = 20;
 %        upplim = 120;
 %        colfill = [190,190,190]./256;
-% 2) shade full background in lighter gray
+% 2) shade full background in light gray
 %        lowlim = 0;
 %        upplim = 0.001;
 %        colfill = [220,220,220]./256;
 
 %--------------------------------------------------------------------------
-% marker settings
-color_sta = [0.6350 0.0780 0.1840]; % dark red
+% symbols
 linew = 2.5; % thickness of bars
 marks = 7;
 linewcirc = 2;
 fontsize_baz = 15;
 
 %--------------------------------------------------------------------------
-% radial annotation & legend & colorbar
+% station label
+color_sta = [255 90 0]./256; % orange [0.6350 0.0780 0.1840]; % dark red
+
+%--------------------------------------------------------------------------
+% radial axis & legend & colorbar
 col_inc = 'k';
 col_leg = 'k';
 fontsize_leg = 10;
