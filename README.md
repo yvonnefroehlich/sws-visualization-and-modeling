@@ -19,10 +19,10 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 ## Content
 - **[Stereoplot representation]() - `001_stereoplot`**
-  - different shear wave splitting measurement methods
-  - singel-event and multi-event anlysis results
-  - color-coding of fast polarization direction (see Requirements/Colormaps)
-  - shaded background or backzimuth sector
+  - Plot different shear wave splitting measurement methods
+  - Plot singel-event and multi-event anlysis results
+  - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
+  - Shade background or backzimuth sector
 - **[General visualization]() - `002_xxx`** (under development)
 - **[Modeling]() - `003_modeling`**
   - _Structur anisotropy models_: One layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
