@@ -19,4 +19,4 @@ Changes and differences compared to [sws_tools] by [Michael Grund](https://githu
    - generate synthetic stereoplots separate for model types
    - output txt files with model parameters for the different model types
 
-**Contributors**: [Yvonne Fröhlich](https://github
+**Contributors**: [Yvonne Fröhlich](https://github.com/yvonnefroehlich)
