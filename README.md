@@ -3,7 +3,7 @@
 _MATLAB_ functions for visualization and modeling of shear wave splitting observation:
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
 - The modeling routine is applicable for the energy-minimum method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
-- Strongly modified and extended from https://github.com/michaelgrund/sws_tools ([**_Grund & Ritter 2020_**](https://doi.org/10.1093/gji/ggaa388)).
+- Strongly modified and extended from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
 
 ## Citation
@@ -69,7 +69,7 @@ FIGURE
 - dev ([main branch]())
 - [v1.0]()
 
-For details of the individual releases as well as for changes and differences compared to [sws_tools] by [Michael Grund](https://github.com/michaelgrund) see the [changelog]().
+For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog]().
 
 
 ## Contributing

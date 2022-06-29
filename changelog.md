@@ -3,7 +3,7 @@
 
 ## Release v1.0 (2022/07/XX)
 
-Changes and differences compared to [sws_tools] by [Michael Grund](https://github.com/michaelgrund)
+Changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund)
 - [001_stereoplot]()
    - fix colormap set up for Scientific Colour maps by [**_Crameri (2021)_**](http://doi.org/10.5281/zenodo.1243862)
    - support of rotation-correlation method, eigenvalue method
