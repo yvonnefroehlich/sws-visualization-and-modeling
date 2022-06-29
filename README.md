@@ -7,6 +7,7 @@ _MATLAB_ functions for visualizing and modeling of shear wave splitting observat
 
 
 ## Citation
+
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
 
 - **_Fröhlich, Yvonne, Grund, Michael & Ritter, Joachim R. R. (2022)_**. Laterally and vertically varying seismic anisotropy in the lithosphere-asthenosphere system revealed from SK(K)S splitting at neighboring sites in the Upper Rhine Graben area, Central Europe. in preparation for *Geophysical Journal International*.
@@ -18,47 +19,53 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 
 ## Content
-- **[Stereoplot representation]() - `001_stereoplot`**
+
+### **[001_stereoplot]()**
+
   - Plot different shear wave splitting measurement methods
   - Plot singel-event and multi-event anlysis results
   - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
   - Shade background or backzimuth sector
-- **[General visualization]() - `002_xxx`** (under development)
-- **[Modeling]() - `003_modeling`**
+
+FIGURE
+
+ _How to use_: Header of function `SWS_Analysis_BASICS_stereoplot.m`
+
+### **[002_visualization]()**
+
+  - under development
+
+### **[003_modeling]()**
+
   - _Structur anisotropy models_: One layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
   - _Forward calculation_: Synthetic splitting parameters for the energy-minimum method in a ray theory reference frame
-  - _Observation Comparison_: Minimizing the root mean square error of the splitting parameters
+  - _Observation Comparison_: Minimizing the root mean square error regarding the splitting parameters
   - _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
   - _Result data_: txt files with model parameter
 
+FIGURE
+
+_How to use_: Seperat [README]() - Supporting Information of **_Fröhlich et al. (2022)_** - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
+
 
 ## Requirements
-- **Software**: _MATLAB_ , tested with R2022a, R2021a,b (under Linux and Windows)
+
+- **Software**: _MATLAB_, tested with R2022a, R2021a,b (under Linux and Windows)
 - **Forward calculation**: [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
   - Output txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
   - Output txt files (stack, simw) of _StackSplit_
-- **Colormaps** (optional): color-coding of fast polarization direction
+- **Colormaps** (optional): color-coding of fast polarization direction and root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)
-    (v2.1.3, last access 2022 June 26)
+    (v2.1.3, MATLAB File Exchange, last access 2022 June 26)
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)
-    (v1.08, last access 2022 June 25; based on [**_Crameri 2021_**](http://doi.org/10.5281/zenodo.1243862))
+    (v1.08, MATLAB File Exchange, last access 2022 June 25; based on [**_Crameri 2021_**](http://doi.org/10.5281/zenodo.1243862))
   - [cmocean perceptually-uniform colormaps](https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps)
-    (v2.02, last access 2022 June 18; based on [**_Thyng et al. 2016_**](http://dx.doi.org/10.5670/oceanog.2016.66))
-
-
-## How to use
-- `001_stereoplot`
-  - Header of function `SWS_Analysis_BASICS_stereoplot.m`
-- `002_xxx`
-  - xxx
-- `003_modeling`
-  - Seperat [README]()
-  - Supporting Information of **_Fröhlich et al. (2022)_**
-  - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
+    (v2.02, MATLAB File Exchange, last access 2022 June 18; based on [**_Thyng et al. 2016_**](http://dx.doi.org/10.5670/oceanog.2016.66))
 
 
 ## Releases
+
 - dev ([main branch]())
 - [v1.0]()
 
@@ -114,11 +121,6 @@ MSAT—A new toolkit for the analysis of elastic and seismic anisotropy.
 *Computer & Geosciences*, volume 49, pages 81-90.
 https://doi.org/10.1016/j.cageo.2012.05.031.
 available at https://www1.gly.bris.ac.uk/MSAT/, https://github.com/andreww/MSAT.
-
-[**_Walsh, E., Arnold, R. & Savage, M. K. (2013)_**](https://doi.org/10.1002/jgrb.50386).
-Silver and Chan revisited.
-*Journal of Geophysical Research: Solid Earth*, volume 118, issue 10, pages 5500-5515.
-https://doi.org/10.1002/jgrb.50386.
 
 [**_Wüstefeld, A., Bokelmann, G., Zaroli, C. & Barruol, G. (2008)_**](https://doi.org/10.1016/j.cageo.2007.08.002).
 SplitLab: A shear-wave splitting environment in Matlab.
