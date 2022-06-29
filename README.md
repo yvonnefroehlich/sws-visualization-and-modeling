@@ -22,6 +22,8 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 ### **[001_stereoplot]()**
 
+ _How to use_: Header of function `SWS_Analysis_BASICS_stereoplot.m`
+
   - Plot different shear wave splitting measurement methods
   - Plot singel-event and multi-event anlysis results
   - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
@@ -29,13 +31,13 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 FIGURE
 
- _How to use_: Header of function `SWS_Analysis_BASICS_stereoplot.m`
-
 ### **[002_visualization]()**
 
   - under development
 
 ### **[003_modeling]()**
+
+_How to use_: Seperat [README]() - Supporting Information of **_Fröhlich et al. (2022)_** - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 
   - _Structur anisotropy models_: One layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
   - _Forward calculation_: Synthetic splitting parameters for the energy-minimum method in a ray theory reference frame
@@ -45,8 +47,6 @@ FIGURE
 
 FIGURE
 
-_How to use_: Seperat [README]() - Supporting Information of **_Fröhlich et al. (2022)_** - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
-
 
 ## Requirements
 
@@ -54,7 +54,7 @@ _How to use_: Seperat [README]() - Supporting Information of **_Fröhlich et al.
 - **Forward calculation**: [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
   - Output txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
-  - Output txt files (stack, simw) of _StackSplit_
+  - Output structur and txt files (stack, simw) of _StackSplit_
 - **Colormaps** (optional): color-coding of fast polarization direction and root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)
     (v2.1.3, MATLAB File Exchange, last access 2022 June 26)
