@@ -112,7 +112,7 @@ end
 
 % single splits
 if isempty(dir_res_split)
-   disp('    >>> No file with SINGLE SPLIT results found!')
+   disp('   >>> No file with SINGLE SPLIT results found!')
    RES_split = [];
 else
    scaling_factor = scalingfac;
@@ -122,7 +122,7 @@ end
 
 % single nulls
 if isempty(dir_res_null)
-   disp('    >>> No file with SINGLE NULL results found!')
+   disp('   >>> No file with SINGLE NULL results found!')
    RES_null = [];
 else
    scaling_factor = scalingfac;
@@ -132,7 +132,7 @@ end
 
 % stack splits
 if isempty(dir_res_stack)
-   disp('    >>> No file with STACK SPLIT results found!')
+   disp('   >>> No file with STACK SPLIT results found!')
    RES_stack = [];
 else
    scaling_factor = scalingfac;
@@ -141,7 +141,7 @@ end
 
 % simw splits and nulls
 if isempty(dir_res_simw)
-   disp('    >>> No file with SIMW (split or null) results found!')
+   disp('   >>> No file with SIMW (split or null) results found!')
    RES_simw_split = [];
    RES_simw_null = [];
 else

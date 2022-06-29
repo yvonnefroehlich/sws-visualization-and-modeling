@@ -84,6 +84,10 @@ col_val_white = 255.9999999999999;
 col_wedge = [col_val_white, col_val_white, col_val_white]./256;
 
 %--------------------------------------------------------------------------
+% station label
+color_sta = [255 90 0]./256; % orange
+
+%--------------------------------------------------------------------------
 % schematic sketches
 lengthbar_lay = 0.145;
 
@@ -551,7 +555,8 @@ set(cb, 'position', [0.625, 0.920 0.220 0.020])
 %==========================================================================
 
 text(-0.270, 0.252, modsall_sort(1).staname, ...
-     'HorizontalAlignment','center', 'fontsize',myfontsize+8)
+     'HorizontalAlignment','center', ...
+     'fontsize',myfontsize+8, 'color',color_sta)
 
 
 

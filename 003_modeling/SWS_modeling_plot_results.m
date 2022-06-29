@@ -237,7 +237,7 @@ for mt = 1:1:length(modtyp_str_all)
     hold on
 
     %......................................................................
-     % plot model range only if not full range is used
+    % plot model range only if not full range is used
     if modrange_low~=0 && modrange_upp~=360 || ...
        modrange_low==0 && modrange_upp~=360 && ...
        modrange_upp~=baz2plot_end %  modrange_low~=baz2plot_start &&
@@ -262,7 +262,7 @@ for mt = 1:1:length(modtyp_str_all)
 
     %......................................................................
     % plot theoretical BAZ curves
-    if cmap_rms_ind==1 % color-coding based on RMSE
+    if cmap_rms_ind~=0 % color-coding based on RMSE
         for ii = plot_mod_max:-1:1
              plot(BAZ, models_2plot(ii).phi_eff, ...
                   'linewidth',lw_mod, 'color',cmap_rms_sel(ii,:))
@@ -486,7 +486,7 @@ for mt = 1:1:length(modtyp_str_all)
 
     %......................................................................
     % plot theoretical BAZ curves
-    if cmap_rms_ind==1
+    if cmap_rms_ind~=0
         for ii = plot_mod_max:-1:2
              plot(BAZ, models_2plot(ii).dt_eff, ...
                   'linewidth',lw_mod, 'color',cmap_rms_sel(ii,:))
@@ -1149,7 +1149,7 @@ fig_H1 = figure('visible','off'); % one layer
 
 %--------------------------------------------------------------------------
     % RMSE color-coding
-    if cmap_rms_ind==1
+    if cmap_rms_ind~=0
         for ii = plot_mod_max:-1:1
             plot(dt_H1(ii),phi_H1(ii), 'o', ...
                  'MarkerSize',mymarkersize_symbols, ...
@@ -1350,7 +1350,7 @@ fig_H2 = figure('visible','off'); % two layers
 
 %--------------------------------------------------------------------------
     % RMSE color-coding
-    if cmap_rms_ind==1
+    if cmap_rms_ind~=0
         for ii = plot_mod_max:-1:1
 
 %             % Fröhlich et al. 2022 Geophysical Journal International
@@ -1525,7 +1525,7 @@ fig_T1 = figure('visible','off'); % one dipping layer
 
 %--------------------------------------------------------------------------
     % RMSE color-coding
-    if cmap_rms_ind==1
+    if cmap_rms_ind~=0
         for ii = plot_mod_max:-1:1
             plot(downdipdir_T1(ii),dip_T1(ii), 'o', ...
                  'MarkerSize',mymarkersize_symbols, ...

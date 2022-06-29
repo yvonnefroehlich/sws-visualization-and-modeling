@@ -354,7 +354,7 @@ end
 
 %--------------------------------------------------------------------------
 % read SplitLab and StackSplit results
-% >>> all txt files must be in standard output format <<<
+% >>> all txt files must be in the standard output format <<<
 
 dir_res_split = dir(datasplit);
 dir_res_null = dir(datanull);
@@ -389,9 +389,9 @@ disp('Available phases: ')
 
 for ii = 1:1:length(phaselist_all)+1
     if ii==1
-      disp('   [0] ALL')
+      disp('    [0] ALL')
     else
-        disp(['   [' num2str(ii-1) '] only ' phaselist_all{ii-1}])
+        disp(['    [' num2str(ii-1) '] only ' phaselist_all{ii-1}])
     end
 end
 
