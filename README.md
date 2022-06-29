@@ -69,7 +69,7 @@ FIGURE
 - dev ([main branch]())
 - [v1.0]()
 
-For details on the individual releases see the [changelog]().
+For details of the individual releases as well as for changes and differences compared to [sws_tools] by [Michael Grund](https://github.com/michaelgrund) see the [changelog]().
 
 
 ## Contributing
