@@ -24,26 +24,26 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
  _How to use_: Header of function `SWS_Analysis_BASICS_stereoplot.m`
 
-  - Plot different shear wave splitting measurement methods
-  - Plot single-event and multi-event analysis results
-  - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
-  - Shade background or backazimuth sector
+- Plot different shear wave splitting measurement methods
+- Plot single-event and multi-event analysis results
+- Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
+- Shade background or backazimuth sector
 
 FIGURE
 
 ### **[002_visualization]()**
 
-  - under development
+- under development
 
 ### **[003_modeling]()**
 
 _How to use_: Separate [README]() - Supporting Information of **_Fröhlich et al. (2022)_** - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 
-  - _Structural anisotropy models_: One layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
-  - _Forward calculation_: Synthetic splitting parameters for the energy minimization method in a ray theory reference frame
-  - _Observation Comparison_: Minimizing the root mean square error regarding the splitting parameters
-  - _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
-  - _Result data_: txt files with model parameter
+- _Structural anisotropy models_: One layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
+- _Forward calculation_: Synthetic splitting parameters for the energy minimization method in a ray theory reference frame
+- _Observation Comparison_: Minimizing the root mean square error regarding the splitting parameters
+- _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
+- _Result data_: txt files with model parameter
 
 FIGURE
 
