@@ -1,8 +1,8 @@
 # Visualization and Modeling of Shear Wave Splitting
 
-_MATLAB_ functions for visualization and modeling of shear wave splitting observation:
+_MATLAB_ functions for visualization and modeling of shear wave splitting observations:
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
-- The modeling routine is applicable for the energy-minimum method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
+- The modeling routine is applicable for the energy minimization method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Strongly modified and extended from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
 
@@ -40,7 +40,7 @@ FIGURE
 _How to use_: Separate [README]() - Supporting Information of **_Fröhlich et al. (2022)_** - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 
   - _Structural anisotropy models_: One layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
-  - _Forward calculation_: Synthetic splitting parameters for the energy-minimum method in a ray theory reference frame
+  - _Forward calculation_: Synthetic splitting parameters for the energy minimization method in a ray theory reference frame
   - _Observation Comparison_: Minimizing the root mean square error regarding the splitting parameters
   - _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
   - _Result data_: txt files with model parameter
