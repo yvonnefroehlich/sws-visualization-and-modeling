@@ -15,13 +15,13 @@ function [fast_eff, tlag_eff, azi4plot, fast4plot, tlag4plot] = ...
 % is
 % - mainly based on the MSAT function >>> split_model.m <<< and
 %   modified to fit into the workflow
-% - created and mainly written: Michael Grund
+% - created and mainly written: Michael Grund (ORCID 0000-0001-8759-2018)
 %   https://github.com/michaelgrund/sws_tools
 %   Grund PhD (2019)
 %   https://doi.org/10.5445/IR/1000091425
 %   Grund & Ritter (2020) GJI
 %   https://doi.org/10.1093/gji/ggaa388
-% - lightly modified: Yvonne Fröhlich
+% - lightly modified: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
 %   https://github.com/yvonnefroehlich
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %--------------------------------------------------------------------------

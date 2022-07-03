@@ -18,13 +18,13 @@ function [RES_split, RES_null, RES_stack, RES_simw_split, RES_simw_null] = ...
 % based on the selected qualities
 %--------------------------------------------------------------------------
 % is
-% - created and mainly written: Michael Grund
+% - created and mainly written: Michael Grund (ORCID 0000-0001-8759-2018)
 %   https://github.com/michaelgrund/sws_tools
 %   Grund PhD (2019)
 %   https://doi.org/10.5445/IR/1000091425
 %   Grund & Ritter (2020) GJI
 %   https://doi.org/10.1093/gji/ggaa388
-% - strongly modified and extended: Yvonne Fröhlich
+% - strongly modified and extended: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
 %   https://github.com/yvonnefroehlich
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %--------------------------------------------------------------------------
