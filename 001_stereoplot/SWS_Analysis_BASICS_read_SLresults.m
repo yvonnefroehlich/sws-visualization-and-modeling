@@ -4,7 +4,7 @@ function [RES_split, RES_nulls, SL_quality] = ...
 %==========================================================================
 %% This function
 %==========================================================================
-% reads shear wave splitting singel-event analysis results of SplitLab (SL)
+% reads shear wave splitting single-event analysis results of SplitLab (SL)
 % (txt files for nulls and splits)
 % outputs structs for splits and nulls based on the selected qualities
 %--------------------------------------------------------------------------
