@@ -10,7 +10,7 @@ function SWS_modeling_plot_stereo_synthetic( ...
 %==========================================================================
 % generates stereoplots displaying the synthetic splitting pattern of the
 % best-fitting structural anisotropy model
-% based on the minimum roote mean square error (RSME)
+% based on the minimum root mean square error (RSME)
 %--------------------------------------------------------------------------
 % is
 % - based on: >>> stereoplot.m <<< function of SplitLab

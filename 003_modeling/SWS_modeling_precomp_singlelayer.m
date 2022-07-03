@@ -5,7 +5,7 @@ function modout = SWS_modeling_precomp_singlelayer(stepphi, stepdt)
 %==========================================================================
 % generates synthetic apparent (or effective) splitting parameters for
 %   horizontal single-layer models
-% outputs corresponding structur
+% outputs corresponding structure
 %--------------------------------------------------------------------------
 % is
 % - created and mainly written: Michael Grund (ORCID 0000-0001-8759-2018)
