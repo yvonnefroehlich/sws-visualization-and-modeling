@@ -21,13 +21,13 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % - based on: >>> stereoplot.m <<< function of SplitLab
 %   Wüstefeld et al. (2008)
 %   https://doi.org/10.1016/j.cageo.2007.08.002
-% - created and mainly written: Michael Grund
+% - created and mainly written: Michael Grund (ORCID 0000-0001-8759-2018)
 %   https://github.com/michaelgrund/sws_tools
 %   Grund PhD (2019)
 %   https://doi.org/10.5445/IR/1000091425
 %   Grund & Ritter (2020) GJI
 %   https://doi.org/10.1093/gji/ggaa388
-% - extended and strongly modified: Yvonne Fröhlich
+% - extended and strongly modified: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
 %   https://github.com/yvonnefroehlich
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %--------------------------------------------------------------------------
@@ -410,7 +410,7 @@ if ~isempty(dir_res_multi)
     disp(' ')
     plot_multi = input(['Plot multi-event-analysis results' ...
                         ' (if available)? \n' ...
-                        '    [0] no  [1] stack  [2] SIMW(NN)' ...
+                        '   [0] no  [1] stack  [2] SIMW(NN)' ...
                         '  [3] stack & SIMW(NN)   | ']);
     if plot_multi>0
         RES_multi = SWS_Analysis_BASICS_read_SSresults(...
