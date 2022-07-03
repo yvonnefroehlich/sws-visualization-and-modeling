@@ -428,6 +428,32 @@ end
 
 
 %==========================================================================
+%% check if data is from one single station
+%==========================================================================
+
+station_check = {};
+
+if ~isempty(RES_nulls)
+	station_check{end+1} = RES_nulls(1).staname;
+end
+
+if ~isempty(RES_split)
+	station_check{end+1} = RES_split(1).staname;
+end
+
+if ~isempty(RES_multi)
+	station_check{end+1} = RES_multi(1).staname;
+end
+
+station_check = unique(station_check);
+
+if length(station_check) > 1
+    error('>>> Input files with data from different stations! <<<')
+end
+
+
+
+%==========================================================================
 %% setup variables
 %==========================================================================
 
