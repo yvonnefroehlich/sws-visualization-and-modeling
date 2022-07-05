@@ -245,7 +245,7 @@ if cmap_rms_ind==0
     cmap_rms_str = 'rmsno';
 elseif cmap_rms_ind==1
     % build-in MATLAB
-    cmap_rms = gray(30);
+    cmap_rms = flipud( gray(30) );
     cmap_rms_str = 'rmsgray';
 elseif cmap_rms_ind==2
     % grayC of Scientific Colormaps version 7.0.1 by Crameri 2021
