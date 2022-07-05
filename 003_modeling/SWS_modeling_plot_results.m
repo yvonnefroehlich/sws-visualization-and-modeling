@@ -1028,21 +1028,19 @@ ll2 = plot(-10, -10, 'ok', 'markersize',10, ...
 ll3 = plot(-10, -10, 'ok', 'markersize',10, ...
            'markeredgecolor',color_H1, 'markerfacecolor',color_H1);
 
-if modrange_low==0 && modrange_upp==360
-    h_leg_distri = legend([ll1,ll2,ll3], ...
-        {'1 dipping layer (T1)','2 horizontal layers (H2)', ...
-         '1 horizontal layer (H1)'}, ...
-         'Location','southwest');
+h_leg_distri = legend([ll1,ll2,ll3], ...
+	{'1 dipping layer (T1)','2 horizontal layers (H2)', ...
+	 '1 horizontal layer (H1)'}, ...
+	 'Location','southwest');
 
-    % distance symbole to text, default [30,30]
-    h_leg_distri.ItemTokenSize(1) = 20;
+% distance symbole to text, default [30,30]
+h_leg_distri.ItemTokenSize(1) = 20;
 
-    % (semi-)trancparency of bakground color of legend
-    % https://de.mathworks.com/matlabcentral/answers/320127-setting-transparancy-of-legend
-    % last access 2021 Aug 09
-    h_leg_distri.BoxFace.ColorType = 'truecoloralpha';
-    h_leg_distri.BoxFace.ColorData = uint8(255*[1 1 1 0.70]');
-end
+% (semi-)trancparency of bakground color of legend
+% https://de.mathworks.com/matlabcentral/answers/320127-setting-transparancy-of-legend
+% last access 2021 Aug 09
+h_leg_distri.BoxFace.ColorType = 'truecoloralpha';
+h_leg_distri.BoxFace.ColorData = uint8(255*[1 1 1 0.70]');
 
 
 %==========================================================================
