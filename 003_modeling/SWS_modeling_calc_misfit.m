@@ -79,10 +79,10 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
     modelsin = 'sws_modout_domper8s.mat';
     modrange_low = 30;
     modrange_upp = 110;
-    datasplit = 'splitresults_*.txt';
-    datanull = 'splitresultsNULL_*.txt';
-    datastack = 'splitresultsSTACK_*.txt';
-    datasimw = "";
+    datasplit = 'splitresults_GR_BFO_TEST.txt';
+    datanull = 'splitresultsNULL_GR_BFO_TEST.txt';
+    datastack = 'splitresultsSTACK_GR_BFO_TEST.txt';
+    datasimw = "" % 'splitresultsSIMW_GR_BFO_TEST.txt';
     domper = 8;
 %}
 % 3) run misfit routine
