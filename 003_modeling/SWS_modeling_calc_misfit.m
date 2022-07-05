@@ -349,7 +349,7 @@ end
 % check that EITHER stack OR simw are provided (NOT both at a time)
 if strcmp(datastack,"")==0 && strcmp(datasimw,"")==0
     error("Currently EITHER stack OR simw data can be used!")
-	return
+    return
 end
 
 %--------------------------------------------------------------------------
@@ -389,7 +389,7 @@ disp('Available phases: ')
 
 for ii = 1:1:length(phaselist_all)+1
     if ii==1
-      disp('    [0] ALL')
+        disp('    [0] ALL')
     else
         disp(['    [' num2str(ii-1) '] only ' phaselist_all{ii-1}])
     end
@@ -807,6 +807,7 @@ writematrix(merge_T1, filename_T1, 'Delimiter','tab')
 %--------------------------------------------------------------------------
 % backazimuth variation and modle type distribution
 
+%{
 SWS_modeling_plot_results( ...
     BAZ, modsall_sort, plot_mod_max, ...
     meas_BAZ_floor_null, meas_phiSC_null, meas_dtSC_null, ...
@@ -824,6 +825,7 @@ SWS_modeling_plot_results( ...
     cmap_phi, cmap_phi_ind, cmap_phi_str, cbar_phi_ind, cbar_phi_str, ...
     mymarkersize_symbols, mylinewidth_symbols ...
     )
+%}
 
 %--------------------------------------------------------------------------
 % stereoplot of synthetic splitting parameter of the best fit models

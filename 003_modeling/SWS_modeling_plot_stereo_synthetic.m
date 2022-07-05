@@ -107,8 +107,10 @@ col_dip_ray = 'r'; % red
 % col_dip_cryst = 'w';  % white
 % col_dip_ray = [0.4 0.4 0.4]; % dark gray
 
-y_low = -0.2907;
+% horizontal layers
+y_low = -0.2933;
 y_upp = -0.3220;
+y_H = 0.008;
 
 % manually adjusted to have nearly the same legend size
 % for horizontal layer(s) and dippling layer
@@ -536,17 +538,21 @@ text(startval, 0.282, '2 s', ...
 
 cb = colorbar('location','north', ...
               'TickDirection','out', ...
-              'TickLength',0.03);
+              'TickLength',0.025);
 
 zlab = get(cb, 'xlabel');
-set(zlab,'String','\phi_a / N\circE');
+set(zlab,'String','   \phi_a / N\circE');
 
 caxis([-90 90])
 set(cb, 'xtick',-60:30:60);
 set(cb, 'fontsize',myfontsize)
 
 % [left bottom width height]
-set(cb, 'position', [0.625, 0.920 0.220 0.020])
+if strcmp(modsall_sort(plotnum).mod_type,'dipping')
+	set(cb, 'position',[0.615, 0.915 0.220 0.020])
+else
+	set(cb, 'position',[0.625, 0.920 0.220 0.020])
+end
 
 
 
@@ -571,12 +577,12 @@ if strcmp(modsall_sort(plotnum).mod_type,'two_layers')
     % plot two horizontal layers as two tick lines
     % lower
     plot([-startval-lengthbar_lay/2+x_add -startval+lengthbar_lay*0.8], ...
-         [y_low y_low], ...
-         '-', 'linewidth',linew+10, 'color',col_lay_low)
+         [y_low+y_H y_low+y_H], ...
+         '-', 'linewidth',linew+9, 'color',col_lay_low)
     % upper
     plot([-startval-lengthbar_lay/2+x_add -startval+lengthbar_lay*0.8], ...
-         [y_upp y_upp], ...
-         '-', 'linewidth',linew+10, 'color',col_lay_upp)
+         [y_upp+y_H y_upp+y_H], ...
+         '-', 'linewidth',linew+9, 'color',col_lay_upp)
 
     % display model parameters of best-fit anisotropy model
     % index 1 - lower layer
@@ -586,11 +592,11 @@ if strcmp(modsall_sort(plotnum).mod_type,'two_layers')
     dt1 = modsall_sort(plotnum).dt(1);
     dt2 = modsall_sort(plotnum).dt(2);
 
-    text(-startval-lengthbar_lay/2+x_add/2, y_low, ...
+    text(-startval-lengthbar_lay/2+x_add/2, y_low+y_H, ...
          ['\phi_1=N' num2str(phi1) '\circE,  ' ...
           '\delta{\itt}_1=' num2str(dt1,'%.2f') 's'], ...
          'HorizontalAlignment','left', 'fontsize',myfontsize, 'color','k')
-    text(-startval-lengthbar_lay/2+x_add/2, y_upp, ...
+    text(-startval-lengthbar_lay/2+x_add/2, y_upp+y_H, ...
          ['\phi_2=N' num2str(phi2) '\circE,  ' ...
           '\delta{\itt}_2=' num2str(dt2,'%.2f') 's'], ...
          'HorizontalAlignment','left', 'fontsize',myfontsize, 'color','k')
@@ -600,14 +606,14 @@ elseif strcmp(modsall_sort(plotnum).mod_type,'single_layer')
 
     % plot one horizontal layer as orange thick line
     plot([-startval-lengthbar_lay/2+x_add -startval+lengthbar_lay*0.8], ...
-         [y_upp y_upp], ...
-         '-', 'linewidth',linew+10, 'color',col_lay_one)
+         [y_upp+y_H y_upp+y_H], ...
+         '-', 'linewidth',linew+9, 'color',col_lay_one)
 
     % display model parameters of best-fit anisotropy model
     phi = modsall_sort(plotnum).phi(1);
     dt = modsall_sort(plotnum).dt(1);
 
-    text(-startval-lengthbar_lay/2+x_add/2, y_upp, ...
+    text(-startval-lengthbar_lay/2+x_add/2, y_upp+y_H, ...
          ['\phi=N' num2str(phi) '\circE,  ' ...
           '\delta{\itt}=' num2str(dt,'%.2f') 's'], ...
          'HorizontalAlignment','left', 'fontsize',myfontsize, 'color','k')
@@ -688,18 +694,18 @@ elseif strcmp(modsall_sort(plotnum).mod_type,'dipping')
 
     %......................................................................
     % plot station as inverse triangle
-    xdirset = -0.291;
-    ydirset = -0.319;%-0.312;
+    xdirset = -0.293;
+    ydirset = -0.317;
 
     plot(xdirset, ydirset, 'v', 'markerfacecolor',col_dip_sta, ...
-         'markersize',12, 'markeredgecolor','k', 'linewidth',1.5)
+         'markersize',11, 'markeredgecolor','k', 'linewidth',1.5)
 
     %......................................................................
     % write value of dip angle
-    text(-startval+0.075-lengthbar_lay/2, ydirset-0.002, ... %0.080
+    text(-startval+0.075-lengthbar_lay/2, ydirset-0.001, ...
          ['\Psi=' num2str(dips) '\circ'], ...
           'HorizontalAlignment','left', ...
-          'fontsize',myfontsize+5, 'color','k')
+          'fontsize',myfontsize+4, 'color','k')
 
     %......................................................................
     % plot dip dir as arrow
