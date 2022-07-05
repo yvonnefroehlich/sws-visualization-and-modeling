@@ -129,7 +129,7 @@ if strcmp(cmap_phi_str,'phino')
     % make query use phi color-coding and which colormap
     disp(' ')
     cmap_phi_ind = input(['Color-coding based on phi in stereoplot?: \n' ...
-                          '    [1] parula(fliped)  [2] phasemap    | ']);
+                          '    [1] parula(fliped)  [2] phase    | ']);
 
     %......................................................................
     % select phi colormap and set string for file name
@@ -138,8 +138,8 @@ if strcmp(cmap_phi_str,'phino')
         cmap = flipud( parula(181) );
         cmap_phi_str = 'phiparulaflip';
     elseif cmap_phi_ind==2
-        % phasemap of cmocean colormaps by Thyng et al. 2016
-        cmap = phasemap(181);
+        % phase of cmocean colormaps by Thyng et al. 2016
+        cmap = cmocean('phase', 181);
         cmap_phi_str = 'phiphasemap';
     end
 
