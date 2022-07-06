@@ -25,7 +25,7 @@ function [RES_split, RES_null, RES_stack, RES_simw_split, RES_simw_null] = ...
 %   Grund & Ritter (2020) GJI
 %   https://doi.org/10.1093/gji/ggaa388
 % - strongly modified and extended: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
-%   https://github.com/yvonnefroehlich
+%   https://github.com/yvonnefroehlich/sws-plotting-and-modeling
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %--------------------------------------------------------------------------
 % TERMS OF USE
