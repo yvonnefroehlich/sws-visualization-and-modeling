@@ -29,15 +29,27 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
 - Shade background or backazimuth sector
 
-FIGURE
+_Example figures produced with the provided test data_:
 
 ### **[002_visualization]()**
 
 - under development
 
+<!---
+_How to use_:
+
+- xxx
+- xxx
+
+_Example figures produced with the provided test data_:
+-->
+
 ### **[003_modeling]()**
 
+_How to use_: Separate [README]() - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
+<!---
 _How to use_: Separate [README]() - Supporting Information of **_Fröhlich et al. (2022)_** - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
+-->
 
 - _Structural anisotropy models_: One layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
 - _Forward calculation_: Synthetic splitting parameters for the energy minimization method in a ray theory reference frame
@@ -45,17 +57,20 @@ _How to use_: Separate [README]() - Supporting Information of **_Fröhlich et al
 - _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
 - _Result data_: txt files with model parameter
 
-FIGURE
+_Example figures produced with the provided test data_:
 
 
 ## Requirements
 
-- **Software**: _MATLAB_, tested with R2022a, R2021a,b (under Linux and Windows)
-- **Forward calculation**: [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
+_Tested with_: R2022a, R2021a,b under Linux and Windows
+
+- **_MATLAB_**: Modeling routine
+  - official Toolboxes: Deep Learning Toolbox, Mapping Toolbox
+  - [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
   - Output txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
   - Output structure and txt files (stack, simw) of _StackSplit_
-- **Colormaps** (optional): color-coding of fast polarization direction and root mean square error
+- **Colormaps** (optional): Color-coding of fast polarization direction and root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)
     (v2.1.3, MATLAB File Exchange, last access 2022 June 26)
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)
