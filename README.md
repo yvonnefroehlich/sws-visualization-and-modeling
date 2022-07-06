@@ -2,8 +2,8 @@
 
 _MATLAB_ functions for visualization and modeling of shear wave splitting observations:
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
-- The modeling routine is applicable for the energy minimization method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
-- Strongly modified and extended from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
+- The modeling routine is applicable for the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
+- Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
 _Please note_: Not totally finished - but nearly (;
 
@@ -24,10 +24,15 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 ### **[001_stereoplot](https://github.com/yvonnefroehlich/sws-plotting-and-modeling/tree/main/001_stereoplot)**
 
- _How to use_: Header of function `SWS_Analysis_BASICS_stereoplot.m`
+ _How to use_: Header of function [`SWS_Analysis_BASICS_stereoplot.m`]()
 
-- Plot different shear wave splitting measurement methods
-- Plot single-event and multi-event analysis results
+- Plot **single-event analysis results** (output of _SplitLab_)
+  - _Rotation-correlation method_ ([**_Bowman & Ando 1987_**]( https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.))
+  - _Energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - _Eigenvalue method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+- Plot **multi-event analysis results** (output of _StackSplit_)
+  - Stacking of error surfaces [**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023)
+  - _Splits_ of _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
 - Shade background or backazimuth sector
 
@@ -53,27 +58,40 @@ _How to use_: [README_modeling](); for details see [Supporting Information](http
 _How to use_: Separate [README]() - Supporting Information of **_Fröhlich et al. (2022)_** - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 -->
 
-- _Structural anisotropy models_: One layer with horizontal and tilted symmetry axis, two layers with horizontal symmetry axes
-- _Forward calculation_: Synthetic splitting parameters for the energy minimization method in a ray theory reference frame
-- _Observation Comparison_: Minimizing the root mean square error regarding the splitting parameters
-- _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
-- _Result data_: txt files with model parameter
+- **Structural anisotropy models**
+  - One layer with transverse isotropy with horizontal axis
+  - One layer with transverse isotropy with tilted symmetry axis
+  - Two layers with transverse isotropy with horizontal symmetry axes
+- **Forward calculation**
+  - Synthetic splitting parameters based on the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - for the above mentioned structural anisotropy models
+  - in a ray theory reference frame
+- **Observation Comparison**
+  - Minimizing the root mean square error regarding the splitting parameters
+  - Joint fitting of fast polarization direction and delay time, separate fitting of the fast polarization direction
+- **Result visualization**
+  - Backazimuthal variation of splitting parameters (forward calculation and observations)
+  - Model type distribution (histogram)
+  - Model parameter distribution (scatter plot)
+  - Stereoplot of synthetic splitting parameters (polar plot)
+- **Result data**
+  - Files (.txt) with model parameter for each model type
 
-_Example figures produced with the provided [Test_data_modeling](https://github.com/yvonnefroehlich/sws-plotting-and-modeling/tree/main/003_modeling/TEST_data_modeling)_:
+_Example figures produced with the provided [TEST_data_modeling](https://github.com/yvonnefroehlich/sws-plotting-and-modeling/tree/main/003_modeling/TEST_data_modeling)_:
 
 
 ## Requirements
 
 _Tested with_: R2022a, R2021a,b under Linux and Windows
 
-- **_MATLAB_**: Modeling routine
+- **_MATLAB_**: Forward calculation of modeling routine
   - Deep Learning Toolbox
   - Mapping Toolbox
   - [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
   - Output txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
   - Output structure and txt files (stack, simw) of _StackSplit_
-- **Colormaps** (optional): Color-coding of fast polarization direction and root mean square error
+- **Colormaps** (optional): Color-coding with respect to fast polarization direction and root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)
     (v2.1.3, MATLAB File Exchange, last access 2022 June 26)
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)
@@ -124,6 +142,11 @@ https://doi.org/10.1093/gji/ggaa388.
 **_Porritt, R. W. (2014)_**. SplitLab version 1.2.1.
 available at https://robporritt.wordpress.com/software/.
 
+[**_Roy, C., Winter, A., Ritter, J. R. R. & Schweitzer, J. (2017)_**](https://doi.org/10.1093/gji/ggw470).
+On the improvement of SKS splitting measurements by the Simultaneous Inversion of Multiple Waveforms (SIMW).
+*Geophysical Journal International*, volume 208, pages 1508-1523.
+https://doi.org/10.1093/gji/ggw470.
+
 [**_Silver, P. G. & Chan, W. W. (1991)_**](https://doi.org/10.1029/91JB00899).
 Shear wave splitting and subcontinental mantle deformation.
 *Journal of Geophysical Research*, volume 96, issue B10, pages 16429-16454.
@@ -134,11 +157,16 @@ True colors of oceanography: Guidelines for effective and accurate colormap sele
 *Oceanography*, volume 29, issue 3, pages 9–13.
 http://dx.doi.org/10.5670/oceanog.2016.66.
 
-[**_Walker & Wookey (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031).
+[**_Walker, A. M. & Wookey J. (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031).
 MSAT—A new toolkit for the analysis of elastic and seismic anisotropy.
 *Computer & Geosciences*, volume 49, pages 81-90.
 https://doi.org/10.1016/j.cageo.2012.05.031.
 available at https://www1.gly.bris.ac.uk/MSAT/, https://github.com/andreww/MSAT.
+
+[**_Wolfe, C. J. & Silver, P. G. (1998)_**](https://doi.org/10.1029/97JB02023).
+Seismic anisotropy of oceanic upper mantle: Shear wave splitting methodologies and observations.
+*Journal of Geophysical Research: Solid Earth*, volume 103, issue B1, pages 749–771.
+https://doi.org/10.1029/97JB02023.
 
 [**_Wüstefeld, A., Bokelmann, G., Zaroli, C. & Barruol, G. (2008)_**](https://doi.org/10.1016/j.cageo.2007.08.002).
 SplitLab: A shear-wave splitting environment in Matlab.
