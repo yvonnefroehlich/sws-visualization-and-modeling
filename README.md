@@ -22,7 +22,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 ## Content
 
-### **[001_stereoplot]()**
+### **[001_stereoplot](https://github.com/yvonnefroehlich/sws-plotting-and-modeling/tree/main/001_stereoplot)**
 
  _How to use_: Header of function `SWS_Analysis_BASICS_stereoplot.m`
 
@@ -31,9 +31,9 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
 - Shade background or backazimuth sector
 
-_Example figures produced with the provided [TEST_data_stereoplot]()_:
+_Example figures produced with the provided [TEST_data_stereoplot](https://github.com/yvonnefroehlich/sws-plotting-and-modeling/tree/main/001_stereoplot/TEST_data_stereoplot)_:
 
-### **[002_visualization]()**
+### **[002_visualization](https://github.com/yvonnefroehlich/sws-plotting-and-modeling/tree/main/002_visualization)**
 
 - under development
 
@@ -46,7 +46,7 @@ _How to use_:
 _Example figures produced with the provided [Test_data_visualization]()_:
 -->
 
-### **[003_modeling]()**
+### **[003_modeling](https://github.com/yvonnefroehlich/sws-plotting-and-modeling/tree/main/003_modeling)**
 
 _How to use_: [README_modeling](); for details see [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 <!---
@@ -59,7 +59,7 @@ _How to use_: Separate [README]() - Supporting Information of **_Fröhlich et al
 - _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
 - _Result data_: txt files with model parameter
 
-_Example figures produced with the provided [Test_data_modeling]()_:
+_Example figures produced with the provided [Test_data_modeling](https://github.com/yvonnefroehlich/sws-plotting-and-modeling/tree/main/003_modeling/TEST_data_modeling)_:
 
 
 ## Requirements
@@ -84,7 +84,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 
 ## Releases
 
-- dev ([main branch]())
+- dev ([main branch](https://github.com/yvonnefroehlich/sws-plotting-and-modeling/tree/main))
 - [v1.0]()
 
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog]().
