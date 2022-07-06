@@ -5,9 +5,8 @@ _MATLAB_ functions for visualization and modeling of shear wave splitting observ
 - The modeling routine is applicable for the energy minimization method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Strongly modified and extended from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
-<!---
-_Please note_: Not totally finished (;
--->
+_Please note_: Not totally finished - but nearly (;
+
 
 ## Citation
 
@@ -32,7 +31,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
 - Shade background or backazimuth sector
 
-_Example figures produced with the provided [test data]()_:
+_Example figures produced with the provided [TEST_data_stereoplot]()_:
 
 ### **[002_visualization]()**
 
@@ -44,12 +43,12 @@ _How to use_:
 - xxx
 - xxx
 
-_Example figures produced with the provided [test data]()_:
+_Example figures produced with the provided [Test_data_visualization]()_:
 -->
 
 ### **[003_modeling]()**
 
-_How to use_: Separate [README]() - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
+_How to use_: [README_modeling](); for details see [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 <!---
 _How to use_: Separate [README]() - Supporting Information of **_Fröhlich et al. (2022)_** - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 -->
@@ -60,7 +59,7 @@ _How to use_: Separate [README]() - Supporting Information of **_Fröhlich et al
 - _Result visualization_: Backazimuthal variation, model type distribution, model parameter distribution, synthetic stereoplot
 - _Result data_: txt files with model parameter
 
-_Example figures produced with the provided [test data]()_:
+_Example figures produced with the provided [Test_data_modeling]()_:
 
 
 ## Requirements
@@ -68,7 +67,8 @@ _Example figures produced with the provided [test data]()_:
 _Tested with_: R2022a, R2021a,b under Linux and Windows
 
 - **_MATLAB_**: Modeling routine
-  - official Toolboxes: Deep Learning Toolbox, Mapping Toolbox
+  - Deep Learning Toolbox
+  - Mapping Toolbox
   - [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
   - Output txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
