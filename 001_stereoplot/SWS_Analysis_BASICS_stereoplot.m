@@ -159,17 +159,16 @@ status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
 % selected BAZ sector
 white_value = 255.99999999;
 % rest
-colfill = [219,219,219]./256;
+colfill = [219,219,219]./256; % light gray
+%colfill = [190,190,190]./256; % darker gray
 
 % Examples:
 % 1) BAZ sector between 20 and 120 deg in white, rest is gray
-%        lowlim = 20;
-%        upplim = 120;
-%        colfill = [190,190,190]./256;
+%   - pass the vector when the correspondig query appears [20,120]
+%   - set above before running this function colfill = [190,190,190]./256;
 % 2) shade full background in light gray
-%        lowlim = 0;
-%        upplim = 0.001;
-%        colfill = [220,220,220]./256;
+%   - pass the vector when the corresponding query appars[0,0.001]
+%   - set above before running this function colfill = [220,220,220]./256;
 
 %--------------------------------------------------------------------------
 % symbols
