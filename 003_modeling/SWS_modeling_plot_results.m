@@ -125,7 +125,7 @@ simwcol = [0.9290 0.6940 0.1250]; % color for simw
 %==========================================================================
 % >>> adjust stations for your needs <<<
 
-station_shift = {'ECH'};
+station_shift = {};
 
 %--------------------------------------------------------------------------
 % synthetic anisotropy models
@@ -238,9 +238,7 @@ for mt = 1:1:length(modtyp_str_all)
 
     %......................................................................
     % plot model range only if not full range is used
-    if modrange_low~=0 && modrange_upp~=360 || ...
-       modrange_low==0 && modrange_upp~=360 && ...
-       modrange_upp~=baz2plot_end %  modrange_low~=baz2plot_start &&
+    if modrange_low~=0 && modrange_upp~=360
 
         % not considered BAZ range in background gray
         xdir = [0 0 modrange_low modrange_low];
@@ -462,9 +460,7 @@ for mt = 1:1:length(modtyp_str_all)
 
     %......................................................................
      % plot model range only if not full range is used
-    if modrange_low~=0 && modrange_upp~=360 || ...
-       modrange_low==0 && modrange_upp~=360    && ...
-       modrange_upp~=baz2plot_end
+    if modrange_low~=0 && modrange_upp~=360
 
         % not considered BAZ range in background gray
         xdir = [0 0 modrange_low modrange_low];
@@ -482,6 +478,7 @@ for mt = 1:1:length(modtyp_str_all)
         end
         p1 = patch(xdir,ydir,'white');
         set(p1,'facecolor',modrange_col,'edgecolor',modrange_edcol)
+
     end
 
     %......................................................................

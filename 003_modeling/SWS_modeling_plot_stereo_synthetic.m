@@ -549,9 +549,9 @@ set(cb, 'fontsize',myfontsize)
 
 % [left bottom width height]
 if strcmp(modsall_sort(plotnum).mod_type,'dipping')
-	set(cb, 'position',[0.615, 0.915 0.220 0.020])
+    set(cb, 'position',[0.615, 0.915 0.220 0.020])
 else
-	set(cb, 'position',[0.625, 0.920 0.220 0.020])
+    set(cb, 'position',[0.625, 0.920 0.220 0.020])
 end
 
 
