@@ -5,7 +5,7 @@
 - re-written: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)\
   https://github.com/yvonnefroehlich/sws-plotting-and-modeling
 
-_Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of Grund & Ritter (2020)
+_Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388.)
 
 
 ## Requirements
@@ -30,7 +30,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
 
 _Please note_: For small stepsizes computation time and structure size increases significantly.
 
-- Precompute splitting parameters for the different model types: `SWS_modeling_precomp_models_main.m`
+- Precompute splitting parameters for the different model types: **`SWS_modeling_precomp_models_main.m`**
 
 |step_phi / deg|step_dt / s|step_dips / deg|step_dddir / deg|size / GB|publication|
 |---|---|---|---|---|---|
@@ -38,7 +38,7 @@ _Please note_: For small stepsizes computation time and structure size increases
 |5  |0.25|5 |5 |4.7  |Ritter, Fröhlich, Sanz Alonso, Grund (2022)|
 |5  |0.20|5 |5 |6.6  |Grund & Ritter (2020)|
 
-- All models of all model types are merged in a single nested _MATLAB_ structure with fields
+- All models of all model types are merged in a single nested _MATLAB_ structure with fields:
   - 1 | `modout.phi_eff`: effective or apparent phi values over backazimuth
   - 2 | `modout.dt_eff`: effective or apparent dt values over backazimuth
   - 3 | `modout.mod_paras`: model parameters depending on model type
@@ -54,8 +54,7 @@ _Please note_: For small stepsizes computation time and structure size increases
 
 _Please note_: SWS data input is expected to be in standard _SplitLab_ and/or _StackSplit_ output format (`SWS_modeling_read_data.m`).
 
-- The observed SWS data is compared against all pre-computed models of all model types: `SWS_modeling_calc_misfit.m`
-- The root mean square error (RMSE) between the observed and pre-computed splitting parameters is calculated.
+- The observed SWS data is compared against all pre-computed models of all model types: **`SWS_modeling_calc_misfit.m`**
+- The root mean square error (RMSE) between the observed and pre-computed splitting parameters is calculated
 - Vizualization of the modeling results (`SWS_modeling_plot_results.m`, `SWS_modeling_plot_stereo_synthetic.m`)
-- Take the minimum RMSE or something else metric to get the model which best describes the observed SWS data.
-
+- Take the minimum RMSE or something else metric to get the model which best describes the observed SWS data
