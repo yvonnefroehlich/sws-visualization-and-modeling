@@ -5,6 +5,8 @@
 - re-written: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)\
   https://github.com/yvonnefroehlich/sws-plotting-and-modeling
 
+_Details_: Supporting Information of [Grund & Ritter 2020](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data)
+
 
 ## Requirements
 
@@ -29,6 +31,13 @@
 _Please note_: For small stepsizes computation time and structure size increases significantly.
 
 - Precompute splitting parameters for the different model types: `SWS_modeling_precomp_models_main.m`
+
+|step_phi / deg|step_dt / s|step_dips / deg|step_dddir / deg|size / GB|publication|
+|---|---|---|---|---|---|
+|45 |1.00|15|45|0.80|provided TEST_data|
+|5  |0.25|5 |5 |4.7 |Ritter, Fröhlich, Sanz Alonso, Grund (2022)|
+|5  |0.20|5 |5 |6.6 |Grund & Ritter (2020)|
+
 - All models of all model types are merged in a single nested _MATLAB_ structure with fields
   - 1 | `modout.phi_eff`: effective or apparent phi values over backazimuth
   - 2 | `modout.dt_eff`: effective or apparent dt values over backazimuth
