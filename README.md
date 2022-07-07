@@ -54,7 +54,7 @@ _Example figures produced with the provided [Test_data_visualization]()_:
 ### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
 _How to use_: [README_modeling](); header of function [`SWS_modeling_calc_misfit.m`]()\
-_Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
+_Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [**_Grund & Ritter (2020)_**](https://doi.org/10.1093/gji/ggaa388)
 
 - **Model types**
   - Transverse isotropy
