@@ -34,7 +34,7 @@ _Please note_: For small stepsizes computation time and structure size increases
 
 |step_phi / deg|step_dt / s|step_dips / deg|step_dddir / deg|size / GB|publication|
 |---|---|---|---|---|---|
-|45 |1.00|15|45|0.80|provided TEST_data|
+|45 |1.00|15|45|0.008|provided TEST_data|
 |5  |0.25|5 |5 |4.7 |Ritter, Fröhlich, Sanz Alonso, Grund (2022)|
 |5  |0.20|5 |5 |6.6 |Grund & Ritter (2020)|
 
