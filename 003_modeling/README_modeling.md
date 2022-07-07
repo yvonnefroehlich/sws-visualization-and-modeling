@@ -5,7 +5,7 @@
 - re-written: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)\
   https://github.com/yvonnefroehlich/sws-plotting-and-modeling
 
-_Details_: Supporting Information of [Grund & Ritter (2020)](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data)
+_Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of Grund & Ritter (2020)
 
 
 ## Requirements
