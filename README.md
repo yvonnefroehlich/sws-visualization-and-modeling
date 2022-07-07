@@ -33,7 +33,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
   - _Energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - _Eigenvalue method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
 - Plot **multi-event analysis results** (output of _StackSplit_)
-  - Stacking of error surfaces [**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023)
+  - Stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023))
   - _Splits_ of _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
 - Shade background or backazimuth sector
@@ -60,10 +60,13 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
 
 - **Model types**
   - Transverse isotropy
-  - Strutural anisotropy: one horizontal or dipping layer, two horizontal layers
+  - Structural anisotropy: one horizontal or dipping layer, two horizontal layers
 - **Forward calculation**
   - Synthetic splitting parameters based on the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - Ray theory reference frame
+- **Observation** (output of _SplitLab_ and _StackSplit_)
+  - single-event analysis: _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - multi-event analysis: stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023)), _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - **Comparison of forward calculation and observation**
   - Calculation and minimizing the root mean square error regarding the splitting parameters
   - Joint fitting of fast polarization direction and delay time, separate fitting of the fast polarization direction
