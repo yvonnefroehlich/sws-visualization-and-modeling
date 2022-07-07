@@ -5,7 +5,7 @@ _MATLAB_ functions for visualization and modeling of shear wave splitting observ
 - The modeling routine is applicable for the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
-_Please note_: Not totally finished - but nearly (;
+_Please note_: Not totally finished, but nearly (; - Nonetheless use with caution!
 
 
 ## Citation
@@ -17,7 +17,9 @@ If you make use of this material, please acknowledge the relating publications i
 - [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388). Shear-wave splitting beneath Fennoscandia - Evidence for dipping structures and laterally varying multilayer anisotropy. *Geophysical Journal International*, 223, 1525-1547. https://doi.org/10.1093/gji/ggaa388.
 - [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
 
+<!---
 Furthermore you can cite the [Zenodo Doi]() given above.
+-->
 
 
 ## Content
