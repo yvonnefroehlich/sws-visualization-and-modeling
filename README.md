@@ -33,7 +33,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
   - _Energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - _Eigenvalue method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
 - Plot **multi-event analysis results** (output of _StackSplit_)
-  - Stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023))
+  - Stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x))
   - _Splits_ of _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
 - Shade background or backazimuth sector
@@ -66,7 +66,9 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   - Ray theory reference frame
 - **Observation** (output of _SplitLab_ and _StackSplit_)
   - single-event analysis: _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
-  - multi-event analysis: stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023)), _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
+  - multi-event analysis:
+    stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x)),
+    _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - **Comparison of forward calculation and observation**
   - Calculation and minimizing the root mean square error regarding the splitting parameters
   - Joint fitting of fast polarization direction and delay time, separate fitting of the fast polarization direction
@@ -144,6 +146,11 @@ https://doi.org/10.1093/gji/ggaa388.
 
 **_Porritt, R. W. (2014)_**. SplitLab version 1.2.1.
 available at https://robporritt.wordpress.com/software/.
+
+[**_Restivo, A. & Helffrich, G. (1999)_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x).
+Teleseismic shear wave splitting measurements in noisy environments.
+*Geophysical Journal International*, volume 137, pages 821-830.
+https://doi.org/10.1046/j.1365-246x.1999.00845.x.
 
 [**_Roy, C., Winter, A., Ritter, J. R. R. & Schweitzer, J. (2017)_**](https://doi.org/10.1093/gji/ggw470).
 On the improvement of SKS splitting measurements by the Simultaneous Inversion of Multiple Waveforms (SIMW).
