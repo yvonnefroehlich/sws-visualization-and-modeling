@@ -53,22 +53,20 @@ _Example figures produced with the provided [Test_data_visualization]()_:
 
 ### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
-_How to use_: [README_modeling](); for details see [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
-<!---
-_How to use_: Separate [README]() - Supporting Information of **_Fröhlich et al. (2022)_** - [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
--->
+_How to use_: [README_modeling](); header of function [`SWS_modeling_calc_misfit.m`]()\
+_Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of **_Grund & Ritter (2020)_**
 
-- **Structural anisotropy models**
-  - One layer with transverse isotropy with horizontal axis
-  - One layer with transverse isotropy with tilted symmetry axis
-  - Two layers with transverse isotropy with horizontal symmetry axes
+- **Model types**
+  - Transverse isotropy
+  - Strutural anisotropy: one layer with horizontal or dipping symmetry axis or two layers with horizontal symmetry axes
 - **Forward calculation**
-  - Synthetic splitting parameters based on the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)) for the above mentioned structural anisotropy models in a ray theory reference frame
-- **Observation Comparison**
-  - Minimizing the root mean square error regarding the splitting parameters
+  - Synthetic splitting parameters based on the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - Ray theory reference frame
+- **Comparison of forward calculation and observation**
+  - Calculation and minimizing the root mean square error regarding the splitting parameters
   - Joint fitting of fast polarization direction and delay time, separate fitting of the fast polarization direction
 - **Result visualization**
-  - Backazimuthal variation of splitting parameters (forward calculation and observations)
+  - Backazimuthal variation of the splitting parameters (forward calculation and observation)
   - Model type distribution (histogram)
   - Model parameter distribution (scatter plot)
   - Stereoplot of synthetic splitting parameters (polar plot)
