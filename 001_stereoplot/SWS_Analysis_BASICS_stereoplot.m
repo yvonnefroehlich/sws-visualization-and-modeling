@@ -14,7 +14,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % - SWS_Analysis_BASICS_read_SSresults.m
 % - plot_arc3D.m
 % >>> plot_arc3D.m <<< is based on >>> plot_arc.m <<< by Matt Fig
-% https://de.mathworks.com/matlabcentral/answers/6322-drawing-a-segment-of-a-circle
+%   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 % (last access 2022 June 19)
 %--------------------------------------------------------------------------
 % is
