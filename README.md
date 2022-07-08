@@ -40,6 +40,8 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 _Example figures produced with the provided [TEST_data_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot/TEST_data_stereoplot)_:
 
+![figures_SWS_stereo_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/177949171-59c5261c-15ca-41d3-92e7-c4bed6396c77.png)
+
 ### **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)**
 
 - under development
@@ -81,6 +83,8 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   - Model parameters for each model type as separate *.txt files
 
 _Example figures produced with the provided [TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling)_:
+
+![figure_SWS_modeling_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/177949220-1b6f8c57-244e-429d-bd59-5253c5c8d610.png)
 
 
 ## Requirements
