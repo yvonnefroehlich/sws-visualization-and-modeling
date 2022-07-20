@@ -6,7 +6,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % reads (single seismological recording station related)
 % - single-event analysis (SplitLab, SL) and
 % - multi-event analysis (StackSplit, SS) result files, and
-% prepares and saves stereoplots as publication-ready pdf, png, jpg, etc.
+% prepares and saves stereoplots as publication-ready pdf, png, eps
 %--------------------------------------------------------------------------
 % uses the provided MATLAB functions
 % - SWS_Analysis_BASICS_check_matlab_version.m
@@ -14,7 +14,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % - SWS_Analysis_BASICS_read_SSresults.m
 % - plot_arc3D.m
 % >>> plot_arc3D.m <<< is based on >>> plot_arc.m <<< by Matt Fig
-%   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
+% https://de.mathworks.com/matlabcentral/answers/6322-drawing-a-segment-of-a-circle
 % (last access 2022 June 19)
 %--------------------------------------------------------------------------
 % is
@@ -25,10 +25,10 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %   https://github.com/michaelgrund/sws_tools
 %   Grund PhD (2019)
 %   https://doi.org/10.5445/IR/1000091425
-%   Grund & Ritter (2020) GJI
+%   Grund & Ritter (2020) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggaa388
 % - extended and strongly modified: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
-%   https://github.com/yvonnefroehlich/sws-plotting-and-modeling
+%   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %--------------------------------------------------------------------------
 % TERMS OF USE
@@ -113,7 +113,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %    * poor
 % - shear wave splitting method
 %    * rotation-correlation method - RC - (Bowman & Ando 1987)
-%    * energy-minimum method - SC - (Silver & Chan 1991)
+%    * energy minimization method - SC - (Silver & Chan 1991)
 %    * eigenvalue method - EV - (Sivler & Chan 1991)
 % - multi-event analysis results of StackSplit (if available)
 %    * stacking of error surfaces - STACK - (Wolfe & Silver 1998)

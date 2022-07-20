@@ -14,7 +14,7 @@ function P = plot_arc3D(a, b, h, k, r, colfill, coledge, facealphafill)
 %   https://github.com/michaelgrund/sws_tools
 %   Grund PhD (2019)
 %   https://doi.org/10.5445/IR/1000091425
-%   Grund & Ritter (2020) GJI
+%   Grund & Ritter (2020) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggaa388
 % - extended: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
 %   changes: add coledge, facealphafill
