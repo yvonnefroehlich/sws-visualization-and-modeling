@@ -26,7 +26,7 @@ function SWS_modeling_plot_results( ...
 %   https://github.com/michaelgrund/sws_tools
 %   Grund PhD (2019)
 %   https://doi.org/10.5445/IR/1000091425
-%   Grund & Ritter (2020) GJI
+%   Grund & Ritter (2020) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggaa388
 % - strongly modified and extended: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
