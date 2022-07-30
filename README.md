@@ -168,18 +168,18 @@ https://doi.org/10.1029/91JB00899.
 
 [**_Thyng, K. M., Greene, C. A., Hetland, R. D., Zimmerle, H. M. & DiMarco, S. F. (2016)_**](http://dx.doi.org/10.5670/oceanog.2016.66).
 True colors of oceanography: Guidelines for effective and accurate colormap selection.
-*Oceanography*, volume 29, issue 3, pages 9–13.
+*Oceanography*, volume 29, issue 3, pages 9-13.
 http://dx.doi.org/10.5670/oceanog.2016.66.
 
-[**_Walker, A. M. & Wookey J. (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031).
-MSAT—A new toolkit for the analysis of elastic and seismic anisotropy.
+[**_Walker, A. M. & Wookey, J. (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031).
+MSAT — A new toolkit for the analysis of elastic and seismic anisotropy.
 *Computer & Geosciences*, volume 49, pages 81-90.
 https://doi.org/10.1016/j.cageo.2012.05.031.
 available at https://www1.gly.bris.ac.uk/MSAT/, https://github.com/andreww/MSAT.
 
 [**_Wolfe, C. J. & Silver, P. G. (1998)_**](https://doi.org/10.1029/97JB02023).
 Seismic anisotropy of oceanic upper mantle: Shear wave splitting methodologies and observations.
-*Journal of Geophysical Research: Solid Earth*, volume 103, issue B1, pages 749–771.
+*Journal of Geophysical Research: Solid Earth*, volume 103, issue B1, pages 749-771.
 https://doi.org/10.1029/97JB02023.
 
 [**_Wüstefeld, A., Bokelmann, G., Zaroli, C. & Barruol, G. (2008)_**](https://doi.org/10.1016/j.cageo.2007.08.002).
