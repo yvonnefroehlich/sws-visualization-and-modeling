@@ -67,8 +67,8 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   - Synthetic splitting parameters based on the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - Ray theory reference frame
 - **Observation** (output of _SplitLab_ and _StackSplit_)
-  - single-event analysis: _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
-  - multi-event analysis:
+  - Single-event analysis: _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - Multi-event analysis:
     stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x)),
     _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - **Comparison of forward calculation and observation**
