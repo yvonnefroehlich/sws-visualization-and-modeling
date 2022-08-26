@@ -26,7 +26,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 ### **[001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)**
 
- _How to use_: Header of function [`SWS_Analysis_BASICS_stereoplot.m`]()
+ _How to use_: Header of function [`SWS_Analysis_BASICS_stereoplot.m`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/001_stereoplot/SWS_Analysis_BASICS_stereoplot.m)
 
 - Plot **single-event analysis results** (output of _SplitLab_)
   - _Rotation-correlation method_ ([**_Bowman & Ando 1987_**]( https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.))
