@@ -94,7 +94,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 - **_MATLAB_**: Forward calculation
   - Deep Learning Toolbox
   - Mapping Toolbox
-  - [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
+  - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
   - Output *.txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
   - Output *.mat structure and *.txt files (stack, simw) of _StackSplit_
