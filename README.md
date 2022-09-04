@@ -5,8 +5,6 @@ _MATLAB_ functions for visualization and modeling of shear wave splitting observ
 - The modeling routine is applicable for the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
-_Please note_: Not totally finished, but nearly (; - Nonetheless use with caution!
-
 
 ## Citation
 
