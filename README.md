@@ -5,15 +5,15 @@ _MATLAB_ functions for visualization and modeling of shear wave splitting observ
 - The modeling routine is applicable for the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
-_Please note_: Not totally finished, but nearly (; - Nonetheless use with caution!
-
 
 ## Citation
 
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
 
+<!---
 - **_Fröhlich, Yvonne, Grund, Michael & Ritter, Joachim R. R. (2022)_**. Laterally and vertically varying seismic anisotropy in the lithosphere-asthenosphere system revealed from SK(K)S splitting at neighboring sites in the Upper Rhine Graben area, Central Europe. in preparation for *Geophysical Journal International*.
-- **_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**. Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures. under review by *Journal of Seismology*.
+-->
+- **_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**. Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures. accepted by *Journal of Seismology*.
 - [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388). Shear-wave splitting beneath Fennoscandia - Evidence for dipping structures and laterally varying multilayer anisotropy. *Geophysical Journal International*, 223, 1525-1547. https://doi.org/10.1093/gji/ggaa388.
 - [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
 
@@ -26,7 +26,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 ### **[001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)**
 
- _How to use_: Header of function [`SWS_Analysis_BASICS_stereoplot.m`]()
+ _How to use_: Header of function [`SWS_Analysis_BASICS_stereoplot.m`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/001_stereoplot/SWS_Analysis_BASICS_stereoplot.m)
 
 - Plot **single-event analysis results** (output of _SplitLab_)
   - _Rotation-correlation method_ ([**_Bowman & Ando 1987_**]( https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.))
@@ -57,7 +57,7 @@ _Example figures produced with the provided [Test_data_visualization]()_:
 
 ### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
-_How to use_: [README_modeling](); header of function [`SWS_modeling_calc_misfit.m`]()\
+_How to use_: [README_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/README_modeling.md); header of function [`SWS_modeling_calc_misfit.m`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/SWS_modeling_calc_misfit.m)\
 _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [**_Grund & Ritter (2020)_**](https://doi.org/10.1093/gji/ggaa388)
 
 - **Model types**
@@ -67,8 +67,8 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   - Synthetic splitting parameters based on the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - Ray theory reference frame
 - **Observation** (output of _SplitLab_ and _StackSplit_)
-  - single-event analysis: _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
-  - multi-event analysis:
+  - Single-event analysis: _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - Multi-event analysis:
     stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x)),
     _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - **Comparison of forward calculation and observation**
@@ -94,7 +94,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 - **_MATLAB_**: Forward calculation
   - Deep Learning Toolbox
   - Mapping Toolbox
-  - [_MATLAB Seismic Anisotropy Toolbox_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
+  - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
   - Output *.txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
   - Output *.mat structure and *.txt files (stack, simw) of _StackSplit_
