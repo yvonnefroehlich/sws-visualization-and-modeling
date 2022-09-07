@@ -57,7 +57,7 @@ _Example figures produced with the provided [Test_data_visualization]()_:
 
 ### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
-_How to use_: [README_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/README_modeling.md); header of function [`SWS_modeling_calc_misfit.m`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/SWS_modeling_calc_misfit.m)\
+_How to use_: [README](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/README.md); header of function [`SWS_modeling_calc_misfit.m`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/SWS_modeling_calc_misfit.m)\
 _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [**_Grund & Ritter (2020)_**](https://doi.org/10.1093/gji/ggaa388)
 
 - **Model types**
