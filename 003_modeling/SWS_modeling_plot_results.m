@@ -31,6 +31,7 @@ function SWS_modeling_plot_results( ...
 % - strongly modified and extended: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
+%   https://doi.org/10.1007/s10950-022-10112-w
 %--------------------------------------------------------------------------
 % LICENSE
 %
