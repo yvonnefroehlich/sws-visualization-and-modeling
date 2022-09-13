@@ -20,6 +20,7 @@ function P = plot_arc3D(a, b, h, k, r, colfill, coledge, facealphafill)
 %   changes: add coledge, facealphafill
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
+%   https://doi.org/10.1007/s10950-022-10112-w
 %--------------------------------------------------------------------------
 % INPUT
 %
