@@ -687,14 +687,14 @@ if exist('plot_arc3D','file')
 
     if lowlim<upplim
         if lowlim~=0 || upplim~=360
-            % first plot whole range in gray as bottom layer
+            % first plot whole BAZ range in gray as bottom layer
             startwedge = 0;
             endwedge = 360;
             plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
                        0, 0, lim_sector, ...
                        colfill, colfill, 1);
 
-            % then plot modelled range again on top in white
+            % then plot considered BAZ range again on top in white
             startwedge = lowlim;
             endwedge = upplim;
             plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
@@ -707,14 +707,15 @@ if exist('plot_arc3D','file')
     % and the other one in the SA region
     elseif lowlim>upplim
         if lowlim~=0 || upplim~=360
-            % first plot whole range in gray as bottom layer
+            % first plot whole BAZ range in gray as bottom layer
             startwedge = 0;
             endwedge = 360;
             plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
                        0, 0, lim_sector, ...
                        colfill, 1);
 
-            % then plot modelled range again on top in white in two steps
+            % then plot considered BAZ range again on top in white
+            % in two steps
             startwedge = 0;
             endwedge = upplim;
             plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
