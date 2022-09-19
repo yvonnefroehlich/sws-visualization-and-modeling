@@ -660,7 +660,7 @@ if isempty(plotannot) % default
     plotannot = 2; % SE
 end
 
-if plotannot==1
+if plotannot==1 % NE
    text(0.047,-0.047, '5^\circ', 'fontsize',12, 'color',col_inc)
    text(0.105,-0.105, '10^\circ', 'fontsize',12, 'color',col_inc)
    text(0.168,-0.168, '15^\circ', 'fontsize',12, 'color',col_inc)
@@ -668,11 +668,11 @@ elseif plotannot==2 % SE
    text(0.040,0.056, '5^\circ', 'fontsize',12, 'color',col_inc)
    text(0.105,0.105, '10^\circ', 'fontsize',12, 'color',col_inc)
    text(0.175,0.145, '15^\circ', 'fontsize',12, 'color',col_inc)
-elseif plotannot==3
+elseif plotannot==3 % SW
    text(-0.055,0.055, '5^\circ', 'fontsize',12, 'color',col_inc)
    text(-0.117,0.117, '10^\circ', 'fontsize',12, 'color',col_inc)
    text(-0.180,0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
-elseif plotannot==4
+elseif plotannot==4 % NW
    text(-0.055,-0.055, '5^\circ', 'fontsize',12, 'color',col_inc)
    text(-0.117,-0.117, '10^\circ', 'fontsize',12, 'color',col_inc)
    text(-0.180,-0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
