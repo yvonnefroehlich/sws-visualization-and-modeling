@@ -850,7 +850,7 @@ if ~isempty(RES_split)
             end
         end
 
-    % no color-coding base on phi
+    % no color-coding based on phi
     else
         % single
         set(hndl, 'color',splitcol, 'linewidth',linew)
