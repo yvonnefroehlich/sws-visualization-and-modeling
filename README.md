@@ -40,7 +40,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 
 _Example figures produced with the provided [TEST_data_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot/TEST_data_stereoplot)_:
 
-![figures_SWS_stereo_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/184113942-68515d2a-33ab-4b13-af21-342f5dbf2bde.png)
+![figures_SWS_stereo_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/191190219-8570c195-045f-4ad2-9c57-79e140f8e11d.png)
 
 ### **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)**
 
