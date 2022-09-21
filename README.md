@@ -98,7 +98,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 - **Data**: Shear wave splitting observations
   - Output *.txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
   - Output *.mat structure and *.txt files (stack, simw) of _StackSplit_
-- **Colormaps** (optional): Color-coding of to the fast polarization direction and the root mean square error
+- **Colormaps** (optional): Color-coding of the fast polarization direction and the root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)\
     version v2.1.3, MATLAB File Exchange, last access 2022 June 26
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)\
