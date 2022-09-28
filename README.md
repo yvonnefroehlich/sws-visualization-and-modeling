@@ -44,7 +44,7 @@ _Example figures produced with the provided [TEST_data_stereoplot](https://githu
 
 ### **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)**
 
-- under development
+- Under development
 
 <!---
 _How to use_:
