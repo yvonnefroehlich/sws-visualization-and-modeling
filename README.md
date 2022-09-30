@@ -38,7 +38,7 @@ Furthermore you can cite the [Zenodo Doi]() given above.
 - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
 - Shade background or backazimuth sector
 
-_Example figures produced with the provided [TEST_data_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot/TEST_data_stereoplot)_:
+_Example figures_: Generated with the provided [TEST_data_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot/TEST_data_stereoplot)
 
 ![figures_SWS_stereo_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/184113942-68515d2a-33ab-4b13-af21-342f5dbf2bde.png)
 
@@ -52,7 +52,7 @@ _How to use_:
 - xxx
 - xxx
 
-_Example figures produced with the provided [Test_data_visualization]()_:
+_Example figures_: Generated with the provided [Test_data_visualization]()
 -->
 
 ### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
@@ -82,7 +82,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
 - **Result data**
   - Model parameters for each model type as separate *.txt files
 
-_Example figures produced with the provided [TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling)_:
+_Example figures_: Generated with the provided [TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling)
 
 ![figure_SWS_modeling_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/183926434-f510331c-0ded-4fb9-9867-b30727568432.png)
 
