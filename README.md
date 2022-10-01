@@ -136,7 +136,7 @@ Scientific colour maps. *Zenodo*. http://www.fabiocrameri.ch/colourmaps.php. htt
 StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab.
 *Computers & Geosciences*, volume 105, pages 43-50.
 https://doi.org/10.1016/j.cageo.2017.04.015.
-versions [1.0](https://doi.org/10.5281/zenodo.464385), 2.0, and [3.0](https://doi.org/10.5281/zenodo.5802051)
+versions [1.0](https://doi.org/10.5281/zenodo.464385), [2.0](https://doi.org/10.5281/zenodo.7118716), and [3.0](https://doi.org/10.5281/zenodo.5802051)
 available at https://github.com/michaelgrund/stacksplit.
 
 [**_Grund, M. (2019)_**](https://doi.org/10.5445/IR/1000091425).
