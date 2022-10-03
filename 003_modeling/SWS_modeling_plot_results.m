@@ -99,8 +99,6 @@ leg_symb_simw_null = 'square';
 % % -> only stack splits in NE quadrant
 % leg_symb_stack_split = 'diamond';
 
-% % Fröhlich et al. 2022 Geophysical Journal International
-% % -> single splits and stack splits
 leg_symb_stack_split = 'square';
 
 % TickLabel position of RMSE colorbar
@@ -992,8 +990,6 @@ end
 % axis
 xlim([0,length(models_sort)])
 ylim([0,max([models_sort.RMSE])])
-% % Fröhlich et al. 2022 Geophysical Journal International
-% ylim([0, 0.7])
 xlabel('worst \leftarrow sorted models \rightarrow best', 'fontsize',fontsize)
 ylabel(cb_label_rmse, 'fontsize',fontsize)
 set(gca, 'XDir','reverse')
