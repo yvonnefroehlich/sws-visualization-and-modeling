@@ -1274,13 +1274,6 @@ fig_H2 = figure('visible','off'); % two layers
     if cmap_rms_ind~=0
         for ii = plot_mod_max:-1:1
 
-%             % Fröhlich et al. 2022 Geophysical Journal International
-%             if strcmp(staname_split,"ECH") && ...
-%                strcmp(data_used,"multiWS") && phi_H2(2,ii)==90
-%                 phi_H2(2,ii) = -90;
-%                 disp('switch value')
-%             end
-
             plot(dt_H2(1,ii),phi_H2(1,ii), 's', ...
                  'MarkerSize',mymarkersize_symbols, ...
                  'LineWidth',mylinewidth_symbols, ...
