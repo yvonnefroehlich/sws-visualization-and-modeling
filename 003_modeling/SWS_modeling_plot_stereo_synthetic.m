@@ -100,14 +100,6 @@ col_dip_sta = 'w'; % white
 col_dip_cryst = 'b'; % black
 col_dip_ray = 'r'; % red
 
-% % Fröhlich et al. 2022 Geophysical Journal International
-% col_lay_upp = [102 178 255] ./256; % light blue
-% col_lay_low = [255 102 102] ./256; % light red
-% col_lay_one = [102 205 0] ./256; % light green
-% col_dip_sta = [255 215 0] ./256; % GMT gold
-% col_dip_cryst = 'w';  % white
-% col_dip_ray = [0.4 0.4 0.4]; % dark gray
-
 % horizontal layers
 y_low = -0.2933;
 y_upp = -0.3220;
