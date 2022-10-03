@@ -882,7 +882,6 @@ for mt = 1:1:length(modtyp_str_all)
         h_leg_split.Position = [0.195 0.360 0.065 0.1];
     else
         % BAZ range to plot 0 deg to 360 deg
-        % -> Fröhlich et al. 2022 Geophysical Journal International
         h_leg_split.Position = [0.695 0.610 0.065 0.1];
     end
 
