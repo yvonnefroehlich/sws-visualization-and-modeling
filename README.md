@@ -13,7 +13,7 @@ If you make use of this material, please acknowledge the relating publications i
 <!---
 - **_Fröhlich, Yvonne, Grund, Michael & Ritter, Joachim R. R. (2022)_**. Laterally and vertically varying seismic anisotropy in the lithosphere-asthenosphere system revealed from SK(K)S splitting at neighboring sites in the Upper Rhine Graben area, Central Europe. in preparation for *Geophysical Journal International*.
 -->
-- **_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**. Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures. accepted by *Journal of Seismology*. DOI: 10.1007/s10950-022-10112-w.
+- [**_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**](https://doi.org/10.1007/s10950-022-10112-w). Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures. *Journal of Seismology*. https://doi.org/10.1007/s10950-022-10112-w.
 - [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388). Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy. *Geophysical Journal International*, 223, 1525-1547. https://doi.org/10.1093/gji/ggaa388.
 - [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
 
