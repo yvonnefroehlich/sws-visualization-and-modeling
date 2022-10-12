@@ -33,8 +33,8 @@ Furthermore you can cite the [Zenodo Doi]() given above.
   - _Energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - _Eigenvalue method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
 - Plot **multi-event analysis results** (output of _StackSplit_)
-  - Stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x))
-  - _Splits_ of _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
+  - Stacking of error surfaces (STACK; [**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x))
+  - _Splits_ of _simultaneous inversion of multiple waveforms_ (SIMW; [**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
 - Shade background or backazimuth sector
 
@@ -69,8 +69,8 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
 - **Observation** (output of _SplitLab_ and _StackSplit_)
   - Single-event analysis: _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - Multi-event analysis:
-    stacking of error surfaces ([**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x)),
-    _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
+    stacking of error surfaces (STACK; [**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x)),
+    _simultaneous inversion of multiple waveforms_ (SIMW; [**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - **Comparison of forward calculation and observation**
   - Calculation and minimizing the root mean square error regarding the splitting parameters
   - Joint fitting of fast polarization direction and delay time, separate fitting of the fast polarization direction
@@ -97,7 +97,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
   - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
   - Output *.txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
-  - Output *.mat structure and *.txt files (stack, simw) of _StackSplit_
+  - Output *.mat structure and *.txt files (STACK, SIMW) of _StackSplit_
 - **Colormaps** (optional): Color-coding of the fast polarization direction and the root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)\
     version v2.1.3, MATLAB File Exchange, last access 2022 June 26
