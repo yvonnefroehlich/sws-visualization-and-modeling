@@ -96,7 +96,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
   - Mapping Toolbox
   - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
-  - Output *.txt files (nulls, splits) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
+  - Output *.txt files (_nulls_, _splits_) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
   - Output *.mat structure and *.txt files (STACK, SIMW) of _StackSplit_
 - **Colormaps** (optional): Color-coding of the fast polarization direction and the root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)\
