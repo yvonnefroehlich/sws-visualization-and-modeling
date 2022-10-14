@@ -410,7 +410,7 @@ if ~isempty(dir_res_multi)
     disp(' ')
     plot_multi = input(['Plot multi-event-analysis results' ...
                         ' (if available)? \n' ...
-                        '   [0] no  [1] stack  [2] SIMW(NN)' ...
+                        '  [0] no  [1] stack  [2] SIMW(NN)' ...
                         '  [3] stack & SIMW(NN)   | ']);
     if plot_multi>0
         RES_multi = SWS_Analysis_BASICS_read_SSresults(...
@@ -660,7 +660,7 @@ if isempty(plotannot) % default
     plotannot = 2; % SE
 end
 
-if plotannot==1
+if plotannot==1 % NE
    text(0.047,-0.047, '5^\circ', 'fontsize',12, 'color',col_inc)
    text(0.105,-0.105, '10^\circ', 'fontsize',12, 'color',col_inc)
    text(0.168,-0.168, '15^\circ', 'fontsize',12, 'color',col_inc)
@@ -668,11 +668,11 @@ elseif plotannot==2 % SE
    text(0.040,0.056, '5^\circ', 'fontsize',12, 'color',col_inc)
    text(0.105,0.105, '10^\circ', 'fontsize',12, 'color',col_inc)
    text(0.175,0.145, '15^\circ', 'fontsize',12, 'color',col_inc)
-elseif plotannot==3
+elseif plotannot==3 % SW
    text(-0.055,0.055, '5^\circ', 'fontsize',12, 'color',col_inc)
    text(-0.117,0.117, '10^\circ', 'fontsize',12, 'color',col_inc)
    text(-0.180,0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
-elseif plotannot==4
+elseif plotannot==4 % NW
    text(-0.055,-0.055, '5^\circ', 'fontsize',12, 'color',col_inc)
    text(-0.117,-0.117, '10^\circ', 'fontsize',12, 'color',col_inc)
    text(-0.180,-0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
@@ -687,14 +687,15 @@ if exist('plot_arc3D','file')
 
     if lowlim<upplim
         if lowlim~=0 || upplim~=360
-            % first plot whole range in gray as bottom layer
+            % first plot whole BAZ range in gray as bottom layer
             startwedge = 0;
             endwedge = 360;
             plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
                        0, 0, lim_sector, ...
-                       colfill, colfill, 1);
+                       colfill, ...
+                       colfill, 1);
 
-            % then plot modelled range again on top in white
+            % then plot considered BAZ range again on top in white
             startwedge = lowlim;
             endwedge = upplim;
             plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
@@ -707,25 +708,29 @@ if exist('plot_arc3D','file')
     % and the other one in the SA region
     elseif lowlim>upplim
         if lowlim~=0 || upplim~=360
-            % first plot whole range in gray as bottom layer
+            % first plot whole BAZ range in gray as bottom layer
             startwedge = 0;
             endwedge = 360;
             plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
                        0, 0, lim_sector, ...
+                       colfill, ...
                        colfill, 1);
 
-            % then plot modelled range again on top in white in two steps
+            % then plot considered BAZ range again on top in white
+            % in two steps
             startwedge = 0;
             endwedge = upplim;
             plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
-                        0, 0, lim_sector, ...
-                        [white_value white_value white_value]./256, 1);
+                       0, 0, lim_sector, ...
+                       [white_value white_value white_value]./256, ...
+                       [white_value white_value white_value]./256, 1);
 
             startwedge = lowlim;
             endwedge = 360;
             plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
-                        0, 0, lim_sector, ...
-                        [white_value white_value white_value]./256, 1);
+                       0, 0, lim_sector, ...
+                       [white_value white_value white_value]./256, ...
+                       [white_value white_value white_value]./256, 1);
         end
     end
 
@@ -737,11 +742,12 @@ end
 for KK = 1:1:length(RES_nulls)
     if ~isempty(RES_nulls) && fast_col==0
         plotm(90-inc_nulls(KK), bazi_nulls(KK), 'o', ...
-              'color',nullcol, 'MarkerSize',marks, 'linewidth',linewcirc);
+              'color',nullcol, 'MarkerSize',marks, ...
+              'linewidth',linewcirc, 'markerFacecolor','w');
     elseif ~isempty(RES_nulls) && fast_col==1
         plotm(90-inc_nulls(KK), bazi_nulls(KK), 'o', ...
-              'color','k', 'MarkerSize',marks, 'linewidth',linewcirc, ...
-              'markerFacecolor','w');
+              'color','k', 'MarkerSize',marks, ...
+              'linewidth',linewcirc, 'markerFacecolor','w');
         cmap = usecmap;
         colormap(cmap);
     end
@@ -850,7 +856,7 @@ if ~isempty(RES_split)
             end
         end
 
-    % no color-coding base on phi
+    % no color-coding based on phi
     else
         % single
         set(hndl, 'color',splitcol, 'linewidth',linew)
