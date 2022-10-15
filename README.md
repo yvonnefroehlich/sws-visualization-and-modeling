@@ -109,6 +109,13 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
 
 
+## Known Issues
+- Model parameter plot for one dipping layer: Not fully tested, please use with caution
+- Modeling of multi-event analysis: Only using either STACK or SIMW results is supported
+- Synthetic stereoplot for one dipping layer: Backazimuths of the predicted nulls are partly wrong
+- Synthetic stereoplot for one dipping layer: Gray arrow is partly not exactly placed in the center
+
+
 ## Contributing
 
 For bug reports, suggestions or recommendations feel free to open an issue or submit a pull request directly here on [GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main).
