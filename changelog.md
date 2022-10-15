@@ -16,14 +16,14 @@ Changes and differences compared to [sws_tools](https://github.com/michaelgrund/
 - [003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)
    - Support of input files of _SplitLab_ version 1.2.1 (Porritt 2014) (additionally to version 1.0.5 (original))
    - Sort models separately for the different model types (based on rote mean square error)
-   - No double-counting of stacks and singles (within 5° BAZ bins)
+   - No double-counting of stacks and singles (within 5° backazimuth bins)
    - Allow for color-coding with respect to the fast polarization direction (support of _phase_ of _cmocean colormaps_ ([**_Thyng et al. 2016_**](http://dx.doi.org/10.5670/oceanog.2016.66)))
    - Allow for color-coding with respect to the root mean square error (support of _grayC_ of _Scientific Colour maps_ ([**_Crameri 2021_**](http://doi.org/10.5281/zenodo.1243862)))
    - Read multi-event analysis results from txt files instead of from structure
    - Support of _splits_ of _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899)) (_nulls_ are only plotted)
    - Generate model parameter plots for the different model types
    - Generate synthetic stereoplots separately for the different model types
-   - Add expected BAZ directions for nulls for the two-layer scenario (under development)
+   - Add expected backazimuth directions for nulls for the two-layer scenario (under development)
    - Output txt files with model parameters for the different model types
 
 **Contributors**: [Yvonne Fröhlich](https://github.com/yvonnefroehlich)
