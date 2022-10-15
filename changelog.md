@@ -4,7 +4,7 @@
 ## Release v1.0 (2022/10/16)
 
 Changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund)
-- [001_stereoplot]()
+- [001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)
    - Support of _rotation-correlation method_ ([**_Bowman & Ando 1987_**]( https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.))
    - Support of _eigenvalue method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
    - Support of splits of _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
@@ -13,7 +13,7 @@ Changes and differences compared to [sws_tools](https://github.com/michaelgrund/
    - Remove diverging and multi-sequential colormaps of _Scientific Colour maps_ ([**_Crameri 2021_**](http://doi.org/10.5281/zenodo.1243862))
    - Support of sequential and cyclic colormaps of _cmocean colormaps_ ([**_Thyng et al. 2016_**](http://dx.doi.org/10.5670/oceanog.2016.66))
    - Add check whether files / data is from one single recording station
-- [003_modeling]()
+- [003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)
    - Support of input files of _SplitLab_ version 1.2.1 (Porritt 2014) (additionally to version 1.0.5 (original))
    - Sort models separately for the different model types (based on rote mean square error)
    - No double-counting of stacks and singles (within 5° BAZ bins)
