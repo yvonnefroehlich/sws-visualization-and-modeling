@@ -16,7 +16,6 @@ If you make use of this material, please acknowledge the relating publications i
 Furthermore you can cite the Zenodo DOI.
 
 
-
 ## Content
 
 ### **[001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)**
