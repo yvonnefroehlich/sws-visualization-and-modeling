@@ -1,7 +1,7 @@
 # Changelog
 
 
-## Release v1.0 (2022/07/XX)
+## Release v1.0 (2022/10/16)
 
 Changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund)
 - [001_stereoplot]()
