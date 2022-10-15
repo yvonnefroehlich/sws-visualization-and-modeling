@@ -17,9 +17,9 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
 - _MATLAB Seismic Anisotropy Toolbox_ (MSAT) by [Walker & Wookey (2012)](https://doi.org/10.1016/j.cageo.2012.05.031)
   - Download it from (last access 2022/07/05)
     - https://www1.gly.bris.ac.uk/MSAT/ _or_
-    - https://github.com/andreww/MSAT.
-  - Install MSAT.
-  - Add the whole MSAT package to your _MATLAB_ path-
+    - https://github.com/andreww/MSAT
+  - Install MSAT
+  - Add the whole MSAT package to your _MATLAB_ path
   - If you want to get familiar with the modeling in MSAT and the behavior of different settings
   change to the directory `MSAT/examples/splitting_model/` in which the script `split_model.m` is located.
   This script is described in the publication [Walker & Wookey (2012)](https://doi.org/10.1016/j.cageo.2012.05.031).
@@ -28,7 +28,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
 
 ## Forward Calculation
 
-_Please note_: For small stepsizes, computation time and structure size increase significantly.
+_Please note_: For small stepsizes, computation time and structure size increase significantly
 
 - Precompute splitting parameters for the different model types: **`SWS_modeling_precomp_models_main.m`**
 
@@ -46,15 +46,15 @@ _Please note_: For small stepsizes, computation time and structure size increase
     - Two horizontal layers see `SWS_modeling_precomp_twolayers.m` _or_
     - One dippping layer see `SWS_modeling_precomp_dippinglayer.m`, `SWS_modeling_calc_dipping.m`
   - 4 | `modout.type`: string corresponding to the model type
-    - One horizontal layer as '**single_layer' _or_
+    - One horizontal layer as 'single_layer' _or_
     - Two horizontal layers as 'two_layers' _or_
     - One dipping layer as 'dipping'
 
 ## Comparison & Visualization
 
-_Please note_: SWS data input is expected to be in standard _SplitLab_ and/or _StackSplit_ output format (`SWS_modeling_read_data.m`).
+_Please note_: SWS data input is expected to be in standard _SplitLab_ and/or _StackSplit_ output format (`SWS_modeling_read_data.m`)
 
-- The observed SWS data is compared against all pre-computed models of all model types: **`SWS_modeling_calc_misfit.m`**.
-- The root mean square error (RMSE) between the observed and pre-computed splitting parameters is calculated.
-- Vizualization of the modeling results (`SWS_modeling_plot_results.m`, `SWS_modeling_plot_stereo_synthetic.m`).
-- Take the minimum RMSE or something else metric to get the model which best describes the observed SWS data.
+- The observed SWS data is compared against all pre-computed models of all model types: **`SWS_modeling_calc_misfit.m`**
+- The root mean square error (RMSE) between the observed and pre-computed splitting parameters is calculated
+- Vizualization of the modeling results (`SWS_modeling_plot_results.m`, `SWS_modeling_plot_stereo_synthetic.m`)
+- Take the minimum RMSE or something else metric to get the model which best describes the observed SWS data
