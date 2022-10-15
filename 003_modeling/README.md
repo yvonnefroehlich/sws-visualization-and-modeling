@@ -14,7 +14,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   - Deep Learning Toolbox
   - Mapping Toolbox
 
-- _MATLAB Seismic Anisotropy Toolbox_ (MSAT) by [Walker & Wookey (2012)](https://doi.org/10.1016/j.cageo.2012.05.031)
+- _MATLAB Seismic Anisotropy Toolkit_ (MSAT) by [Walker & Wookey (2012)](https://doi.org/10.1016/j.cageo.2012.05.031)
   - Download it from (last access 2022/07/05)
     - https://www1.gly.bris.ac.uk/MSAT/ _or_
     - https://github.com/andreww/MSAT
