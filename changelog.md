@@ -5,7 +5,7 @@
 
 Changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund)
 - [001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)
-   - Support of _rotation-correlation method_ ([**_Bowman & Ando 1987_**]( https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.))
+   - Support of _rotation-correlation method_ ([**_Bowman & Ando 1987_**](https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.))
    - Support of _eigenvalue method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
    - Support of _splits_ of _simultaneous inversion of multiple waveforms_ ([**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
    - (Fix colormap set up for _Scientific Colour maps_ ([**_Crameri 2021_**](http://doi.org/10.5281/zenodo.1243862)) ([PR](https://github.com/michaelgrund/sws_tools/pull/4) opened, will be fixed))
