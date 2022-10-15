@@ -99,8 +99,6 @@ leg_symb_simw_null = 'square';
 % % -> only stack splits in NE quadrant
 % leg_symb_stack_split = 'diamond';
 
-% % Fröhlich et al. 2022 Geophysical Journal International
-% % -> single splits and stack splits
 leg_symb_stack_split = 'square';
 
 % TickLabel position of RMSE colorbar
@@ -884,7 +882,6 @@ for mt = 1:1:length(modtyp_str_all)
         h_leg_split.Position = [0.195 0.360 0.065 0.1];
     else
         % BAZ range to plot 0 deg to 360 deg
-        % -> Fröhlich et al. 2022 Geophysical Journal International
         h_leg_split.Position = [0.695 0.610 0.065 0.1];
     end
 
@@ -992,8 +989,6 @@ end
 % axis
 xlim([0,length(models_sort)])
 ylim([0,max([models_sort.RMSE])])
-% % Fröhlich et al. 2022 Geophysical Journal International
-% ylim([0, 0.7])
 xlabel('worst \leftarrow sorted models \rightarrow best', 'fontsize',fontsize)
 ylabel(cb_label_rmse, 'fontsize',fontsize)
 set(gca, 'XDir','reverse')
@@ -1113,35 +1108,6 @@ tick_T1_label = cell(plot_mod_max);
 fig_H1 = figure('visible','off'); % one layer
     box on, grid on
     hold on
-
-%--------------------------------------------------------------------------
-%   % plot polyon around cluster
-%   % Fröhlich et al. 2022 Geophysical Journal International
-%
-%     % TMO44 - paper URG
-%     if strcmp(staname_split,"TMO44")==1 && ...
-%        strcmp(data_used,"multiWS")==1 &&
-%
-%         x_pol_1 = [0.90, 1.25, 1.75, 2.10, 2.10, 1.75, 1.50, 0.90];
-%         y_pol_1 = [  35,   30,   30,   40,   50,   60,   65,  55];
-%         pol_1 = polyshape(x_pol_1,y_pol_1);
-%
-%         plot(pol_1, 'FaceColor','g', 'EdgeColor','k', 'Facealpha',0.25)
-%
-%         disp('TMO07polyon')
-%     end
-%     % TMO07 - paper URG
-%     if strcmp(staname_split,"TMO07")==1 && ...
-%        strcmp(data_used,"multiWS")==1 &&
-%
-%         x_pol_1 = [0.90, 1.25, 1.50, 1.85, 1.85, 1.50, 1.25, 0.90];
-%         y_pol_1 = [  45,   40,   40,   45,   70,   75,   75,   70];
-%         pol_1 = polyshape(x_pol_1,y_pol_1);
-%
-%         plot(pol_1, 'FaceColor','g', 'EdgeColor','k', 'Facealpha',0.25)
-%
-%         disp('TMO44polyon')
-%     end
 
 %--------------------------------------------------------------------------
     % RMSE color-coding
@@ -1277,7 +1243,6 @@ fig_H2 = figure('visible','off'); % two layers
 %--------------------------------------------------------------------------
 %   % plot polyons around clusters
 %   % Ritter et al. 2022 Journal of Seismology
-%   % Fröhlich et al. 2022 Geophysical Journal International
 
 %     % BFO
 %     if strcmp(staname_split,"BFO")==1 && ...
@@ -1302,59 +1267,11 @@ fig_H2 = figure('visible','off'); % two layers
 %
 %         disp('BFOpolyons')
 %     end
-%     % STU
-%     if strcmp(staname_split,"STU")==1 && ...
-%        modrange_low==0 && ...
-%        strcmp(data_used,"multiWS")==1
-%
-%         x_pol_1 = [0.10  0.10  0.60  1.00  0.40  0.40];
-%         y_pol_1 = [ -90   -60   -30   -30   -60   -90];
-%         pol_1 = polyshape(x_pol_1,y_pol_1);
-%
-%         x_pol_2 = [0.40 0.10 0.10 0.40 1.70 1.70 2.10 2.10 0.80 0.40 0.40 0.60 0.60];
-%         y_pol_2 = [ -25  -10   25   60   60   65   65   50   50   30   -5  -15  -25];
-%         pol_2 = polyshape(x_pol_2,y_pol_2);
-%
-%         x_pol_3 = [0.50 0.15 0.15 0.40 0.40 0.80 1.70 1.70];
-%         y_pol_3 = [  60   80   90   90   85   70   70   60];
-%         pol_3 = polyshape(x_pol_3,y_pol_3);
-%
-%         plot(pol_1, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
-%         plot(pol_2, 'FaceColor','b', 'EdgeColor','k', 'Facealpha',0.25)
-%         plot(pol_3, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
-%
-%         disp('STUpolyons')
-%     end
-%     % ECH
-%     if strcmp(staname_split,"ECH")==1 && ...
-%        modrange_low==0 && ...
-%        strcmp(data_used,"multiWS")==1
-%
-%         x_pol_1 = [0.40 0.40 0.20 0.20 0.60 0.60 1.10 1.10 1.60 1.60 2.05 2.05];
-%         y_pol_1 = [ -90  -60  -30  -10  -10  -75  -75  -80  -80  -85  -85  -90];
-%         pol_1 = polyshape(x_pol_1,y_pol_1);
-%
-%         x_pol_2 = [0.20 0.20 0.40 1.00 1.20 1.80 1.80 1.15 0.80 0.50 0.50 0.80 0.80];
-%         y_pol_2 = [   0   77   85   85   90   90   80   80   75   55   30   15    0] ;
-%         pol_2 = polyshape(x_pol_2,y_pol_2);
-%
-%         plot(pol_1, 'FaceColor','b', 'EdgeColor','k', 'Facealpha',0.25)
-%         plot(pol_2, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
-%
-%         disp('ECHpolyons')
-%     end
 
 %--------------------------------------------------------------------------
     % RMSE color-coding
     if cmap_rms_ind~=0
         for ii = plot_mod_max:-1:1
-
-%             % Fröhlich et al. 2022 Geophysical Journal International
-%             if strcmp(staname_split,"ECH") && ...
-%                strcmp(data_used,"multiWS") && phi_H2(2,ii)==90
-%                 phi_H2(2,ii) = -90;
-%                 disp('switch value')
-%             end
 
             plot(dt_H2(1,ii),phi_H2(1,ii), 's', ...
                  'MarkerSize',mymarkersize_symbols, ...

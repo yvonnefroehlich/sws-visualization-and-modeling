@@ -363,7 +363,7 @@ dir_res_stack = dir(datastack);
 dir_res_simw = dir(datasimw);
 
 % use only good & fair qualities
-% no query from function >>> SWS_modelling_read_data <<< appears
+% no query from function >>> SWS_modeling_read_data <<< appears
 use_QUAL = 2; % adjust if you want other qualities
 
 [RES_split, RES_null, RES_stack, RES_simw_split, RES_simw_null] = ...
