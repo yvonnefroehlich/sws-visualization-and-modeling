@@ -103,6 +103,8 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 
 ## Releases
 
+|release| |
+|---|---|
 | dev | reflects [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main) |
 | v1.0 | related to [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w) |
 
