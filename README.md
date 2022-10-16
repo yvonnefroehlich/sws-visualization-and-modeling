@@ -70,7 +70,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   - Joint fitting of fast polarization direction and delay time, separate fitting of the fast polarization direction
 - **Result visualization**
   - Backazimuthal variation of the splitting parameters (forward calculation and observation)
-  - Model type distribution (histogram)
+  - Model type distribution (bar plot)
   - Model parameter distribution (scatter plot)
   - Stereoplot of synthetic splitting parameters (polar plot)
 - **Result data**
