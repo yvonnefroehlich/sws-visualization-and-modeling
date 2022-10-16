@@ -3,7 +3,7 @@
 
 ## Release v1.0 (2022/10/16)
 
-Changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund)
+Changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund):
 - [001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)
    - Support of _rotation-correlation method_ ([**_Bowman & Ando 1987_**](https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.))
    - Support of _eigenvalue method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
