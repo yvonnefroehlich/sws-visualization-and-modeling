@@ -1,4 +1,4 @@
-# Visualization and Modeling of Shear Wave Splitting
+# Visualization and Modeling of Shear Wave Splitting [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157)
 
 _MATLAB_ functions for visualization and modeling of shear wave splitting observations:
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
@@ -13,7 +13,7 @@ If you make use of this material, please acknowledge the relating publications i
 - [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388). Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy. *Geophysical Journal International*, 223, 1525-1547. https://doi.org/10.1093/gji/ggaa388.
 - [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
 
-Furthermore you can cite the Zenodo DOI.
+Furthermore you can cite the [Zenodo DOI](https://doi.org/10.5281/zenodo.7213157) given above.
 
 
 ## Content
@@ -103,10 +103,10 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 
 ## Releases
 
-|release|publication|
-|---|---|
-|dev |reflects [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main)|
-|v1.0|related to [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|
+|release|publication|Zenodo DOI|
+|---|---|---|
+|dev |reflects [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main)| |
+|v1.0|related to [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157)|
 
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
 
