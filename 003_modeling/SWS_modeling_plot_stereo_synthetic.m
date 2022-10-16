@@ -92,7 +92,7 @@ color_sta = [255 90 0]./256; % orange
 % schematic sketches
 lengthbar_lay = 0.145;
 
-% Ritter et al. 2022 Journal of Seismology
+% Ritter et al. (2022) Journal of Seismology
 col_lay_upp = [255 165 079] ./256; % orange
 col_lay_low = [0.8 0.8 0.8]; % light gray
 col_lay_one = [255 165 079] ./256; % orange
