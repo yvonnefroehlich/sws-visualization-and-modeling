@@ -103,8 +103,8 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 
 ## Releases
 
-- dev   |  reflects [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main)
-- v1.0  |  related to [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)
+| dev | reflects [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main) |
+| v1.0 | related to [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w) |
 
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
 
