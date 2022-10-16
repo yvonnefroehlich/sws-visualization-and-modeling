@@ -113,9 +113,9 @@ For details of the individual releases as well as for changes and differences co
 
 ## Known Issues
 
-- Model parameter plot for one dipping layer: Not fully tested, please use with caution
 - Modeling of multi-event analysis: Only using either STACK or SIMW results is supported
-- Synthetic stereoplot for one dipping layer: Backazimuths of the predicted nulls are partly wrong
+- Model parameter distribution for one dipping layer: Under development and not fully tested
+- Synthetic stereoplot for one dipping layer: Backazimuths of predicted nulls are partly wrong
 - Synthetic stereoplot for one dipping layer: Gray arrow is partly not exactly placed in the center
 
 
