@@ -9,17 +9,11 @@ _MATLAB_ functions for visualization and modeling of shear wave splitting observ
 ## Citation
 
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
-
-<!---
-- **_Fröhlich, Yvonne, Grund, Michael & Ritter, Joachim R. R. (2022)_**. Laterally and vertically varying seismic anisotropy in the lithosphere-asthenosphere system revealed from SK(K)S splitting at neighboring sites in the Upper Rhine Graben area, Central Europe. in preparation for *Geophysical Journal International*.
--->
 - [**_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**](https://doi.org/10.1007/s10950-022-10112-w). Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures. *Journal of Seismology*. https://doi.org/10.1007/s10950-022-10112-w.
 - [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388). Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy. *Geophysical Journal International*, 223, 1525-1547. https://doi.org/10.1093/gji/ggaa388.
 - [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
 
-<!---
-Furthermore you can cite the [Zenodo Doi]() given above.
--->
+Furthermore you can cite the Zenodo DOI.
 
 
 ## Content
@@ -76,7 +70,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   - Joint fitting of fast polarization direction and delay time, separate fitting of the fast polarization direction
 - **Result visualization**
   - Backazimuthal variation of the splitting parameters (forward calculation and observation)
-  - Model type distribution (histogram)
+  - Model type distribution (bar plot)
   - Model parameter distribution (scatter plot)
   - Stereoplot of synthetic splitting parameters (polar plot)
 - **Result data**
@@ -96,8 +90,8 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
   - Mapping Toolbox
   - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker & Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
-  - Output *.txt files (_nulls_, _splits_) of _SplitLab_ versions 1.5.0 (original) or 1.2.1 (**_Porritt 2014_**)
-  - Output *.mat structure and *.txt files (STACK, SIMW) of _StackSplit_
+  - Output *.txt files (_nulls_, _splits_) of _SplitLab_ version 1.5.0 ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) or 1.2.1 (**_Porritt 2014_**)
+  - Output *.mat structure and *.txt files (STACK, SIMW) of _StackSplit_ ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015))
 - **Colormaps** (optional): Color-coding of the fast polarization direction and the root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)\
     version v2.1.3, MATLAB File Exchange, last access 2022 June 26
@@ -109,17 +103,25 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 
 ## Releases
 
-- dev ([main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main))
-<!---
-- [v1.0]()
--->
+|release|publication|
+|---|---|
+|dev |reflects [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main)|
+|v1.0|related to [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|
 
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
 
 
+## Known Issues
+
+- Modeling of multi-event analysis: Only using either STACK or SIMW results is supported
+- Model parameter distribution for one dipping layer: Under development, not fully tested
+- Synthetic stereoplot for one dipping layer: Backazimuths of predicted nulls are partly wrong
+- Synthetic stereoplot for one dipping layer: Gray arrow is partly not exactly placed in the center
+
+
 ## Contributing
 
-For bug reports, suggestions or recommendations feel free to open an issue or submit a pull request directly here on GitHub.
+For bug reports, suggestions or recommendations feel free to open an issue or submit a pull request directly here on [GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main).
 
 
 ## References

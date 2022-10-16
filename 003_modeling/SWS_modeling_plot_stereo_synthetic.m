@@ -92,7 +92,7 @@ color_sta = [255 90 0]./256; % orange
 % schematic sketches
 lengthbar_lay = 0.145;
 
-% Ritter et al. 2022 Journal of Seismology
+% Ritter et al. (2022) Journal of Seismology
 col_lay_upp = [255 165 079] ./256; % orange
 col_lay_low = [0.8 0.8 0.8]; % light gray
 col_lay_one = [255 165 079] ./256; % orange
@@ -355,7 +355,7 @@ if strcmp(modsall_sort(plotnum).mod_type,'dipping')
 % in direction of downdip-dir and perpendicular to it
 % >>> only valid for assuming the fast axis plunges with dip direction <<<
 
-    % first plot nulls in downdipdir +-180°
+    % first plot nulls in downdipdir +-180 deg
     bazi_nulls = [downdipdir downdipdir+180];
     inc_nulls = [10 10];
     for k = 1:2
@@ -364,8 +364,8 @@ if strcmp(modsall_sort(plotnum).mod_type,'dipping')
               'MarkerSize',marks, 'linewidth',linewcirc);
     end
 
-    % second find positions where bar orientation exact +-90° baz
-    % >>> for dipdir 90, 270° the nulls are not correctly shown <<<
+    % second find positions where bar orientation exact +-90 deg BAZ
+    % >>> for dipdir 90, 270 deg the nulls are not correctly shown <<<
     if downdipdir < 90
         first = azim_rounded_all + 90;
         firstmin = min(first);

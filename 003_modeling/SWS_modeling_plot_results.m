@@ -80,7 +80,7 @@ modtyp_str_all = {'All','H1','H2','T1'};
 %--------------------------------------------------------------------------
 % BAZ range to plot
 
-% % Ritter et al. 2022 Journal of Seismology
+% % Ritter et al. (2022) Journal of Seismology
 % baz2plot_start = 0;
 % baz2plot_end = 100;
 
@@ -95,7 +95,7 @@ leg_symb_single_null = 'o';
 leg_symb_simw_split = 'square';
 leg_symb_simw_null = 'square';
 
-% % Ritter et al. 2022 Journal of Seismology
+% % Ritter et al. (2022) Journal of Seismology
 % % -> only stack splits in NE quadrant
 % leg_symb_stack_split = 'diamond';
 
@@ -120,7 +120,7 @@ simwcol = [0.9290 0.6940 0.1250]; % color for simw
 
 
 %==========================================================================
-%% shift phi -90°-90° -> 0°-180°
+%% shift phi -90 deg to 90 deg -> 0 deg to 180 deg
 %==========================================================================
 % >>> adjust stations for your needs <<<
 
@@ -427,7 +427,7 @@ for mt = 1:1:length(modtyp_str_all)
     %......................................................................
     % plot RMSE values
 
-    % standard for plot backazimuth 0°-360°
+    % standard for plot backazimuth 0 deg to 360 deg
     str_rms = ['RMSE_{tot} = ' num2str(models_2plot(1).RMSE,'%4.2f'), ...
                ', RMSE_{\phi} = ' num2str(models_2plot(1).RMSE_phi,'%4.2f') '\circ', ...
                ', RMSE_{\delta{\itt}} = ' num2str(models_2plot(1).RMSE_dt,'%4.2f') ' s'];
@@ -438,18 +438,19 @@ for mt = 1:1:length(modtyp_str_all)
                'Color',colmod_bf_1, 'BackgroundColor','white', ...
                'FaceAlpha',0.7)
 
-%     % Ritter et al. 2022, Journal of Seismology
-%     % plot backazimuth 0°-110°
-%     str_rms = {['RMSE_{tot} = ' num2str(models_2plot(1).RMSE,'%4.2f')], ...
-%                ['RMSE_{\phi} = ' num2str(models_2plot(1).RMSE_phi,'%4.2f') '\circ'], ...
-%                ['RMSE_{\delta{\itt}} = ' num2str(models_2plot(1).RMSE_dt,'%4.2f') ' s']};
-%     annotation('textbox', [0.140 0.595 0 0], ...
-%                'String',str_rms, 'FitBoxToText','on', 'Margin',1, ...
-%                'HorizontalAlignment','left', ...
-%                'VerticalAlignment','bottom', ...
-%                'Color',colmod_bf_1, 'BackgroundColor','white', ...
-%                'FaceAlpha',0.7)
-
+%     % Ritter et al. (2022), Journal of Seismology
+%     % plot backazimuth 0 deg to 110 deg
+%{
+     str_rms = {['RMSE_{tot} = ' num2str(models_2plot(1).RMSE,'%4.2f')], ...
+                ['RMSE_{\phi} = ' num2str(models_2plot(1).RMSE_phi,'%4.2f') '\circ'], ...
+                ['RMSE_{\delta{\itt}} = ' num2str(models_2plot(1).RMSE_dt,'%4.2f') ' s']};
+     annotation('textbox', [0.140 0.595 0 0], ...
+                'String',str_rms, 'FitBoxToText','on', 'Margin',1, ...
+                'HorizontalAlignment','left', ...
+                'VerticalAlignment','bottom', ...
+                'Color',colmod_bf_1, 'BackgroundColor','white', ...
+                'FaceAlpha',0.7)
+%}
 
 %==========================================================================
     % subplot - panel 2 - dt
@@ -666,7 +667,7 @@ for mt = 1:1:length(modtyp_str_all)
                 end
             % multi splits = stack splits
             else
-                % Ritter et al. 2022 Journal of Seismology
+                % Ritter et al. (2022) Journal of Seismology
                 % no single splits in NE quadrant after stack,
                 % so no entry in legend for single splits
                 % and only entry for stack splits
@@ -776,7 +777,7 @@ for mt = 1:1:length(modtyp_str_all)
 
             % multi splits = stack splits
             else
-                % Ritter et al. 2022 Journal of Seismology
+                % Ritter et al. (2022) Journal of Seismology
                 % no single splits in NE quadrant after stack,
                 % so no entry in legend for single splits
                 % and only entry for stack splits
@@ -878,7 +879,7 @@ for mt = 1:1:length(modtyp_str_all)
 
     if strcmp({staname_split},'BFO') && baz2plot_end==100
         % BAZ range to plot 0 deg to 100 deg
-        % -> Ritter et al. 2022 Journal of Seismology
+        % -> Ritter et al. (2022) Journal of Seismology
         h_leg_split.Position = [0.195 0.360 0.065 0.1];
     else
         % BAZ range to plot 0 deg to 360 deg
@@ -1242,31 +1243,28 @@ fig_H2 = figure('visible','off'); % two layers
 
 %--------------------------------------------------------------------------
 %   % plot polyons around clusters
-%   % Ritter et al. 2022 Journal of Seismology
 
-%     % BFO
-%     if strcmp(staname_split,"BFO")==1 && ...
-%        modrange_upp==100 && ...
-%        strcmp(data_used,"multiWS")==1 &&
-%
-%         x_pol_1 = [0.35 0.35 0.9 1.15 1.15 0.6];
-%         y_pol_1 = [ -90  -75  -50 -50  -60 -90];
-%         pol_1 = polyshape(x_pol_1,y_pol_1);
-%
-%         x_pol_2 = [0.9 0.35 0.35 1.2 1.9 1.9 1.4 0.9 0.9 1.9 1.9 0.9];
-%         y_pol_2 = [-35  -15   25  45  45  35  35  15 -25 -25 -35 -35] ;
-%         pol_2 = polyshape(x_pol_2,y_pol_2);
-%
-%         x_pol_3 = [ 1 0.40 0.40 0.9 1.7 2.6 2.6  1];
-%         y_pol_3 = [50   70   90  90  60  60  50 50];
-%         pol_3 = polyshape(x_pol_3,y_pol_3);
-%
-%         plot(pol_1, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
-%         plot(pol_2, 'FaceColor','b', 'EdgeColor','k', 'Facealpha',0.25)
-%         plot(pol_3, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
-%
-%         disp('BFOpolyons')
-%     end
+    % Ritter et al. (2022) Journal of Seismology
+    % BFO, BAZ 30 deg to 110 deg, horiztonal tow-layer model
+%{
+   x_pol_1 = [0.35 0.35 0.9 1.15 1.15 0.6];
+   y_pol_1 = [ -90  -75  -50 -50  -60 -90];
+   pol_1 = polyshape(x_pol_1,y_pol_1);
+
+   x_pol_2 = [0.9 0.35 0.35 1.2 1.9 1.9 1.4 0.9 0.9 1.9 1.9 0.9];
+   y_pol_2 = [-35  -15   25  45  45  35  35  15 -25 -25 -35 -35] ;
+   pol_2 = polyshape(x_pol_2,y_pol_2);
+
+   x_pol_3 = [ 1 0.40 0.40 0.9 1.7 2.6 2.6  1];
+   y_pol_3 = [50   70   90  90  60  60  50 50];
+   pol_3 = polyshape(x_pol_3,y_pol_3);
+
+   plot(pol_1, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
+   plot(pol_2, 'FaceColor','b', 'EdgeColor','k', 'Facealpha',0.25)
+   plot(pol_3, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
+
+   disp('BFOpolyons')
+%}
 
 %--------------------------------------------------------------------------
     % RMSE color-coding
