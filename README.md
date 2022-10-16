@@ -13,7 +13,7 @@ If you make use of this material, please acknowledge the relating publications i
 - [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388). Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy. *Geophysical Journal International*, 223, 1525-1547. https://doi.org/10.1093/gji/ggaa388.
 - [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
 
-Furthermore you can cite the Zenodo DOI.
+Furthermore you can cite the [Zenodo DOI](https://doi.org/10.5281/zenodo.7213157) given above.
 
 
 ## Content
