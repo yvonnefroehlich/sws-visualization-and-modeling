@@ -652,7 +652,7 @@ for ii = 1:length(model_out)
         res_phi(kk,1) = abs( find_theo_phi - meas_phiSC(kk,2) );
 
         % if there is a residuum > 90, calc 180-res_phi to consider
-        % the flip from -90° to +90°
+        % the flip from -90 deg to +90 deg
         if res_phi(kk,1) > 90
             res_phi(kk,1) = 180-res_phi(kk,1);
         end

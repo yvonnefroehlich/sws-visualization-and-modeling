@@ -120,7 +120,7 @@ simwcol = [0.9290 0.6940 0.1250]; % color for simw
 
 
 %==========================================================================
-%% shift phi -90°-90° -> 0°-180°
+%% shift phi -90 deg to 90 deg -> 0 deg to 180 deg
 %==========================================================================
 % >>> adjust stations for your needs <<<
 
@@ -427,7 +427,7 @@ for mt = 1:1:length(modtyp_str_all)
     %......................................................................
     % plot RMSE values
 
-    % standard for plot backazimuth 0°-360°
+    % standard for plot backazimuth 0 deg to 360 deg
     str_rms = ['RMSE_{tot} = ' num2str(models_2plot(1).RMSE,'%4.2f'), ...
                ', RMSE_{\phi} = ' num2str(models_2plot(1).RMSE_phi,'%4.2f') '\circ', ...
                ', RMSE_{\delta{\itt}} = ' num2str(models_2plot(1).RMSE_dt,'%4.2f') ' s'];
@@ -439,7 +439,7 @@ for mt = 1:1:length(modtyp_str_all)
                'FaceAlpha',0.7)
 
 %     % Ritter et al. (2022), Journal of Seismology
-%     % plot backazimuth 0°-110°
+%     % plot backazimuth 0 deg to 110 deg
 %     str_rms = {['RMSE_{tot} = ' num2str(models_2plot(1).RMSE,'%4.2f')], ...
 %                ['RMSE_{\phi} = ' num2str(models_2plot(1).RMSE_phi,'%4.2f') '\circ'], ...
 %                ['RMSE_{\delta{\itt}} = ' num2str(models_2plot(1).RMSE_dt,'%4.2f') ' s']};
@@ -1244,7 +1244,7 @@ fig_H2 = figure('visible','off'); % two layers
 %   % plot polyons around clusters
 
 %   % Ritter et al. (2022) Journal of Seismology
-%   % BFO, BAZ 30°-110°, horiztonal tow-layer model
+%   % BFO, BAZ 30 deg to 110 deg, horiztonal tow-layer model
 
 %   x_pol_1 = [0.35 0.35 0.9 1.15 1.15 0.6];
 %   y_pol_1 = [ -90  -75  -50 -50  -60 -90];
