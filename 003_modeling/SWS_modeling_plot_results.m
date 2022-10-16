@@ -1243,26 +1243,28 @@ fig_H2 = figure('visible','off'); % two layers
 %--------------------------------------------------------------------------
 %   % plot polyons around clusters
 
-%   % Ritter et al. (2022) Journal of Seismology
-%   % BFO, BAZ 30 deg to 110 deg, horiztonal tow-layer model
+    % Ritter et al. (2022) Journal of Seismology
+    % BFO, BAZ 30 deg to 110 deg, horiztonal tow-layer model
 
-%   x_pol_1 = [0.35 0.35 0.9 1.15 1.15 0.6];
-%   y_pol_1 = [ -90  -75  -50 -50  -60 -90];
-%   pol_1 = polyshape(x_pol_1,y_pol_1);
-%
-%   x_pol_2 = [0.9 0.35 0.35 1.2 1.9 1.9 1.4 0.9 0.9 1.9 1.9 0.9];
-%   y_pol_2 = [-35  -15   25  45  45  35  35  15 -25 -25 -35 -35] ;
-%   pol_2 = polyshape(x_pol_2,y_pol_2);
-%
-%   x_pol_3 = [ 1 0.40 0.40 0.9 1.7 2.6 2.6  1];
-%   y_pol_3 = [50   70   90  90  60  60  50 50];
-%   pol_3 = polyshape(x_pol_3,y_pol_3);
-%
-%   plot(pol_1, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
-%   plot(pol_2, 'FaceColor','b', 'EdgeColor','k', 'Facealpha',0.25)
-%   plot(pol_3, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
-%
-%   disp('BFOpolyons')
+%{
+   x_pol_1 = [0.35 0.35 0.9 1.15 1.15 0.6];
+   y_pol_1 = [ -90  -75  -50 -50  -60 -90];
+   pol_1 = polyshape(x_pol_1,y_pol_1);
+
+   x_pol_2 = [0.9 0.35 0.35 1.2 1.9 1.9 1.4 0.9 0.9 1.9 1.9 0.9];
+   y_pol_2 = [-35  -15   25  45  45  35  35  15 -25 -25 -35 -35] ;
+   pol_2 = polyshape(x_pol_2,y_pol_2);
+
+   x_pol_3 = [ 1 0.40 0.40 0.9 1.7 2.6 2.6  1];
+   y_pol_3 = [50   70   90  90  60  60  50 50];
+   pol_3 = polyshape(x_pol_3,y_pol_3);
+
+   plot(pol_1, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
+   plot(pol_2, 'FaceColor','b', 'EdgeColor','k', 'Facealpha',0.25)
+   plot(pol_3, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
+
+   disp('BFOpolyons')
+%}
 
 %--------------------------------------------------------------------------
     % RMSE color-coding
