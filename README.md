@@ -106,7 +106,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 |release|publication|Zenodo DOI|
 |---|---|---|
 |dev |reflects [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main)| |
-|v1.0|related to [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157)|
+|[v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v1.0)|related to [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157)|
 
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
 
