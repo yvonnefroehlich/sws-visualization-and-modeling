@@ -121,7 +121,7 @@ For details of the individual releases as well as for changes and differences co
 
 ## Contributing
 
-For bug reports, suggestions or recommendations feel free to open an issue or submit a pull request directly here on [GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main).
+For bug reports, suggestions or recommendations feel free to [open an issue](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/issues) or [submit a pull request](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pulls) directly here on [GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main).
 
 
 ## References
