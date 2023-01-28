@@ -11,10 +11,10 @@ function [RES_split, RES_null, RES_stack, RES_simw_split, RES_simw_null] = ...
 % reads txt files with shear wave splitting (SWS) measurements (SWSM)
 % related to a single seismological recording station
 % - single-event analysis (SplitLab, SL)
-% - multi-event analysis (StackSplit, SS)
+% - multi-event analysis (StackSplit)
 % outputs structs for
 % - splits and nulls (SL)
-% - stacks and simw (SS)
+% - stacks and simw (StackSplit)
 % based on the selected qualities
 %--------------------------------------------------------------------------
 % is
