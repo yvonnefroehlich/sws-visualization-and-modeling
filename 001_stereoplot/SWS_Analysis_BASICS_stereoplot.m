@@ -447,8 +447,15 @@ end
 
 station_check = unique(station_check);
 
+% error in case SWSMs are from different stations
 if length(station_check) > 1
-    error('>>> Input files with data from different stations! <<<')
+    error('>>> Input files with data are from different stations! <<<')
+end
+
+% error in case not SWSMs of this qualities are available at this station
+if length(station_check)==0
+    error(['>>> No shear wave splitting measurements are available'], ...
+	['for the selected qualities at this station! <<<'])
 end
 
 
