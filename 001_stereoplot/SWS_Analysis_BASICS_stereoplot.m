@@ -434,15 +434,21 @@ end
 station_check = {};
 
 if ~isempty(RES_nulls)
-	station_check{end+1} = RES_nulls(1).staname;
+    for i_null=1:1:length(RES_nulls)
+	    station_check{end+1} = RES_nulls(i_null).staname;
+    end
 end
 
 if ~isempty(RES_split)
-	station_check{end+1} = RES_split(1).staname;
+    for i_split=1:1:length(RES_split)
+	    station_check{end+1} = RES_split(i_split).staname;
+    end
 end
 
 if ~isempty(RES_multi)
-	station_check{end+1} = RES_multi(1).staname;
+    for i_multi=1:1:length(RES_multi)
+	    station_check{end+1} = RES_multi(i_multi).staname;
+    end
 end
 
 station_check = unique(station_check);
