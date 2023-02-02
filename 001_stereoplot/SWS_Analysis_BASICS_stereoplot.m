@@ -5,7 +5,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %==========================================================================
 % reads (single seismological recording station related)
 % - single-event analysis (SplitLab, SL) and
-% - multi-event analysis (StackSplit, SS) result files, and
+% - multi-event analysis (StackSplit) result files, and
 % prepares and saves stereoplots as publication-ready pdf, png, eps
 %--------------------------------------------------------------------------
 % uses the provided MATLAB functions
@@ -49,9 +49,9 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %==========================================================================
 %% How to use
 %==========================================================================
-% After processing the whole data of a station with SL (and SS)
+% After processing the whole data of a station with SL (and StackSplit)
 %
-% 1) Change to the folder with the output files of SL and SS
+% 1) Change to the folder with the output files of SL and StackSplit
 %
 %    required: splitresults_*.txt, splitresultsNULL_*.txt
 %    optional: *stackresults.mat
