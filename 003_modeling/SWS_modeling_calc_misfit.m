@@ -271,7 +271,7 @@ end
 
 
 %==========================================================================
-%% color-coding of symbols in backzimuthal plot based on phi
+%% color-coding of symbols in backazimuthal plot based on phi
 %==========================================================================
 % >>> colormap phase it part of the cmocean colormaps <<<
 % Thyng et al. (2016) Oceanography 29(3):9–13.
@@ -737,7 +737,7 @@ modsall_sort_all = modsall(index);
 modsall_sort = modsall_sort_all(1:keep_mods);
 
 %--------------------------------------------------------------------------
-% seperate models based on model type
+% separate models based on model type
 countH1 = 1; % 1 to <=keep_mods_sep
 countH2 = 1;
 countT1 = 1;
@@ -806,7 +806,7 @@ writematrix(merge_T1, filename_T1, 'Delimiter','tab')
 
 
 %--------------------------------------------------------------------------
-% backazimuth variation and modle type distribution
+% backazimuth variation and model type distribution
 
 SWS_modeling_plot_results( ...
     BAZ, modsall_sort, plot_mod_max, ...
