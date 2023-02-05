@@ -681,7 +681,7 @@ end
 
 %==========================================================================
 % plot sector
-% >>> function < plot_arc3D.m > is required, based on plot.arc <<<
+% >>> function < plot_arc3D.m > is required, based on plot_arc.m <<<
 
 if exist('plot_arc3D','file')
 
