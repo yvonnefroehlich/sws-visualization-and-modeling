@@ -115,7 +115,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % - shear wave splitting method
 %    * rotation-correlation method - RC - (Bowman & Ando 1987)
 %    * energy minimization method - SC - (Silver & Chan 1991)
-%    * eigenvalue method - EV - (Sivler & Chan 1991)
+%    * eigenvalue method - EV - (Silver & Chan 1991)
 % - multi-event analysis results of StackSplit (if available)
 %    * stacking of error surfaces - STACK - (Wolfe & Silver 1998)
 %    * simultaneous inversion of multiple waveforms - SIMW - (Roy et al. 2007)
@@ -147,7 +147,7 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 % >>> adjust for your needs <<<
 
 %--------------------------------------------------------------------------
-% What annotiation should be plotted?
+% What annotation should be plotted?
 status_cb = 'yes'; %% 'yes','no' % colorbar - phi color-coding of bars
 status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
 status_sta = 'yes'; %% 'yes','no' % station name - station code
@@ -165,10 +165,10 @@ colfill = [219,219,219]./256; % light gray
 
 % Examples:
 % 1) BAZ sector between 20 and 120 deg in white, rest is gray
-%   - pass the vector when the correspondig query appears [20,120]
+%   - pass the vector when the corresponding query appears [20,120]
 %   - set above before running this function colfill = [190,190,190]./256;
 % 2) shade full background in light gray
-%   - pass the vector when the corresponding query appars[0,0.001]
+%   - pass the vector when the corresponding query appars [0,0.001]
 %   - set above before running this function colfill = [220,220,220]./256;
 
 %--------------------------------------------------------------------------
@@ -457,7 +457,7 @@ end
 %% setup variables
 %==========================================================================
 
-% (I) singel-event analysis
+% (I) single-event analysis
 % (i) splits
 if ~isempty(RES_split)
     bazi = [RES_split.baz];
@@ -1027,7 +1027,7 @@ file_name = ['Stereo_' staname '_' ...
              single_string multi_string{plot_multi+1} ...
              '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap];
 
-% MATLAB build-in function "exportgraphics" requiers MATLAB 2020a+
+% MATLAB build-in function "exportgraphics" requires MATLAB 2020a+
 % format svg not supported by MATLAB build-in function "exportgraphics",
 % transparency not supported for format png by MATLAB build-in function
 % "exportgraphics", you can try MATLAB file exchange function "export_fig"
