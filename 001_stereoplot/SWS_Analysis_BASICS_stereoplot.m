@@ -455,7 +455,7 @@ station_check = unique(station_check);
 
 % error in case SWSMs are from different stations
 if length(station_check) > 1
-    error('>>> Input files with data are from different stations! <<<')
+    error('>>> Input files with data from different stations! <<<')
 end
 
 % error in case not SWSMs of this qualities are available at this station
