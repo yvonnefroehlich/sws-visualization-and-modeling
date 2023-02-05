@@ -76,7 +76,7 @@ linewcirc = 2;
 myfontsize = 8;
 myfontsize_BAZ = 15;
 col_leg = 'k'; % black
-lengthbar_leg = 0.0710; % manually adjusted to fit bar lenght!
+lengthbar_leg = 0.0710; % manually adjusted to fit bar length!
 
 %--------------------------------------------------------------------------
 % sectors
@@ -106,7 +106,7 @@ y_upp = -0.3220;
 y_H = 0.008;
 
 % manually adjusted to have nearly the same legend size
-% for horizontal layer(s) and dippling layer
+% for horizontal layer(s) and dipping layer
 x_add = -0.01;
 
 
@@ -114,7 +114,7 @@ x_add = -0.01;
 %==========================================================================
 %% colormap for color-coding of bars based on fast axis (phi)
 %==========================================================================
-% >>> using colormap <phasemap> requieres cmocean colormaps by Thyng
+% >>> using colormap <phasemap> requires cmocean colormaps by Thyng
 % et al. (2016) be available on your system <<<
 
 %--------------------------------------------------------------------------
@@ -655,7 +655,7 @@ elseif strcmp(modsall_sort(plotnum).mod_type,'dipping')
     end
 
     %......................................................................
-    % plot schematic raypath with ~10 deg incidence angle as lines
+    % plot schematic ray path with ~10 deg incidence angle as lines
     xdirset = 0.03;
     leng = 0.140;
 
@@ -703,9 +703,8 @@ elseif strcmp(modsall_sort(plotnum).mod_type,'dipping')
     %......................................................................
     % plot dip dir as arrow
 
-    % adopted from the drawarrow function available here:
-    % https://de.mathworks.com/matlabcentral/fileexchange/55181-drawarrow
-    % Matthew Kelly (2020). drawArrow
+    % adopted from the drawArrow function available here:
+    % Matthew Kelly (2020). drawArrow.
     % https://www.mathworks.com/matlabcentral/fileexchange/55181-drawarrow,
     % MATLAB Central File Exchange. Retrieved June 22, 2020.
 
@@ -752,7 +751,7 @@ end
 
 
 %==========================================================================
-%% annodation N(north) and E(east)
+%% annotation N(north) and E(east)
 %==========================================================================
 
 axis tight
@@ -778,7 +777,7 @@ axes.SortMethod = 'ChildOrder'; % for right order of layers in eps / pdf
 %==========================================================================
 
 %--------------------------------------------------------------------------
-% check matlab version
+% check MATLAB version
 vers_out = SWS_modeling_check_matlab_version();
 
 %--------------------------------------------------------------------------
