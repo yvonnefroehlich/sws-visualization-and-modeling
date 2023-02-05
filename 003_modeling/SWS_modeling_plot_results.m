@@ -384,7 +384,7 @@ for mt = 1:1:length(modtyp_str_all)
     end
 
     %......................................................................
-	% position of label (c); later used for model pararameter plot
+	% position of label (c); later used for model parameter plot
 	if cmap_rms_ind==0 % no RMSE color-coding
 	    pos_label_c = [0.165 0.892 0 0]; % [x_begin y_begin length height]
     elseif cmap_rms_ind~=0 % RMSE color-coding
@@ -1242,10 +1242,10 @@ fig_H2 = figure('visible','off'); % two layers
     hold on
 
 %--------------------------------------------------------------------------
-%   % plot polyons around clusters
+%   % plot polygons around clusters
 
     % Ritter et al. (2022) Journal of Seismology
-    % BFO, BAZ 30 deg to 110 deg, horiztonal tow-layer model
+    % BFO, BAZ 30 deg to 110 deg, horizontal two-layer model
 %{
    x_pol_1 = [0.35 0.35 0.9 1.15 1.15 0.6];
    y_pol_1 = [ -90  -75  -50 -50  -60 -90];
