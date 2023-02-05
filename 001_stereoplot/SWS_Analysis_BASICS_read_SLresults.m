@@ -102,7 +102,7 @@ else
 end
 
 %--------------------------------------------------------------------------
-% read input files considering choosen quality
+% read input files considering chosen quality
 if isempty(dir_res_split)
    disp('>>> No file with SPLIT results found! <<<')
    RES_split = [];
@@ -123,7 +123,7 @@ else
 end
 
 %--------------------------------------------------------------------------
-% display station and found SWSMs with choosen quality
+% display station and found SWSMs with chosen quality
 if ~isempty(RES_split)
     disp(' ')
     disp(['>>> This is station ' RES_split(1).staname ' <<<'])
@@ -276,7 +276,7 @@ res_split_depth = res_split;
 % res_split_depth = sel_ev_phase;
 
 %--------------------------------------------------------------------------
-% observation typ
+% observation type
 % 'No' equals split or non-null, 'Yes' equals null
 
 % sel_ev_phase = [];
