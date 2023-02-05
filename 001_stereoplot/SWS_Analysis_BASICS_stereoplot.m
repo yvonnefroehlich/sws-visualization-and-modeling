@@ -168,7 +168,7 @@ colfill = [219,219,219]./256; % light gray
 %   - pass the vector when the corresponding query appears [20,120]
 %   - set above before running this function colfill = [190,190,190]./256;
 % 2) shade full background in light gray
-%   - pass the vector when the corresponding query appars [0,0.001]
+%   - pass the vector when the corresponding query appears [0,0.001]
 %   - set above before running this function colfill = [220,220,220]./256;
 
 %--------------------------------------------------------------------------
