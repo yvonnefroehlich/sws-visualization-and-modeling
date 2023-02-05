@@ -210,7 +210,7 @@ end
 %==========================================================================
 %% Figure I - BAZ variation of splitting parameters
 %==========================================================================
-% model types together and model types seperated
+% model types together and model types separated
 
 for mt = 1:1:length(modtyp_str_all)
 
