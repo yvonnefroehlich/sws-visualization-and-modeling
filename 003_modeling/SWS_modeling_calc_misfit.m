@@ -316,11 +316,10 @@ end
 % default values
 if isempty(cmap_phi_ind)
     cmap_phi_ind = 0; % no
-    cmap_phi_str = '';
-    cbar_phi_ind = 0; % no
-    cbar_phi_str = '_';
     cmap_phi = "";
     cmap_phi_str = 'phino';
+    cbar_phi_ind = 0; % no
+    cbar_phi_str = '_';
 end
 
 
