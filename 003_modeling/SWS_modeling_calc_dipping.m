@@ -63,7 +63,7 @@ L1_faln = 0.3; % fraction aligned
 
 % 0 is down dip direction (perp. to strike)
 % note that this is the seismic backazimuth + 180 deg
-% wave is assumed to be polarised in this direction
+% wave is assumed to be polarized in this direction
 azi = [min_azi:del_azi:max_azi] -downdipdir-180;
 
 % since here azi=0 deg is downdip direction (fast axis points in direction

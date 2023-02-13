@@ -68,7 +68,7 @@ phi2 = (-90+stepphi):stepphi:90; % deg; -90 equivalent to 90
 dt2 = stepdt:stepdt:4; % in sec; avoid dt=0 sec
 
 %--------------------------------------------------------------------------
-% get all possible combinantions
+% get all possible combinations
 comb_vecs = combvec(phi1,phi2,dt1,dt2);
 
 disp(' ')
@@ -129,7 +129,7 @@ end % EOmF
 function [phi_eff_out, dt_eff_out] = nest(dfreq, BAZ, modphis, moddts)
 
     parfor (jj = 1:length(BAZ), 8) % parallel computing to speed up calc.
-    %for jj = 1:length(BAZ) % uncomment, if problems occur with parfoor
+    %for jj = 1:length(BAZ) % uncomment, if problems occur with parfor
         [phi_eff_out(jj), dt_eff_out(jj)] = ...
          MS_effective_splitting_N( ...
             dfreq, BAZ(jj), modphis', moddts', 'mode','S&S' );

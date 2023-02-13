@@ -115,7 +115,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % - shear wave splitting method
 %    * rotation-correlation method - RC - (Bowman & Ando 1987)
 %    * energy minimization method - SC - (Silver & Chan 1991)
-%    * eigenvalue method - EV - (Sivler & Chan 1991)
+%    * eigenvalue method - EV - (Silver & Chan 1991)
 % - multi-event analysis results of StackSplit (if available)
 %    * stacking of error surfaces - STACK - (Wolfe & Silver 1998)
 %    * simultaneous inversion of multiple waveforms - SIMW - (Roy et al. 2007)
@@ -147,7 +147,7 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 % >>> adjust for your needs <<<
 
 %--------------------------------------------------------------------------
-% What annotiation should be plotted?
+% What annotation should be plotted?
 status_cb = 'yes'; %% 'yes','no' % colorbar - phi color-coding of bars
 status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
 status_sta = 'yes'; %% 'yes','no' % station name - station code
@@ -165,10 +165,10 @@ colfill = [219,219,219]./256; % light gray
 
 % Examples:
 % 1) BAZ sector between 20 and 120 deg in white, rest is gray
-%   - pass the vector when the correspondig query appears [20,120]
+%   - pass the vector when the corresponding query appears [20,120]
 %   - set above before running this function colfill = [190,190,190]./256;
 % 2) shade full background in light gray
-%   - pass the vector when the corresponding query appars[0,0.001]
+%   - pass the vector when the corresponding query appears [0,0.001]
 %   - set above before running this function colfill = [220,220,220]./256;
 
 %--------------------------------------------------------------------------
@@ -199,7 +199,7 @@ nullcol = [0.8500 0.3250 0.0980]; % red-orange
 
 
 %==========================================================================
-%% NOT changebale settings
+%% NOT changeable settings
 %==========================================================================
 
 % horizontal position of legends
@@ -457,7 +457,7 @@ end
 %% setup variables
 %==========================================================================
 
-% (I) singel-event analysis
+% (I) single-event analysis
 % (i) splits
 if ~isempty(RES_split)
     bazi = [RES_split.baz];
@@ -565,9 +565,9 @@ end
 %% make query for sector plotting
 %==========================================================================
 disp(' ')
-plotsector = input(['Plot sector in backzimuth range? \n ' ...
-                    '   Plot no sector: Press "Enter" (default is used) \n ' ...
-                    '   Plot a sector: Pass a vector, e. g. [0,210]    | ']);
+plotsector = input(['Plot sector in backazimuth range? \n ' ...
+                    '   Plot no sector: Press "Enter" (Default is used) \n ' ...
+                    '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
 
 if ~isempty(plotsector)
     if length(plotsector)==2
@@ -588,7 +588,7 @@ end
 %% make query for location of annotation of radial axis
 %==========================================================================
 disp(' ')
-plotannot = input(['Annotate radial scale (default is SE)? \n' ...
+plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
                    '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
 
 
@@ -681,7 +681,7 @@ end
 
 %==========================================================================
 % plot sector
-% >>> function < plot_arc3D.m > is requiered, based on plot.arc <<<
+% >>> function < plot_arc3D.m > is required, based on plot_arc.m <<<
 
 if exist('plot_arc3D','file')
 
@@ -1027,12 +1027,12 @@ file_name = ['Stereo_' staname '_' ...
              single_string multi_string{plot_multi+1} ...
              '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap];
 
-% Matlab buld-in function "exportgraphics" requiers MATLAB 2020a+
-% format svg not supported by Matlab buld-in function "exportgraphics",
-% transparency not supported for format png by Matlab buld-in function
-% "exportgraphics", you can try Matlab file exhange function "export_fig"
+% MATLAB build-in function "exportgraphics" requires MATLAB 2020a+
+% format svg not supported by MATLAB build-in function "exportgraphics",
+% transparency not supported for format png by MATLAB build-in function
+% "exportgraphics", you can try MATLAB file exchange function "export_fig"
 % Yair Altman (2021). Retrieved August 25, 2021.
-% Matlab file exchange: https://de.mathworks.com/matlabcentral/fileexchange/23629-export_fig
+% MATLAB file exchange: https://de.mathworks.com/matlabcentral/fileexchange/23629-export_fig
 % GitHub: https://github.com/altmany/export_fig/releases/tag/v3.15
 
 if vers==2 % MATLAB R2020a and higher

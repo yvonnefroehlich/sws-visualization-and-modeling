@@ -210,7 +210,7 @@ end
 %==========================================================================
 %% Figure I - BAZ variation of splitting parameters
 %==========================================================================
-% model types together and model types spereated
+% model types together and model types separated
 
 for mt = 1:1:length(modtyp_str_all)
 
@@ -264,7 +264,7 @@ for mt = 1:1:length(modtyp_str_all)
              plot(BAZ, models_2plot(ii).phi_eff, ...
                   'linewidth',lw_mod, 'color',cmap_rms_sel(ii,:))
         end
-        % highligth best-fit model i. e. #1
+        % highlight best-fit model i. e. #1
         plot(BAZ, models_2plot(1).phi_eff, ...
              'linewidth',lw_mod, 'color',colmod_bf_1)
     elseif cmap_rms_ind==0
@@ -273,7 +273,7 @@ for mt = 1:1:length(modtyp_str_all)
              plot(BAZ, models_2plot(ii).phi_eff, ...
                   'linewidth',lw_mod, 'color',colmod_bf_2max)
         end
-        % highligth best-fit model i. e. #1
+        % highlight best-fit model i. e. #1
         plot(BAZ, models_2plot(1).phi_eff, ...
              'linewidth',lw_mod, 'color',colmod_bf_1)
     end
@@ -384,7 +384,7 @@ for mt = 1:1:length(modtyp_str_all)
     end
 
     %......................................................................
-	% position of label (c); later used for model pararameter plot
+	% position of label (c); later used for model parameter plot
 	if cmap_rms_ind==0 % no RMSE color-coding
 	    pos_label_c = [0.165 0.892 0 0]; % [x_begin y_begin length height]
     elseif cmap_rms_ind~=0 % RMSE color-coding
@@ -488,7 +488,7 @@ for mt = 1:1:length(modtyp_str_all)
              plot(BAZ, models_2plot(ii).dt_eff, ...
                   'linewidth',lw_mod, 'color',cmap_rms_sel(ii,:))
         end
-        % highligth best-fit model
+        % highlight best-fit model
         plot(BAZ, models_2plot(1).dt_eff, ...
              'linewidth',lw_mod, 'color',colmod_bf_1)
     elseif cmap_rms_ind==0
@@ -503,7 +503,7 @@ for mt = 1:1:length(modtyp_str_all)
 
     %......................................................................
     % plot measured values
-    % singel splits and stack splits or simw splits
+    % single splits and stack splits or simw splits
     for FF = 1:1:sizeSC
         if cmap_phi_ind==0 % no color-coding based on phi
             %h2(FF) =
@@ -887,11 +887,11 @@ for mt = 1:1:length(modtyp_str_all)
     end
 
     %......................................................................
-    % distance symbole to text, default [30,30]
+    % distance symbol to text, default [30,30]
     h_leg_split.ItemTokenSize(1) = 20;
 
     %......................................................................
-    % (semi-)trancparency of bakground color of legend
+    % (semi-)transparency of background color of legend
     % https://de.mathworks.com/matlabcentral/answers/320127-setting-transparancy-of-legend
     % last access 2021 Aug 09
     h_leg_split.BoxFace.ColorType = 'truecoloralpha';
@@ -1027,7 +1027,7 @@ h_leg_distri = legend([ll1,ll2,ll3], ...
 	 '1 horizontal layer (H1)'}, ...
 	 'Location','southwest');
 
-% distance symbole to text, default [30,30]
+% distance symbol to text, default [30,30]
 h_leg_distri.ItemTokenSize(1) = 20;
 
 % (semi-)trancparency of bakground color of legend
@@ -1091,7 +1091,7 @@ end
 
 
 %==========================================================================
-%% Figure III - model parameter distribution of model types seperatly
+%% Figure III - model parameter distribution of model types separately
 %==========================================================================
 
 tick_label_step = 1;
@@ -1151,7 +1151,7 @@ fig_H1 = figure('visible','off'); % one layer
         colormap(cmap_rms_sel)
         caxis([0 plot_mod_max])
 
-        % highligth best-fit model
+        % highlight best-fit model
         plot(dt_H1(1),phi_H1(1), 'o', ...
              'MarkerSize',mymarkersize_symbols/2, ...
              'LineWidth',mylinewidth_symbols, ...
@@ -1164,7 +1164,7 @@ fig_H1 = figure('visible','off'); % one layer
              'MarkerSize',mymarkersize_symbols, ...
              'LineWidth',mylinewidth_symbols, ...
              'color',colmod_bf_2max)
-        % highligth best-fit model
+        % highlight best-fit model
         plot(dt_H1(1),phi_H1(1), 'o', ...
              'MarkerSize',mymarkersize_symbols, ...
              'LineWidth',mylinewidth_symbols, ...
@@ -1242,10 +1242,10 @@ fig_H2 = figure('visible','off'); % two layers
     hold on
 
 %--------------------------------------------------------------------------
-%   % plot polyons around clusters
+%   % plot polygons around clusters
 
     % Ritter et al. (2022) Journal of Seismology
-    % BFO, BAZ 30 deg to 110 deg, horiztonal tow-layer model
+    % BFO, BAZ 30 deg to 110 deg, horizontal two-layer model
 %{
    x_pol_1 = [0.35 0.35 0.9 1.15 1.15 0.6];
    y_pol_1 = [ -90  -75  -50 -50  -60 -90];
@@ -1313,7 +1313,7 @@ fig_H2 = figure('visible','off'); % two layers
         colormap(cmap_rms_sel)
         caxis([0 plot_mod_max])
 
-        % highligth best-fit model
+        % highlight best-fit model
         plot(dt_H2(1,1),phi_H2(1,1), 's', ...
              'MarkerSize',mymarkersize_symbols/2, ...
              'LineWidth',mylinewidth_symbols, ...
@@ -1335,7 +1335,7 @@ fig_H2 = figure('visible','off'); % two layers
              'LineWidth',mylinewidth_symbols, ...
              'color',colmod_bf_2max)
 
-        % highligth best-fit model
+        % highlight best-fit model
         plot(dt_H2(1,1),phi_H2(1,1), 's', ...
              'MarkerSize',mymarkersize_symbols, ...
              'LineWidth',mylinewidth_symbols, ...
@@ -1397,7 +1397,7 @@ fig_H2 = figure('visible','off'); % two layers
                         'Location','southeast', ...
                         'fontsize',fontsize_RMSE);
 
-    % distance symbole to text, default [30,30]
+    % distance symbol to text, default [30,30]
     h_leg_H2.ItemTokenSize(1) = 20;
 
 %--------------------------------------------------------------------------
@@ -1475,7 +1475,7 @@ fig_T1 = figure('visible','off'); % one dipping layer
         colormap(cmap_rms_sel)
         caxis([0 plot_mod_max])
 
-        % highligth best-fit model
+        % highlight best-fit model
         plot(downdipdir_T1(1),dip_T1(1), 'o', ...
              'MarkerSize',mymarkersize_symbols/2, ...
              'LineWidth',mylinewidth_symbols, ...
@@ -1489,7 +1489,7 @@ fig_T1 = figure('visible','off'); % one dipping layer
              'LineWidth',mylinewidth_symbols, ...
              'color',colmod_bf_2max)
 
-        % highligth best-fit model
+        % highlight best-fit model
         plot(downdipdir_T1(1),dip_T1(1), 'o', ...
              'MarkerSize',mymarkersize_symbols, ...
              'LineWidth',mylinewidth_symbols, ...
