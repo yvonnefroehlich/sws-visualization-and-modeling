@@ -237,7 +237,9 @@ for mt = 1:1:length(modtyp_str_all)
 
     %......................................................................
     % plot model range only if not full range is used
-    if modrange_low~=0 && modrange_upp~=360
+    if (modrange_low~=0 && modrange_upp~=360) || ...
+       (modrange_low==0 && modrange_upp~=360) || ...
+       (modrange_low~=0 && modrange_upp==360)
 
         % not considered BAZ range in background gray
         xdir = [0 0 modrange_low modrange_low];
@@ -460,7 +462,9 @@ for mt = 1:1:length(modtyp_str_all)
 
     %......................................................................
      % plot model range only if not full range is used
-    if modrange_low~=0 && modrange_upp~=360
+    if (modrange_low~=0 && modrange_upp~=360) || ...
+       (modrange_low==0 && modrange_upp~=360) || ...
+       (modrange_low~=0 && modrange_upp==360)
 
         % not considered BAZ range in background gray
         xdir = [0 0 modrange_low modrange_low];
