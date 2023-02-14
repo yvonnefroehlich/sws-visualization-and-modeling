@@ -382,8 +382,8 @@ if strcmp(modsall_sort(plotnum).mod_type,'dipping')
         second = azim_rounded_all + 90;
         secondmax = min(second);
     elseif downdipdir > 180 && downdipdir < 270
-        first = azim_rounded_all(azim_rounded_all<0) -90; % original, unclear
-        %first = azim_rounded_all(azim_rounded_all>0) + 90; changed
+        %first = azim_rounded_all(azim_rounded_all<0) -90; % original, unclear
+        first = azim_rounded_all(azim_rounded_all>0) + 90; % changed YF
         firstmin = max(first);
         second = azim_rounded_all(azim_rounded_all>0) - 90;
         secondmax = min(second);
