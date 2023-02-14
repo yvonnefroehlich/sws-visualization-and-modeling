@@ -306,7 +306,7 @@ cbar_phi_ind = input(['Add colorbar for phi (default no)?: \n' ...
                       '    [0] no  [1] yes    | ']);
 
 % set phi colorbar string for file name
-if cmap_phi_ind~=0 && cbar_phi_ind==1
+if cmap_phi_ind~=0 & cbar_phi_ind==1
     cbar_phi_str = '_cb_';
 else
     cbar_phi_str = '_';
@@ -316,7 +316,8 @@ end
 % default values
 if isempty(cmap_phi_ind)
     cmap_phi_ind = 0; % no
-    cmap_phi_str = '';
+    cmap_phi = "";
+    cmap_phi_str = 'phino';
     cbar_phi_ind = 0; % no
     cbar_phi_str = '_';
 end
