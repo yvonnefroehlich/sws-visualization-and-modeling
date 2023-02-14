@@ -19,7 +19,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %--------------------------------------------------------------------------
 % is
 % - based on: >>> stereoplot.m <<< function of SplitLab
-%   Wüstefeld et al. (2008)
+%   WÃ¼stefeld et al. (2008)
 %   https://doi.org/10.1016/j.cageo.2007.08.002
 % - created and mainly written: Michael Grund (ORCID 0000-0001-8759-2018)
 %   https://github.com/michaelgrund/sws_tools
@@ -27,9 +27,9 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %   https://doi.org/10.5445/IR/1000091425
 %   Grund & Ritter (2020) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggaa388
-% - extended and strongly modified: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
+% - extended and strongly modified: Yvonne FrÃ¶hlich (ORCID 0000-0002-8566-0619)
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
-%   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
+%   Ritter, FrÃ¶hlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %   https://doi.org/10.1007/s10950-022-10112-w
 %--------------------------------------------------------------------------
 % TERMS OF USE
@@ -97,7 +97,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %    a case-sensitive programming language colormaps containing upper-case
 %    letters are not found in the provided MATLAB structure anymore. <<<
 %
-% 4) cmocean colormaps. Thyng et al. (2016) Oceanography 29(3):9–13.
+% 4) cmocean colormaps. Thyng et al. (2016) Oceanography 29(3):9â€“13.
 %    http://dx.doi.org/10.5670/oceanog.2016.66
 %    - MATLAB: v2.02 https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps
 %    (last access 2022 June 18)
@@ -458,7 +458,7 @@ if length(station_check) > 1
     error('>>> Input files with data from different stations! <<<')
 end
 
-% error in case not SWSMs of this qualities are available at this station
+% error in case not SWSMs of the selected qualities are available at this station
 if length(station_check)==0
     error(['>>> No shear wave splitting measurements are available'], ...
 	['for the selected qualities at this station! <<<'])
