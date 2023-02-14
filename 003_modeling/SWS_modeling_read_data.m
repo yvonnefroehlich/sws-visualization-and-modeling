@@ -170,35 +170,45 @@ if isempty(RES_split)
    disp('   >>> No match for selected SINGLE SPLIT qualities!')
 else
    disp('   >>> Found SINGLE SPLIT results!')
-   stanamecheck{end+1} = RES_split(1).staname;
+   for i_split=1:1:length(RES_split)
+       stanamecheck{end+1} = RES_split(i_split).staname;
+   end
 end
 
 if isempty(RES_null)
    disp('   >>> No match for selected SINGLE NULL qualities!')
 else
    disp('   >>> Found SINGLE NULL results!')
-   stanamecheck{end+1} = RES_null(1).staname;
+   for i_null=1:1:length(RES_null)
+       stanamecheck{end+1} = RES_null(i_null).staname;
+   end
 end
 
 if isempty(RES_stack)
    disp('   >>> No STACK SPLIT results!')
 else
    disp('   >>> Found STACK SPLIT results!')
-   stanamecheck{end+1} = RES_stack(1).staname;
+   for i_stack=1:1:length(RES_stack)
+       stanamecheck{end+1} = RES_stack(i_stack).staname;
+   end
 end
 
 if isempty(RES_simw_split)
    disp('   >>> No SIMW SPLIT results!')
 else
    disp('   >>> Found SIMW SPLIT results!')
-   stanamecheck{end+1} = RES_simw_split(1).staname;
+   for i_simw_split=1:1:length(RES_simw_split)
+       stanamecheck{end+1} = RES_simw_split(i_simw_split).staname;
+   end
 end
 
 if isempty(RES_simw_null)
    disp('   >>> No SIMW NULL results!')
 else
    disp('   >>> Found SIMW NULL results!')
-   stanamecheck{end+1} = RES_simw_null(1).staname;
+   for i_simw_null=1:1:length(RES_simw_null)
+       stanamecheck{end+1} = RES_simw_null(i_simw_null).staname;
+   end
 end
 
 %--------------------------------------------------------------------------
