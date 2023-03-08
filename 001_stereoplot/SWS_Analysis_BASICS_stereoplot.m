@@ -148,11 +148,12 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 
 %--------------------------------------------------------------------------
 % What annotation should be plotted?
-status_cb = 'yes'; %% 'yes','no' % colorbar - phi color-coding of bars
-status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
-status_sta = 'yes'; %% 'yes','no' % station name - station code
-status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
+status_cb = 'no'; %% 'yes','no' % colorbar - phi color-coding of bars
+status_leg = 'no'; %% 'yes','no' % legend - null, delay time reference
+status_sta = 'no'; %% 'yes','no' % station name - station code
+status_baz = 'no'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
 
+plotannot = 0;
 %--------------------------------------------------------------------------
 % plot sector
 % default is white between 0 and 360 degrees
@@ -196,6 +197,14 @@ multicol_stack = [0 0.4470 0.7410]; % dark blue
 multicol_simw = [0.3010 0.7450 0.9330]; % light blue
 nullcol = [0.8500 0.3250 0.0980]; % red-orange
 
+%--------------------------------------------------------------------------
+% sectors paper URG - geoarrange
+sector_alpha = 0.3; % 1==opace
+sector_outl_col = 'none';
+sector_blue = [0 0.4470 0.7410]; %[204 239 252]/.256;
+sector_orange = [0.8500 0.3250 0.0980]; %[243 222 207]./256;
+sector_yellow = [0.9290 0.6940 0.1250]; %[255 242 204]./256;
+sector_green = [0.4660 0.6740 0.1880]; %[233 246 200]./256;
 
 
 %==========================================================================
@@ -367,7 +376,7 @@ end
 % make query for quality
 
 % give number 0 to 5 directly here to specify quality, then no query occurs
-[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults();
+[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults(0);
 
 % corresponding to numbers 0 to 5 in query before
 quality_string = {'all';'good';'goodfair';'fairpoor';'fair';'poor'};
@@ -380,9 +389,12 @@ end
 %--------------------------------------------------------------------------
 % make query for SWS measurement method
 
-disp(' ')
-SL_method = input(['Methode you want to plot (default is SC)? \n' ...
-                   '   [1] SC  [2] RC  [3] EV    | ']);
+% disp(' ')
+%SL_method = input(['Methode you want to plot (default is SC)? \n' ...
+%                   '   [1] SC  [2] RC  [3] EV    | ']);
+%
+
+SL_method = 2;
 
 if ~exist('SL_method','var')==1 % default
     SL_method = 1; % SC
@@ -577,11 +589,11 @@ end
 %==========================================================================
 %% make query for sector plotting
 %==========================================================================
-disp(' ')
-plotsector = input(['Plot sector in backazimuth range? \n ' ...
-                    '   Plot no sector: Press "Enter" (Default is used) \n ' ...
-                    '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
-
+%disp(' ')
+%plotsector = input(['Plot sector in backazimuth range? \n ' ...
+%                    '   Plot no sector: Press "Enter" (Default is used) \n ' ...
+%                    '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
+plotsector = [];
 if ~isempty(plotsector)
     if length(plotsector)==2
         lowlim = plotsector(1);
@@ -600,9 +612,9 @@ end
 %==========================================================================
 %% make query for location of annotation of radial axis
 %==========================================================================
-disp(' ')
-plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
-                   '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
+%disp(' ')
+%plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
+%                   '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
 
 
 
@@ -640,9 +652,10 @@ view([0 -90])
 axes = gca;
 axes.SortMethod = 'ChildOrder'; % for right order of layers in eps / pdf
 
-framem('FLinewidth',2)
-
-
+%framem('FLinewidth',2) % -> NOT noall_trans
+framem('FEdgeColor',[0.8 0.8 0.8]) % -> noall_trans 
+%framem('FFaceColor','w') % -> noall_white
+ 
 %==========================================================================
 % annotation
 L = min(abs(axis));
@@ -691,6 +704,66 @@ elseif plotannot==4 % NW
    text(-0.180,-0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
 end
 
+
+%==========================================================================
+% wedges for paper URG - geoarrange
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+% uses function <<< plot_arc >>> to plot wedge, modified
+% function is <<< plot_arc3D >>> also add a layer in 3rd dimension
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+%{
+% BFO
+if strcmp(staname,'BFO')
+%     plot_arc3D(deg2rad(60-90), deg2rad(115-90), ...
+%                0, 0, lim_sector, sector_blue, sector_outl_col, sector_alpha);
+    plot_arc3D(deg2rad(145-90), deg2rad(310-90), ...
+               0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);       
+end
+% WLS
+if strcmp(staname,'WLS')
+    plot_arc3D(deg2rad(15-90), deg2rad(55-90), ...
+               0, 0, lim_sector, sector_green, sector_outl_col, sector_alpha);
+    plot_arc3D(deg2rad(55-90), deg2rad(100-90), ...
+               0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
+    plot_arc3D(deg2rad(190-90), deg2rad(280-90), ...
+               0, 0, lim_sector, sector_orange, sector_outl_col, sector_alpha);
+end
+% STU
+if strcmp(staname,'STU')
+    plot_arc3D(deg2rad(0-90), deg2rad(115-90), ...
+               0, 0, lim_sector, sector_green, sector_outl_col, sector_alpha);
+    plot_arc3D(deg2rad(220-90), deg2rad(280-90), ...
+               0, 0, lim_sector, sector_blue, sector_outl_col, sector_alpha);
+%     plot_arc3D(deg2rad(220-90), deg2rad(255-90), ...
+%                0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
+%     plot_arc3D(deg2rad(255-90), deg2rad(280-90), ...
+%                0, 0, lim_sector, sector_blue, sector_outl_col, sector_alpha);
+end
+% ECH
+if strcmp(staname,'ECH')
+    plot_arc3D(deg2rad(15-90), deg2rad(55-90), ...
+               0, 0, lim_sector, sector_green, sector_outl_col, sector_alpha);
+    plot_arc3D(deg2rad(55-90), deg2rad(80-90), ...
+               0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
+    plot_arc3D(deg2rad(190-90), deg2rad(270-90), ...
+               0, 0, lim_sector, sector_orange, sector_outl_col, sector_alpha);
+end
+% TMO44
+if strcmp(staname,'TMO44')
+    plot_arc3D(deg2rad(15-90), deg2rad(115-90), ...
+               0, 0, lim_sector, sector_green, sector_outl_col, sector_alpha);
+    plot_arc3D(deg2rad(220-90), deg2rad(280-90), ...
+               0, 0, lim_sector, sector_blue, sector_outl_col, sector_alpha);
+end
+% TMO07
+if strcmp(staname,'TMO07')
+    plot_arc3D(deg2rad(15-90), deg2rad(115-90), ...
+               0, 0, lim_sector, sector_green, sector_outl_col, sector_alpha);
+    plot_arc3D(deg2rad(180-90), deg2rad(270-90), ...
+               0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
+end
+%}
 
 %==========================================================================
 % plot sector
@@ -1034,11 +1107,41 @@ set(f_stereo, 'PaperSize',[14 14]); % set paper size
 
 %--------------------------------------------------------------------------
 file_path = [];
+
+computer = 'privat';
+if strcmp(computer,'privat')==1
+    file_path = ['C:\Users\Admin\C2\EigeneDokumente\Studium\Promotion\' ...
+        'D_Matlab\Stereoplots\' staname '\'];
+elseif strcmp(computer,'gpi')==1
+    file_path = ['/home/yfroe/Documents/D_Matlab/Stereoplots/' staname '/'];
+end
+
+% file_name = ['Stereo_' staname '_' ...
+%              quality_string{SL_qualtiy+1} '_' ...
+%              method_string{SL_method} '_' ...
+%              single_string multi_string{plot_multi+1} ...
+%              '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap];
+
 file_name = ['Stereo_' staname '_' ...
-             quality_string{SL_qualtiy+1} '_' ...
-             method_string{SL_method} '_' ...
+             quality_string{SL_qualtiy+1} '_' method_string{SL_method} '_' ...
              single_string multi_string{plot_multi+1} ...
-             '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap];
+             '_Baz' num2str(lowlim) 'to' num2str(upplim) ...
+             '_' colmap '_noall_trans']; 
+% '_' num2str(yearmin) 'to' num2str(yearmax) paper BFO
+
+% '_noall_colwedge' % paper URG - geoarrange sectors
+% '_onlyNE' % -> all & goodfair RC & SC
+% '_nocb' % -> goodfair SC BFO
+% '_noall_white', '_noall_trans' % paper URG - geoarrange ellipses, URG map
+% '_N2NN_nocbnoleg', '_N2NN_onlyNE'
+% '_SI02_nocbnoleg', '_SI02_onlyNE'
+% '_N', '_NN', '_K', '_KK' % paper URG - BFO only
+% '_LGFold', '_LFG_new' % LGF 1. Weiterbewilligung
+
+% transparency
+% >>> uncommend framem('FFaceColor','w') above <<<
+% >>> affects only box around figure <<<
+mybackgroundcolor = 'none';
 
 % MATLAB build-in function "exportgraphics" requires MATLAB 2020a+
 % format svg not supported by MATLAB build-in function "exportgraphics",
@@ -1050,11 +1153,14 @@ file_name = ['Stereo_' staname '_' ...
 
 if vers==2 % MATLAB R2020a and higher
     exportgraphics(f_stereo, [file_path file_name '.png'], ...
-                    'Resolution',360)
+                    'Resolution',360, ...
+                    'BackgroundColor',mybackgroundcolor)
     exportgraphics(f_stereo, [file_path file_name '.eps'], ...
-                    'ContentType','vector')
+                    'ContentType','vector', ...
+                    'BackgroundColor',mybackgroundcolor)
     exportgraphics(f_stereo, [file_path file_name '.pdf'], ...
-                    'ContentType','vector')
+                    'ContentType','vector', ...
+                    'BackgroundColor',mybackgroundcolor)
 else
     saveas(f_stereo, [file_path file_name '.png'])
     saveas(f_stereo, [file_path file_name '.eps'])
