@@ -149,11 +149,11 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 %--------------------------------------------------------------------------
 % What annotation should be plotted?
 status_cb = 'no'; %% 'yes','no' % colorbar - phi color-coding of bars
-status_leg = 'no'; %% 'yes','no' % legend - null, delay time reference
-status_sta = 'no'; %% 'yes','no' % station name - station code
-status_baz = 'no'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
+status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
+status_sta = 'yes'; %% 'yes','no' % station name - station code
+status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
 
-plotannot = 0;
+plotannot = [];
 %--------------------------------------------------------------------------
 % plot sector
 % default is white between 0 and 360 degrees
@@ -376,7 +376,7 @@ end
 % make query for quality
 
 % give number 0 to 5 directly here to specify quality, then no query occurs
-[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults(0);
+[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults(2);
 
 % corresponding to numbers 0 to 5 in query before
 quality_string = {'all';'good';'goodfair';'fairpoor';'fair';'poor'};
@@ -394,7 +394,7 @@ end
 %                   '   [1] SC  [2] RC  [3] EV    | ']);
 %
 
-SL_method = 2;
+SL_method = 1;
 
 if ~exist('SL_method','var')==1 % default
     SL_method = 1; % SC
@@ -605,6 +605,12 @@ if ~isempty(plotsector)
 else
     lowlim = 0;
     upplim = 360;
+    lowlim = 30;
+    upplim = 100;
+    lowlim = 180;
+    upplim = 270;
+    lowlim = 0;
+    upplim = 100;
 end
 
 
@@ -652,8 +658,8 @@ view([0 -90])
 axes = gca;
 axes.SortMethod = 'ChildOrder'; % for right order of layers in eps / pdf
 
-%framem('FLinewidth',2) % -> NOT noall_trans
-framem('FEdgeColor',[0.8 0.8 0.8]) % -> noall_trans 
+framem('FLinewidth',2) % -> NOT noall_trans
+%framem('FEdgeColor',[0.8 0.8 0.8]) % -> noall_trans 
 %framem('FFaceColor','w') % -> noall_white
  
 %==========================================================================
@@ -1108,7 +1114,7 @@ set(f_stereo, 'PaperSize',[14 14]); % set paper size
 %--------------------------------------------------------------------------
 file_path = [];
 
-computer = 'privat';
+computer = 'gpi';
 if strcmp(computer,'privat')==1
     file_path = ['C:\Users\Admin\C2\EigeneDokumente\Studium\Promotion\' ...
         'D_Matlab\Stereoplots\' staname '\'];
@@ -1126,7 +1132,7 @@ file_name = ['Stereo_' staname '_' ...
              quality_string{SL_qualtiy+1} '_' method_string{SL_method} '_' ...
              single_string multi_string{plot_multi+1} ...
              '_Baz' num2str(lowlim) 'to' num2str(upplim) ...
-             '_' colmap '_noall_trans']; 
+             '_' colmap '_nocb']; 
 % '_' num2str(yearmin) 'to' num2str(yearmax) paper BFO
 
 % '_noall_colwedge' % paper URG - geoarrange sectors
