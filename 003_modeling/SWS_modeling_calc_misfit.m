@@ -240,9 +240,10 @@ end
 
 %--------------------------------------------------------------------------
 % make query use phi color-coding and which colormap
-disp(' ')
-cmap_rms_ind = input(['Color-coding based on RMSE (default no)?: \n' ...
-                      '    [0] no  [1] gray  [2] grayC    | ']);
+% disp(' ')
+% cmap_rms_ind = input(['Color-coding based on RMSE (default no)?: \n' ...
+%                       '    [0] no  [1] gray  [2] grayC    | ']);
+cmap_rms_ind = 2;
 
 % warning if colormap name contains upper-case letters
 if cmap_rms_ind==2 % grayC
@@ -296,9 +297,10 @@ end
 
 %--------------------------------------------------------------------------
 % make query use phi color-coding and which colormap
-disp(' ')
-cmap_phi_ind = input(['Color-coding based on phi (default no)?: \n' ...
-                      '    [0] no  [1] parula(fliped)  [2] phase    | ']);
+% disp(' ')
+% cmap_phi_ind = input(['Color-coding based on phi (default no)?: \n' ...
+%                       '    [0] no  [1] parula(fliped)  [2] phase    | ']);
+cmap_phi_ind = 2;
 
 % select phi colormap and set string for file name
 if cmap_phi_ind==0
@@ -311,14 +313,15 @@ elseif cmap_phi_ind==1
 elseif cmap_phi_ind==2
     % phase of cmocean colormaps by Thyng et al. 2016
     cmap_phi = cmocean('phase', 181);
-    cmap_phi_str = 'phiphasemap';
+    cmap_phi_str = 'phiphase';
 end
 
 %--------------------------------------------------------------------------
 % make query plot phi colorbar
-disp(' ')
-cbar_phi_ind = input(['Add colorbar for phi (default no)?: \n' ...
-                      '    [0] no  [1] yes    | ']);
+% disp(' ')
+% cbar_phi_ind = input(['Add colorbar for phi (default no)?: \n' ...
+%                       '    [0] no  [1] yes    | ']);
+cbar_phi_ind = 0;
 
 % set phi colorbar string for file name
 if cmap_phi_ind~=0 & cbar_phi_ind==1
@@ -346,9 +349,10 @@ end
 %--------------------------------------------------------------------------
 % make query which fitting method
 
-disp(' ')
-whichfit = input(['Fitting method (default joint)?: \n' ...
-                  '    [1] only phi  [2] joint phi & dt   | ']);
+% disp(' ')
+% whichfit = input(['Fitting method (default joint)?: \n' ...
+%                   '    [1] only phi  [2] joint phi & dt   | ']);
+whichfit = 2;
 
 %--------------------------------------------------------------------------
 % default value
@@ -400,22 +404,23 @@ phaselist_null = {RES_null.phase};
 phaselist_all = unique( horzcat(phaselist_split, phaselist_null) );
 
 %--------------------------------------------------------------------------
-% make query which phases available
-disp(' ')
-disp('Available phases: ')
-
-for ii = 1:1:length(phaselist_all)+1
-    if ii==1
-        disp('    [0] ALL')
-    else
-        disp(['    [' num2str(ii-1) '] only ' phaselist_all{ii-1}])
-    end
-end
-
-%--------------------------------------------------------------------------
-% make query which phases to use
-wphases = input(['Which phases to use ' ...
-                 '(pass a number from the list)?    | ']);
+% % make query which phases available
+% disp(' ')
+% disp('Available phases: ')
+% 
+% for ii = 1:1:length(phaselist_all)+1
+%     if ii==1
+%         disp('    [0] ALL')
+%     else
+%         disp(['    [' num2str(ii-1) '] only ' phaselist_all{ii-1}])
+%     end
+% end
+% 
+% %--------------------------------------------------------------------------
+% % make query which phases to use
+% wphases = input(['Which phases to use ' ...
+%                  '(pass a number from the list)?    | ']);
+wphases = 0;
 
 %--------------------------------------------------------------------------
 % default value

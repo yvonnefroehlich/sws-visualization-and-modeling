@@ -100,6 +100,14 @@ col_dip_sta = 'w'; % white
 col_dip_cryst = 'b'; % black
 col_dip_ray = 'r'; % red
 
+% Fröhlich et al. (2023) Geophysical Journal International
+col_lay_upp = [102 178 255] ./256; % light blue
+col_lay_low = [255 102 102] ./256; % light red
+col_lay_one = [102 205 0] ./256; % green
+col_dip_sta = [255 215 0] ./256; % GMT gold
+col_dip_cryst = 'w'; % white
+col_dip_ray = [0.4 0.4 0.4]; % dark gray
+
 % horizontal layers
 y_low = -0.2933;
 y_upp = -0.3220;
@@ -529,23 +537,23 @@ text(startval, 0.282, '2 s', ...
 %% plot colorbar (upper right corner)
 %==========================================================================
 
-cb = colorbar('location','north', ...
-              'TickDirection','out', ...
-              'TickLength',0.025);
-
-zlab = get(cb, 'xlabel');
-set(zlab,'String','   \phi_a / N\circE');
-
-caxis([-90 90])
-set(cb, 'xtick',-60:30:60);
-set(cb, 'fontsize',myfontsize)
-
-% [left bottom width height]
-if strcmp(modsall_sort(plotnum).mod_type,'dipping')
-    set(cb, 'position',[0.615, 0.915 0.220 0.020])
-else
-    set(cb, 'position',[0.625, 0.920 0.220 0.020])
-end
+% cb = colorbar('location','north', ...
+%               'TickDirection','out', ...
+%               'TickLength',0.025);
+% 
+% zlab = get(cb, 'xlabel');
+% set(zlab,'String','   \phi_a / N\circE');
+% 
+% caxis([-90 90])
+% set(cb, 'xtick',-60:30:60);
+% set(cb, 'fontsize',myfontsize)
+% 
+% % [left bottom width height]
+% if strcmp(modsall_sort(plotnum).mod_type,'dipping')
+%     set(cb, 'position',[0.615, 0.915 0.220 0.020])
+% else
+%     set(cb, 'position',[0.625, 0.920 0.220 0.020])
+% end
 
 
 
@@ -553,9 +561,9 @@ end
 %% display station name (lower left corner)
 %==========================================================================
 
-text(-0.270, 0.252, modsall_sort(1).staname, ...
-     'HorizontalAlignment','center', ...
-     'fontsize',myfontsize+8, 'color',color_sta)
+% text(-0.270, 0.252, modsall_sort(1).staname, ...
+%      'HorizontalAlignment','center', ...
+%      'fontsize',myfontsize+8, 'color',color_sta)
 
 
 
