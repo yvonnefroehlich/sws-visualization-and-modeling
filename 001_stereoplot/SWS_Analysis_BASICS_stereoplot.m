@@ -148,12 +148,12 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 
 %--------------------------------------------------------------------------
 % What annotation should be plotted?
-status_cb = 'yes'; %% 'yes','no' % colorbar - phi color-coding of bars
-status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
-status_sta = 'yes'; %% 'yes','no' % station name - station code
-status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
+status_cb = 'no'; %% 'yes','no' % colorbar - phi color-coding of bars
+status_leg = 'no'; %% 'yes','no' % legend - null, delay time reference
+status_sta = 'no'; %% 'yes','no' % station name - station code
+status_baz = 'no'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
 
-plotannot = [];
+plotannot = 0; [];
 %--------------------------------------------------------------------------
 % plot sector
 % default is white between 0 and 360 degrees
@@ -610,7 +610,7 @@ else
     lowlim = 180;
     upplim = 270;
     lowlim = 0;
-    upplim = 100;
+    upplim = 360;
 end
 
 
@@ -660,7 +660,7 @@ axes.SortMethod = 'ChildOrder'; % for right order of layers in eps / pdf
 
 framem('FLinewidth',2) % -> NOT noall_trans
 %framem('FEdgeColor',[0.8 0.8 0.8]) % -> noall_trans 
-%framem('FFaceColor','w') % -> noall_white
+framem('FFaceColor','w') % -> noall_white
  
 %==========================================================================
 % annotation
@@ -718,7 +718,7 @@ end
 % function is <<< plot_arc3D >>> also add a layer in 3rd dimension
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-%{
+% %{
 % BFO
 if strcmp(staname,'BFO')
 %     plot_arc3D(deg2rad(60-90), deg2rad(115-90), ...
@@ -730,7 +730,7 @@ end
 if strcmp(staname,'WLS')
     plot_arc3D(deg2rad(15-90), deg2rad(55-90), ...
                0, 0, lim_sector, sector_green, sector_outl_col, sector_alpha);
-    plot_arc3D(deg2rad(55-90), deg2rad(100-90), ...
+    plot_arc3D(deg2rad(55-90), deg2rad(80-90), ...
                0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
     plot_arc3D(deg2rad(190-90), deg2rad(280-90), ...
                0, 0, lim_sector, sector_orange, sector_outl_col, sector_alpha);
@@ -766,10 +766,26 @@ end
 if strcmp(staname,'TMO07')
     plot_arc3D(deg2rad(15-90), deg2rad(115-90), ...
                0, 0, lim_sector, sector_green, sector_outl_col, sector_alpha);
-    plot_arc3D(deg2rad(180-90), deg2rad(270-90), ...
-               0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
+
+%     % null anomaly - sure
+%     plot_arc3D(deg2rad(180-90), deg2rad(270-90), ...
+%                0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
+%    
+%     % null anomaly - unclear
+%     plot_arc3D(deg2rad(180-90), deg2rad(195-90), ...
+%                0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
+%     plot_arc3D(deg2rad(195-90), deg2rad(210-90), ...
+%                0, 0, lim_sector, sector_blue, sector_outl_col, sector_alpha);
+%     plot_arc3D(deg2rad(210-90), deg2rad(225-90), ...
+%                0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
+%     plot_arc3D(deg2rad(225-90), deg2rad(240-90), ...
+%                0, 0, lim_sector, sector_blue, sector_outl_col, sector_alpha);   
+%     plot_arc3D(deg2rad(240-90), deg2rad(255-90), ...
+%                0, 0, lim_sector, sector_yellow, sector_outl_col, sector_alpha);
+%     plot_arc3D(deg2rad(255-90), deg2rad(270-90), ...
+%                0, 0, lim_sector, sector_blue, sector_outl_col, sector_alpha);
 end
-%}
+% %}
 
 %==========================================================================
 % plot sector
@@ -1132,7 +1148,7 @@ file_name = ['Stereo_' staname '_' ...
              quality_string{SL_qualtiy+1} '_' method_string{SL_method} '_' ...
              single_string multi_string{plot_multi+1} ...
              '_Baz' num2str(lowlim) 'to' num2str(upplim) ...
-             '_' colmap]; 
+             '_' colmap '_noall_colwedge']; 
 % '_' num2str(yearmin) 'to' num2str(yearmax) paper BFO
 
 % '_noall_colwedge' % paper URG - geoarrange sectors
