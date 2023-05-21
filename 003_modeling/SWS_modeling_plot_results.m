@@ -1126,7 +1126,7 @@ if strcmp(staname_split,"TMO44")==1 && ...
     y_pol_1 = [  35,   30,   30,   40,   50,   60,   65,  55];
     pol_1 = polyshape(x_pol_1,y_pol_1);
 
-    plot(pol_1, 'FaceColor','g', 'EdgeColor','k', 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor','g', 'EdgeColor','g', 'LineWidth',1.5, 'Facealpha',0.25)
 
     disp('TMO44_polygon')
 end
@@ -1138,7 +1138,7 @@ if strcmp(staname_split,"TMO07")==1 && ...
     y_pol_1 = [  45,   40,   40,   45,   70,   75,   75,   70];
     pol_1 = polyshape(x_pol_1,y_pol_1);
 
-    plot(pol_1, 'FaceColor','g', 'EdgeColor','k', 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor','g', 'EdgeColor','g', 'LineWidth',1.5, 'Facealpha',0.25)
 
     disp('TMO07_polygon')
 end
@@ -1283,21 +1283,47 @@ fig_H2 = figure('visible','off'); % two layers
 if strcmp(staname_split,"BFO")==1 && ...
    strcmp(data_used,"multiWS")==1
 
-    x_pol_1 = [0.35 0.35 0.9 1.15 1.15 0.6];
-    y_pol_1 = [ -90  -75  -50 -50  -60 -90];
-    pol_1 = polyshape(x_pol_1,y_pol_1);
+    %x_pol_1 = [0.35 0.35 0.9 1.15 1.15 0.6];
+    %y_pol_1 = [ -90  -75  -50 -50  -60 -90];
+    %pol_1 = polyshape(x_pol_1,y_pol_1);
 
-    x_pol_2 = [0.9 0.35 0.35 1.2 1.9 1.9 1.4 0.9 0.9 1.9 1.9 0.9];
-    y_pol_2 = [-35  -15   25  45  45  35  35  15 -25 -25 -35 -35] ;
+    %x_pol_2 = [0.9 0.35 0.35 1.2 1.9 1.9 1.4 0.9 0.9 1.9 1.9 0.9];
+    %y_pol_2 = [-35  -15   25  45  45  35  35  15 -25 -25 -35 -35] ;
+    %pol_2 = polyshape(x_pol_2,y_pol_2);
+
+    %x_pol_3 = [ 1 0.40 0.40 0.9 1.7 2.6 2.6  1];
+    %y_pol_3 = [50   70   90  90  60  60  50 50];
+    %pol_3 = polyshape(x_pol_3,y_pol_3);
+
+    %x_pol_1 = [0.45 0.45  1.1 1.9 1.9  1.25 1.15 0.6];
+    %y_pol_1 = [ -90  -70  -45 -45 -55 -55 -60 -90];
+    %pol_1 = polyshape(x_pol_1,y_pol_1);
+
+    %x_pol_2 = [1.2 0.45 0.45 1.2 1.9 1.9 2.9 2.9 1.9 1.9 1.4 0.9 0.9 1.7 1.7 0.9];
+    %y_pol_2 = [-35  -15   25  45  45  50  50  40  40  35  35  15 -25 -25 -35 -35] ;
+    %pol_2 = polyshape(x_pol_2,y_pol_2);
+
+    %x_pol_3 = [1.0 0.45 0.45 0.8 1.8 2.5 2.5  2.0 2.0 1.0];
+    %y_pol_3 = [ 55  70   90  90  60  60  50  50  55 55];
+    %pol_3 = polyshape(x_pol_3,y_pol_3;
+
+    x_pol_1 = [0.5  0.5  1.1  1.9  1.9  1.25  1.15  0.7];
+    y_pol_1 = [-90  -70  -45  -45  -55   -55   -60  -90];
+    pol_1 =  polyshape(x_pol_1,y_pol_1);
+
+    x_pol_2 = [1.2  0.5  0.5  1.2  1.9  1.9  2.25  2.25  2.9  2.9  1.9  1.9  ...
+               1.4  0.9  0.9  1.7  1.7  0.9];
+    y_pol_2 = [-35  -15   25   45   45   45    45    50   50   40   40   35  ...
+                35   15  -25  -25  -35  -35];
     pol_2 = polyshape(x_pol_2,y_pol_2);
 
-    x_pol_3 = [ 1 0.40 0.40 0.9 1.7 2.6 2.6  1];
-    y_pol_3 = [50   70   90  90  60  60  50 50];
+    x_pol_3 = [1.0  0.5  0.5  0.8  1.8  2.5  2.5  2.1  2.1  1.0];
+    y_pol_3 = [ 55   70   90   90   60   60   50   50   55   55];
     pol_3 = polyshape(x_pol_3,y_pol_3);
 
-    plot(pol_1, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
-    plot(pol_2, 'FaceColor','b', 'EdgeColor','k', 'Facealpha',0.25)
-    plot(pol_3, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_2, 'FaceColor','b', 'EdgeColor','b', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_3, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
 
     disp('BFO_polyons')
 end
@@ -1305,21 +1331,33 @@ end
 if strcmp(staname_split,"STU")==1 && ...
    strcmp(data_used,"multiWS")==1
 
-    x_pol_1 = [0.10  0.10  0.60  1.00  0.40  0.40];
-    y_pol_1 = [ -90   -60   -30   -30   -60   -90];
+    %x_pol_1 = [0.10  0.10  0.60  1.00  0.40  0.40];
+    %y_pol_1 = [ -90   -60   -30   -30   -60   -90];
+    %pol_1 = polyshape(x_pol_1,y_pol_1);
+
+    %x_pol_2 = [0.40 0.10 0.10 0.40 1.70 1.70 2.10 2.10 0.80 0.40 0.40 0.60 0.60];
+    %y_pol_2 = [ -25  -10   25   60   60   65   65   50   50   30   -5  -15  -25];
+    %pol_2 = polyshape(x_pol_2,y_pol_2);
+
+    %x_pol_3 = [0.50 0.15 0.15 0.40 0.40 0.80 1.70 1.70];
+    %y_pol_3 = [  60   80   90   90   85   70   70   60];
+    %pol_3 = polyshape(x_pol_3,y_pol_3);
+
+    x_pol_1 = [0.10 0.10  0.5  0.9  0.9 0.55 0.25];
+    y_pol_1 = [-55  -45 -30   -30  -40 -40 -55];
     pol_1 = polyshape(x_pol_1,y_pol_1);
 
-    x_pol_2 = [0.40 0.10 0.10 0.40 1.70 1.70 2.10 2.10 0.80 0.40 0.40 0.60 0.60];
-    y_pol_2 = [ -25  -10   25   60   60   65   65   50   50   30   -5  -15  -25];
+    x_pol_2 = [0.40 0.10 0.10 0.50 1.70 1.70 2.10 2.10 1.15 1.15 0.80 0.35 0.35 0.50 0.50 0.50];
+    y_pol_2 = [ -20  -10   25   60   60   65   65   55   55 50  50 30   -5  -5  -15  -20];
     pol_2 = polyshape(x_pol_2,y_pol_2);
 
-    x_pol_3 = [0.50 0.15 0.15 0.40 0.40 0.80 1.70 1.70];
-    y_pol_3 = [  60   80   90   90   85   70   70   60];
+    x_pol_3 = [0.50 0.3 0.3 0.50 1.0 1.70 1.70 1.00 1.00];
+    y_pol_3 = [  65   75   85   85   70   70   60   60   65];
     pol_3 = polyshape(x_pol_3,y_pol_3);
 
-    plot(pol_1, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
-    plot(pol_2, 'FaceColor','b', 'EdgeColor','k', 'Facealpha',0.25)
-    plot(pol_3, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_2, 'FaceColor','b', 'EdgeColor','b', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_3, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
 
     disp('STU_polygons')
 end
@@ -1327,16 +1365,24 @@ end
 if strcmp(staname_split,"ECH")==1 && ...
    strcmp(data_used,"multiWS")==1
 
-    x_pol_1 = [0.40 0.40 0.20 0.20 0.60 0.60 1.10 1.10 1.60 1.60 2.05 2.05];
-    y_pol_1 = [ -90  -60  -30  -10  -10  -75  -75  -80  -80  -85  -85  -90];
+    %x_pol_1 = [0.40 0.40 0.20 0.20 0.60 0.60 1.10 1.10 1.60 1.60 2.05 2.05];
+    %y_pol_1 = [ -90  -60  -30  -10  -10  -75  -75  -80  -80  -85  -85  -90];
+    %pol_1 = polyshape(x_pol_1,y_pol_1);
+
+    %x_pol_2 = [0.20 0.20 0.40 1.00 1.20 1.80 1.80 1.15 0.80 0.50 0.50 0.80 0.80];
+    %y_pol_2 = [   0   77   85   85   90   90   80   80   75   55   30   15    0] ;
+    %pol_2 = polyshape(x_pol_2,y_pol_2);
+
+    x_pol_1 = [0.35 0.35 0.15 0.15 0.65 0.65 1.10 1.10 1.60 1.60];
+    y_pol_1 = [ -90  -60  -30  -10  -10  -75  -75  -80  -80 -90];
     pol_1 = polyshape(x_pol_1,y_pol_1);
 
-    x_pol_2 = [0.20 0.20 0.40 1.00 1.20 1.80 1.80 1.15 0.80 0.50 0.50 0.80 0.80];
-    y_pol_2 = [   0   77   85   85   90   90   80   80   75   55   30   15    0] ;
+    x_pol_2 = [0.15 0.15 0.40 1.00 1.20 1.85 1.85 1.15 0.80 0.50 0.50];
+    y_pol_2 = [10   77   85   85   90   90   80   80   75   55   10] ;
     pol_2 = polyshape(x_pol_2,y_pol_2);
 
-    plot(pol_1, 'FaceColor','b', 'EdgeColor','k', 'Facealpha',0.25)
-    plot(pol_2, 'FaceColor','r', 'EdgeColor','k', 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor','b', 'EdgeColor','b', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_2, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
 
     disp('ECH_polygons')
 end
