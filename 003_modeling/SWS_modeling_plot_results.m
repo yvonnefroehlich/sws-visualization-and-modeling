@@ -1108,6 +1108,10 @@ tick_H1_label = cell(plot_mod_max);
 tick_H2_label = cell(plot_mod_max);
 tick_T1_label = cell(plot_mod_max);
 
+col_lay_upp = [102 178 255] ./256; % light blue
+col_lay_low = [255 102 102] ./256; % light red
+col_lay_one = [102 205 0] ./256; % green
+
 
 %==========================================================================
 fig_H1 = figure('visible','off'); % one layer
@@ -1130,7 +1134,7 @@ if strcmp(staname_split,"TMO44")==1 && ...
     y_pol_1 = [ 45,  35,  35,   45,   60,  70,  60];
     pol_1 = polyshape(x_pol_1,y_pol_1);
 
-    plot(pol_1, 'FaceColor','g', 'EdgeColor','g', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor',col_lay_one, 'EdgeColor',col_lay_one, 'LineWidth',1, 'Facealpha',0.25)
 
     disp('TMO44_polygon')
 end
@@ -1146,7 +1150,7 @@ if strcmp(staname_split,"TMO07")==1 && ...
     y_pol_1 = [ 50,   40,  40,   45,   65,  70,   70,  65];
     pol_1 = polyshape(x_pol_1,y_pol_1);
 
-    plot(pol_1, 'FaceColor','g', 'EdgeColor','g', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor',col_lay_one, 'EdgeColor',col_lay_one, 'LineWidth',1, 'Facealpha',0.25)
 
     disp('TMO07_polygon')
 end
@@ -1329,9 +1333,9 @@ if strcmp(staname_split,"BFO")==1 && ...
     y_pol_3 = [ 55   70   90   90   60   60   50   50   55   55];
     pol_3 = polyshape(x_pol_3,y_pol_3);
 
-    plot(pol_1, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
-    plot(pol_2, 'FaceColor','b', 'EdgeColor','b', 'LineWidth',1.5, 'Facealpha',0.25)
-    plot(pol_3, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor',col_lay_low, 'EdgeColor',col_lay_low, 'LineWidth',1, 'Facealpha',0.25)
+    plot(pol_2, 'FaceColor',col_lay_upp, 'EdgeColor',col_lay_upp, 'LineWidth',1, 'Facealpha',0.25)
+    plot(pol_3, 'FaceColor',col_lay_low, 'EdgeColor',col_lay_low, 'LineWidth',1, 'Facealpha',0.25)
 
     disp('BFO_polyons')
 end
@@ -1365,9 +1369,9 @@ if strcmp(staname_split,"STU")==1 && ...
     y_pol_3 = [ 65   75   85   85   70   70   60   60   65];
     pol_3 = polyshape(x_pol_3,y_pol_3);
 
-    plot(pol_1, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
-    plot(pol_2, 'FaceColor','b', 'EdgeColor','b', 'LineWidth',1.5, 'Facealpha',0.25)
-    plot(pol_3, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor',col_lay_low, 'EdgeColor',col_lay_low, 'LineWidth',1, 'Facealpha',0.25)
+    plot(pol_2, 'FaceColor',col_lay_upp, 'EdgeColor',col_lay_upp, 'LineWidth',1, 'Facealpha',0.25)
+    plot(pol_3, 'FaceColor',col_lay_low, 'EdgeColor',col_lay_low, 'LineWidth',1, 'Facealpha',0.25)
 
     disp('STU_polygons')
 end
@@ -1403,8 +1407,8 @@ if strcmp(staname_split,"ECH")==1 && ...
 	        70   70   20   20   10] ;
     pol_2 = polyshape(x_pol_2,y_pol_2);
     
-    plot(pol_1, 'FaceColor','b', 'EdgeColor','b', 'LineWidth',1.5, 'Facealpha',0.25)
-    plot(pol_2, 'FaceColor','r', 'EdgeColor','r', 'LineWidth',1.5, 'Facealpha',0.25)
+    plot(pol_1, 'FaceColor',col_lay_upp, 'EdgeColor',col_lay_upp, 'LineWidth',1, 'Facealpha',0.25)
+    plot(pol_2, 'FaceColor',col_lay_low, 'EdgeColor',col_lay_low, 'LineWidth',1, 'Facealpha',0.25)
 
     disp('ECH_polygons')
 end
@@ -1422,7 +1426,7 @@ end
                  'MarkerSize',mymarkersize_symbols, ...
                  'LineWidth',mylinewidth_symbols, ...
                  'color',cmap_rms_sel(ii,:))
-        end
+	end
 
         colormap(cmap_rms_sel)
 
