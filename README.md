@@ -96,7 +96,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)\
     version v2.1.3, MATLAB File Exchange, last access 2022 June 26
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)\
-    version v1.09, MATLAB File Exchange, last access 2023 April 10; based on [**_Crameri (2021)_**](http://doi.org/10.5281/zenodo.1243862)
+    version v1.09, MATLAB File Exchange, last access 2023 April 10; based on [**_Crameri (2021)_**](https://zenodo.org/record/5501399)
   - [cmocean perceptually-uniform colormaps](https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps)\
     version v2.02, MATLAB File Exchange, last access 2022 June 18; based on [**_Thyng et al. (2016)_**](http://dx.doi.org/10.5670/oceanog.2016.66)
 
@@ -131,8 +131,8 @@ Shear-wave splitting in the upper-mantle wedge above the Tonga subduction zone.
 *Geophysical Journal International*, volume 88, issue 1, pages 25-41.
 https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
 
-[**_Crameri, F. (2021)_**](http://doi.org/10.5281/zenodo.1243862).
-Scientific colour maps. *Zenodo*. http://www.fabiocrameri.ch/colourmaps.php. http://doi.org/10.5281/zenodo.1243862.
+[**_Crameri, F. (2021)_**](https://zenodo.org/record/5501399).
+Scientific colour maps. *Zenodo*. http://www.fabiocrameri.ch/colourmaps.php. https://zenodo.org/record/5501399.
 
 [**_Grund, M. (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015).
 StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab.
