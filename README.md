@@ -132,7 +132,7 @@ Shear-wave splitting in the upper-mantle wedge above the Tonga subduction zone.
 https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
 
 [**_Crameri, F. (2021)_**](https://zenodo.org/record/5501399).
-Scientific colour maps. *Zenodo*. http://www.fabiocrameri.ch/colourmaps.php. https://zenodo.org/record/5501399.
+Scientific colour maps, version 7.0.1. *Zenodo*. http://www.fabiocrameri.ch/colourmaps.php. https://zenodo.org/record/5501399.
 
 [**_Grund, M. (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015).
 StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab.
