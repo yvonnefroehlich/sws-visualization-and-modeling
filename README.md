@@ -56,7 +56,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
 
 - **Model types**
   - Transverse isotropy
-  - Structural anisotropy: one horizontal or dipping layer, two horizontal layers
+  - Structural anisotropy: one horizontal layer (H1), one dipping layer (T1), two horizontal layers (H2)
 - **Forward calculation**
   - Synthetic splitting parameters based on the _energy minimization_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - Ray theory reference frame
