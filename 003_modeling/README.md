@@ -28,7 +28,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
 
 ## Forward Calculation
 
-_Please note_: For small stepsizes, computation time and structure size increase significantly
+_Please note_: For small step sizes, computation time and structure size increase significantly
 
 - Precompute splitting parameters for the different model types: **`SWS_modeling_precomp_models_main.m`**
 
@@ -55,6 +55,6 @@ _Please note_: For small stepsizes, computation time and structure size increase
 _Please note_: SWS data input is expected to be in standard _SplitLab_ and/or _StackSplit_ output format (`SWS_modeling_read_data.m`)
 
 - The observed SWS data is compared against all pre-computed models of all model types: **`SWS_modeling_calc_misfit.m`**
-- The root mean square error (RMSE) between the observed and pre-computed splitting parameters is calculated
-- Vizualization of the modeling results (`SWS_modeling_plot_results.m`, `SWS_modeling_plot_stereo_synthetic.m`)
+- The root mean square error (RMSE) between the observed and precomputed splitting parameters is calculated
+- Visualization of the modeling results (`SWS_modeling_plot_results.m`, `SWS_modeling_plot_stereo_synthetic.m`)
 - Take the minimum RMSE or something else metric to get the model which best describes the observed SWS data
