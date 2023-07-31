@@ -15,10 +15,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   - Mapping Toolbox
 
 - _MATLAB Seismic Anisotropy Toolkit_ (MSAT) by [Walker & Wookey (2012)](https://doi.org/10.1016/j.cageo.2012.05.031)
-  - Download it from (last access 2022/07/05)
-    - https://www1.gly.bris.ac.uk/MSAT/ _or_
-    - https://github.com/andreww/MSAT
-  - Install MSAT
+  - Download MSAT from https://www1.gly.bris.ac.uk/MSAT/ or https://github.com/andreww/MSAT (last access 2022/07/05)
   - Add the whole MSAT package to your _MATLAB_ path
   - If you want to get familiar with the modeling in MSAT and the behavior of different settings
   change to the directory `MSAT/examples/splitting_model/` in which the script `split_model.m` is located.
