@@ -49,7 +49,7 @@ _Please note_: For small step sizes, computation time and structure size increas
 
 ## Comparison & Visualization
 
-_Please note_: SWS data input is expected to be in standard _SplitLab_ and/or _StackSplit_ output format (`SWS_modeling_read_data.m`)
+_Please note_: SWS data input is expected to be in standard _SplitLab_ and _StackSplit_ output formats (`SWS_modeling_read_data.m`)
 
 - The observed SWS data is compared against all pre-computed models of all model types: **`SWS_modeling_calc_misfit.m`**
 - The root mean square error (RMSE) between the observed and precomputed splitting parameters is calculated
