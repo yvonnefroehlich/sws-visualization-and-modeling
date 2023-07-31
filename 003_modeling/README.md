@@ -1,9 +1,9 @@
 # Instruction: How to perform a modeling run for a single seismological recording station
 
 - Created: Michael Grund (ORCID 0000-0001-8759-2018)\
-  https://github.com/michaelgrund/sws_tools
-- Re-written: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)\
-  https://github.com/yvonnefroehlich/sws-plotting-and-modeling
+  https://github.com/michaelgrund/sws_tools/blob/main/03_modeling/README_mgrund.txt
+- Re-written: Yvonne FrÃ¶hlich (ORCID 0000-0002-8566-0619)\
+  https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/README.md
 
 _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388).
 
@@ -34,8 +34,8 @@ _Please note_: For small stepsizes, computation time and structure size increase
 
 |step_phi / deg|step_dt / s|step_dips / deg|step_dddir / deg|size / GB|publication|
 |---|---|---|---|---|---|
-|45 |1.00|15|45|0.008|provided TEST_data|
-|5  |0.25|5 |5 |4.7  |[Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|
+|45 |1.00|15|45|0.008|[TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling)|
+|5  |0.25|5 |5 |4.7  |[Ritter, FrÃ¶hlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|
 |5  |0.20|5 |5 |6.6  |[Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388)|
 
 - All models of all model types are merged in a single nested _MATLAB_ structure with fields:
