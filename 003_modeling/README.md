@@ -5,7 +5,7 @@
 - Re-written: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)\
   https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/README.md
 
-_Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388).
+_Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388)
 
 
 ## Requirements
@@ -15,8 +15,8 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   - Mapping Toolbox
 
 - _MATLAB Seismic Anisotropy Toolkit_ (MSAT) by [Walker & Wookey (2012)](https://doi.org/10.1016/j.cageo.2012.05.031)
-  - Download MSAT from https://www1.gly.bris.ac.uk/MSAT/ or https://github.com/andreww/MSAT (last access 2022/07/05)
-  - Add the whole MSAT package to your _MATLAB_ path
+  - Download MSAT from https://www1.gly.bris.ac.uk/MSAT/ or https://github.com/andreww/MSAT (last access 2022/07/05).
+  - Add the whole MSAT package to your _MATLAB_ path.
   - If you want to get familiar with the modeling in MSAT and the behavior of different settings
   change to the directory `MSAT/examples/splitting_model/` in which the script `split_model.m` is located.
   This script is described in the publication [Walker & Wookey (2012)](https://doi.org/10.1016/j.cageo.2012.05.031).
