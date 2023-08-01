@@ -99,6 +99,11 @@ parfor ii = 1:N % if problems occur, replace parfor by standard for loop
 
 end
 
+save(['sws_modout_domper_dipping_' ...
+    num2str(dfreq) 's_' ...
+    num2str(stepdddir) 'deg_' num2str(stepdips) 'deg_' num2str(stepthick) 'km.mat'], ...
+    'modout', '-v7.3')
+
 disp('Dipping-layer models done!')
 
 

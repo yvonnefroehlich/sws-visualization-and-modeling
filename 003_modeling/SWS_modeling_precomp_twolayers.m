@@ -112,6 +112,11 @@ parfor ii = 1:N
 
 end
 
+save(['sws_modout_domper_two_layers_' ...
+    num2str(dfreq) 's_' ...
+    num2str(stepphi) 'deg_' num2str(stepdt) 's.mat'], ...
+    'modout', '-v7.3')
+
 disp('Two-layer models done!')
 
 
