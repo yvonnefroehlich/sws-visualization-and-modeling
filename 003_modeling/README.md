@@ -29,11 +29,12 @@ _Please note_: For small step sizes, computation time and structure size increas
 
 - Precompute splitting parameters for the different model types: **`SWS_modeling_precomp_models_main.m`**
 
-|step_phi / deg|step_dt / s|step_dip / deg|step_dddir / deg|size / GB|publication|
-|---|---|---|---|---|---|
-|45 |1.00|15|45|0.008|[TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling)|
-|5  |0.25|5 |5 |4.7  |[Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|
-|5  |0.20|5 |5 |6.6  |[Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388)|
+|step_phi / deg|step_dt / s|step_dip / deg|step_dddir / deg|step_thick / km|size / GB|publication|
+|---|---|---|---|---|---|---|
+|45 |1.00|15|45|100|0.008|[TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling)|
+|5  |0.20|5 |5 |5  |X.Y  |
+|5  |0.25|5 |5 |5  |4.7  |[Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|
+|5  |0.20|5 |5 |25 |6.6  |[Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388)|
 
 - All models of all model types are merged in a single nested _MATLAB_ structure with fields:
   - 1 | `modout.phi_eff`: effective or apparent phi values over backazimuth
