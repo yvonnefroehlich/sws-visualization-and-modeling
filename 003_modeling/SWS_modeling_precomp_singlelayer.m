@@ -81,8 +81,8 @@ for ii = 1:1:N
 
 end
 
-save(['sws_modout_domper_single_layer_' ...
-    num2str(stepphi) 'deg_' num2str(stepdt) 's.mat'], 'modout', '-v7.3')
+% save(['sws_modout_domper_single_layer_' ...
+%    num2str(stepphi) 'deg_' num2str(stepdt) 's.mat'], 'modout', '-v7.3')
 
 disp('Single-layer models done!')
 
