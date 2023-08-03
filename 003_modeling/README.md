@@ -39,7 +39,7 @@ _Please note_: For small step sizes, computation time and structure size increas
 - All models of all model types are merged in a single nested _MATLAB_ structure with fields:
   - 1 | `modout.phi_eff`: effective or apparent phi values over backazimuth
   - 2 | `modout.dt_eff`: effective or apparent dt values over backazimuth
-  - 3 | `modout.mod_paras`: model parameters depending on model type
+  - 3 | `modout.mod_paras`: model parameters depending on the model type
     - One horizontal layer see `SWS_modeling_precomp_singlelayer.m` _or_
     - Two horizontal layers see `SWS_modeling_precomp_twolayers.m` _or_
     - One dippping layer see `SWS_modeling_precomp_dippinglayer.m`, `SWS_modeling_calc_dipping.m`
