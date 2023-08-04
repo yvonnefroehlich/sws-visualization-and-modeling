@@ -29,7 +29,7 @@ _Please note_: For small step sizes, computation time and structure size increas
 
 - Precompute splitting parameters for the different model types: **`SWS_modeling_precomp_models_main.m`**
 
-| phi / deg | dt / s | dip angle / deg | down dip direction / deg | thickness / km | size / GB | publication |
+| phi / deg | dt / s | dip angle / deg | down-dip direction / deg | thickness / km | size / GB | publication |
 |---|---|---|---|---|---|---|
 | [-45:45:90] | [1:1:4]       | [15:15:75] | [0:45:315] | [250:250:500] | 0.008 | [TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling)|
 | [-85:5:90]  | [0.2:0.2:4]   | [5:5:75]   | [0:5:355]  | [5:5:250]     | 5.9   | |
