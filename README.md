@@ -2,7 +2,7 @@
 
 _MATLAB_ functions for visualization and modeling of shear wave splitting observations:
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
-- The modeling routine is applicable for the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
+- The modeling routine is applicable for the _energy minimization_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
 
@@ -23,9 +23,9 @@ Furthermore you can cite the [Zenodo DOI](https://doi.org/10.5281/zenodo.7213157
  _How to use_: Header of function [`SWS_Analysis_BASICS_stereoplot.m`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/001_stereoplot/SWS_Analysis_BASICS_stereoplot.m)
 
 - Plot **single-event analysis results** (output of _SplitLab_)
-  - _Rotation-correlation method_ ([**_Bowman & Ando 1987_**]( https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.))
-  - _Energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
-  - _Eigenvalue method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - _Rotation-correlation_ method ([**_Bowman & Ando 1987_**]( https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.))
+  - _Energy minimization_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - _Eigenvalue_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
 - Plot **multi-event analysis results** (output of _StackSplit_)
   - Stacking of error surfaces (STACK; [**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x))
   - _Splits_ of _simultaneous inversion of multiple waveforms_ (SIMW; [**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
@@ -56,12 +56,12 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
 
 - **Model types**
   - Transverse isotropy
-  - Structural anisotropy: one horizontal or dipping layer, two horizontal layers
+  - Structural anisotropy: one horizontal layer (H1), one dipping layer (T1), two horizontal layers (H2)
 - **Forward calculation**
-  - Synthetic splitting parameters based on the _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - Synthetic splitting parameters based on the _energy minimization_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - Ray theory reference frame
 - **Observation** (output of _SplitLab_ and _StackSplit_)
-  - Single-event analysis: _energy minimization method_ ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - Single-event analysis: _energy minimization_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - Multi-event analysis:
     stacking of error surfaces (STACK; [**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x)),
     _simultaneous inversion of multiple waveforms_ (SIMW; [**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
@@ -96,7 +96,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)\
     version v2.1.3, MATLAB File Exchange, last access 2022 June 26
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)\
-    version v1.08, MATLAB File Exchange, last access 2022 June 25; based on [**_Crameri (2021)_**](http://doi.org/10.5281/zenodo.1243862)
+    version v1.09, MATLAB File Exchange, last access 2023 April 10; based on [**_Crameri (2021)_**](https://zenodo.org/record/5501399)
   - [cmocean perceptually-uniform colormaps](https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps)\
     version v2.02, MATLAB File Exchange, last access 2022 June 18; based on [**_Thyng et al. (2016)_**](http://dx.doi.org/10.5670/oceanog.2016.66)
 
@@ -114,9 +114,9 @@ For details of the individual releases as well as for changes and differences co
 ## Known Issues
 
 - Modeling of multi-event analysis: Only using either STACK or SIMW results is supported
-- Model parameter distribution for one dipping layer: Under development, not fully tested
-- Synthetic stereoplot for one dipping layer: Backazimuths of predicted nulls are partly wrong
-- Synthetic stereoplot for one dipping layer: Gray arrow is partly not exactly placed in the center
+- Model parameter distribution for T1: Under development, not fully tested
+- Synthetic stereoplot for T1 and H2: Backazimuths of predicted nulls are partly wrong
+- Synthetic stereoplot for T1: Gray arrow is partly not exactly placed in the center
 
 
 ## Contributing
@@ -131,8 +131,8 @@ Shear-wave splitting in the upper-mantle wedge above the Tonga subduction zone.
 *Geophysical Journal International*, volume 88, issue 1, pages 25-41.
 https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
 
-[**_Crameri, F. (2021)_**](http://doi.org/10.5281/zenodo.1243862).
-Scientific colour maps. *Zenodo*. http://www.fabiocrameri.ch/colourmaps.php. http://doi.org/10.5281/zenodo.1243862.
+[**_Crameri, F. (2021)_**](https://zenodo.org/record/5501399).
+Scientific colour maps, version 7.0.1. *Zenodo*. http://www.fabiocrameri.ch/colourmaps.php. https://zenodo.org/record/5501399.
 
 [**_Grund, M. (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015).
 StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab.
@@ -188,4 +188,4 @@ https://doi.org/10.1029/97JB02023.
 SplitLab: A shear-wave splitting environment in Matlab.
 *Computers & Geosciences*, volume 34, issue 5, pages 515-528.
 https://doi.org/10.1016/j.cageo.2007.08.002.
-version 1.0.5 available at http://splitting.gm.univ-montp2.fr/ and version 1.9.0 available at https://github.com/IPGP/.
+version 1.0.5 available at http://splitting.gm.univ-montp2.fr and version 1.9.0 available at https://github.com/IPGP/splitlab.
