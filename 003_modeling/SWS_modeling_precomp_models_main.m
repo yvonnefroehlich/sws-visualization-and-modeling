@@ -5,9 +5,9 @@ function SWS_modeling_precomp_models_main()
 %==========================================================================
 % pre-computes synthetic apparent (or effective) splitting parameters
 % for structural anisotropy models
-% - horizontal single-layer models (one_layer, H1)
-% - horizontal two-layer models (two_layer, H2)
-% - dipping one-layer models (dipping_layer, T1)
+% - horizontal single-layer models (H1, 'single_layer')
+% - horizontal two-layer models (H2, 'two_layers')
+% - dipping one-layer models (T1, 'dipping')
 %--------------------------------------------------------------------------
 % uses the provided MATLAB functions
 % - SWS_modeling_precomp_singlelayer.m
