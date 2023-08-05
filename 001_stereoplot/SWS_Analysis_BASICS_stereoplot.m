@@ -90,12 +90,13 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % 3) Scientific colour maps. F. Crameri (2021) Zenodo.
 %    http://doi.org/10.5281/zenodo.1243862
 %    http://www.fabiocrameri.ch/colourmaps.php
-%    - MATLAB: v1.08 https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps
-%    (last access 2022 June 25)
-%    >>> v1.08: bug in >crameri.m< - To fix it please uncomment line 97.
-%    This line standardizes all colormap names to lower-case. As MATLAB is
-%    a case-sensitive programming language colormaps containing upper-case
-%    letters are not found in the provided MATLAB structure anymore. <<<
+%    - MATLAB: https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps
+%      (last access 2023 April 10)
+%      Please note a bug in "crameri.m" of v1.08:
+%      Line 97 standardizes all colormap names to be lower-case. As MATLAB
+%      is a case-sensitive programming language colormaps containing
+%      upper-case letters are not found in the provided MATLAB structure.
+%      This should be fixed in v1.09.
 %
 % 4) cmocean colormaps. Thyng et al. (2016) Oceanography 29(3):9–13.
 %    http://dx.doi.org/10.5670/oceanog.2016.66
@@ -318,17 +319,6 @@ else
     %......................................................................
     % Scientific colour maps
     if idx1==1 && ~isempty(which('CrameriColourMaps7.0.mat'))
-        % warning if colormap name contains upper-case letters
-        if strcmp(colmap,lower(colmap))==0
-            disp(' ')
-            warning(['v1.08: bug in >crameri.m<. '  ...
-                     'To fix it uncomment line 97 of this function. ' ...
-                     'This line standardizes all colormap names to ' ...
-                     'lower-case. As MATLAB is a case-sensitive ' ...
-                     'programming language colormap names containing ' ...
-                     'upper-case letters are not longer found in the ' ...
-                     'provided MATLAB structure.'])
-        end
         usecmap = crameri(colmap,181);
         disp(' ')
         disp('>>> Scientifc colour maps found! <<<')
