@@ -352,8 +352,8 @@ end
 
 %--------------------------------------------------------------------------
 if strcmp(modsall_sort(plotnum).mod_type,'dipping')
-% in direction of downdip-dir and perpendicular to it
-% >>> only valid for assuming the fast axis plunges with dip direction <<<
+% in direction of down-dip direction and perpendicular to it
+% >>> only valid for assuming the fast axis plunges with down-dip dir <<<
 
     % first plot nulls in downdipdir +-180 deg
     bazi_nulls = [downdipdir downdipdir+180];
@@ -365,7 +365,7 @@ if strcmp(modsall_sort(plotnum).mod_type,'dipping')
     end
 
     % second find positions where bar orientation exact +-90 deg BAZ
-    % >>> for dipdir 90, 270 deg the nulls are not correctly shown <<<
+    % >>> for downdipdir 90, 270 deg the nulls are not correctly shown <<<
     if downdipdir < 90
         first = azim_rounded_all + 90;
         firstmin = min(first);
@@ -416,6 +416,7 @@ if strcmp(modsall_sort(plotnum).mod_type,'dipping')
 %--------------------------------------------------------------------------
 elseif strcmp(modsall_sort(plotnum).mod_type,'two_layers')
 % >>> under development <<<
+% >>> for 90 deg and 270 deg the nulls may not correctly shown <<<
 
     inc_nulls = 10;
 
@@ -424,7 +425,7 @@ elseif strcmp(modsall_sort(plotnum).mod_type,'two_layers')
     %disp(dd_phi)
     dd_phi_max = max(dd_phi); % calculate maximum
     %disp(dd_phi_max)
-    dd_phi_max_abs = max( abs(dd_phi) ); % calcuate absolute maxiumum
+    dd_phi_max_abs = max( abs(dd_phi) ); % calcuate absolute maximum
     %disp(dd_phi_max_abs)
 
     % >>> phi0 as -90 deg to 90 deg (not 0 deg to 180 deg) <<<
@@ -456,13 +457,13 @@ elseif strcmp(modsall_sort(plotnum).mod_type,'two_layers')
         end
     end
 
-    % index for first occurence
+    % index for first occurrence
     dd_phi_max_index = find(dd_phi==dd_phi_max_sign, 1);
     %disp(dd_phi_max_index)
     bazi_phi_max = azim_rounded_all(dd_phi_max_index); % corresponding BAZ
     %disp(bazi_phi_max)
 
-    % use occurence in 90 deg intervalls
+    % use occurrence in 90 deg intervalls
     plotm(90-inc_nulls, bazi_phi_max, -0.15, ...
           'o', 'color','k', 'MarkerFaceColor','w', ...
           'MarkerSize',marks, 'linewidth',linewcirc);
@@ -701,7 +702,7 @@ elseif strcmp(modsall_sort(plotnum).mod_type,'dipping')
           'fontsize',myfontsize+4, 'color','k')
 
     %......................................................................
-    % plot dip dir as arrow
+    % plot down-dip direction as arrow
 
     % adopted from the drawArrow function available here:
     % Matthew Kelly (2020). drawArrow.
