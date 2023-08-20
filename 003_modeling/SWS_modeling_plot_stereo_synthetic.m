@@ -416,7 +416,7 @@ if strcmp(modsall_sort(plotnum).mod_type,'dipping')
 %--------------------------------------------------------------------------
 elseif strcmp(modsall_sort(plotnum).mod_type,'two_layers')
 % >>> under development <<<
-% >>> for 270 deg the nulls are not correctly shown <<<
+% >>> for 90 deg and 270 deg the nulls may not correctly shown <<<
 
     inc_nulls = 10;
 
