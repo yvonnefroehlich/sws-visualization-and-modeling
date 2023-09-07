@@ -95,7 +95,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %      Please note a bug in "crameri.m" of v1.08:
 %      Line 97 standardizes all colormap names to be lower-case. As MATLAB
 %      is a case-sensitive programming language colormaps containing
-%      upper-case letters are not found in the provided MATLAB structure.
+%      upper-case letters are not found in the provided MATLAB struct.
 %      This should be fixed in v1.09.
 %
 % 4) cmocean colormaps. Thyng et al. (2016) Oceanography 29(3):9–13.
@@ -408,9 +408,9 @@ if ~isempty(dir_res_multi)
     end
 
     if plot_multi==1 && isempty(RES_multi)
-        error('No stack results in structure!')
+        error('No stack results in struct!')
     elseif plot_multi==2 && isempty(RES_multi)
-        error('No simw results contained in structure!')
+        error('No simw results contained in struct!')
     end
 
 end

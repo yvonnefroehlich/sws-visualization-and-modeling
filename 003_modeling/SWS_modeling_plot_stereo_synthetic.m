@@ -129,7 +129,7 @@ if strcmp(cmap_phi_str,'phino')
     %......................................................................
     % select phi colormap and set string for file name
     if cmap_phi_ind==1
-        % build-in MATLAB
+        % built-in MATLAB
         cmap = flipud( parula(181) );
         cmap_phi_str = 'phiparulaflip';
     elseif cmap_phi_ind==2

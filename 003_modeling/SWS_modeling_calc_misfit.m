@@ -196,7 +196,7 @@ mylinewidth_symbols = 1.2;
 
 
 %==========================================================================
-%% check structur
+%% check MATLAB struct
 %==========================================================================
 if ~isfield(model_out,'phi_eff') && ~isfield(model_out,'dt_eff')
     error(['Required fields >phi_eff< & >dt_eff< do not exist \n' ...
@@ -221,7 +221,7 @@ end
 %    function. This line standardizes all colormap names to lower-case.
 %    As MATLAB is a case-sensitive programming language colormaps
 %    containing upper-case letters are not found in the provided MATLAB
-%    structure anymore. <<<
+%    struct anymore. <<<
 
 %--------------------------------------------------------------------------
 % make query use phi color-coding and which colormap
@@ -238,7 +238,7 @@ if cmap_rms_ind==2 % grayC
              'lower-case. As MATLAB is a case-sensitive ' ...
              'programming language, colormap names containing ' ...
              'upper-case letters are not longer found in the ' ...
-             'provided MATLAB structure.'])
+             'provided MATLAB struct.'])
 end
 
 % select RMSE colormap and set string for file name
