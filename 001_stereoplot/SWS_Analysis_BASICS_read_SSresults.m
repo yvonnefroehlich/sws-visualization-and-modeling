@@ -6,10 +6,10 @@ function RES_out = SWS_Analysis_BASICS_read_SSresults( ...
 %% This function
 %==========================================================================
 % reads shear wave splitting multi-event analysis results of StackSplit
-% (MATLAB struct)
+% (MATLAB structs)
 % - stacking of error surfaces (STACK)
 % - simultaneous inversion of multiple waveforms (SIMW) (Roy et al. 2017)
-% outputs structs
+% outputs MATLAB structs
 %--------------------------------------------------------------------------
 % is
 % - created: Michael Grund (ORCID 0000-0001-8759-2018)
