@@ -12,7 +12,7 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 % fits synthetic structural anisotropy models to observed splitting
 % parameters (fast polarization direction phi and delay time dt)
 % - one layer with horizontal symmetry axis (H1)
-% - two layers withs horizontal symmetry axes (H2)
+% - two layers with horizontal symmetry axes (H2)
 % - one layer with tilted symmetry axis (T1)
 % based on the minimum root mean square error (RMSE)
 %--------------------------------------------------------------------------
@@ -211,7 +211,7 @@ end
 %==========================================================================
 % >>> based on the 20 best-fit models <<<
 
-% >>> colormap grayC is part of the Scientfic colour maps <<<
+% >>> colormap grayC is part of the Scientific colour maps <<<
 % F. Crameri (2021) Zenodo.
 % http://doi.org/10.5281/zenodo.1243862
 % http://www.fabiocrameri.ch/colourmaps.php
@@ -245,7 +245,7 @@ end
 if cmap_rms_ind==0
     cmap_rms_str = 'rmsno';
 elseif cmap_rms_ind==1
-    % build-in MATLAB
+    % built-in MATLAB
     cmap_rms = flipud( gray(30) );
     cmap_rms_str = 'rmsgray';
 elseif cmap_rms_ind==2
@@ -290,7 +290,7 @@ if cmap_phi_ind==0
     cmap_phi = "";
     cmap_phi_str = 'phino';
 elseif cmap_phi_ind==1
-    % build-in MATLAB
+    % built-in MATLAB
     cmap_phi = flipud( parula(181) );
     cmap_phi_str = 'phiparulaflip';
 elseif cmap_phi_ind==2

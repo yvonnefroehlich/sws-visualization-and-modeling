@@ -68,7 +68,7 @@ for kk = 1:1:length(pre_RES_multi)
         k = k+1;
 
 %--------------------------------------------------------------------------
-    % simultanous inversion of multiple waveforms; ONLY splits
+    % simultaneous inversion of multiple waveforms; ONLY splits
     elseif ( strcmp(pre_RES_multi(kk).results.stack_meth,'SIMW') && ...
             strcmp(pre_RES_multi(kk).results.Null_simw,'No ') ) && ...
            (SSmethod==2 || SSmethod==3)
