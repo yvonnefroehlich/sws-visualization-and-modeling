@@ -5,7 +5,7 @@ function modout = SWS_modeling_precomp_twolayers(dfreq, stepphi, stepdt)
 %==========================================================================
 % generates synthetic apparent (or effective) splitting parameters for
 %   horizontal two-layer models
-% outputs corresponding MATLAB sturctur
+% outputs corresponding MATLAB struct
 % >>> for small step sizes < stepphi >, < stepdt > computation time and
 % struct size increases significantly <<<
 %--------------------------------------------------------------------------
