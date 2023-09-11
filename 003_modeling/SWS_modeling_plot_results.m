@@ -1034,7 +1034,7 @@ h_leg_distri = legend([ll1,ll2,ll3], ...
 % distance symbol to text, default [30,30]
 h_leg_distri.ItemTokenSize(1) = 20;
 
-% (semi-)trancparency of background color of legend
+% (semi-)transparency of background color of legend
 % https://de.mathworks.com/matlabcentral/answers/320127-setting-transparancy-of-legend
 % last access 2021 Aug 09
 h_leg_distri.BoxFace.ColorType = 'truecoloralpha';
