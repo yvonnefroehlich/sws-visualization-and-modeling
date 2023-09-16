@@ -81,7 +81,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % -> please download them and add the corresponding dictionary to your
 % MATLAB search path before running this function
 %
-% 1) MATLAB colormaps (build-in): parula, winter, summer, copper, ...
+% 1) MATLAB colormaps (built-in): parula, winter, summer, copper, ...
 %
 % 2) MatPlotLib Perceptually Uniform Colormaps
 %    - MATLAB: v2.1.3 https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps
@@ -95,7 +95,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %      Please note a bug in "crameri.m" of v1.08:
 %      Line 97 standardizes all colormap names to be lower-case. As MATLAB
 %      is a case-sensitive programming language colormaps containing
-%      upper-case letters are not found in the provided MATLAB structure.
+%      upper-case letters are not found in the provided MATLAB struct.
 %      This should be fixed in v1.09.
 %
 % 4) cmocean colormaps. Thyng et al. (2016) Oceanography 29(3):9–13.
@@ -312,7 +312,7 @@ else
     if idx1==1 && ~isempty(which('CrameriColourMaps7.0.mat'))
         usecmap = crameri(colmap,181);
         disp(' ')
-        disp('>>> Scientifc colour maps found! <<<')
+        disp('>>> Scientific colour maps found! <<<')
     elseif idx1==1 && isempty(which('CrameriColourMaps7.0.mat'))
         warning('Scientific colour maps not found!')
         return
@@ -335,7 +335,7 @@ else
         warning('cmocean colormaps not found!')
         return
     %......................................................................
-    % build-in MATLAB colormaps (use: help colormap)
+    % built-in MATLAB colormaps (use: help colormap)
     elseif  idx1==0 && idx2==0 && idx3==0
         if exist(colmap,'file')
             usecmap = colormap([colmap '(181)']);
@@ -408,9 +408,9 @@ if ~isempty(dir_res_multi)
     end
 
     if plot_multi==1 && isempty(RES_multi)
-        error('No stack results in structur!')
+        error('No stack results in struct!')
     elseif plot_multi==2 && isempty(RES_multi)
-        error('No simw results contained in structur!')
+        error('No simw results contained in struct!')
     end
 
 end
@@ -1030,9 +1030,9 @@ file_name = ['Stereo_' staname '_' ...
              single_string multi_string{plot_multi+1} ...
              '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap];
 
-% MATLAB build-in function "exportgraphics" requires MATLAB 2020a+
-% format svg not supported by MATLAB build-in function "exportgraphics",
-% transparency not supported for format png by MATLAB build-in function
+% MATLAB built-in function "exportgraphics" requires MATLAB 2020a+
+% format svg not supported by MATLAB built-in function "exportgraphics",
+% transparency not supported for format png by MATLAB built-in function
 % "exportgraphics", you can try MATLAB file exchange function "export_fig"
 % Yair Altman (2021). Retrieved August 25, 2021.
 % MATLAB file exchange: https://de.mathworks.com/matlabcentral/fileexchange/23629-export_fig

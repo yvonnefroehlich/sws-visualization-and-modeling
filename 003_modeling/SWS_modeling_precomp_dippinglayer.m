@@ -7,9 +7,9 @@ function modout = SWS_modeling_precomp_dippinglayer( ...
 %==========================================================================
 % generates synthetic apparent (effective) splitting parameters for
 %   dipping one-layer models
-% outputs corresponding MATLAB structure
+% outputs corresponding MATLAB struct
 % >>> for small step sizes < stepdddir >, < stepdips >, < stepthick >
-% computation time and structure size increases significantly <<<
+% computation time and struct size increases significantly <<<
 %--------------------------------------------------------------------------
 % uses the provided MATLAB function
 % - SWS_modeling_calc_dipping

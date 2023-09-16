@@ -129,7 +129,7 @@ if strcmp(cmap_phi_str,'phino')
     %......................................................................
     % select phi colormap and set string for file name
     if cmap_phi_ind==1
-        % build-in MATLAB
+        % built-in MATLAB
         cmap = flipud( parula(181) );
         cmap_phi_str = 'phiparulaflip';
     elseif cmap_phi_ind==2
@@ -425,7 +425,7 @@ elseif strcmp(modsall_sort(plotnum).mod_type,'two_layers')
     %disp(dd_phi)
     dd_phi_max = max(dd_phi); % calculate maximum
     %disp(dd_phi_max)
-    dd_phi_max_abs = max( abs(dd_phi) ); % calcuate absolute maximum
+    dd_phi_max_abs = max( abs(dd_phi) ); % calculate absolute maximum
     %disp(dd_phi_max_abs)
 
     % >>> phi0 as -90 deg to 90 deg (not 0 deg to 180 deg) <<<
@@ -463,7 +463,7 @@ elseif strcmp(modsall_sort(plotnum).mod_type,'two_layers')
     bazi_phi_max = azim_rounded_all(dd_phi_max_index); % corresponding BAZ
     %disp(bazi_phi_max)
 
-    % use occurrence in 90 deg intervalls
+    % use occurrence in 90 deg intervals
     plotm(90-inc_nulls, bazi_phi_max, -0.15, ...
           'o', 'color','k', 'MarkerFaceColor','w', ...
           'MarkerSize',marks, 'linewidth',linewcirc);
