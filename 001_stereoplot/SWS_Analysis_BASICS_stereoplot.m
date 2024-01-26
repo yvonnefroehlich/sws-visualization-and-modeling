@@ -1,4 +1,5 @@
-function SWS_Analysis_BASICS_stereoplot(colmap)
+% function SWS_Analysis_BASICS_stereoplot(colmap)
+function SWS_Analysis_BASICS_stereoplot(colmap,yearmin,yearmax)
 
 %==========================================================================
 %% This function
@@ -370,9 +371,9 @@ end
 %--------------------------------------------------------------------------
 % make query for SWS measurement method
 
-disp(' ')
-SL_method = input(['Methode you want to plot (default is SC)? \n' ...
-                   '   [1] SC  [2] RC  [3] EV    | ']);
+%disp(' ')
+%SL_method = input(['Methode you want to plot (default is SC)? \n' ...
+%                   '   [1] SC  [2] RC  [3] EV    | ']);
 
 if ~exist('SL_method','var')==1 % default
     SL_method = 1; % SC
@@ -567,10 +568,11 @@ end
 %==========================================================================
 %% make query for sector plotting
 %==========================================================================
-disp(' ')
-plotsector = input(['Plot sector in backazimuth range? \n ' ...
-                    '   Plot no sector: Press "Enter" (Default is used) \n ' ...
-                    '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
+plotsector = [];
+% disp(' ')
+% plotsector = input(['Plot sector in backazimuth range? \n ' ...
+%                    '   Plot no sector: Press "Enter" (Default is used) \n ' ...
+%                    '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
 
 if ~isempty(plotsector)
     if length(plotsector)==2
@@ -590,9 +592,9 @@ end
 %==========================================================================
 %% make query for location of annotation of radial axis
 %==========================================================================
-disp(' ')
-plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
-                   '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
+%disp(' ')
+%plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
+%                   '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
 
 
 
@@ -659,6 +661,7 @@ end
 
 %--------------------------------------------------------------------------
 % radial axis (inclination angle)
+plotannot = [];
 if isempty(plotannot) % default
     plotannot = 2; % SE
 end
@@ -681,6 +684,14 @@ elseif plotannot==4 % NW
    text(-0.180,-0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
 end
 
+%--------------------------------------------------------------------------
+% yearscum
+% >>> change function name and add also in file name <<<
+% %{
+text(-0.22, 0.290, [num2str(yearmin) '-' num2str(yearmax)], ...
+     'HorizontalAlignment','Center', 'VerticalAlignment','Base', ...
+     'FontWeight','bold', 'fontsize',12, 'color',color_sta)
+% %}
 
 %==========================================================================
 % plot sector
@@ -1028,7 +1039,8 @@ file_name = ['Stereo_' staname '_' ...
              quality_string{SL_qualtiy+1} '_' ...
              method_string{SL_method} '_' ...
              single_string multi_string{plot_multi+1} ...
-             '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap];
+             '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap '_' ...
+             num2str(yearmin) 'to' num2str(yearmax)];
 
 % MATLAB build-in function "exportgraphics" requires MATLAB 2020a+
 % format svg not supported by MATLAB build-in function "exportgraphics",
