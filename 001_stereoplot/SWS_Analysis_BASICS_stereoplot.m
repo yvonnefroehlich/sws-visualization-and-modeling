@@ -150,10 +150,12 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 
 %--------------------------------------------------------------------------
 % What annotation should be plotted?
-status_cb = 'yes'; %% 'yes','no' % colorbar - phi color-coding of bars
-status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
-status_sta = 'yes'; %% 'yes','no' % station name - station code
+status_cb = 'no'; %% 'yes','no' % colorbar - phi color-coding of bars
+status_leg = 'no'; %% 'yes','no' % legend - null, delay time reference
+status_sta = 'no'; %% 'yes','no' % station name - station code
 status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
+plotannot = 0;
+file_add = '_onlytime';
 
 %--------------------------------------------------------------------------
 % plot sector
@@ -358,7 +360,7 @@ end
 % make query for quality
 
 % give number 0 to 5 directly here to specify quality, then no query occurs
-[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults();
+[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults(2);
 
 % corresponding to numbers 0 to 5 in query before
 quality_string = {'all';'good';'goodfair';'fairpoor';'fair';'poor'};
@@ -661,7 +663,6 @@ end
 
 %--------------------------------------------------------------------------
 % radial axis (inclination angle)
-plotannot = [];
 if isempty(plotannot) % default
     plotannot = 2; % SE
 end
@@ -1040,7 +1041,7 @@ file_name = ['Stereo_' staname '_' ...
              method_string{SL_method} '_' ...
              single_string multi_string{plot_multi+1} ...
              '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap '_' ...
-             num2str(yearmin) 'to' num2str(yearmax)];
+             num2str(yearmin) 'to' num2str(yearmax) file_add];
 
 % MATLAB build-in function "exportgraphics" requires MATLAB 2020a+
 % format svg not supported by MATLAB build-in function "exportgraphics",
