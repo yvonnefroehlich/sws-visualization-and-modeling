@@ -450,7 +450,7 @@ end
 
 % error in case not SWSMs of the selected qualities are available at this station
 if isempty(station_check)
-    error(['>>> No shear wave splitting measurements are available \n' ...
+    error(['>>> No shear wave splitting measurements are available \n ' ...
         'for the selected qualities at this station! <<<'])
 end
 
