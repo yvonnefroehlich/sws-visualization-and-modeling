@@ -450,7 +450,7 @@ end
 
 % error in case not SWSMs of the selected qualities are available at this station
 if isempty(station_check)
-    error(['>>> No shear wave splitting measurements are available \n ' ...
+    error(['>>> No shear wave splitting measurements are available ' ...
         'for the selected qualities at this station! <<<'])
 end
 
@@ -577,7 +577,7 @@ if ~isempty(plotsector)
         lowlim = plotsector(1);
         upplim = plotsector(2);
     else
-        error(['Vector length needs to be 2! \n ' ...
+        error(['Vector length needs to be 2! ' ...
                'Please passe only values between 0 and 360 deg!'])
     end
 else
