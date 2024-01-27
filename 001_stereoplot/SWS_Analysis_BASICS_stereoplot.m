@@ -82,7 +82,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap,yearmin,yearmax)
 % -> please download them and add the corresponding dictionary to your
 % MATLAB search path before running this function
 %
-% 1) MATLAB colormaps (build-in): parula, winter, summer, copper, ...
+% 1) MATLAB colormaps (built-in): parula, winter, summer, copper, ...
 %
 % 2) MatPlotLib Perceptually Uniform Colormaps
 %    - MATLAB: v2.1.3 https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps
@@ -96,7 +96,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap,yearmin,yearmax)
 %      Please note a bug in "crameri.m" of v1.08:
 %      Line 97 standardizes all colormap names to be lower-case. As MATLAB
 %      is a case-sensitive programming language colormaps containing
-%      upper-case letters are not found in the provided MATLAB structure.
+%      upper-case letters are not found in the provided MATLAB struct.
 %      This should be fixed in v1.09.
 %
 % 4) cmocean colormaps. Thyng et al. (2016) Oceanography 29(3):9–13.
@@ -271,7 +271,7 @@ else
         checkcmaps = strfind(crameri_cmap,colmap);
         idx1 = find(~contains('isempty',checkcmaps));
         if isempty(idx1) || length(idx1)>1 || ...
-                (length(idx1)==1 && ~strcmp({colmap},crameri_cmap(1)))
+                (isscalar(idx1) && ~strcmp({colmap},crameri_cmap(1)))
            idx1 = 0;
         else
            idx1 = 1;
@@ -286,7 +286,7 @@ else
         checkcmaps2 = strfind(mpl_cmap,colmap);
         idx2 = find(~contains('isempty',checkcmaps2));
         if isempty(idx2) || length(idx2)>1 || ...
-                (length(idx2)==1 && ~strcmp({colmap},mpl_cmap(1)))
+                (isscalar(idx2) && ~strcmp({colmap},mpl_cmap(1)))
            idx2 = 0;
         else
            idx2 = 1;
@@ -301,7 +301,7 @@ else
         checkcmaps3 = strfind(cmocean_cmap,colmap);
         idx3 = find(~contains('isempty',checkcmaps3));
         if isempty(idx3) || length(idx3)>1 || ...
-                (length(idx3)==1 && strcmp({colmap},cmocean_cmap(1)))
+                (isscalar(idx3) && strcmp({colmap},cmocean_cmap(1)))
            idx3 = 0;
         else
            idx3 = 1;
@@ -315,7 +315,7 @@ else
     if idx1==1 && ~isempty(which('CrameriColourMaps7.0.mat'))
         usecmap = crameri(colmap,181);
         disp(' ')
-        disp('>>> Scientifc colour maps found! <<<')
+        disp('>>> Scientific colour maps found! <<<')
     elseif idx1==1 && isempty(which('CrameriColourMaps7.0.mat'))
         warning('Scientific colour maps not found!')
         return
@@ -338,7 +338,7 @@ else
         warning('cmocean colormaps not found!')
         return
     %......................................................................
-    % build-in MATLAB colormaps (use: help colormap)
+    % built-in MATLAB colormaps (use: help colormap)
     elseif  idx1==0 && idx2==0 && idx3==0
         if exist(colmap,'file')
             usecmap = colormap([colmap '(181)']);
@@ -411,9 +411,9 @@ if ~isempty(dir_res_multi)
     end
 
     if plot_multi==1 && isempty(RES_multi)
-        error('No stack results in structur!')
+        error('No stack results in struct!')
     elseif plot_multi==2 && isempty(RES_multi)
-        error('No simw results contained in structur!')
+        error('No simw results contained in struct!')
     end
 
 end
@@ -452,9 +452,9 @@ if length(station_check) > 1
 end
 
 % error in case not SWSMs of the selected qualities are available at this station
-if length(station_check)==0
-    error(['>>> No shear wave splitting measurements are available'], ...
-	['for the selected qualities at this station! <<<'])
+if isempty(station_check)
+    error(['>>> No shear wave splitting measurements are available \n' ...
+        'for the selected qualities at this station! <<<'])
 end
 
 
@@ -945,7 +945,7 @@ if strcmp(status_cb,'yes')
         zlab = get(cb,'xlabel');
         set(zlab,'String','        \phi_a / N\circE');
 
-        caxis([-90 90])
+        clim([-90 90])
         set(cb,'xtick',-60:30:60);
         set(cb,'fontsize',fontsize_cb)
         set(cb,'TickDirection','out')
@@ -1043,9 +1043,9 @@ file_name = ['Stereo_' staname '_' ...
              '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap '_' ...
              num2str(yearmin) 'to' num2str(yearmax) file_add];
 
-% MATLAB build-in function "exportgraphics" requires MATLAB 2020a+
-% format svg not supported by MATLAB build-in function "exportgraphics",
-% transparency not supported for format png by MATLAB build-in function
+% MATLAB built-in function "exportgraphics" requires MATLAB 2020a+
+% format svg not supported by MATLAB built-in function "exportgraphics",
+% transparency not supported for format png by MATLAB built-in function
 % "exportgraphics", you can try MATLAB file exchange function "export_fig"
 % Yair Altman (2021). Retrieved August 25, 2021.
 % MATLAB file exchange: https://de.mathworks.com/matlabcentral/fileexchange/23629-export_fig

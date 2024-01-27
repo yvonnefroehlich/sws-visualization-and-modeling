@@ -62,7 +62,7 @@ function SWS_modeling_precomp_models_main()
 %% set stepsizes
 %==========================================================================
 % >>> adjust for your needs <<<
-% >>> for small stepsizes computation time and structure size increases
+% >>> for small stepsizes computation time and struct size increases
 % significantly <<<
 
 % dominant period of shear wave
