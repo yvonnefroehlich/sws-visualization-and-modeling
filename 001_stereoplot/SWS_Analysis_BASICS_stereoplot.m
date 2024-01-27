@@ -268,7 +268,7 @@ else
         checkcmaps = strfind(crameri_cmap,colmap);
         idx1 = find(~contains('isempty',checkcmaps));
         if isempty(idx1) || length(idx1)>1 || ...
-                (length(idx1)==1 && ~strcmp({colmap},crameri_cmap(1)))
+                (isscalar(idx1) && ~strcmp({colmap},crameri_cmap(1)))
            idx1 = 0;
         else
            idx1 = 1;
@@ -283,7 +283,7 @@ else
         checkcmaps2 = strfind(mpl_cmap,colmap);
         idx2 = find(~contains('isempty',checkcmaps2));
         if isempty(idx2) || length(idx2)>1 || ...
-                (length(idx2)==1 && ~strcmp({colmap},mpl_cmap(1)))
+                (isscalar(idx2) && ~strcmp({colmap},mpl_cmap(1)))
            idx2 = 0;
         else
            idx2 = 1;
@@ -298,7 +298,7 @@ else
         checkcmaps3 = strfind(cmocean_cmap,colmap);
         idx3 = find(~contains('isempty',checkcmaps3));
         if isempty(idx3) || length(idx3)>1 || ...
-                (length(idx3)==1 && strcmp({colmap},cmocean_cmap(1)))
+                (isscalar(idx3) && strcmp({colmap},cmocean_cmap(1)))
            idx3 = 0;
         else
            idx3 = 1;
@@ -449,9 +449,9 @@ if length(station_check) > 1
 end
 
 % error in case not SWSMs of the selected qualities are available at this station
-if length(station_check)==0
-    error(['>>> No shear wave splitting measurements are available'], ...
-	['for the selected qualities at this station! <<<'])
+if isempty(station_check)
+    error(['>>> No shear wave splitting measurements are available \n' ...
+        'for the selected qualities at this station! <<<'])
 end
 
 
@@ -933,7 +933,7 @@ if strcmp(status_cb,'yes')
         zlab = get(cb,'xlabel');
         set(zlab,'String','        \phi_a / N\circE');
 
-        caxis([-90 90])
+        clim([-90 90])
         set(cb,'xtick',-60:30:60);
         set(cb,'fontsize',fontsize_cb)
         set(cb,'TickDirection','out')
