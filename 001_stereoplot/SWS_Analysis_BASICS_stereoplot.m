@@ -1,5 +1,7 @@
 % function SWS_Analysis_BASICS_stereoplot(colmap)
 function SWS_Analysis_BASICS_stereoplot(colmap,yearmin,yearmax)
+% function SWS_Analysis_BASICS_stereoplot(colmap,phase)
+% function SWS_Analysis_BASICS_stereoplot(colmap,epimin,epimax)
 
 %==========================================================================
 %% This function
@@ -155,7 +157,7 @@ status_leg = 'no'; %% 'yes','no' % legend - null, delay time reference
 status_sta = 'no'; %% 'yes','no' % station name - station code
 status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
 plotannot = 0;
-file_add = '_onlytime';
+file_add = '_onlytime';  %% _sta _onlyNE _nocb _lgd _onlytime
 
 %--------------------------------------------------------------------------
 % plot sector
@@ -686,13 +688,19 @@ elseif plotannot==4 % NW
 end
 
 %--------------------------------------------------------------------------
-% yearscum
+% specific label
 % >>> change function name and add also in file name <<<
+% if yearmax==2020
+%     yearmax=2019;
+% end
 % %{
+% text(-0.22, 0.290, phase, ...
+% text(-0.22, 0.290, ['\Delta=' num2str(epimin) '\circ-' num2str(epimax) '\circ'], ...
 text(-0.22, 0.290, [num2str(yearmin) '-' num2str(yearmax)], ...
      'HorizontalAlignment','Center', 'VerticalAlignment','Base', ...
      'FontWeight','bold', 'fontsize',12, 'color',color_sta)
 % %}
+% yearmax = 2020;
 
 %==========================================================================
 % plot sector
@@ -1036,12 +1044,16 @@ set(f_stereo, 'PaperSize',[14 14]); % set paper size
 
 %--------------------------------------------------------------------------
 file_path = [];
+if strcmp(colmap,'phasemap')
+    colmap='phase';
+end
 file_name = ['Stereo_' staname '_' ...
              quality_string{SL_qualtiy+1} '_' ...
              method_string{SL_method} '_' ...
              single_string multi_string{plot_multi+1} ...
              '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap '_' ...
-             num2str(yearmin) 'to' num2str(yearmax) file_add];
+             num2str(yearmin) 'to' num2str(yearmax) ... % num2str(epimin) 'to' num2str(epimax) ... % phase ...
+             file_add];
 
 % MATLAB built-in function "exportgraphics" requires MATLAB 2020a+
 % format svg not supported by MATLAB built-in function "exportgraphics",
