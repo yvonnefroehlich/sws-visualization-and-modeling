@@ -1,6 +1,7 @@
-% function SWS_Analysis_BASICS_stereoplot(colmap)
-function SWS_Analysis_BASICS_stereoplot(colmap,yearmin,yearmax)
+function SWS_Analysis_BASICS_stereoplot(colmap)
+% function SWS_Analysis_BASICS_stereoplot(colmap,yearmin,yearmax)
 % function SWS_Analysis_BASICS_stereoplot(colmap,phase)
+% function SWS_Analysis_BASICS_stereoplot(colmap,paper)
 % function SWS_Analysis_BASICS_stereoplot(colmap,epimin,epimax)
 
 %==========================================================================
@@ -152,12 +153,12 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 
 %--------------------------------------------------------------------------
 % What annotation should be plotted?
-status_cb = 'no'; %% 'yes','no' % colorbar - phi color-coding of bars
-status_leg = 'no'; %% 'yes','no' % legend - null, delay time reference
-status_sta = 'no'; %% 'yes','no' % station name - station code
+status_cb = 'yes'; %% 'yes','no' % colorbar - phi color-coding of bars
+status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
+status_sta = 'yes'; %% 'yes','no' % station name - station code
 status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
-plotannot = 0;
-file_add = '_onlytime';  %% _sta _onlyNE _nocb _lgd _onlytime
+plotannot = [];
+file_add = '';  %% _sta _onlyNE _nocb _lgd _onlytime
 
 %--------------------------------------------------------------------------
 % plot sector
@@ -362,7 +363,7 @@ end
 % make query for quality
 
 % give number 0 to 5 directly here to specify quality, then no query occurs
-[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults(2);
+[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults();
 
 % corresponding to numbers 0 to 5 in query before
 quality_string = {'all';'good';'goodfair';'fairpoor';'fair';'poor'};
@@ -380,7 +381,7 @@ end
 %                   '   [1] SC  [2] RC  [3] EV    | ']);
 
 if ~exist('SL_method','var')==1 % default
-    SL_method = 1; % SC
+    SL_method = 2; % SC
 end
 
 % corresponding to numbers 1 to 3 in query before
@@ -693,13 +694,13 @@ end
 % if yearmax==2020
 %     yearmax=2019;
 % end
-% %{
+%{
 % text(-0.22, 0.290, phase, ...
 % text(-0.22, 0.290, ['\Delta=' num2str(epimin) '\circ-' num2str(epimax) '\circ'], ...
 text(-0.22, 0.290, [num2str(yearmin) '-' num2str(yearmax)], ...
      'HorizontalAlignment','Center', 'VerticalAlignment','Base', ...
      'FontWeight','bold', 'fontsize',12, 'color',color_sta)
-% %}
+%}
 % yearmax = 2020;
 
 %==========================================================================
@@ -1052,7 +1053,7 @@ file_name = ['Stereo_' staname '_' ...
              method_string{SL_method} '_' ...
              single_string multi_string{plot_multi+1} ...
              '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap '_' ...
-             num2str(yearmin) 'to' num2str(yearmax) ... % num2str(epimin) 'to' num2str(epimax) ... % phase ...
+             'MG' ... % paper ... %num2str(yearmin) 'to' num2str(yearmax) ... % num2str(epimin) 'to' num2str(epimax) ... % phase ...
              file_add];
 
 % MATLAB built-in function "exportgraphics" requires MATLAB 2020a+

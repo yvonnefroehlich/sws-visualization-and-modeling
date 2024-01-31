@@ -987,14 +987,19 @@ for ii = 1:length(models_sort)
         'color',models_sort(ii).color, ...
         'marker','o', ...
         'markerfacecolor',models_sort(ii).color, ...
-        'markersize',10)
+        'markersize',5)
+    % stem(ii,models_sort(ii).RMSE, ...
+    %     'color',models_sort(ii).color, ...
+    %     'markersize',2, ...
+    %     'LineWidth',0.4)
     hold on
 end
 
 %--------------------------------------------------------------------------
 % axis
 xlim([0,length(models_sort)])
-ylim([0,max([models_sort.RMSE])])
+% ylim([0,max([models_sort.RMSE])])
+ylim([0,1.3])
 xlabel('worst \leftarrow sorted models \rightarrow best', 'fontsize',fontsize)
 ylabel(cb_label_rmse, 'fontsize',fontsize)
 set(gca, 'XDir','reverse')
@@ -1004,11 +1009,11 @@ set(gca, 'fontsize',fontsize)
 
 %--------------------------------------------------------------------------
 % title
-if vers_out==1 % MATLAB R2020a or higher
-    sgtitle([num2str(length(models_sort)) ' best models'], 'fontsize',fontsize)
-else
-    title([num2str(length(models_sort)) ' best models'], 'fontsize',fontsize)
-end
+% if vers_out==1 % MATLAB R2020a or higher
+%     sgtitle([num2str(length(models_sort)) ' best models'], 'fontsize',fontsize)
+% else
+%     title([num2str(length(models_sort)) ' best models'], 'fontsize',fontsize)
+% end
 
 %--------------------------------------------------------------------------
 % % plot station name
@@ -1020,6 +1025,7 @@ end
 
 %--------------------------------------------------------------------------
 % legend for model types
+%{
 ll1 = plot(-10, -10, 'ok', 'markersize',10, ...
            'markeredgecolor',color_T1, 'markerfacecolor',color_T1);
 ll2 = plot(-10, -10, 'ok', 'markersize',10, ...
@@ -1040,7 +1046,7 @@ h_leg_distri.ItemTokenSize(1) = 20;
 % last access 2021 Aug 09
 h_leg_distri.BoxFace.ColorType = 'truecoloralpha';
 h_leg_distri.BoxFace.ColorData = uint8(255*[1 1 1 0.70]');
-
+%}
 
 %==========================================================================
 % suplot - panel 2 - bar plot to show distribution of model types
@@ -1054,9 +1060,15 @@ b1 = bar(1,length(idx1));
 b2 = bar(2,length(idx2));
 b3 = bar(3,length(idx3));
 
-set(b1, 'FaceColor',color_T1)
-set(b2, 'FaceColor',color_H2)
-set(b3, 'FaceColor',color_H1)
+set(b1, 'FaceColor',color_T1, 'FaceAlpha',0.6, 'EdgeColor',color_T1)
+set(b2, 'FaceColor',color_H2, 'FaceAlpha',0.6, 'EdgeColor',color_H2)
+set(b3, 'FaceColor',color_H1, 'FaceAlpha',0.6, 'EdgeColor',color_H1)
+
+% Add model count per model type as label within the corresponding bar
+xshift = 0.1;
+text(1-xshift, length(idx1)/2, num2str(length(idx1)))
+text(2-xshift, length(idx2)/2, num2str(length(idx2)))
+text(3-xshift, length(idx3)/2, num2str(length(idx3)))
 
 ylim([0 keep_mods])
 ylabel('model count', 'fontsize',fontsize)
