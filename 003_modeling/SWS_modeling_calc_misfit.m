@@ -126,28 +126,28 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 
 
 %==========================================================================
-% % loading preprocessed synthetic models
-disp(['Loading model file >' modelsin '<...'])
-
-% struct with field splitmods
-disp(modelsin)
-models = load(modelsin);
-
-% struct with fields phi_eff, dt_eff, mod_paras, type
-model_out = models.splitmods;
-
-
-
-% model_out: preprocessed models based on parameters
-disp(['Loading model file <' modelsin '>...'])
-models = load(modelsin);
-
+% % % loading preprocessed synthetic models
+% disp(['Loading model file >' modelsin '<...'])
+% 
 % % struct with field splitmods
-% models = modelsin
+% disp(modelsin)
+% models = load(modelsin);
+% 
 % % struct with fields phi_eff, dt_eff, mod_paras, type
 % model_out = models.splitmods;
 % 
 % 
+% 
+% % model_out: preprocessed models based on parameters
+% disp(['Loading model file <' modelsin '>...'])
+% models = load(modelsin);
+
+% struct with field splitmods
+models = modelsin;
+% struct with fields phi_eff, dt_eff, mod_paras, type
+model_out = models.splitmods;
+
+
 
 
 
@@ -828,7 +828,7 @@ writematrix(merge_T1, filename_T1, 'Delimiter','tab')
 
 %--------------------------------------------------------------------------
 % backazimuth variation and model type distribution
-
+% %{
 SWS_modeling_plot_results( ...
     BAZ, modsall_sort, plot_mod_max, ...
     meas_BAZ_floor_null, meas_phiSC_null, meas_dtSC_null, ...
@@ -845,13 +845,14 @@ SWS_modeling_plot_results( ...
     cmap_rms_sel, cmap_rms_ind, cmap_rms_str, ...
     cmap_phi, cmap_phi_ind, cmap_phi_str, cbar_phi_ind, cbar_phi_str, ...
     mymarkersize_symbols, mylinewidth_symbols ...
-    )
+)
+% %}
 
 %--------------------------------------------------------------------------
 % stereoplot of synthetic splitting parameter of the best fit models
 
-plotnum = 1; % adjust manually
-
+plotnum = 50; % adjust manually
+%{
 % all model types together
 for ii = 1:1:plotnum
     SWS_modeling_plot_stereo_synthetic( ...
@@ -888,7 +889,7 @@ for ii = 1:1:plotnum
         cmap_phi, cmap_phi_str ...
         )
 end
-
+%}
 
 %==========================================================================
 end % EOF

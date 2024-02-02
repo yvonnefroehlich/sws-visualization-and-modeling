@@ -955,10 +955,17 @@ idx1 = find( strcmp(modtype1,'dipping') );
 idx2 = find( strcmp(modtype1,'two_layers') );
 idx3 = find( strcmp(modtype1,'single_layer') );
 
-color_H1 = [0.9290 0.6940 0.1250];
-color_H2 = [0.6350 0.0780 0.1840];
-color_T1 = [0 0.4470 0.7410];
-models_sort(1).color = 0;
+% color_H1 = [0.9290 0.6940 0.1250];
+% color_H2 = [0.6350 0.0780 0.1840];
+% color_T1 = [0 0.4470 0.7410];
+
+% color_H1 = [102 205 0] / 255;  % green
+% color_H2 = [106 90 205] / 255;  % lila
+% color_T1 = [160 82 45] / 255; % brown
+
+color_H1 = [85 107 47] / 255;  % green
+color_H2 = [72 61 139] / 255;  % lila % 106 90 205
+color_T1 = [205 133 63] / 255;  % light brown
 
 for kk = 1:length(idx1)
    models_sort(idx1(kk)).color = color_T1;
@@ -983,15 +990,15 @@ hold on
 box on, grid on
 
 for ii = 1:length(models_sort)
-    plot(ii,models_sort(ii).RMSE, ...
-        'color',models_sort(ii).color, ...
-        'marker','o', ...
-        'markerfacecolor',models_sort(ii).color, ...
-        'markersize',5)
-    % stem(ii,models_sort(ii).RMSE, ...
+    % plot(ii,models_sort(ii).RMSE, ...
     %     'color',models_sort(ii).color, ...
-    %     'markersize',2, ...
-    %     'LineWidth',0.4)
+    %     'marker','o', ...
+    %     'markerfacecolor',models_sort(ii).color, ...
+    %     'markersize',5)
+    stem(ii,models_sort(ii).RMSE, 'filled', ...
+        'color',models_sort(ii).color, ...
+        'markersize',2, ...
+        'LineWidth',0.01)
     hold on
 end
 
@@ -999,8 +1006,8 @@ end
 % axis
 xlim([0,length(models_sort)])
 % ylim([0,max([models_sort.RMSE])])
-ylim([0,1.3])
-xlabel('worst \leftarrow sorted models \rightarrow best', 'fontsize',fontsize)
+ylim([0,0.6])
+% xlabel('worse \leftarrow sorted models \rightarrow better', 'fontsize',fontsize)
 ylabel(cb_label_rmse, 'fontsize',fontsize)
 set(gca, 'XDir','reverse')
 set(gca, 'TickLength',[0.01 0.01], 'XMinorTick','on', 'YMinorTick','on')
@@ -1026,16 +1033,17 @@ set(gca, 'fontsize',fontsize)
 %--------------------------------------------------------------------------
 % legend for model types
 %{
-ll1 = plot(-10, -10, 'ok', 'markersize',10, ...
-           'markeredgecolor',color_T1, 'markerfacecolor',color_T1);
-ll2 = plot(-10, -10, 'ok', 'markersize',10, ...
-           'markeredgecolor',color_H2, 'markerfacecolor',color_H2);
-ll3 = plot(-10, -10, 'ok', 'markersize',10, ...
+ll1 = plot(-10, -10, 's', 'markersize',10, ...
            'markeredgecolor',color_H1, 'markerfacecolor',color_H1);
+ll2 = plot(-10, -10, 's', 'markersize',10, ...
+           'markeredgecolor',color_H2, 'markerfacecolor',color_H2);
+ll3 = plot(-10, -10, 's', 'markersize',10, ...
+           'markeredgecolor',color_T1, 'markerfacecolor',color_T1);
 
 h_leg_distri = legend([ll1,ll2,ll3], ...
-	{'1 dipping layer (T1)','2 horizontal layers (H2)', ...
-	 '1 horizontal layer (H1)'}, ...
+	{'1 horizontal layer (H1)', ...
+    '2 horizontal layers (H2)', ...
+    '1 dipping layer (T1)'}, ...
 	 'Location','southwest');
 
 % distance symbol to text, default [30,30]
@@ -1056,19 +1064,23 @@ subplot(2,1,2);
 hold on
 box on, grid on
 
-b1 = bar(1,length(idx1));
+b3 = bar(1,length(idx3));
 b2 = bar(2,length(idx2));
-b3 = bar(3,length(idx3));
+b1 = bar(3,length(idx1));
 
-set(b1, 'FaceColor',color_T1, 'FaceAlpha',0.6, 'EdgeColor',color_T1)
-set(b2, 'FaceColor',color_H2, 'FaceAlpha',0.6, 'EdgeColor',color_H2)
-set(b3, 'FaceColor',color_H1, 'FaceAlpha',0.6, 'EdgeColor',color_H1)
+set(b1, 'FaceColor',color_T1, 'FaceAlpha',0.6, 'EdgeColor',color_T1, 'Linewidth',1)
+set(b2, 'FaceColor',color_H2, 'FaceAlpha',0.6, 'EdgeColor',color_H2, 'Linewidth',1)
+set(b3, 'FaceColor',color_H1, 'FaceAlpha',0.6, 'EdgeColor',color_H1, 'Linewidth',1)
 
 % Add model count per model type as label within the corresponding bar
 xshift = 0.1;
-text(1-xshift, length(idx1)/2, num2str(length(idx1)))
+yshift = 20;
+text(3-xshift, length(idx1)/2, num2str(length(idx1)))
 text(2-xshift, length(idx2)/2, num2str(length(idx2)))
-text(3-xshift, length(idx3)/2, num2str(length(idx3)))
+text(1-xshift, length(idx3)/2, num2str(length(idx3)))
+% text(3-xshift, length(idx1)+yshift, num2str(length(idx1)))
+% text(2-xshift, length(idx2)+yshift, num2str(length(idx2)))
+% text(1-xshift, length(idx3)+yshift, num2str(length(idx3)))
 
 ylim([0 keep_mods])
 ylabel('model count', 'fontsize',fontsize)

@@ -513,6 +513,7 @@ end
 
 startval = 0.25;
 
+%{
 plot([startval startval], ...
      [0.230 0.230], ...
      'o', 'linewidth',linewcirc, 'markersize',marks, 'color',col_leg)
@@ -532,30 +533,31 @@ plot([startval-lengthbar_leg/2 startval+lengthbar_leg/2], ...
 text(startval, 0.282, '2 s', ...
      'HorizontalAlignment','center', 'fontsize',myfontsize)
 
-
+%}
 
 %==========================================================================
 %% plot colorbar (upper right corner)
 %==========================================================================
 
-% cb = colorbar('location','north', ...
-%               'TickDirection','out', ...
-%               'TickLength',0.025);
-% 
-% zlab = get(cb, 'xlabel');
-% set(zlab,'String','   \phi_a / N\circE');
-% 
-% caxis([-90 90])
-% set(cb, 'xtick',-60:30:60);
-% set(cb, 'fontsize',myfontsize)
-% 
-% % [left bottom width height]
-% if strcmp(modsall_sort(plotnum).mod_type,'dipping')
-%     set(cb, 'position',[0.615, 0.915 0.220 0.020])
-% else
-%     set(cb, 'position',[0.625, 0.920 0.220 0.020])
-% end
+%{
+cb = colorbar('location','north', ...
+              'TickDirection','out', ...
+              'TickLength',0.025);
 
+zlab = get(cb, 'xlabel');
+set(zlab,'String','   \phi_a / N\circE');
+
+caxis([-90 90])
+set(cb, 'xtick',-60:30:60);
+set(cb, 'fontsize',myfontsize)
+
+% [left bottom width height]
+if strcmp(modsall_sort(plotnum).mod_type,'dipping')
+    set(cb, 'position',[0.615, 0.915 0.220 0.020])
+else
+    set(cb, 'position',[0.625, 0.920 0.220 0.020])
+end
+%}
 
 
 %==========================================================================
@@ -799,9 +801,9 @@ filename = ['PLOT_SWSmod_' modsall_sort(1).staname '_' num2str(plotnum) ...
 %--------------------------------------------------------------------------
 % save
 if vers_out==1 % R2020a or higher
-    exportgraphics(fig_stereo, [filename '.png'], 'Resolution',360)
+    % exportgraphics(fig_stereo, [filename '.png'], 'Resolution',360)
     exportgraphics(fig_stereo, [filename '.eps'], 'ContentType','vector')
-    exportgraphics(fig_stereo, [filename '.pdf'], 'ContentType','vector')
+    % exportgraphics(fig_stereo, [filename '.pdf'], 'ContentType','vector')
 else % below R2020a
     saveas(export_fig,[filename '.png'])
     % uncomment if you want plots in pdf format, takes time...
