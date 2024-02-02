@@ -982,11 +982,19 @@ hold on
 box on, grid on
 
 for ii = 1:length(models_sort)
+% Use big dot
+%{
     plot(ii,models_sort(ii).RMSE, ...
         'color',models_sort(ii).color, ...
         'marker','o', ...
         'markerfacecolor',models_sort(ii).color, ...
         'markersize',10)
+%}
+% Use stem plot
+    stem(ii,models_sort(ii).RMSE, 'filled', ...
+        'color',models_sort(ii).color, ...
+        'markersize',2, ...
+        'LineWidth',0.01)
     hold on
 end
 
@@ -1019,17 +1027,18 @@ text(0.90, 0.93, staname_split, ...
 
 %--------------------------------------------------------------------------
 % legend for model types
-ll1 = plot(-10, -10, 'ok', 'markersize',10, ...
+ll1 = plot(-10, -10, 's', 'markersize',10, ...
            'markeredgecolor',color_T1, 'markerfacecolor',color_T1);
-ll2 = plot(-10, -10, 'ok', 'markersize',10, ...
+ll2 = plot(-10, -10, 's', 'markersize',10, ...
            'markeredgecolor',color_H2, 'markerfacecolor',color_H2);
-ll3 = plot(-10, -10, 'ok', 'markersize',10, ...
+ll3 = plot(-10, -10, 's', 'markersize',10, ...
            'markeredgecolor',color_H1, 'markerfacecolor',color_H1);
 
-h_leg_distri = legend([ll1,ll2,ll3], ...
-	{'1 dipping layer (T1)','2 horizontal layers (H2)', ...
-	 '1 horizontal layer (H1)'}, ...
-	 'Location','southwest');
+h_leg_distri = legend([ll3,ll2,ll1], ...
+    {'1 horizontal layer (H1)', ...
+     '2 horizontal layers (H2)', ...
+     '1 dipping layer (T1)'}, ...
+     'Location','southwest');
 
 % distance symbol to text, default [30,30]
 h_leg_distri.ItemTokenSize(1) = 20;
@@ -1049,13 +1058,19 @@ subplot(2,1,2);
 hold on
 box on, grid on
 
-b1 = bar(1,length(idx1));
-b2 = bar(2,length(idx2));
-b3 = bar(3,length(idx3));
+b1 = bar(3,length(idx1));  % T1
+b2 = bar(2,length(idx2));  % H2
+b3 = bar(1,length(idx3));  % H1
 
-set(b1, 'FaceColor',color_T1)
-set(b2, 'FaceColor',color_H2)
-set(b3, 'FaceColor',color_H1)
+set(b1, 'FaceColor',color_T1, 'FaceAlpha',0.6, 'EdgeColor',color_T1, 'Linewidth',1)
+set(b2, 'FaceColor',color_H2, 'FaceAlpha',0.6, 'EdgeColor',color_H2, 'Linewidth',1)
+set(b3, 'FaceColor',color_H1, 'FaceAlpha',0.6, 'EdgeColor',color_H1, 'Linewidth',1)
+
+% Add model count per model type as label in the middle of the corresponding bar
+xshift = 0.1;
+text(3-xshift, length(idx1)/2, num2str(length(idx1)))  % T1
+text(2-xshift, length(idx2)/2, num2str(length(idx2)))  % H2
+text(1-xshift, length(idx3)/2, num2str(length(idx3)))  % H1
 
 ylim([0 keep_mods])
 ylabel('model count', 'fontsize',fontsize)
