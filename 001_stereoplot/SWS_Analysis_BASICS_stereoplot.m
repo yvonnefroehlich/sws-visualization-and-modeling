@@ -75,6 +75,13 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % For plotting without color-coding use:
 %
 %    SWS_Analysis_BASICS_stereoplot('none')
+%
+% For plotting either nulls or splits as well as only a specific phase:
+%
+%    Go to the file SWS_Analysis_BASICS_read_SLresults.m
+%    At the end, around line 267 you should find the part "Further selections"
+%    Uncomment and adjust the code blocks accordingly for your needs
+%
 %--------------------------------------------------------------------------
 % Supported colormaps
 %
@@ -425,19 +432,19 @@ station_check = {};
 
 if ~isempty(RES_nulls)
     for i_null=1:1:length(RES_nulls)
-	    station_check{end+1} = RES_nulls(i_null).staname;
+        station_check{end+1} = RES_nulls(i_null).staname;
     end
 end
 
 if ~isempty(RES_split)
     for i_split=1:1:length(RES_split)
-	    station_check{end+1} = RES_split(i_split).staname;
+        station_check{end+1} = RES_split(i_split).staname;
     end
 end
 
 if ~isempty(RES_multi)
     for i_multi=1:1:length(RES_multi)
-	    station_check{end+1} = RES_multi(i_multi).staname;
+        station_check{end+1} = RES_multi(i_multi).staname;
     end
 end
 
