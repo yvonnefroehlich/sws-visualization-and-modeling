@@ -366,8 +366,10 @@ end
 % give number 0 to 5 directly here to specify quality, then no query occurs
 [RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = SWS_Analysis_BASICS_read_SLresults();
 
-% corresponding to numbers 0 to 5 in query before
-quality_string = {'all';'good';'goodfair';'fairpoor';'fair';'poor'};
+% corresponding to numbers in queries before
+quality_str = {'all'; 'good'; 'goodfair'; 'fairpoor'; 'fair'; 'poor'};
+phase_str = {'SKS'; 'SKKS'; 'PKS'};
+obs_str = {'null'; 'split'};
 
 single_string = 'single';
 if isempty(RES_split) && isempty(RES_nulls)
@@ -385,8 +387,8 @@ if ~exist('SL_method','var')==1 % default
     SL_method = 1; % SC
 end
 
-% corresponding to numbers 1 to 3 in query before
-method_string = {'SC';'RC';'EV'};
+% corresponding to numbers in query before
+method_str = {'SC'; 'RC'; 'EV'};
 
 
 
@@ -1031,11 +1033,16 @@ set(f_stereo, 'PaperSize',[14 14]); % set paper size
 
 %--------------------------------------------------------------------------
 file_path = [];
-file_name = ['Stereo_' staname '_' ...
-             quality_string{SL_qualtiy+1} '_' ...
-             method_string{SL_method} '_' ...
-             single_string multi_string{plot_multi+1} ...
-             '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap];
+file_name = [
+    'Stereo_' staname '_' ...
+     quality_str{SL_qualtiy+1} '_' ...
+     method_str{SL_method} '_' ...
+     phase_str{SL_phase} '_' ...
+     obs_str{SL_obs} '_' ...
+     single_string multi_string{plot_multi+1} ...
+     '_BAZ' num2str(lowlim) 'to' num2str(upplim) '_' ...
+     colmap
+ ];
 
 % MATLAB built-in function "exportgraphics" requires MATLAB 2020a+
 % format svg not supported by MATLAB built-in function "exportgraphics",
