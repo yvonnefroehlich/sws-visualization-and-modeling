@@ -86,22 +86,30 @@ end
 %--------------------------------------------------------------------------
 % filter by seismological phase and make query
 disp(' ')
-SL_phase = input(['Phase you want to plot (default all)? \n' ...
-                   '   [0] all  [1] SKS  [2] SKKS  [3] PKS    | ']);
+if isempty(varargin)
+    SL_phase = input(['Phase you want to plot (default all)? \n' ...
+                       '   [0] all  [1] SKS  [2] SKKS  [3] PKS    | ']);
 
-if ~exist('SL_phase','var')==1  % default
-    SL_phase = 0;  % all phases
+    if ~exist('SL_phase','var')==1  % default
+        SL_phase = 0;  % all phases
+    end
+else
+   SL_phase = varargin{2};
 end
 
 %--------------------------------------------------------------------------
 % filter by observation type and make query
 % 'No' equals split or non-null, 'Yes' equals null
 disp(' ')
-SL_obs = input(['Observation type you want to plot (default all)? \n' ...
+if isempty(varargin)
+    SL_obs = input(['Observation type you want to plot (default all)? \n' ...
                    '   [0] all  [1] nulls  [2] splits    | ']);
 
-if ~exist('SL_obs','var')==1  % default
-    SL_obs = 0;  % nulls and splits
+    if ~exist('SL_obs','var')==1  % default
+        SL_obs = 0;  % nulls and splits
+    end
+else
+   SL_obs = varargin{3};
 end
 
 
