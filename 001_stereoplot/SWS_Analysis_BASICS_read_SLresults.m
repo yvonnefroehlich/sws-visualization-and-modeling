@@ -1,4 +1,4 @@
-function [RES_split, RES_nulls, SL_quality] = ...
+function [RES_split, RES_nulls, SL_quality, SL_phase, SL_obs] = ...
     SWS_Analysis_BASICS_read_SLresults(varargin)
 
 %==========================================================================
@@ -66,8 +66,7 @@ cd(curr_dir)
 
 
 %==========================================================================
-% search for quality and make query
-
+% filter by quality and make query
 disp(' ')
 if isempty(varargin)
    SL_quality = input(['Qualities you want to plot (default is all)? \n', ...
@@ -82,6 +81,27 @@ if isempty(varargin)
     end
 else
    SL_quality = varargin{1};
+end
+
+%--------------------------------------------------------------------------
+% filter by seismological phase and make query
+disp(' ')
+SL_phase = input(['Phase you want to plot (default all)? \n' ...
+                   '   [0] all  [1] SKS  [2] SKKS  [3] PKS    | ']);
+
+if ~exist('SL_phase','var')==1  % default
+    SL_phase = 0;  % all phases
+end
+
+%--------------------------------------------------------------------------
+% filter by observation type and make query
+% 'No' equals split or non-null, 'Yes' equals null
+disp(' ')
+SL_obs = input(['Observation type you want to plot (default all)? \n' ...
+                   '   [0] all  [1] nulls  [2] splits    | ']);
+
+if ~exist('SL_obs','var')==1  % default
+    SL_obs = 0;  % nulls and splits
 end
 
 
@@ -109,8 +129,9 @@ if isempty(dir_res_split)
 else
    % length of delay time vector, default 1, in general a good choice
    scaling_factor = 1;
-   RES_split = read_results(dir_res_split, SL_quality, scaling_factor, ...
-                            SL_version);
+   RES_split = read_results( ...
+       dir_res_split, SL_quality, SL_phase, SL_obs, scaling_factor, SL_version ...
+   );
 end
 
 if isempty(dir_res_nulls)
@@ -118,8 +139,9 @@ if isempty(dir_res_nulls)
    RES_nulls = [];
 else
    scaling_factor = 1; % length of delay time vector, default 1
-   RES_nulls = read_results(dir_res_nulls, SL_quality, scaling_factor, ...
-                            SL_version);
+   RES_nulls = read_results( ...
+       dir_res_nulls, SL_quality, SL_phase, SL_obs, scaling_factor, SL_version ...
+   );
 end
 
 %--------------------------------------------------------------------------
@@ -149,7 +171,7 @@ if isempty(RES_nulls)
 end
 
 
-end % EOmF
+end  % EOmF
 
 
 
@@ -157,8 +179,9 @@ end % EOmF
 %% subfunction
 %==========================================================================
 
-function RES_out = read_results(dir_res, SL_quality, scaling_factor, ...
-                                SL_version)
+function RES_out = read_results( ...
+    dir_res, SL_quality, SL_phase, SL_obs, scaling_factor, SL_version ...
+)
 
 % allocate fields for speed
 res_split.date_doy = 'NaN';
@@ -254,40 +277,53 @@ elseif SL_version==2
         try
             res_split(k).remark = C{1,20}{k,1};
         catch
-            text = 'no remark'; %disp('no remark')
+            text = 'no remark';  %disp('no remark')
         end
     end
 
-end % SL_version
-
+end  % SL_version
 
 res_split_depth = res_split;
 
 
 %==========================================================================
-% further selection
+% Apply filters
 % >>> uncomment the code blocks which are suitable for your needs <<<
 
 %--------------------------------------------------------------------------
 % seismological phase
 
-find_phase = strcmp({res_split_depth.phase},'SKS');  % state seismological phase
-sel_ev_phase = res_split_depth(find_phase);
-res_split_depth = sel_ev_phase;
+if SL_phase ~= 0
+    if SL_phase == 1
+        SL_phase_str = 'PKS';
+    elseif SL_obs == 2
+        SL_phase_str = 'SKS';
+    elseif SL_obs == 3
+        SL_phase_str = 'SKKS';
+    end
+    find_phase = strcmp({res_split_depth.phase},SL_phase_str);
+    sel_ev_phase = res_split_depth(find_phase);
+    res_split_depth = sel_ev_phase;
+end
 
 %--------------------------------------------------------------------------
 % observation type
-% 'No' equals split or non-null, 'Yes' equals null
+% 'Yes' equals nulls
+% 'No' equals splits or non-nulls
 
-find_obs = strcmp({res_split_depth.NULL},'No');  % state observation type
-sel_ev_obs = res_split_depth(find_obs);
-res_split_depth = sel_ev_obs;
+if SL_obs ~= 0
+    if SL_obs == 1  % nulls
+        SL_obs_str = 'Yes';
+    elseif SL_obs == 2  % splits
+        SL_obs_str = 'No';
+    end
+    find_obs = strcmp({res_split_depth.NULL},SL_obs_str);
+    sel_ev_obs = res_split_depth(find_obs);
+    res_split_depth = sel_ev_obs;
+end
 
-
-%==========================================================================
-% sort quality
-
-sel_ev_quality = [];
+%--------------------------------------------------------------------------
+% quality
 
 if SL_quality==0 % all
    sel_ev_quality = res_split_depth;
@@ -310,7 +346,9 @@ elseif SL_quality==5 % poor
    sel_ev_quality = res_split_depth(find_ev);
 end
 
-RES_out = sel_ev_quality; % -> RES_split AND RES_null
+
+%--------------------------------------------------------------------------
+RES_out = sel_ev_quality;  % -> RES_split AND RES_null
 
 
 %==========================================================================

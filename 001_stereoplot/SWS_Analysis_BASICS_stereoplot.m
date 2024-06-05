@@ -316,11 +316,11 @@ else
     % search for input colormap
     %......................................................................
     % Scientific colour maps
-    if idx1==1 && ~isempty(which('CrameriColourMaps7.0.mat'))
+    if idx1==1 && ~isempty(which('CrameriColourMap8.0.mat'))
         usecmap = crameri(colmap,181);
         disp(' ')
         disp('>>> Scientific colour maps found! <<<')
-    elseif idx1==1 && isempty(which('CrameriColourMaps7.0.mat'))
+    elseif idx1==1 && isempty(which('CrameriColourMaps8.0.mat'))
         warning('Scientific colour maps not found!')
         return
     %......................................................................
@@ -364,7 +364,7 @@ end
 % make query for quality
 
 % give number 0 to 5 directly here to specify quality, then no query occurs
-[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults();
+[RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = SWS_Analysis_BASICS_read_SLresults();
 
 % corresponding to numbers 0 to 5 in query before
 quality_string = {'all';'good';'goodfair';'fairpoor';'fair';'poor'};
@@ -1046,12 +1046,15 @@ file_name = ['Stereo_' staname '_' ...
 % GitHub: https://github.com/altmany/export_fig/releases/tag/v3.15
 
 if vers==2 % MATLAB R2020a and higher
-    exportgraphics(f_stereo, [file_path file_name '.png'], ...
-                    'Resolution',360)
-    exportgraphics(f_stereo, [file_path file_name '.eps'], ...
-                    'ContentType','vector')
-    exportgraphics(f_stereo, [file_path file_name '.pdf'], ...
-                    'ContentType','vector')
+    exportgraphics( ...
+        f_stereo, [file_path file_name '.png'], 'Resolution',360 ...
+    )
+    exportgraphics( ...
+        f_stereo, [file_path file_name '.eps'], 'ContentType','vector' ...
+    )
+    exportgraphics( ...
+        f_stereo, [file_path file_name '.pdf'], 'ContentType','vector' ...
+    )
 else
     saveas(f_stereo, [file_path file_name '.png'])
     saveas(f_stereo, [file_path file_name '.eps'])
