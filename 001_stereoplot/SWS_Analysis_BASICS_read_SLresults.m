@@ -77,12 +77,12 @@ cd(curr_dir)
 disp(' ')
 if isempty(varargin)
    SL_quality = input(['Qualities you want to plot (default is all)? \n', ...
-                    '   [0] all \n', ...'
-                    '   [1] good \n', ...'
-                    '   [2] good & fair \n', ...'
-                    '   [3] fair & poor \n', ...'
-                    '   [4] fair \n', ...'
-                    '   [5] poor    | ']);
+                       '   [0] all \n', ...'
+                       '   [1] good \n', ...'
+                       '   [2] good & fair \n', ...'
+                       '   [3] fair & poor \n', ...'
+                       '   [4] fair \n', ...'
+                       '   [5] poor    | ']);
     if isempty(SL_quality)  % default
         SL_quality = 0;  % all qualities
     end
@@ -95,7 +95,7 @@ end
 disp(' ')
 if isempty(varargin)
     SL_phase = input(['Seismological phase you want to plot (default all)? \n' ...
-                       '   [0] XKS (all)  [1] SKS  [2] SKKS  [3] PKS    | ']);
+                      '   [0] all  [1] SKS  [2] SKKS  [3] PKS    | ']);
     if ~exist('SL_phase','var')==1  % default
         SL_phase = 0;  % all phases
     end
@@ -108,7 +108,7 @@ end
 disp(' ')
 if isempty(varargin)
     SL_obs = input(['Observation type you want to plot (default all)? \n' ...
-                   '   [0] swsms (all)  [1] nulls  [2] splits    | ']);
+                    '   [0] all  [1] nulls  [2] splits    | ']);
     if ~exist('SL_obs','var')==1  % default
         SL_obs = 0;  % nulls and splits
     end
@@ -218,9 +218,10 @@ res_split.quality_manual = 'NaN';
 res_split.NULL = 'NaN';
 res_split.remark = 'NaN';
 
-%--------------------------------------------------------------------------
+%==========================================================================
 % SL version
 switch SL_version
+%--------------------------------------------------------------------------
     case 1  % original version
         fid = fopen(dir_res.name);
         C = textscan(fid,'%s %s %s %f %f %s %f %f %s %f %f %f %s %f %s %f %f %s %f %s %f %f %f %f %s %s %s','headerlines',3);
@@ -254,7 +255,6 @@ switch SL_version
                 text = 'no remark'; %disp('no remark')
             end
         end
-
 %--------------------------------------------------------------------------
     case 2  % version by Rob Porritt
         fid = fopen(dir_res.name);
@@ -297,7 +297,6 @@ res_split_depth = res_split;
 
 %==========================================================================
 % Apply filters
-% >>> uncomment the code blocks which are suitable for your needs <<<
 
 %--------------------------------------------------------------------------
 % seismological phase
