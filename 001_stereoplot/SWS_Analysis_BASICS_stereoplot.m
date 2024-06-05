@@ -166,7 +166,7 @@ status_cb = 'yes'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
 status_leg = 'yes'; %% 'yes', 'no'  % legend - null, delay time reference
 status_sta = 'yes'; %% 'yes', 'no'  % station name - station code
 status_baz = 'yes'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
-filename_add = '_MG';  %% additional string added to the filename
+filename_add = '';  %% additional string added to the filename
 
 
 %--------------------------------------------------------------------------
