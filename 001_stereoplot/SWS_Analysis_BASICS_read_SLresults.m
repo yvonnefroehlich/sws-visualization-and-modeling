@@ -363,4 +363,4 @@ RES_out = sel_ev_quality;  % -> RES_split AND RES_null
 
 
 %==========================================================================
-end % EOsF
+end  % EOsF
