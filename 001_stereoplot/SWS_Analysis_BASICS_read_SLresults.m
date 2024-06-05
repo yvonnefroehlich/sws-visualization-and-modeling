@@ -266,23 +266,22 @@ res_split_depth = res_split;
 
 %==========================================================================
 % further selection
+% >>> uncomment the code blocks which are suitable for your needs <<<
 
 %--------------------------------------------------------------------------
-% phase
+% seismological phase
 
-% sel_ev_phase = [];
-% find_mes = strcmp({res_split.phase},'SKKS'); % adjust for your needs
-% sel_ev_phase = res_split_depth(find_mes);
-% res_split_depth = sel_ev_phase;
+find_phase = strcmp({res_split_depth.phase},'SKS');  % state seismological phase
+sel_ev_phase = res_split_depth(find_phase);
+res_split_depth = sel_ev_phase;
 
 %--------------------------------------------------------------------------
 % observation type
 % 'No' equals split or non-null, 'Yes' equals null
 
-% sel_ev_phase = [];
-% find_mes = strcmp({res_split.NULL},'No'); % adjust for your needs
-% sel_ev_null = res_split_depth(find_mes);
-% res_split_depth = sel_ev_null;
+find_obs = strcmp({res_split_depth.NULL},'No');  % state observation type
+sel_ev_obs = res_split_depth(find_obs);
+res_split_depth = sel_ev_obs;
 
 
 %==========================================================================
