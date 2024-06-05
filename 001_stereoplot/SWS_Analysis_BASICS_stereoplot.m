@@ -63,7 +63,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % 2) Run this function SWS_Analysis_BASICS_stereoplot()
 %
 %    If result lists are available, they are loaded and processed
-%    completely automatically. Just follow the occuring queries.
+%    completely automatically. Just follow the occurring queries.
 %
 % If bars should be color-coded with respect to the fast polarization
 % direction (phi), pass the colormap of your choice as input, e. g.:
