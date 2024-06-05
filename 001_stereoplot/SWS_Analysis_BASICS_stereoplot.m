@@ -156,10 +156,12 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 
 %--------------------------------------------------------------------------
 % What annotation should be plotted?
-status_cb = 'yes'; %% 'yes','no' % colorbar - phi color-coding of bars
-status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
-status_sta = 'yes'; %% 'yes','no' % station name - station code
-status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
+status_cb = 'yes'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
+status_leg = 'yes'; %% 'yes', 'no'  % legend - null, delay time reference
+status_sta = 'yes'; %% 'yes', 'no'  % station name - station code
+status_baz = 'yes'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
+filename_add = '_MG';  %% additional string added to the filename
+
 
 %--------------------------------------------------------------------------
 % plot sector
@@ -361,15 +363,19 @@ end
 %==========================================================================
 
 %--------------------------------------------------------------------------
-% make query for quality
+% Make queries for
+% - measurement quality: 0; 1; 2; 3; 4; 5
+% - seismolgical phase: 0; 1; 2; 3
+% - observation type: 0; 1; 2
 
-% give number 0 to 5 directly here to specify quality, then no query occurs
-[RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = SWS_Analysis_BASICS_read_SLresults();
+% give numbers directly here, then no queries occur
+[RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = ...
+    SWS_Analysis_BASICS_read_SLresults();
 
 % corresponding to numbers in queries before
 quality_str = {'all'; 'good'; 'goodfair'; 'fairpoor'; 'fair'; 'poor'};
-phase_str = {'SKS'; 'SKKS'; 'PKS'};
-obs_str = {'null'; 'split'};
+phase_str = {'XKS'; 'SKS'; 'SKKS'; 'PKS'};
+obs_str = {'swsms'; 'nulls'; 'splits'};
 
 single_string = 'single';
 if isempty(RES_split) && isempty(RES_nulls)
@@ -377,13 +383,14 @@ if isempty(RES_split) && isempty(RES_nulls)
 end
 
 %--------------------------------------------------------------------------
-% make query for SWS measurement method
+% Make query for
+% - measurement method: 1; 2; 3
 
 disp(' ')
 SL_method = input(['Methode you want to plot (default is SC)? \n' ...
                    '   [1] SC  [2] RC  [3] EV    | ']);
 
-if ~exist('SL_method','var')==1 % default
+if ~exist('SL_method','var')==1  % default
     SL_method = 1; % SC
 end
 
@@ -1037,11 +1044,12 @@ file_name = [
     'Stereo_' staname '_' ...
      quality_str{SL_qualtiy+1} '_' ...
      method_str{SL_method} '_' ...
-     phase_str{SL_phase} '_' ...
-     obs_str{SL_obs} '_' ...
-     single_string multi_string{plot_multi+1} ...
-     '_BAZ' num2str(lowlim) 'to' num2str(upplim) '_' ...
-     colmap
+     phase_str{SL_phase+1} '_' ...
+     obs_str{SL_obs+1} '_' ...
+     single_string multi_string{plot_multi+1} '_' ...
+     'BAZ' num2str(lowlim) 'to' num2str(upplim) '_' ...
+     colmap '_' ...
+     filename_add
  ];
 
 % MATLAB built-in function "exportgraphics" requires MATLAB 2020a+
