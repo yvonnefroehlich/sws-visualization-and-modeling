@@ -1,4 +1,4 @@
-function SWS_Analysis_BASICS_stereoplot(colmap)
+function SWS_Analysis_BASICS_stereoplot(colmap, filename_add)
 
 %==========================================================================
 %% This function
@@ -166,7 +166,7 @@ status_cb = 'yes'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
 status_leg = 'yes'; %% 'yes', 'no'  % legend - null, delay time reference
 status_sta = 'yes'; %% 'yes', 'no'  % station name - station code
 status_baz = 'yes'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
-filename_add = '';  %% additional string added to the filename
+filename_add = ['_' filename_add];  %% additional string added to the filename
 
 
 %--------------------------------------------------------------------------
@@ -366,6 +366,7 @@ else
 
 end
 
+close all
 
 
 %==========================================================================
@@ -380,7 +381,7 @@ end
 
 % give numbers directly here, then no queries occur
 [RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = ...
-    SWS_Analysis_BASICS_read_SLresults(2, 2, 0);
+    SWS_Analysis_BASICS_read_SLresults(2, 3, 0);
 
 % corresponding to numbers in queries before
 quality_str = {'all'; 'good'; 'goodfair'; 'fairpoor'; 'fair'; 'poor'};
