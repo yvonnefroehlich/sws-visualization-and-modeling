@@ -1,4 +1,5 @@
-function SWS_Analysis_BASICS_stereoplot(colmap, filename_add)
+% function SWS_Analysis_BASICS_stereoplot(colmap)
+function SWS_Analysis_BASICS_stereoplot(colmap, SL_quality, SL_phase, SL_obs, filename_add)
 
 %==========================================================================
 %% This function
@@ -381,7 +382,7 @@ close all
 
 % give numbers directly here, then no queries occur
 [RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = ...
-    SWS_Analysis_BASICS_read_SLresults(2, 3, 0);
+    SWS_Analysis_BASICS_read_SLresults(SL_quality, SL_phase, SL_obs);
 
 % corresponding to numbers in queries before
 quality_str = {'all'; 'good'; 'goodfair'; 'fairpoor'; 'fair'; 'poor'};
