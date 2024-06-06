@@ -370,6 +370,7 @@ end
 close all
 
 
+
 %==========================================================================
 %% read SL single-event-analysis results
 %==========================================================================
@@ -434,18 +435,21 @@ dir_res_multi = dir('*_stackresults.mat');
 %         RES_multi = SWS_Analysis_BASICS_read_SSresults(...
 %                         dir_res_multi, 1, plot_multi);
 %     end
-% 
+%
 %     if plot_multi==1 && isempty(RES_multi)
 %         error('No stack results in struct!')
 %     elseif plot_multi==2 && isempty(RES_multi)
 %         error('No simw results contained in struct!')
 %     end
-% 
+%
 % end
 
 if ~exist('plot_multi','var')==1  % default
     plot_multi = 0;  % no multi-event analysis results
 end
+
+
+
 
 %==========================================================================
 %% check if data is from one single station
@@ -634,6 +638,8 @@ if ~exist('plotannot','var')==1  % default
     plotannot = 2;  % no
 end
 
+
+
 %==========================================================================
 %% make figure
 %==========================================================================
@@ -671,6 +677,7 @@ axes.SortMethod = 'ChildOrder';  % for right order of layers in eps / pdf
 framem('FLinewidth',2)
 framem('FFaceColor','none')
 framem('FEdgeColor',[0.8 0.8 0.8])
+
 
 %==========================================================================
 % annotation
