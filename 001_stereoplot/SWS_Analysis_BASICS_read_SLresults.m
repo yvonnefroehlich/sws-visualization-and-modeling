@@ -304,11 +304,11 @@ res_split_depth = res_split;
 if SL_phase ~= 0
     switch SL_phase
         case 1
-            SL_phase_str = 'PKS';
-        case 2
             SL_phase_str = 'SKS';
-        case 3
+        case 2
             SL_phase_str = 'SKKS';
+        case 3
+            SL_phase_str = 'PKS';
     end
     find_phase = strcmp({res_split_depth.phase},SL_phase_str);
     sel_ev_phase = res_split_depth(find_phase);

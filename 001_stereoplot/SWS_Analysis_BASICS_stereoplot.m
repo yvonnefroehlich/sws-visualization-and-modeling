@@ -380,7 +380,7 @@ end
 
 % give numbers directly here, then no queries occur
 [RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = ...
-    SWS_Analysis_BASICS_read_SLresults();
+    SWS_Analysis_BASICS_read_SLresults(2, 2, 0);
 
 % corresponding to numbers in queries before
 quality_str = {'all'; 'good'; 'goodfair'; 'fairpoor'; 'fair'; 'poor'};
@@ -396,9 +396,9 @@ end
 % Make query for
 % - measurement method: 1; 2; 3
 
-disp(' ')
-SL_method = input(['Methode you want to plot (default is SC)? \n' ...
-                   '   [1] SC  [2] RC  [3] EV    | ']);
+% disp(' ')
+% SL_method = input(['Methode you want to plot (default is SC)? \n' ...
+%                    '   [1] SC  [2] RC  [3] EV    | ']);
 
 if ~exist('SL_method','var')==1  % default
     SL_method = 1; % SC
@@ -595,10 +595,14 @@ end
 %==========================================================================
 %% make query for sector plotting
 %==========================================================================
-disp(' ')
-plotsector = input(['Plot sector in backazimuth range (takes some time)? \n ' ...
-                    '   Plot no sector: Press "Enter" (Default is used) \n ' ...
-                    '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
+% disp(' ')
+% plotsector = input(['Plot sector in backazimuth range (takes some time)? \n ' ...
+%                     '   Plot no sector: Press "Enter" (Default is used) \n ' ...
+%                     '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
+
+if ~exist('plotsector','var')==1  % default
+    plotsector = [];  % BAZ range 0°-360°
+end
 
 if ~isempty(plotsector)
     if length(plotsector)==2
@@ -618,11 +622,13 @@ end
 %==========================================================================
 %% make query for location of annotation of radial axis
 %==========================================================================
-disp(' ')
-plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
-                   '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
+% disp(' ')
+% plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
+%                    '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
 
-
+if ~exist('plotannot','var')==1  % default
+    plotannot = 0;  % no
+end
 
 %==========================================================================
 %% make figure
@@ -687,10 +693,6 @@ end
 
 %--------------------------------------------------------------------------
 % radial axis (inclination angle)
-if isempty(plotannot)  % default
-    plotannot = 2;  % SE
-end
-
 switch plotannot
     case 1  % NE
        text(0.047,-0.047, '5^\circ', 'fontsize',12, 'color',col_inc)
