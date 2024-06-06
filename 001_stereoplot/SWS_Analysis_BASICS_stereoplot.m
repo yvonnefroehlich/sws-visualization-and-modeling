@@ -163,11 +163,11 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 
 %--------------------------------------------------------------------------
 % What annotation should be plotted?
-status_cb = 'yes'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
-status_leg = 'yes'; %% 'yes', 'no'  % legend - null, delay time reference
-status_sta = 'yes'; %% 'yes', 'no'  % station name - station code
-status_baz = 'yes'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
-filename_add = ['_' filename_add];  %% additional string added to the filename
+status_cb = 'no'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
+status_leg = 'no'; %% 'yes', 'no'  % legend - null, delay time reference
+status_sta = 'no'; %% 'yes', 'no'  % station name - station code
+status_baz = 'no'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
+filename_add = ['_noall_' filename_add];  %% additional string added to the filename
 
 
 %--------------------------------------------------------------------------
@@ -669,7 +669,8 @@ axes = gca;
 axes.SortMethod = 'ChildOrder';  % for right order of layers in eps / pdf
 
 framem('FLinewidth',2)
-
+framem('FFaceColor','none')
+framem('FEdgeColor',[0.8 0.8 0.8])
 
 %==========================================================================
 % annotation
@@ -1069,9 +1070,9 @@ set(f_stereo, 'PaperSize',[14 14]); % set paper size
 %--------------------------------------------------------------------------
 file_path = [];
 file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_URG/';
-% file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SEDI/';
-% file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_YSA/';
-% file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SA/';
+file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SEDI/';
+file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_YSA/';
+file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SA/';
 file_name = [ ...
     'Stereo_' staname '_' ...
      quality_str{SL_qualtiy+1} '_' ...
@@ -1097,7 +1098,8 @@ if vers==2 % MATLAB R2020a and higher
         f_stereo, [file_path file_name '.png'], 'Resolution',360 ...
     )
     exportgraphics( ...
-        f_stereo, [file_path file_name '.eps'], 'ContentType','vector' ...
+        f_stereo, [file_path file_name '.eps'], 'ContentType','vector', ...
+        'BackgroundColor', 'none' ...
     )
     % exportgraphics( ...
     %     f_stereo, [file_path file_name '.pdf'], 'ContentType','vector' ...
