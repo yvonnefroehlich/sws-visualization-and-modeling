@@ -424,26 +424,28 @@ multi_string = {''; 'stack'; 'SIMWNN'; 'stackSIMWNN'};
 
 dir_res_multi = dir('*_stackresults.mat');
 
-if ~isempty(dir_res_multi)
-    disp(' ')
-    plot_multi = input(['Plot multi-event-analysis results' ...
-                        ' (if available)? \n' ...
-                        '  [0] no  [1] stack  [2] SIMW(NN)' ...
-                        '  [3] stack & SIMW(NN)   | ']);
-    if plot_multi>0
-        RES_multi = SWS_Analysis_BASICS_read_SSresults(...
-                        dir_res_multi, 1, plot_multi);
-    end
+% if ~isempty(dir_res_multi)
+%     disp(' ')
+%     plot_multi = input(['Plot multi-event-analysis results' ...
+%                         ' (if available)? \n' ...
+%                         '  [0] no  [1] stack  [2] SIMW(NN)' ...
+%                         '  [3] stack & SIMW(NN)   | ']);
+%     if plot_multi>0
+%         RES_multi = SWS_Analysis_BASICS_read_SSresults(...
+%                         dir_res_multi, 1, plot_multi);
+%     end
+% 
+%     if plot_multi==1 && isempty(RES_multi)
+%         error('No stack results in struct!')
+%     elseif plot_multi==2 && isempty(RES_multi)
+%         error('No simw results contained in struct!')
+%     end
+% 
+% end
 
-    if plot_multi==1 && isempty(RES_multi)
-        error('No stack results in struct!')
-    elseif plot_multi==2 && isempty(RES_multi)
-        error('No simw results contained in struct!')
-    end
-
+if ~exist('plot_multi','var')==1  % default
+    plot_multi = 0;  % no multi-event analysis results
 end
-
-
 
 %==========================================================================
 %% check if data is from one single station
@@ -629,7 +631,7 @@ end
 %                    '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
 
 if ~exist('plotannot','var')==1  % default
-    plotannot = 0;  % no
+    plotannot = 2;  % no
 end
 
 %==========================================================================
@@ -1066,7 +1068,11 @@ set(f_stereo, 'PaperSize',[14 14]); % set paper size
 
 %--------------------------------------------------------------------------
 file_path = [];
-file_name = [
+file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_URG/';
+% file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SEDI/';
+% file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_YSA/';
+% file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SA/';
+file_name = [ ...
     'Stereo_' staname '_' ...
      quality_str{SL_qualtiy+1} '_' ...
      method_str{SL_method} '_' ...
@@ -1075,7 +1081,7 @@ file_name = [
      single_string multi_string{plot_multi+1} '_' ...
      'BAZ' num2str(lowlim) 'to' num2str(upplim) '_' ...
      colmap ...
-     filename_add
+     filename_add ...
  ];
 
 % MATLAB built-in function "exportgraphics" requires MATLAB 2020a+
@@ -1090,9 +1096,9 @@ if vers==2 % MATLAB R2020a and higher
     exportgraphics( ...
         f_stereo, [file_path file_name '.png'], 'Resolution',360 ...
     )
-    % exportgraphics( ...
-    %     f_stereo, [file_path file_name '.eps'], 'ContentType','vector' ...
-    % )
+    exportgraphics( ...
+        f_stereo, [file_path file_name '.eps'], 'ContentType','vector' ...
+    )
     % exportgraphics( ...
     %     f_stereo, [file_path file_name '.pdf'], 'ContentType','vector' ...
     % )
