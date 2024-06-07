@@ -1,4 +1,5 @@
-function SWS_Analysis_BASICS_stereoplot(colmap)
+% function SWS_Analysis_BASICS_stereoplot(colmap)
+function SWS_Analysis_BASICS_stereoplot(colmap, SL_quality, SL_phase, SL_obs, filename_add)
 
 %==========================================================================
 %% This function
@@ -31,6 +32,10 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %   https://doi.org/10.1007/s10950-022-10112-w
+% - extended: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
+%   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
+%   Fröhlich, Grund, Ritter (2024) GJI
+%
 %--------------------------------------------------------------------------
 % TERMS OF USE
 %
@@ -59,7 +64,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % 2) Run this function SWS_Analysis_BASICS_stereoplot()
 %
 %    If result lists are available, they are loaded and processed
-%    completely automatically
+%    completely automatically. Just follow the occurring queries.
 %
 % If bars should be color-coded with respect to the fast polarization
 % direction (phi), pass the colormap of your choice as input, e. g.:
@@ -85,7 +90,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 %
 % 2) MatPlotLib Perceptually Uniform Colormaps
 %    - MATLAB: v2.1.3 https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps
-%    (last access 2022 June 26)
+%      (last access 2022 June 26)
 %
 % 3) Scientific colour maps. F. Crameri (2021) Zenodo.
 %    http://doi.org/10.5281/zenodo.1243862
@@ -101,28 +106,37 @@ function SWS_Analysis_BASICS_stereoplot(colmap)
 % 4) cmocean colormaps. Thyng et al. (2016) Oceanography 29(3):9–13.
 %    http://dx.doi.org/10.5670/oceanog.2016.66
 %    - MATLAB: v2.02 https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps
-%    (last access 2022 June 18)
+%      (last access 2022 June 18)
 %--------------------------------------------------------------------------
 % Automatically appearing queries
 %
 % -> you can select during running this function
 %
-% - quality (see SWS_Analysis_BASICS_read_SLresults.m)
+% - measuremnt quality (see SWS_Analysis_BASICS_read_SLresults.m)
 %    * all
 %    * good
 %    * good & fair
 %    * fair & poor
 %    * poor
+% - seismolgical phase (see SWS_Analysis_BASICS_read_SLresults.m)
+%    * all
+%    * SKS
+%    * SKKS
+%    * PKS
+% - observation type (see SWS_Analysis_BASICS_read_SLresults.m)
+%    * all
+%    * nulls (no shear wave splitting)
+%    * splits (shear wave splitting)
 % - shear wave splitting method
-%    * rotation-correlation method - RC - (Bowman & Ando 1987)
-%    * energy minimization method - SC - (Silver & Chan 1991)
-%    * eigenvalue method - EV - (Silver & Chan 1991)
+%    * RC (rotation-correlation method, Bowman & Ando 1987)
+%    * SC (energy minimization method, Silver & Chan 1991)
+%    * EV (eigenvalue method, Silver & Chan 1991)
 % - multi-event analysis results of StackSplit (if available)
-%    * stacking of error surfaces - STACK - (Wolfe & Silver 1998)
-%    * simultaneous inversion of multiple waveforms - SIMW - (Roy et al. 2007)
+%    * STACK (stacking of error surfaces, Wolfe & Silver 1998)
+%    * SIMW (simultaneous inversion of multiple waveforms, Roy et al. 2007)
 % - backazimuth sector in white, rest in gray (time intense)
 %    * no
-%    * vector [lower_BAZ_limit, upper_BAZ_limit]
+%    * [lower_BAZ_limit, upper_BAZ_limit]
 % - position of radial axis annotation (incidence angle 5, 10, 15 deg)
 %    * no
 %    * NE, SE, SW, NW
@@ -149,10 +163,12 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 
 %--------------------------------------------------------------------------
 % What annotation should be plotted?
-status_cb = 'yes'; %% 'yes','no' % colorbar - phi color-coding of bars
-status_leg = 'yes'; %% 'yes','no' % legend - null, delay time reference
-status_sta = 'yes'; %% 'yes','no' % station name - station code
-status_baz = 'yes'; %% 'yes','no' % angle axis - BAZ - N(orth), E(ast)
+status_cb = 'no'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
+status_leg = 'no'; %% 'yes', 'no'  % legend - null, delay time reference
+status_sta = 'no'; %% 'yes', 'no'  % station name - station code
+status_baz = 'no'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
+filename_add = ['_noall_' filename_add];  %% additional string added to the filename
+
 
 %--------------------------------------------------------------------------
 % plot sector
@@ -223,13 +239,15 @@ lengthbar = 0.0710;
 % Scientific colour maps
 % - without diverging and multi-sequential colormaps
 % - cyclic colormaps bamoO, brocO, corkO, vikO, romaO
-crameri_cmap = {'batlow', ...
-                'devon','lajolla','bamako', ...
-                'davos','bilbao','nuuk', ...
-                'oslo','grayC','hawaii', ...
-                'lapaz','tokyo','buda', ...
-                'acton','turku','imola', ...
-                'bamO','brocO','corkO','vikO','romaO'};
+crameri_cmap = {
+    'batlow', ...
+    'devon','lajolla','bamako', ...
+    'davos','bilbao','nuuk', ...
+    'oslo','grayC','hawaii', ...
+    'lapaz','tokyo','buda', ...
+    'acton','turku','imola', ...
+    'bamO','brocO','corkO','vikO','romaO', ...
+};
 
 %--------------------------------------------------------------------------
 % MatPlotLib colormaps
@@ -239,9 +257,11 @@ mpl_cmap = {'viridis','magma','inferno','plasma'};
 % cmocean colormaps
 % - without diverging and multi-sequential colormaps
 % - cyclic colormap phase
-cmocean_cmap = {'thermal','haline','solar','ice','gray','deep','dense', ...
-                'algae','matter','turbid','speed','amp','tempo','rain', ...
-                'phase'};
+cmocean_cmap = {
+    'thermal','haline','solar','ice','gray','deep','dense', ...
+    'algae','matter','turbid','speed','amp','tempo','rain', ...
+    'phase', ...
+};
 
 
 %==========================================================================
@@ -261,7 +281,7 @@ else
     % check for colormaps on your system
     %......................................................................
     % Scientific colour maps
-    if vers~=0 % MATLAB R2016b or higher
+    if vers~=0  % MATLAB R2016b or higher
         idxpre1 = contains(crameri_cmap,colmap);
         idx1 = sum(  double( strcmp(crameri_cmap(idxpre1),colmap) )  );
     else
@@ -276,7 +296,7 @@ else
     end
     %......................................................................
     % MatPlotLib colormaps
-    if vers~=0 % MATLAB R2016b or higher
+    if vers~=0  % MATLAB R2016b or higher
         idxpre2 = contains(mpl_cmap,colmap);
         idx2 = sum(double(strcmp(mpl_cmap(idxpre2),colmap)));
     else
@@ -291,7 +311,7 @@ else
     end
     %......................................................................
     % cmocean colormaps
-    if vers~=0 % MATLAB R2016b or higher
+    if vers~=0  % MATLAB R2016b or higher
         idxpre3 = contains(cmocean_cmap,colmap);
         idx3 = sum(double(strcmp(cmocean_cmap(idxpre3),colmap)));
     else
@@ -309,11 +329,11 @@ else
     % search for input colormap
     %......................................................................
     % Scientific colour maps
-    if idx1==1 && ~isempty(which('CrameriColourMaps7.0.mat'))
+    if idx1==1 && ~isempty(which('CrameriColourMap8.0.mat'))
         usecmap = crameri(colmap,181);
         disp(' ')
         disp('>>> Scientific colour maps found! <<<')
-    elseif idx1==1 && isempty(which('CrameriColourMaps7.0.mat'))
+    elseif idx1==1 && isempty(which('CrameriColourMaps8.0.mat'))
         warning('Scientific colour maps not found!')
         return
     %......................................................................
@@ -347,6 +367,8 @@ else
 
 end
 
+close all
+
 
 
 %==========================================================================
@@ -354,13 +376,19 @@ end
 %==========================================================================
 
 %--------------------------------------------------------------------------
-% make query for quality
+% Make queries for
+% - measurement quality: 0; 1; 2; 3; 4; 5
+% - seismolgical phase: 0; 1; 2; 3
+% - observation type: 0; 1; 2
 
-% give number 0 to 5 directly here to specify quality, then no query occurs
-[RES_split, RES_nulls, SL_qualtiy] = SWS_Analysis_BASICS_read_SLresults();
+% give numbers directly here, then no queries occur
+[RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = ...
+    SWS_Analysis_BASICS_read_SLresults(SL_quality, SL_phase, SL_obs);
 
-% corresponding to numbers 0 to 5 in query before
-quality_string = {'all';'good';'goodfair';'fairpoor';'fair';'poor'};
+% corresponding to numbers in queries before
+quality_str = {'all'; 'good'; 'goodfair'; 'fairpoor'; 'fair'; 'poor'};
+phase_str = {'XKS'; 'SKS'; 'SKKS'; 'PKS'};
+obs_str = {'swsms'; 'nulls'; 'splits'};
 
 single_string = 'single';
 if isempty(RES_split) && isempty(RES_nulls)
@@ -368,18 +396,19 @@ if isempty(RES_split) && isempty(RES_nulls)
 end
 
 %--------------------------------------------------------------------------
-% make query for SWS measurement method
+% Make query for
+% - measurement method: 1; 2; 3
 
-disp(' ')
-SL_method = input(['Methode you want to plot (default is SC)? \n' ...
-                   '   [1] SC  [2] RC  [3] EV    | ']);
+% disp(' ')
+% SL_method = input(['Methode you want to plot (default is SC)? \n' ...
+%                    '   [1] SC  [2] RC  [3] EV    | ']);
 
-if ~exist('SL_method','var')==1 % default
+if ~exist('SL_method','var')==1  % default
     SL_method = 1; % SC
 end
 
-% corresponding to numbers 1 to 3 in query before
-method_string = {'SC';'RC';'EV'};
+% corresponding to numbers in query before
+method_str = {'SC'; 'RC'; 'EV'};
 
 
 
@@ -389,31 +418,36 @@ method_string = {'SC';'RC';'EV'};
 
 % default
 RES_multi = [];
-plot_multi = 0; % no
+plot_multi = 0;  % no
 
 % corresponding to number in query
-multi_string = {'';'stack';'SIMWNN';'stackSIMWNN'};
+multi_string = {''; 'stack'; 'SIMWNN'; 'stackSIMWNN'};
 
 dir_res_multi = dir('*_stackresults.mat');
 
-if ~isempty(dir_res_multi)
-    disp(' ')
-    plot_multi = input(['Plot multi-event-analysis results' ...
-                        ' (if available)? \n' ...
-                        '  [0] no  [1] stack  [2] SIMW(NN)' ...
-                        '  [3] stack & SIMW(NN)   | ']);
-    if plot_multi>0
-        RES_multi = SWS_Analysis_BASICS_read_SSresults(...
-                        dir_res_multi, 1, plot_multi);
-    end
+% if ~isempty(dir_res_multi)
+%     disp(' ')
+%     plot_multi = input(['Plot multi-event-analysis results' ...
+%                         ' (if available)? \n' ...
+%                         '  [0] no  [1] stack  [2] SIMW(NN)' ...
+%                         '  [3] stack & SIMW(NN)   | ']);
+%     if plot_multi>0
+%         RES_multi = SWS_Analysis_BASICS_read_SSresults(...
+%                         dir_res_multi, 1, plot_multi);
+%     end
+%
+%     if plot_multi==1 && isempty(RES_multi)
+%         error('No stack results in struct!')
+%     elseif plot_multi==2 && isempty(RES_multi)
+%         error('No simw results contained in struct!')
+%     end
+%
+% end
 
-    if plot_multi==1 && isempty(RES_multi)
-        error('No stack results in struct!')
-    elseif plot_multi==2 && isempty(RES_multi)
-        error('No simw results contained in struct!')
-    end
-
+if ~exist('plot_multi','var')==1  % default
+    plot_multi = 0;  % no multi-event analysis results
 end
+
 
 
 
@@ -425,19 +459,19 @@ station_check = {};
 
 if ~isempty(RES_nulls)
     for i_null=1:1:length(RES_nulls)
-	    station_check{end+1} = RES_nulls(i_null).staname;
+        station_check{end+1} = RES_nulls(i_null).staname;
     end
 end
 
 if ~isempty(RES_split)
     for i_split=1:1:length(RES_split)
-	    station_check{end+1} = RES_split(i_split).staname;
+        station_check{end+1} = RES_split(i_split).staname;
     end
 end
 
 if ~isempty(RES_multi)
     for i_multi=1:1:length(RES_multi)
-	    station_check{end+1} = RES_multi(i_multi).staname;
+        station_check{end+1} = RES_multi(i_multi).staname;
     end
 end
 
@@ -464,16 +498,17 @@ end
 % (i) splits
 if ~isempty(RES_split)
     bazi = [RES_split.baz];
-    inc = abs([RES_split.inc]); % problem with negative incidence angle
-    if SL_method==1
-        azim_pre = [RES_split.phiSC];
-        len = [RES_split.dtSC];
-    elseif SL_method==2
-        azim_pre = [RES_split.phiRC];
-        len = [RES_split.dtRC];
-    elseif SL_method==3
-        azim_pre = [RES_split.phiEV];
-        len = [RES_split.dtEV];
+    inc = abs([RES_split.inc]);  % problem with negative incidence angle
+    switch SL_method
+        case 1
+            azim_pre = [RES_split.phiSC];
+            len = [RES_split.dtSC];
+        case 2
+            azim_pre = [RES_split.phiRC];
+            len = [RES_split.dtRC];
+        case 3
+            azim_pre = [RES_split.phiEV];
+            len = [RES_split.dtEV];
     end
     azim = azim_pre;
     staname = RES_split.staname;
@@ -497,15 +532,16 @@ end
 if ~isempty(RES_nulls)
     bazi_nulls = [RES_nulls.baz];
     inc_nulls = abs([RES_nulls.inc]);
-    if SL_method==1
-        azim_nulls_pre = [RES_nulls.phiSC];
-        len_nulls = [RES_nulls.dtSC];
-    elseif SL_method==2
-        azim_nulls_pre = [RES_nulls.phiRC];
-        len_nulls = [RES_nulls.dtRC];
-    elseif SL_method==3
-        azim_nulls_pre = [RES_nulls.phiEV];
-        len_nulls = [RES_nulls.dtEV];
+    switch SL_method
+        case 1
+            azim_nulls_pre = [RES_nulls.phiSC];
+            len_nulls = [RES_nulls.dtSC];
+        case 2
+            azim_nulls_pre = [RES_nulls.phiRC];
+            len_nulls = [RES_nulls.dtRC];
+        case 3
+            azim_nulls_pre = [RES_nulls.phiEV];
+            len_nulls = [RES_nulls.dtEV];
     end
     azim_nulls = azim_nulls_pre;
     staname = RES_nulls.staname;
@@ -567,17 +603,21 @@ end
 %==========================================================================
 %% make query for sector plotting
 %==========================================================================
-disp(' ')
-plotsector = input(['Plot sector in backazimuth range? \n ' ...
-                    '   Plot no sector: Press "Enter" (Default is used) \n ' ...
-                    '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
+% disp(' ')
+% plotsector = input(['Plot sector in backazimuth range (takes some time)? \n ' ...
+%                     '   Plot no sector: Press "Enter" (Default is used) \n ' ...
+%                     '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
+
+if ~exist('plotsector','var')==1  % default
+    plotsector = [];  % BAZ range 0°-360°
+end
 
 if ~isempty(plotsector)
     if length(plotsector)==2
         lowlim = plotsector(1);
         upplim = plotsector(2);
     else
-        error(['Vector length needs to be 2! ' ...
+        error(['Array length needs to be 2! ' ...
                'Please passe only values between 0 and 360 deg!'])
     end
 else
@@ -590,9 +630,13 @@ end
 %==========================================================================
 %% make query for location of annotation of radial axis
 %==========================================================================
-disp(' ')
-plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
-                   '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
+% disp(' ')
+% plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
+%                    '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
+
+if ~exist('plotannot','var')==1  % default
+    plotannot = 2;  % no
+end
 
 
 
@@ -628,9 +672,11 @@ axis off
 view([0 -90])
 
 axes = gca;
-axes.SortMethod = 'ChildOrder'; % for right order of layers in eps / pdf
+axes.SortMethod = 'ChildOrder';  % for right order of layers in eps / pdf
 
 framem('FLinewidth',2)
+framem('FFaceColor','none')
+framem('FEdgeColor',[0.8 0.8 0.8])
 
 
 %==========================================================================
@@ -659,26 +705,23 @@ end
 
 %--------------------------------------------------------------------------
 % radial axis (inclination angle)
-if isempty(plotannot) % default
-    plotannot = 2; % SE
-end
-
-if plotannot==1 % NE
-   text(0.047,-0.047, '5^\circ', 'fontsize',12, 'color',col_inc)
-   text(0.105,-0.105, '10^\circ', 'fontsize',12, 'color',col_inc)
-   text(0.168,-0.168, '15^\circ', 'fontsize',12, 'color',col_inc)
-elseif plotannot==2 % SE
-   text(0.040,0.056, '5^\circ', 'fontsize',12, 'color',col_inc)
-   text(0.105,0.105, '10^\circ', 'fontsize',12, 'color',col_inc)
-   text(0.175,0.145, '15^\circ', 'fontsize',12, 'color',col_inc)
-elseif plotannot==3 % SW
-   text(-0.055,0.055, '5^\circ', 'fontsize',12, 'color',col_inc)
-   text(-0.117,0.117, '10^\circ', 'fontsize',12, 'color',col_inc)
-   text(-0.180,0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
-elseif plotannot==4 % NW
-   text(-0.055,-0.055, '5^\circ', 'fontsize',12, 'color',col_inc)
-   text(-0.117,-0.117, '10^\circ', 'fontsize',12, 'color',col_inc)
-   text(-0.180,-0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
+switch plotannot
+    case 1  % NE
+       text(0.047,-0.047, '5^\circ', 'fontsize',12, 'color',col_inc)
+       text(0.105,-0.105, '10^\circ', 'fontsize',12, 'color',col_inc)
+       text(0.168,-0.168, '15^\circ', 'fontsize',12, 'color',col_inc)
+    case 2  % SE
+       text(0.040,0.056, '5^\circ', 'fontsize',12, 'color',col_inc)
+       text(0.105,0.105, '10^\circ', 'fontsize',12, 'color',col_inc)
+       text(0.175,0.145, '15^\circ', 'fontsize',12, 'color',col_inc)
+    case 3  % SW
+       text(-0.055,0.055, '5^\circ', 'fontsize',12, 'color',col_inc)
+       text(-0.117,0.117, '10^\circ', 'fontsize',12, 'color',col_inc)
+       text(-0.180,0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
+    case 4  % NW
+       text(-0.055,-0.055, '5^\circ', 'fontsize',12, 'color',col_inc)
+       text(-0.117,-0.117, '10^\circ', 'fontsize',12, 'color',col_inc)
+       text(-0.180,-0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
 end
 
 
@@ -693,18 +736,22 @@ if exist('plot_arc3D','file')
             % first plot whole BAZ range in gray as bottom layer
             startwedge = 0;
             endwedge = 360;
-            plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
-                       0, 0, lim_sector, ...
-                       colfill, ...
-                       colfill, 1);
+            plot_arc3D( ...
+               deg2rad(startwedge-90), deg2rad(endwedge-90), ...
+               0, 0, lim_sector, ...
+               colfill, ...
+               colfill, 1 ...
+            );
 
             % then plot considered BAZ range again on top in white
             startwedge = lowlim;
             endwedge = upplim;
-            plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
-                       0, 0, lim_sector, ...
-                       [white_value white_value white_value]./256, ...
-                       [white_value white_value white_value]./256, 1);
+            plot_arc3D( ...
+                deg2rad(startwedge-90), deg2rad(endwedge-90), ...
+                0, 0, lim_sector, ...
+               [white_value white_value white_value]./256, ...
+               [white_value white_value white_value]./256, 1 ...
+            );
         end
 
     % this is the case when the higher value is slightly higher than 0
@@ -714,26 +761,31 @@ if exist('plot_arc3D','file')
             % first plot whole BAZ range in gray as bottom layer
             startwedge = 0;
             endwedge = 360;
-            plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
-                       0, 0, lim_sector, ...
-                       colfill, ...
-                       colfill, 1);
+            plot_arc3D( ...
+               deg2rad(startwedge-90), deg2rad(endwedge-90), ...
+               0, 0, lim_sector, ...
+               colfill, colfill, 1 ...
+            );
 
             % then plot considered BAZ range again on top in white
             % in two steps
             startwedge = 0;
             endwedge = upplim;
-            plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
-                       0, 0, lim_sector, ...
-                       [white_value white_value white_value]./256, ...
-                       [white_value white_value white_value]./256, 1);
+            plot_arc3D( ...
+               deg2rad(startwedge-90), deg2rad(endwedge-90), ...
+               0, 0, lim_sector, ...
+               [white_value white_value white_value]./256, ...
+               [white_value white_value white_value]./256, 1 ...
+            );
 
             startwedge = lowlim;
             endwedge = 360;
-            plot_arc3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
-                       0, 0, lim_sector, ...
-                       [white_value white_value white_value]./256, ...
-                       [white_value white_value white_value]./256, 1);
+            plot_arc3D( ...
+               deg2rad(startwedge-90), deg2rad(endwedge-90), ...
+               0, 0, lim_sector, ...
+               [white_value white_value white_value]./256, ...
+               [white_value white_value white_value]./256, 1 ...
+            );
         end
     end
 
@@ -817,9 +869,9 @@ if ~isempty(RES_split)
 
     % multi
     if ~isempty(RES_multi) && plot_multi>0
-        [latout_multi, lonout_multi] = reckon(90-inc_multi, bazi_multi, ...
-                                              len_multi, azim_multi, ...
-                                              'degrees');
+        [latout_multi, lonout_multi] = reckon( ...
+            90-inc_multi, bazi_multi, len_multi, azim_multi, 'degrees' ...
+        );
         hndl_multi = plotm(latout_multi, lonout_multi, 'Linewidth',linew);
     end
 
@@ -1024,11 +1076,21 @@ set(f_stereo, 'PaperSize',[14 14]); % set paper size
 
 %--------------------------------------------------------------------------
 file_path = [];
-file_name = ['Stereo_' staname '_' ...
-             quality_string{SL_qualtiy+1} '_' ...
-             method_string{SL_method} '_' ...
-             single_string multi_string{plot_multi+1} ...
-             '_Baz' num2str(lowlim) 'to' num2str(upplim) '_' colmap];
+file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_URG/';
+file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SEDI/';
+file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_YSA/';
+file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SA/';
+file_name = [ ...
+    'Stereo_' staname '_' ...
+     quality_str{SL_qualtiy+1} '_' ...
+     method_str{SL_method} '_' ...
+     phase_str{SL_phase+1} '_' ...
+     obs_str{SL_obs+1} '_' ...
+     single_string multi_string{plot_multi+1} '_' ...
+     'BAZ' num2str(lowlim) 'to' num2str(upplim) '_' ...
+     colmap ...
+     filename_add ...
+ ];
 
 % MATLAB built-in function "exportgraphics" requires MATLAB 2020a+
 % format svg not supported by MATLAB built-in function "exportgraphics",
@@ -1039,12 +1101,16 @@ file_name = ['Stereo_' staname '_' ...
 % GitHub: https://github.com/altmany/export_fig/releases/tag/v3.15
 
 if vers==2 % MATLAB R2020a and higher
-    exportgraphics(f_stereo, [file_path file_name '.png'], ...
-                    'Resolution',360)
-    exportgraphics(f_stereo, [file_path file_name '.eps'], ...
-                    'ContentType','vector')
-    exportgraphics(f_stereo, [file_path file_name '.pdf'], ...
-                    'ContentType','vector')
+    exportgraphics( ...
+        f_stereo, [file_path file_name '.png'], 'Resolution',360 ...
+    )
+    exportgraphics( ...
+        f_stereo, [file_path file_name '.eps'], 'ContentType','vector', ...
+        'BackgroundColor', 'none' ...
+    )
+    % exportgraphics( ...
+    %     f_stereo, [file_path file_name '.pdf'], 'ContentType','vector' ...
+    % )
 else
     saveas(f_stereo, [file_path file_name '.png'])
     saveas(f_stereo, [file_path file_name '.eps'])
@@ -1061,4 +1127,4 @@ disp(['>>> File "' file_name '" saved! :D <<<'])
 
 
 %==========================================================================
-end % EOF
+end  % EOF
