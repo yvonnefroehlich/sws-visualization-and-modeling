@@ -38,16 +38,11 @@ _Example figures_: Generated with the provided [TEST_data_stereoplot](https://gi
 
 ### **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)**
 
-- Under development
+_Under development_
 
-<!---
-_How to use_:
-
-- xxx
-- xxx
-
-_Example figures_: Generated with the provided [Test_data_visualization]()
--->
+- **[01_load_radar4kit_data]()**: Scripts / functions to load datapackage provided via RADAR4KIT in MATLAB, Python, and R
+  - Blackforest Observatory: https://dx.doi.org/10.35097/684; related to [Ritter et al. (2022)](https://doi.org/10.1007/s10950-022-10112-w)
+  - Upper Rhine Graben Area: https://dx.doi.org/10.35097/685; related to [Fröhlich et al. (2024)]()
 
 ### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
