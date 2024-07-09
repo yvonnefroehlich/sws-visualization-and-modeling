@@ -40,6 +40,3 @@ table_swsm.year_jday = num2str(table_swsm.year_jday, '%.3f');
 % Split column "year_jday" into two new columns "year" and "jday"
 table_swsm.year = table_swsm.year_jday(:,1:4);
 table_swsm.jday = table_swsm.year_jday(:,6:8);
-
-
-

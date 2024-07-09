@@ -25,7 +25,7 @@
 
 # %%
 # -----------------------------------------------------------------------------
-# Funktion to load SWSMs into pandas.dataframe
+# Function to load SWSMs into pandas.dataframe
 # -----------------------------------------------------------------------------
 
 def read_radar4kit_data(station, network, obstyp):
@@ -48,13 +48,16 @@ def read_radar4kit_data(station, network, obstyp):
 
     import pandas as pd
 
+    # Read CSV file into pandas.dataframe
     df_swsm = pd.read_csv(
         f"splitresults_{obstyp}_goodfair_{network}_{station}.csv",
         sep=";",
         header=15,
-        dtype={'year_jday': 'str'},  # Do not load as floating point number
+        # Do not load column "year_jday" as floating point number
+        dtype={'year_jday': 'str'},
     )
 
+    # Split column "year_jday" into two new columns "year" and "jday"
     df_swsm[["year", "jday"]] = df_swsm["year_jday"].str.split(".", expand=True)
 
     return df_swsm

@@ -23,15 +23,19 @@
 # #############################################################################
 
 
+# Example 
+station = "BFO"
+network = "GR"
+obstyp = "NULLS"
+
 # Load CSV file into dataframe
 swsm_data <- read.csv(
-  # file="splitresults_<NULLSorSPLITS>_goodfair_<network>_<station>.csv"
-  file="splitresults_NULLS_goodfair_FR_WLS.csv", 
+  file="splitresults_" obstyp "_goodfair_" network "_" station ".csv", 
   sep=";",
   skip=15,
 )
 
-# Convert from floating point number to string
+# Convert from Colum "year_jday" from floating point number to string
 swsm_data$year_jday <- as.character(swsm_data$year_jday)
 
 # Split column "year_jday" into "year" and "jday"
