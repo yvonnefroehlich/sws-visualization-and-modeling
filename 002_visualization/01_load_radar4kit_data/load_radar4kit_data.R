@@ -25,22 +25,24 @@
 # #############################################################################
 
 
+library(dplyr)
+library(tidyr)
+
 # Example 
 station = "BFO"
 network = "GR"
 obstyp = "NULLS"
 
 # Load CSV file into dataframe
-swsm_data <- read.csv(
+df_swsm <- read.csv(
   file=paste("splitresults_",obstyp,"_goodfair_",network,"_",station,".csv", sep=""),
   sep=";",
   skip=15,
 )
 
 # Convert from Colum "year_jday" from floating point number to string
-swsm_data$year_jday <- as.character(swsm_data$year_jday)
+df_swsm$year_jday <- sprintf("%0.3f", df_swsm$year_jday)
+df_swsm$year_jday <- as.character(df_swsm$year_jday)
 
 # Split column "year_jday" into "year" and "jday"
-data_split <- unlist(strsplit("2012.125", "\\."))
-year <- data_split[1]
-jday <- data_split[2]
+df_swsm <- df_swsm %>% separate(year_jday, c("year", "jday"), remove=FALSE)
