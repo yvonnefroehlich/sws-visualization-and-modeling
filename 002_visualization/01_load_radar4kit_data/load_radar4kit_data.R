@@ -30,7 +30,7 @@ obstyp = "NULLS"
 
 # Load CSV file into dataframe
 swsm_data <- read.csv(
-  file="splitresults_" obstyp "_goodfair_" network "_" station ".csv", 
+  file=paste("splitresults_",obstyp,"_goodfair_",network,"_",station,".csv", sep=""),
   sep=";",
   skip=15,
 )
