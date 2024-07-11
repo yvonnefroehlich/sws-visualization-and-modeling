@@ -9,9 +9,21 @@ _MATLAB_ functions for visualization and modeling of shear wave splitting observ
 ## Citation
 
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
-- [**_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**](https://doi.org/10.1007/s10950-022-10112-w). Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures. *Journal of Seismology*, 26, 1137-1156. https://doi.org/10.1007/s10950-022-10112-w.
-- [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388). Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy. *Geophysical Journal International*, 223, 1525-1547. https://doi.org/10.1093/gji/ggaa388.
-- [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
+- [**_Fröhlich Y., Grund M., Ritter J. R. R. (2024)_**]().
+  Lateral and vertical variations of seismic anisotropy in the lithosphere-asthenosphere system underneath Central Europe from long-term splitting measurements.
+  *Geophysical Journal International*, accepted June 27 2024.
+- [**_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**](https://doi.org/10.1007/s10950-022-10112-w).
+  Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures.
+  *Journal of Seismology*, 26, 1137-1156.
+  https://doi.org/10.1007/s10950-022-10112-w. https://doi.org/10.1007/s10950-023-10136-w.
+- [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388).
+  Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy.
+  *Geophysical Journal International*, 223, 1525-1547.
+  https://doi.org/10.1093/gji/ggaa388.
+- [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425).
+  Exploring geodynamics at different depths with shear wave splitting.
+  *Dissertation*, Karlsruhe Institute of Technology (KIT).
+  https://doi.org/10.5445/IR/1000091425.
 
 Furthermore you can cite the [Zenodo DOI](https://doi.org/10.5281/zenodo.7213157) given above.
 
@@ -41,8 +53,8 @@ _Example figures_: Generated with the provided [TEST_data_stereoplot](https://gi
 _Under development_
 
 - **[01_load_radar4kit_data]()**: Scripts / functions to load datapackage provided via RADAR4KIT in MATLAB, Python, and R
-  - Blackforest Observatory: https://dx.doi.org/10.35097/684; related to [Ritter et al. (2022)](https://doi.org/10.1007/s10950-022-10112-w)
   - Upper Rhine Graben Area: https://dx.doi.org/10.35097/685; related to [Fröhlich et al. (2024)]()
+  - Blackforest Observatory: https://dx.doi.org/10.35097/684; related to [Ritter et al. (2022)](https://doi.org/10.1007/s10950-022-10112-w)
 
 ### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
