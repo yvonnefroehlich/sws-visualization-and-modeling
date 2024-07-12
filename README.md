@@ -53,9 +53,9 @@ _Example figures_: Generated with the provided [TEST_data_stereoplot](https://gi
 
 _Under development_
 
-- **[01_load_radar4kit_data]()**: Scripts / functions to load datapackage provided via RADAR4KIT in MATLAB, Python, and R
-  - Upper Rhine Graben Area: https://dx.doi.org/10.35097/685; related to [Fröhlich et al. (2024)]()
-  - Blackforest Observatory: https://dx.doi.org/10.35097/684; related to [Ritter et al. (2022)](https://doi.org/10.1007/s10950-022-10112-w)
+- **[01_load_radar4kit_data]()**: Scripts to load datasets provided via RADAR4KIT in MATLAB, Python, and R
+  - Upper Rhine Graben Area (URG): https://dx.doi.org/10.35097/685; related to [Fröhlich et al. (2024)](https://doi.org/10.1093/gji/ggae245)
+  - Blackforest Observatory (BFO): https://dx.doi.org/10.35097/684; related to [Ritter et al. (2022)](https://doi.org/10.1007/s10950-022-10112-w)
 
 ### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
@@ -111,10 +111,10 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 
 ## Releases
 
-| release | related publication | Zenodo DOI |
+| release | Zenodo DOI | related publication | related RADAR4KIT dataset |
 | --- | --- | --- |
-| [dev](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main) | [Fröhlich, Grund & Ritter (2024)](https://doi.org/10.1093/gji/ggae245) |  |
-| [v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v1.0) | [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157)|
+| [dev](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main) | | [Fröhlich, Grund & Ritter (2024)](https://doi.org/10.1093/gji/ggae245) | https://dx.doi.org/10.35097/685 |
+| [v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v1.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157) | [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w) | https://dx.doi.org/10.35097/685 |
 
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
 
