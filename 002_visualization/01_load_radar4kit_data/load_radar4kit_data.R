@@ -11,8 +11,8 @@
 # - Fröhlich Y., Grund M., Ritter J. R. R. (2024).
 #   Lateral and vertical variations of seismic anisotropy in the
 #   lithosphere-asthenosphere system underneath Central Europe from
-#   long-term splitting measurements. Geophysical Journal International,
-#   accepted June 27 2024.
+#   long-term splitting measurements. Geophysical Journal International.
+#   https://doi.org/10.1093/gji/ggae245.
 # - Ritter J. R. R., Fröhlich Y., Sanz Alonso Y. & Grund M. (2022).
 #   Short-scale laterally varying SK(K)S shear wave splitting at BFO,
 #   Germany – implications for the determination of anisotropic structures.
@@ -28,14 +28,15 @@
 library(dplyr)
 library(tidyr)
 
-# Example 
+# Example
+root_path = ""
 station = "BFO"
 network = "GR"
 obstyp = "NULLS"
 
 # Load CSV file into dataframe
 df_swsm <- read.csv(
-  file=paste("splitresults_",obstyp,"_goodfair_",network,"_",station,".csv", sep=""),
+  file=paste(root_path,"/splitresults_",obstyp,"_goodfair_",network,"_",station,".csv", sep=""),
   sep=";",
   skip=15,
 )
