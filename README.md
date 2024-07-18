@@ -111,7 +111,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 
 ## Releases
 
-| release | Zenodo DOI | related publication | related RADAR4KIT dataset |
+| release | Zenodo DOI | publication | RADAR4KIT dataset |
 | --- | --- | --- | --- |
 | [dev](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main) | | [**_Fröhlich et al. (2024)_**](https://doi.org/10.1093/gji/ggae245) | https://dx.doi.org/10.35097/685 |
 | [v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v1.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157) | [**_Ritter et al. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w) | https://dx.doi.org/10.35097/684 |
