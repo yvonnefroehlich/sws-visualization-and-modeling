@@ -29,14 +29,17 @@ clear all
 
 % Example
 root_path = '';
+header = 15;  % Number of header lines, given in README
 station = 'BFO';
 network = 'GR';
 obstyp = 'NULLS';
 
 % Load CSV file into table
-table_swsm = readtable([ ...
-    root_path '/splitresults_' obstyp '_goodfair_' network '_' station '.csv' ...
-]);
+table_swsm = readtable(...
+    [root_path 'splitresults_' obstyp '_goodfair_' network '_' station '.csv'], ...
+    "Delimiter",';', ...
+    "NumHeaderLines",header ...
+);
 
 % Convert colum  "year_jday" from floating point number to string
 table_swsm.year_jday = num2str(table_swsm.year_jday, '%.3f');

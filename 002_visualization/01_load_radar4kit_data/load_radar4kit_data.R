@@ -30,15 +30,16 @@ library(tidyr)
 
 # Example
 root_path = ""
+header = 15  # Number of header lines, given in README
 station = "BFO"
 network = "GR"
 obstyp = "NULLS"
 
 # Load CSV file into dataframe
 df_swsm <- read.csv(
-  file=paste(root_path,"/splitresults_",obstyp,"_goodfair_",network,"_",station,".csv", sep=""),
+  file=paste(root_path,"splitresults_",obstyp,"_goodfair_",network,"_",station,".csv", sep=""),
   sep=";",
-  skip=15,
+  skip=header,
 )
 
 # Convert from Colum "year_jday" from floating point number to string

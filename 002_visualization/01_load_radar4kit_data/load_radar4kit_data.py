@@ -29,15 +29,16 @@ import pandas as pd
 
 # Example
 root_path = ""
+header = 15  # Number of header lines, given in README
 station = "BFO"
 network = "GR"
 obstyp = "NULLS"
 
 # Read CSV file into pandas.dataframe
 df_swsm = pd.read_csv(
-    "{root_path}/splitresults_{obstyp}_goodfair_{network}_{station}.csv",
+    f"{root_path}splitresults_{obstyp}_goodfair_{network}_{station}.csv",
     sep=";",
-    header=13,
+    header=header,
     # Do not load column "year_jday" as floating point number
     dtype={'year_jday': 'str'},
 )
