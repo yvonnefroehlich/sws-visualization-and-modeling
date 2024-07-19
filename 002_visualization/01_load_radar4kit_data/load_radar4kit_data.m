@@ -42,7 +42,7 @@ table_swsm = readtable(...
     "NumHeaderLines",header ...
 );
 
-% Convert colum  "year_jday" from floating point number to string
+% Convert column "year_jday" from floating point number to string
 table_swsm.year_jday = num2str(table_swsm.year_jday, '%.3f');
 
 % Split column "year_jday" into two new columns "year" and "jday"

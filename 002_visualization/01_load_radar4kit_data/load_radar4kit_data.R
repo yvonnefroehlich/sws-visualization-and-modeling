@@ -43,7 +43,7 @@ df_swsm <- read.csv(
   skip=header,
 )
 
-# Convert from Colum "year_jday" from floating point number to string
+# Convert from column "year_jday" from floating point number to string
 df_swsm$year_jday <- sprintf("%0.3f", df_swsm$year_jday)
 df_swsm$year_jday <- as.character(df_swsm$year_jday)
 
