@@ -9,9 +9,22 @@ _MATLAB_ functions for visualization and modeling of shear wave splitting observ
 ## Citation
 
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
-- [**_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**](https://doi.org/10.1007/s10950-022-10112-w). Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures. *Journal of Seismology*, 26, 1137-1156. https://doi.org/10.1007/s10950-022-10112-w.
-- [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388). Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy. *Geophysical Journal International*, 223, 1525-1547. https://doi.org/10.1093/gji/ggaa388.
-- [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425). Exploring geodynamics at different depths with shear wave splitting. *Dissertation*, Karlsruhe Institute of Technology (KIT). https://doi.org/10.5445/IR/1000091425.
+- [**_Fröhlich Y., Grund M., Ritter J. R. R. (2024)_**](https://doi.org/10.1093/gji/ggae245).
+  Lateral and vertical variations of seismic anisotropy in the lithosphere-asthenosphere system underneath Central Europe from long-term splitting measurements.
+  *Geophysical Journal International*.
+  https://doi.org/10.1093/gji/ggae245.
+- [**_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**](https://doi.org/10.1007/s10950-022-10112-w).
+  Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures.
+  *Journal of Seismology*, 26, 1137-1156.
+  https://doi.org/10.1007/s10950-022-10112-w. https://doi.org/10.1007/s10950-023-10136-w.
+- [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388).
+  Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy.
+  *Geophysical Journal International*, 223, 1525-1547.
+  https://doi.org/10.1093/gji/ggaa388.
+- [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425).
+  Exploring geodynamics at different depths with shear wave splitting.
+  *Dissertation*, Karlsruhe Institute of Technology (KIT).
+  https://doi.org/10.5445/IR/1000091425.
 
 Furthermore you can cite the [Zenodo DOI](https://doi.org/10.5281/zenodo.7213157) given above.
 
@@ -38,16 +51,11 @@ _Example figures_: Generated with the provided [TEST_data_stereoplot](https://gi
 
 ### **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)**
 
-- Under development
+_Under development_
 
-<!---
-_How to use_:
-
-- xxx
-- xxx
-
-_Example figures_: Generated with the provided [Test_data_visualization]()
--->
+- **[01_load_radar4kit_data]()**: Scripts to load datasets provided via RADAR4KIT in MATLAB, Python, and R
+  - Upper Rhine Graben Area (URG): https://dx.doi.org/10.35097/685; related to [**_Fröhlich et al. (2024)_**](https://doi.org/10.1093/gji/ggae245)
+  - Blackforest Observatory (BFO): https://dx.doi.org/10.35097/684; related to [**_Ritter et al. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w)
 
 ### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
@@ -103,10 +111,10 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 
 ## Releases
 
-|release|publication|Zenodo DOI|
-|---|---|---|
-|dev |reflects [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main)| |
-|[v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v1.0)|related to [Ritter, Fröhlich, Sanz Alonso & Grund (2022)](https://doi.org/10.1007/s10950-022-10112-w)|[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157)|
+| release | Zenodo DOI | publication | RADAR4KIT dataset |
+| --- | --- | --- | --- |
+| [dev](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main) | | [**_Fröhlich et al. (2024)_**](https://doi.org/10.1093/gji/ggae245) | https://dx.doi.org/10.35097/685 |
+| [v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v1.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157) | [**_Ritter et al. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w) | https://dx.doi.org/10.35097/684 |
 
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
 
@@ -189,3 +197,11 @@ SplitLab: A shear-wave splitting environment in Matlab.
 *Computers & Geosciences*, volume 34, issue 5, pages 515-528.
 https://doi.org/10.1016/j.cageo.2007.08.002.
 version 1.0.5 available at http://splitting.gm.univ-montp2.fr and version 1.9.0 available at https://github.com/IPGP/splitlab.
+
+
+## Funding
+
+The presented research and YF received support from various sources:
+
+- Scholarship of the [Graduate Funding from the German States](https://www.khys.kit.edu/english/graduate_funding.php)
+- [DFG grant RI1133/14-1](https://gepris.dfg.de/gepris/projekt/521545943?language=en) within the [DFG Priority Program 2404 DeepDyn](https://www.geo.lmu.de/deepdyn/en/)
