@@ -1,17 +1,18 @@
 % #############################################################################
 % Load CSV files with shear wave splitting measurements (SWSMs)
 % -----------------------------------------------------------------------------
-% Data is available from RADAR4KIT
+% Datasets are available from RADAR4KIT
 % - Upper Rhine Graben area: https://dx.doi.org/10.35097/685
 %   related to Fröhlich et al. (2024)
 % - Blackforest Observatory: https://dx.doi.org/10.35097/684
 %   related to Ritter et al. (2022)
 % -----------------------------------------------------------------------------
 % Related to the publications
-% - Fröhlich Y., Grund M., Ritter J. R. R. (2024).
+% - Fröhlich Y., Grund M. & Ritter J. R. R. (2024).
 %   Lateral and vertical variations of seismic anisotropy in the
 %   lithosphere-asthenosphere system underneath Central Europe from
-%   long-term splitting measurements. Geophysical Journal International.
+%   long-term splitting measurements.
+%   Geophysical Journal International.
 %   https://doi.org/10.1093/gji/ggae245.
 % - Ritter J. R. R., Fröhlich Y., Sanz Alonso Y. & Grund M. (2022).
 %   Short-scale laterally varying SK(K)S shear wave splitting at BFO,
