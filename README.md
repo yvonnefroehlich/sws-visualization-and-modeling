@@ -13,15 +13,15 @@ If you make use of this material, please acknowledge the relating publications i
   Lateral and vertical variations of seismic anisotropy in the lithosphere-asthenosphere system underneath Central Europe from long-term splitting measurements.
   *Geophysical Journal International*.
   https://doi.org/10.1093/gji/ggae245.
-- [**_Ritter, Joachim R. R., Fröhlich, Yvonne, Sanz Alonso, Yasmin & Grund, Michael (2022)_**](https://doi.org/10.1007/s10950-022-10112-w).
+- [**_Ritter J. R. R., Fröhlich Y., Sanz Alonso Y. & Grund M. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w).
   Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures.
   *Journal of Seismology*, 26, 1137-1156.
   https://doi.org/10.1007/s10950-022-10112-w. https://doi.org/10.1007/s10950-023-10136-w.
-- [**_Grund, Michael & Ritter, Joachim R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388).
+- [**_Grund M. & Ritter J. R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388).
   Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy.
   *Geophysical Journal International*, 223, 1525-1547.
   https://doi.org/10.1093/gji/ggaa388.
-- [**_Grund, Michael (2019)_**](https://doi.org/10.5445/IR/1000091425).
+- [**_Grund M (2019)_**](https://doi.org/10.5445/IR/1000091425).
   Exploring geodynamics at different depths with shear wave splitting.
   *Dissertation*, Karlsruhe Institute of Technology (KIT).
   https://doi.org/10.5445/IR/1000091425.
