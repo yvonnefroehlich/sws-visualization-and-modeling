@@ -12,7 +12,7 @@
 #   Lateral and vertical variations of seismic anisotropy in the
 #   lithosphere-asthenosphere system underneath Central Europe from
 #   long-term splitting measurements.
-#   Geophysical Journal International.
+#   Geophysical Journal International, 239(1), 112-135.
 #   https://doi.org/10.1093/gji/ggae245.
 # - Ritter J. R. R., Fröhlich Y., Sanz Alonso Y. & Grund M. (2022).
 #   Short-scale laterally varying SK(K)S shear wave splitting at BFO,
@@ -20,9 +20,9 @@
 #   Journal of Seismology, 26, 1137-1156.
 #   https://doi.org/10.1007/s10950-022-10112-w.
 # -----------------------------------------------------------------------------
-# created: 2024/07/08
-# author: Yvonne Fröhlich
-# contact: yvonne.froehlich@kit.edu
+# Created: 2024/07/08
+# Author: Yvonne Fröhlich
+# Contact: https://orcid.org/0000-0002-8566-0619
 # #############################################################################
 
 
