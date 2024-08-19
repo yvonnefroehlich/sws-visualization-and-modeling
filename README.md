@@ -132,6 +132,15 @@ For details of the individual releases as well as for changes and differences co
 For bug reports, suggestions or recommendations feel free to [open an issue](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/issues) or [submit a pull request](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pulls) directly here on [GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main).
 
 
+## Related topics
+
+| Software | Language | Description | Author |
+| --- | --- | --- | --- |
+| [MSAT](https://github.com/andreww/MSAT) | MATLAB | A new toolkit for the analysis of elastic and seismic anisotropy | Andrew M. Walker & James Wookey |
+| [PyRaysum](https://github.com/paudetseis/PyRaysum) | Python | Software for modeling ray-theoretical body-wave propagation | Wasja Bloch & Pascal Audet |
+| [sws_tools](https://github.com/michaelgrund/sws_tools) | MATLAB | Tools for modeling and plotting of shear-wave splitting data | Michael Grund |
+
+
 ## References
 
 - [**_Bowman, J. R. & Ando, M. (1987)_**](https://doi.org/10.1111/j.1365-246X.1987.tb01367.x).
