@@ -26,6 +26,8 @@ function SWS_modeling_plot_stereo_synthetic( ...
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %   https://doi.org/10.1007/s10950-022-10112-w
+%   Fröhlich, Grund & Ritter (2024) Geophysical Journal International
+%   https://doi.org/10.1093/gji/ggae245
 %--------------------------------------------------------------------------
 % LICENSE
 %
