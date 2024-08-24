@@ -1,5 +1,26 @@
 # Changelog
 
+## Release v2.0 (2024/MM/DD)
+
+- General
+   - Add section "Related topics" to main README ([PR #25](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/25))
+   -
+   -
+- [001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)
+   -
+   -
+   -
+- [002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)
+   - Add loading function for datasets on RADAR4KIT in MATLAB, Python, and R ([PR #24](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/24))
+   -
+   -
+- [003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)
+   -
+   -
+   -
+
+**Contributors**: [Yvonne Fröhlich](https://github.com/yvonnefroehlich)
+
 
 ## Release v1.0 (2022/10/16)
 
