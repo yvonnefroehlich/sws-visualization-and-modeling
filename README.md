@@ -1,4 +1,4 @@
-# Visualization and Modeling of Shear Wave Splitting [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157)
+# Visualization and Modeling of Shear Wave Splitting [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
 
 _MATLAB_ functions for visualization and modeling of shear wave splitting observations:
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
@@ -11,7 +11,7 @@ _MATLAB_ functions for visualization and modeling of shear wave splitting observ
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
 - [**_Fröhlich Y., Grund M., Ritter J. R. R. (2024)_**](https://doi.org/10.1093/gji/ggae245).
   Lateral and vertical variations of seismic anisotropy in the lithosphere-asthenosphere system underneath Central Europe from long-term splitting measurements.
-  *Geophysical Journal International*. 239(1), 112-135.
+  *Geophysical Journal International*, 239(1), 112-135.
   https://doi.org/10.1093/gji/ggae245.
 - [**_Ritter J. R. R., Fröhlich Y., Sanz Alonso Y. & Grund M. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w).
   Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures.
@@ -19,7 +19,7 @@ If you make use of this material, please acknowledge the relating publications i
   https://doi.org/10.1007/s10950-022-10112-w. https://doi.org/10.1007/s10950-023-10136-w.
 - [**_Grund M. & Ritter J. R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388).
   Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy.
-  *Geophysical Journal International*, 223, 1525-1547.
+  *Geophysical Journal International*, 223(3), 1525-1547.
   https://doi.org/10.1093/gji/ggaa388.
 - [**_Grund M (2019)_**](https://doi.org/10.5445/IR/1000091425).
   Exploring geodynamics at different depths with shear wave splitting.
