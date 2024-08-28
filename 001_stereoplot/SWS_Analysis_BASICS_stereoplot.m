@@ -20,11 +20,11 @@ function SWS_Analysis_BASICS_stereoplot(colmap, SL_quality, SL_phase, SL_obs, fi
 %--------------------------------------------------------------------------
 % is
 % - based on: >>> stereoplot.m <<< function of SplitLab
-%   Wüstefeld et al. (2008)
+%   Wüstefeld et al. (2008) Computers & Geosciences
 %   https://doi.org/10.1016/j.cageo.2007.08.002
-% - created and mainly written: Michael Grund (ORCID 0000-0001-8759-2018)
+% - created: Michael Grund (ORCID 0000-0001-8759-2018)
 %   https://github.com/michaelgrund/sws_tools
-%   Grund PhD (2019)
+%   Grund (2019) Dissertation
 %   https://doi.org/10.5445/IR/1000091425
 %   Grund & Ritter (2020) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggaa388
@@ -32,10 +32,8 @@ function SWS_Analysis_BASICS_stereoplot(colmap, SL_quality, SL_phase, SL_obs, fi
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 %   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
 %   https://doi.org/10.1007/s10950-022-10112-w
-% - extended: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
-%   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
-%   Fröhlich, Grund, Ritter (2024) GJI
-%
+%   Fröhlich, Grund & Ritter (2024) Geophysical Journal International
+%   https://doi.org/10.1093/gji/ggae245
 %--------------------------------------------------------------------------
 % TERMS OF USE
 %
