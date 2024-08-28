@@ -9,9 +9,9 @@ function [RES_split, RES_nulls, SL_quality] = ...
 % outputs structs for splits and nulls based on the selected qualities
 %--------------------------------------------------------------------------
 % is
-% - created and mainly written: Michael Grund (ORCID 0000-0001-8759-2018)
+% - created: Michael Grund (ORCID 0000-0001-8759-2018)
 %   https://github.com/michaelgrund/sws_tools
-%   Grund PhD (2019)
+%   Grund (2019) Dissertation
 %   https://doi.org/10.5445/IR/1000091425
 %   Grund & Ritter (2020) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggaa388
