@@ -14,7 +14,7 @@ function SWS_modeling_plot_results( ...
     cmap_rms_sel, cmap_rms_ind, cmap_rms_str, ...
     cmap_phi, cmap_phi_ind, cmap_phi_str, cbar_phi_ind, cbar_phi_str, ...
     mymarkersize_symbols, mylinewidth_symbols ...
-    )
+)
 
 %==========================================================================
 %% This function
@@ -388,12 +388,12 @@ for mt = 1:1:length(modtyp_str_all)
     end
 
     %......................................................................
-	% position of label (c); later used for model parameter plot
-	if cmap_rms_ind==0 % no RMSE color-coding
-	    pos_label_c = [0.165 0.892 0 0]; % [x_begin y_begin length height]
+    % position of label (c); later used for model parameter plot
+    if cmap_rms_ind==0 % no RMSE color-coding
+        pos_label_c = [0.165 0.892 0 0]; % [x_begin y_begin length height]
     elseif cmap_rms_ind~=0 % RMSE color-coding
-	    pos_label_c = [0.155 0.892 0 0];
-	end
+        pos_label_c = [0.155 0.892 0 0];
+    end
 
     % plot labels (a), (b)
     annotation('textbox', [0.165 0.895 0 0], ...

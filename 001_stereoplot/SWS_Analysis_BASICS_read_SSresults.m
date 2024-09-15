@@ -1,6 +1,6 @@
 function RES_out = SWS_Analysis_BASICS_read_SSresults( ...
     dir_res_multi, scaling_factor, SSmethod ...
-    )
+)
 
 %==========================================================================
 %% This function

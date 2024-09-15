@@ -1,6 +1,6 @@
 function modout = SWS_modeling_precomp_dippinglayer( ...
     dfreq, stepdddir, stepdips, stepthick ...
-    )
+)
 
 %==========================================================================
 %% This function
