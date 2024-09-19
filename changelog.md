@@ -1,6 +1,6 @@
 # Changelog
 
-## Release v2.0 (2024/MM/DD)
+## Release v2.0 (2024/MM/DD) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13799086.svg)](https://doi.org/10.5281/zenodo.13799086)
 
 - General
    - Add section "Related topics" to main README ([PR #25](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/25))
