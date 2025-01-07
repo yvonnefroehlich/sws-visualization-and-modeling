@@ -39,17 +39,9 @@ If you make use of this material, please acknowledge the relating publications i
 
 _Example figures_: Generated with the provided test data
 
-### **[001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)**
-
-![figures_SWS_stereo_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/191190219-8570c195-045f-4ad2-9c57-79e140f8e11d.png)
-
-### **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)**
-
-_Under development_
-
-### **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
-
-![figure_SWS_modeling_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/183926434-f510331c-0ded-4fb9-9867-b30727568432.png)
+- **[001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)**
+- **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)**
+- **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
 
 
@@ -82,7 +74,8 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 | [v2.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v2.0) | | [**_Fröhlich et al. (2024)_**](https://doi.org/10.1093/gji/ggae245) | https://dx.doi.org/10.35097/685 |
 | [v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v1.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157) | [**_Ritter et al. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w) | https://dx.doi.org/10.35097/684 |
 
-For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
+For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools)
+by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
 
 
 
@@ -97,7 +90,9 @@ For details of the individual releases as well as for changes and differences co
 
 ## Contributing
 
-For bug reports, suggestions or recommendations feel free to [open an issue](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/issues) or [submit a pull request](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pulls) directly here on [GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main).
+For bug reports, suggestions or recommendations feel free to [open an issue](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/issues) or
+[submit a pull request](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pulls) directly here on
+[GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main).
 
 
 

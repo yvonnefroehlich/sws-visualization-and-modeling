@@ -28,6 +28,8 @@ _See also_: [Supporting Information](https://academic.oup.com/gji/article/223/3/
 - **Result data**
   - Model parameters for each model type as separate *.txt files
 
+![figure_SWS_modeling_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/183926434-f510331c-0ded-4fb9-9867-b30727568432.png)
+
 
 
 ## Instruction: How to perform a modeling run for a single seismological recording station
