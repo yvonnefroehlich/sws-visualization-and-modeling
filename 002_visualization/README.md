@@ -10,3 +10,5 @@ _How to use_: _Under development_
   - Upper Rhine Graben Area (URG): https://dx.doi.org/10.35097/685; related to [**_Fröhlich et al. (2024)_**](https://doi.org/10.1093/gji/ggae245)
   - Blackforest Observatory (BFO): https://dx.doi.org/10.35097/684; related to [**_Ritter et al. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w)
 - **[02_plot_synthetic_sp](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization/02_plot_synthetic_sp)**: Scripts to plot the synthetic splitting parameters in Python via PyGMT
+
+![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/002_visualization_readme_image.png)
