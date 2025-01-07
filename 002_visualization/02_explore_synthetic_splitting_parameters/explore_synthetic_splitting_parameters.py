@@ -34,20 +34,20 @@ from scipy import io
 # %%
 # -----------------------------------------------------------------------------
 # General stuff
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 path_in = "01_in_data"
 path_out = "02_out_figs"
 
 dom_per = 8  ## 6, 8, 10  # in seconds
-model_type = "T1"  ## H1, H2, T1
+model_type = "H1"  ## H1, H2, T1
 print(f"Dominant period {dom_per} s - Model type {model_type}")
 
 models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
 models_mat = io.loadmat(f"{path_in}/{models}")
 N_models = len(models_mat["model_out"][0])
-print(f"Data loaded - {N_models} models! Starting with making plots!")
+print(f"Data loaded - {N_models} models! \n Starting with making plots!")
 
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 model_start = 1
 model_end = N_models
 model_step = 10
@@ -67,7 +67,7 @@ model_step = 10
 baz_step = 1
 baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees
 
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 box_standard = "+gwhite@30+p0.1p,gray30+r2p"
 
 color_highlight = "255/90/0"  # -> orange | URG paper
@@ -130,7 +130,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
 # -----------------------------------------------------------------------------
-    x_hline = [-10, 370]
+    x_hline = [-10, 360]
     projection_stereo = "X10c/4c"
 
     # Top Left: fast polarization direction
