@@ -16,4 +16,4 @@
 - Color-code bars with respect to the fast polarization direction (see Requirements/Colormaps)
 - Shade background or backazimuth sector
 
-![figures_SWS_stereo_README_BFO_orange_TEST](https://user-images.githubusercontent.com/94163266/191190219-8570c195-045f-4ad2-9c57-79e140f8e11d.png)
+![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/001_stereoplot_readme_image.png)

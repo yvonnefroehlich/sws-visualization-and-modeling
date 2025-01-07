@@ -43,6 +43,7 @@ _Example figures_: Generated with the provided test data
 - **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)**
 - **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
+![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/000_repo_readme_image.png)
 
 
 ## Requirements
