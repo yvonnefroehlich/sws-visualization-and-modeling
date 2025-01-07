@@ -1,14 +1,41 @@
-# Instruction: How to perform a modeling run for a single seismological recording station
+# 003_modeling
 
-- Created: Michael Grund (ORCID 0000-0001-8759-2018)\
-  https://github.com/michaelgrund/sws_tools/blob/main/03_modeling/README_mgrund.txt
-- Re-written: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)\
-  https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/README.md
-
-_Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388)
+_See also_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [**_Grund & Ritter (2020)_**](https://doi.org/10.1093/gji/ggaa388)
 
 
-## Requirements
+
+## Overview
+
+- **Model types**
+  - Transverse isotropy
+  - Structural anisotropy: one horizontal layer (H1), one dipping layer (T1), two horizontal layers (H2)
+- **Forward calculation**
+  - Synthetic splitting parameters based on the _energy minimization_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - Ray theory reference frame
+- **Observation** (output of _SplitLab_ and _StackSplit_)
+  - Single-event analysis: _energy minimization_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - Multi-event analysis:
+    stacking of error surfaces (STACK; [**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x)),
+    _simultaneous inversion of multiple waveforms_ (SIMW; [**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
+- **Comparison of forward calculation and observation**
+  - Calculation and minimizing the root mean square error regarding the splitting parameters
+  - Joint fitting of fast polarization direction and delay time, separate fitting of the fast polarization direction
+- **Result visualization**
+  - Backazimuthal variation of the splitting parameters (forward calculation and observation)
+  - Model type distribution (bar plot)
+  - Model parameter distribution (scatter plot)
+  - Stereoplot of synthetic splitting parameters (polar plot)
+- **Result data**
+  - Model parameters for each model type as separate *.txt files
+
+![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/003_modeling_readme_image.png)
+
+
+
+## Instruction: How to perform a modeling run for a single seismological recording station
+
+
+### Requirements
 
 - Official _MATLAB_ Toolboxes
   - Deep Learning Toolbox
@@ -23,7 +50,7 @@ _Details_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1
   You can play around with different parameters and see how these affect the splitting parameters.
 
 
-## Forward Calculation
+### Forward Calculation
 
 _Please note_: For small step sizes, computation time and structure size increase significantly
 
@@ -31,10 +58,10 @@ _Please note_: For small step sizes, computation time and structure size increas
 
 | phi / deg | dt / s | dip angle / deg | down-dip direction / deg | thickness / km | size / GB | publication |
 |---|---|---|---|---|---|---|
-| [-45:45:90] | [1:1:4]       | [15:15:75] | [0:45:315] | [250:250:500] | 0.008 | [TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling)|
-| [-85:5:90]  | [0.2:0.2:4]   | [5:5:75]   | [0:5:355]  | [5:5:250]     | 5.9   | |
-| [-85:5:90]  | [0.25:0.25:4] | [5:5:75]   | [0:5:355]  | [5:5:250]     | 4.2   | [Ritter et al. (2022)](https://doi.org/10.1007/s10950-022-10112-w)|
-| [-90:5:90]  | [0.2:0.2:4]   | [5:5:75]   | [0:5:360]  | [5:25:500]    | 5.7   | [Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388)|
+| [-45:45:90] | [1:1:4]       | [15:15:75] | [0:45:315] | [250:250:500] | 0.008 | [TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling) |
+| [-85:5:90]  | [0.2:0.2:4]   | [5:5:75]   | [0:5:355]  | [5:5:250]     | 5.9   | [Fröhlich et al. (2024)](https://doi.org/10.1093/gji/ggae245) |
+| [-85:5:90]  | [0.25:0.25:4] | [5:5:75]   | [0:5:355]  | [5:5:250]     | 4.2   | [Ritter et al. (2022)](https://doi.org/10.1007/s10950-022-10112-w) |
+| [-90:5:90]  | [0.2:0.2:4]   | [5:5:75]   | [0:5:360]  | [5:25:500]    | 5.7   | [Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388) |
 
 - All models of all model types are merged in a single nested _MATLAB_ structure with fields:
   - 1 | `modout.phi_eff`: effective or apparent phi values over backazimuth
@@ -48,7 +75,8 @@ _Please note_: For small step sizes, computation time and structure size increas
     - Two horizontal layers as 'two_layers' _or_
     - One dipping layer as 'dipping'
 
-## Comparison & Visualization
+
+### Comparison & Visualization
 
 _Please note_: SWS data input is expected to be in standard _SplitLab_ and _StackSplit_ output formats (`SWS_modeling_read_data.m`)
 
