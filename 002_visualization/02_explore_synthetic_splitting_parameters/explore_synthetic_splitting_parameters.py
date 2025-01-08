@@ -39,7 +39,7 @@ path_in = "01_in_data"
 path_out = "02_out_figs"
 
 dom_per = 8  ## 6, 8, 10  # in seconds
-model_type = "H1"  ## H1, H2, T1
+model_type = "T1"  ## H1, H2, T1
 print(f"Dominant period {dom_per} s - Model type {model_type}")
 
 models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
@@ -79,7 +79,7 @@ color_T1 = "218/163/109"  # 1 tiled layer brown
 
 # %%
 # -----------------------------------------------------------------------------
-# Make plot of splitting parameters
+# Make plot of anisotropy models
 # -----------------------------------------------------------------------------
 
 for i_model in range(model_start, model_end + model_step, model_step):
