@@ -45,7 +45,7 @@ print(f"Dominant period {dom_per} s - Model type {model_type}")
 models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
 models_mat = io.loadmat(f"{path_in}/{models}")
 N_models = len(models_mat["model_out"][0])
-print(f"Data loaded - {N_models} models! \n Starting with making plots!")
+print(f"Data loaded - {N_models} models!\nStarting with making plots!")
 
 # -----------------------------------------------------------------------------
 model_start = 1
@@ -125,7 +125,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
-    pygmt.config(MAP_GRID_PEN_PRIMARY="0.05p,gray30")
+    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray85", FONT="6.5p")
 
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
@@ -177,12 +177,12 @@ for i_model in range(model_start, model_end + model_step, model_step):
     region_mp = [-size, size] * 2
     fig.basemap(region=region_mp, projection="X4c/4c", frame="g0.5")
 
+    args_leg_bar = {"x": 4, "y": 4, "style": "j0/0.5/0.05"}
     if model_type in ["H1", "H2"]:
         fig.plot(x=-1.5, y=-1.5, style="x0.3c", pen="1.2p")
         fig.plot(x=-1.5, y=-1.5, style="c0.3c", pen="1.2p")
         fig.plot(x=[-size, size], y=[0] * 2, pen="0.5p")
         fig.plot(x=[0] * 2, y=[-size, size], pen="0.5p")
-        args_leg_bar = {"x": 4, "y": 4, "style": "j0/0.5/0.05"}
     match model_type:
         case "H1":
             bar_H1 = f"j{phi_gmt}/{dt}/0.1"
@@ -279,12 +279,19 @@ for i_model in range(model_start, model_end + model_step, model_step):
             )
             fig.plot(x=0, y=0, style=bar_T1, fill="black")
 
+# -----------------------------------------------------------------------------
+    with pygmt.config(FONT="11p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"):
+        fig.colorbar(
+            position="jCT+w3.5c/0.15c+o-0.05c/-0.9c+h",
+            frame=["xa30f10", "y+l@~f@~ / N@.E"],
+        )
+
     fig.text(
         text=f"{dom_per} s",
         position="TL",
         justify="MC",
         offset="-0.45c/0.73c",
-        font=f"9p,{color_highlight}",
+        font=f"7.5p,{color_highlight}",
         fill="white@30",
         pen="0.01p,black",
         clearance="0.08c/0.08c+tO",
