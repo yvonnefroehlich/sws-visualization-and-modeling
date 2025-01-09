@@ -1,11 +1,11 @@
 # #############################################################################
 # Explore forwardt calculated splitting parameters for the model types
 # - H1: One horizontal layer (with HTI)
-# - H2: Two horiztonal layer (with HTI)
+# - H2: Two horizontal layer (with HTI)
 # - T1: One tilted layer (with TTI)
 # Use synthetic splitting parameters calculated via
 # - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
-# - The output MALTAB struct is split into separat structs for the different model types
+# - The output MALTAB struct is split into separate structs for the different model types
 # -----------------------------------------------------------------------------
 # Author: Yvonne Fröhlich
 # ORCID: https://orcid.org/0000-0002-8566-0619
@@ -126,7 +126,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
 # .............................................................................
-    # Left: Carthesian plots of splitting parameters
+    # Left: Cartesian plots of splitting parameters
 # .............................................................................
     x_hline = [-10, 360]
     proj_stereo = "X10c/4c"
@@ -291,7 +291,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
             frame=["xa30f10", "y+l@~f@~@-a@- / N@.E"],
         )
 
-    # Add label for dominante period
+    # Add label for dominant period
     fig.text(
         text=f"{dom_per} s",
         position="TL",
