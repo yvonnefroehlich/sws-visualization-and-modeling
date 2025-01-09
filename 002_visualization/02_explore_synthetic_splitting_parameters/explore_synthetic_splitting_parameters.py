@@ -1,9 +1,15 @@
 # #############################################################################
-# Explor forwardt calculated splitting parameters
+# Explore forwardt calculated splitting parameters for the model types
+# - H1: One horizontal layer (with HTI)
+# - H2: Two horiztonal layer (with HTI)
+# - T1: One tilted layer (with TTI)
+# Use synthetic splitting parameters calculated via
+# - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
+# - The output MALTAB struct is split into separat structs for the different model types
 # -----------------------------------------------------------------------------
 # Author: Yvonne Fröhlich
 # ORCID: https://orcid.org/0000-0002-8566-0619
-# GitHub: https://github.com/yvonnefroehlich/gmt-pygmt-plotting
+# GitHub: https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 # -----------------------------------------------------------------------------
 # - Created: 2024/07/09
 # - Continued: 2025/01/07
@@ -31,6 +37,7 @@ import numpy as np
 import pygmt
 from scipy import io
 
+
 # %%
 # -----------------------------------------------------------------------------
 # General stuff
@@ -39,7 +46,7 @@ path_in = "01_in_data"
 path_out = "02_out_figs"
 
 dom_per = 8  ## 6, 8, 10  # in seconds
-model_type = "T1"  ## H1, H2, T1
+model_type = "H1"  ## H1, H2, T1
 print(f"Dominant period {dom_per} s - Model type {model_type}")
 
 models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
@@ -51,35 +58,24 @@ print(f"Data loaded - {N_models} models!\nStarting with making plots!")
 model_start = 1
 model_end = N_models
 model_step = 10
-# - H1
-#   * phi: [-80:10:90] deg | 17 |
-#   * dt: [0.25:0.25:4] s | 15 |
-# - H2  # 6760
-#   * phi1: [-80:10:90] deg | 17 |
-#   * phi2: [-80:10:90] deg | 17 |
-#   * dt1: [0.25:0.25:4] s | 15 |
-#   * dt2: [0.25:0.25:4] s | 15 |
-# - T1
-#   * thickness: [10:10:250] km | 25 | 252
-#   * dip angle: [10:10:70] deg | 7 |
-#   * down-dip direction: [0:10:350] deg | 35 |
 
 baz_step = 1
-baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees
+baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
 
 # -----------------------------------------------------------------------------
 box_standard = "+gwhite@30+p0.1p,gray30+r2p"
 
-color_highlight = "255/90/0"  # -> orange | URG paper
+# Colors based on Fröhlich et al. (2024) GJI
+color_highlight = "255/90/0"  # -> orange
 color_H1 = "127/140/95"  # 1 horizontal layer -> green
-color_H2_lower = "178/34/34"  # 2 horizontal layers lower / first layer -> red
-color_H2_upper = "24/116/205"  # 2 horizontal layers upper / second layer -> blue
-color_T1 = "218/163/109"  # 1 tiled layer brown
+color_H2lower = "178/34/34"  # 2 horizontal layers lower / first layer -> red
+color_H2upper = "24/116/205"  # 2 horizontal layers upper / second layer -> blue
+color_T1 = "218/163/109"  # 1 tiled layer -> brown
 
 
 # %%
 # -----------------------------------------------------------------------------
-# Make plot of anisotropy models
+# Make plots of anisotropy models
 # -----------------------------------------------------------------------------
 
 for i_model in range(model_start, model_end + model_step, model_step):
@@ -129,22 +125,24 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
-# -----------------------------------------------------------------------------
+# .............................................................................
+    # Left: Carthesian plots of splitting parameters
+# .............................................................................
     x_hline = [-10, 360]
-    projection_stereo = "X10c/4c"
+    proj_stereo = "X10c/4c"
 
     # Top Left: fast polarization direction
     fig.basemap(
         region=[0, 360, -90, 90],
-        projection=projection_stereo,
-        frame=["WSne", "xf10g30", "ya30f10g30+lapp. fast pol. dir. / N°E"],
+        projection=proj_stereo,
+        frame=["WSne", "xf10g30", "ya30f10g30+lapp. fast pol. dir. @~f@~@-a@- / N°E"],
     )
     match model_type:
         case "H1":
             fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_H1},dashed", no_clip=True)
         case "H2":
-            fig.plot(x=x_hline, y=[phi_1] * 2, pen=f"1p,{color_H2_lower},dashed", no_clip=True)
-            fig.plot(x=x_hline, y=[phi_2] * 2, pen=f"1p,{color_H2_upper},dashed", no_clip=True)
+            fig.plot(x=x_hline, y=[phi_1] * 2, pen=f"1p,{color_H2lower},dashed", no_clip=True)
+            fig.plot(x=x_hline, y=[phi_2] * 2, pen=f"1p,{color_H2upper},dashed", no_clip=True)
         case "T1":
             fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_T1},dashed", no_clip=True)
     fig.plot(x=baz, y=phi_a, pen="0.1p")
@@ -155,34 +153,38 @@ for i_model in range(model_start, model_end + model_step, model_step):
     # Bottom Left: delay time
     fig.basemap(
         region=[0, 360, 0, 4],
-        projection=projection_stereo,
+        projection=proj_stereo,
         frame=[
-            "WSne", "xa30f10g30+lbackazimuth / °", "ya1f0.25g0.5+lapp. delay time / s",
+            "WSne", "xa30f10g30+lbackazimuth / °", "ya1f0.25g0.5+lapp. delay time @~d@~t@-a@- / s",
         ],
     )
     match model_type:
         case "H1":
             fig.plot(x=x_hline, y=[dt] * 2, pen=f"1p,{color_H1},dashed", no_clip=True)
         case "H2":
-            fig.plot(x=x_hline, y=[dt_1] * 2, pen=f"1p,{color_H2_lower},dashed", no_clip=True)
-            fig.plot(x=x_hline, y=[dt_2] * 2, pen=f"1p,{color_H2_upper},dashed", no_clip=True)
+            fig.plot(x=x_hline, y=[dt_1] * 2, pen=f"1p,{color_H2lower},dashed", no_clip=True)
+            fig.plot(x=x_hline, y=[dt_2] * 2, pen=f"1p,{color_H2upper},dashed", no_clip=True)
     fig.plot(x=baz, y=dt_a, pen="0.1p")
     fig.plot(x=baz, y=dt_a, style="c0.07c", fill=phi_a, cmap=True)
 
     fig.shift_origin(xshift="+w+1c", yshift="4.5c")
 
-# -----------------------------------------------------------------------------
-    # Top Right: model parameter
+# .............................................................................
+    # Top Right: model parameter of anisotropy model
+# .............................................................................
     size = 2
     region_mp = [-size, size] * 2
     fig.basemap(region=region_mp, projection="X4c/4c", frame="g0.5")
 
-    args_leg_bar = {"x": 4, "y": 4, "style": "j0/0.5/0.05"}
     if model_type in ["H1", "H2"]:
+        # Plot top view sign
         fig.plot(x=-1.5, y=-1.5, style="x0.3c", pen="1.2p")
         fig.plot(x=-1.5, y=-1.5, style="c0.3c", pen="1.2p")
+        # Mark central lines
         fig.plot(x=[-size, size], y=[0] * 2, pen="0.5p")
         fig.plot(x=[0] * 2, y=[-size, size], pen="0.5p")
+
+    args_leg_bar = {"x": 4, "y": 4, "style": "j0/0.5/0.05"}
     match model_type:
         case "H1":
             bar_H1 = f"j{phi_gmt}/{dt}/0.1"
@@ -192,16 +194,16 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
             fig.plot(fill=color_H1, label=label_H1, **args_leg_bar)
         case "H2":
-            bar_lower = f"j{phi_1_gmt}/{dt_1}/0.1"
-            bar_upper = f"j{phi_2_gmt}/{dt_2}/0.1"
-            label_lower = f"lower: {phi_1} N°E | {dt_1} s"
-            label_upper = f"upper: {phi_2} N°E | {dt_2} s"
+            bar_H2lower = f"j{phi_1_gmt}/{dt_1}/0.1"
+            bar_H2upper = f"j{phi_2_gmt}/{dt_2}/0.1"
+            label_H2lower = f"lower: {phi_1} N°E | {dt_1} s"
+            label_H2upper = f"upper: {phi_2} N°E | {dt_2} s"
 
-            fig.plot(x=0, y=0, style=bar_lower, fill=color_H2_lower, pen="0.5p")
-            fig.plot(x=0, y=0, style=bar_upper, fill=color_H2_upper, pen="0.5p,white")
+            fig.plot(x=0, y=0, style=bar_H2lower, fill=color_H2lower, pen="0.5p")
+            fig.plot(x=0, y=0, style=bar_H2upper, fill=color_H2upper, pen="0.5p,white")
 
-            fig.plot(fill=color_H2_upper, label=label_upper, **args_leg_bar)
-            fig.plot(fill=color_H2_lower, label=label_lower, **args_leg_bar)
+            fig.plot(fill=color_H2upper, label=label_H2upper, **args_leg_bar)
+            fig.plot(fill=color_H2lower, label=label_H2lower, **args_leg_bar)
         case "T1":
             bar_T1 = f"j{strike_gmt}/1/0.1"
             vec_T1_ddd = ([downdipdir_gmt], [1])  # Input for vector must be a list
@@ -233,16 +235,17 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
     fig.shift_origin(yshift="-h-1c")
 
-# -----------------------------------------------------------------------------
-    # Bottom Right: stereoplot
+# .............................................................................
+    # Bottom Right: Stereoplot for splitting parameter
+# .............................................................................
     rho = 0.6
     step = 3
     baz_stereo = baz[0::step]
     phi_a_stereo = phi_a[0::step]
     dt_a_stereo = dt_a[0::step]
 
-    pygmt.config(FORMAT_GEO_MAP="+D")  # 0°-360°
-    fig.basemap(region=[0, 360, 0, 1], projection="P4c+a", frame="xa30f10g30")
+    with pygmt.config(FORMAT_GEO_MAP="+D"):  # 0°-360°
+        fig.basemap(region=[0, 360, 0, 1], projection="P4c+a", frame="xa30f10g30")
 
     for i_bar in range(len(baz_stereo)):
         if phi_a_stereo[i_bar] > 0:
@@ -262,12 +265,13 @@ for i_model in range(model_start, model_end + model_step, model_step):
         fig.plot(data=data_bar, style="j", cmap=True, no_clip=True)
 
     match model_type:
+        # Mark theoretical null directions
         case "H1":
             phi = int(phi)
             baz_nulls = np.array([phi, phi + 90, phi + 180, phi + 270])
-            fig.plot(
-                x=baz_nulls, y=np.ones(4) * rho, style="c0.1c", fill="white", pen="0.7p"
-            )
+            fig.plot(x=baz_nulls, y=[rho] * 4, style="c0.1c", fill="white", pen="0.7p")
+        # TODO case "H2":
+        # Arrow showing strike / down dip direction
         case "T1":
             fig.plot(
                 x=0,
@@ -280,12 +284,14 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig.plot(x=0, y=0, style=bar_T1, fill="black")
 
 # -----------------------------------------------------------------------------
+    # Add colorbar for fast polarization direction
     with pygmt.config(FONT="11p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"):
         fig.colorbar(
-            position="jCT+w3.5c/0.15c+o-0.05c/-0.9c+h",
-            frame=["xa30f10", "y+l@~f@~ / N@.E"],
+            position="jCT+w3.5c/0.15c+o-0.1c/-0.9c+h",
+            frame=["xa30f10", "y+l@~f@~@-a@- / N@.E"],
         )
 
+    # Add label for dominante period
     fig.text(
         text=f"{dom_per} s",
         position="TL",
