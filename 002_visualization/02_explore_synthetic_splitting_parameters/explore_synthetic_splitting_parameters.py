@@ -1,20 +1,26 @@
 # #############################################################################
-# Explore forwardt calculated splitting parameters for the model types
-# - H1: One horizontal layer (with HTI)
-# - H2: Two horizontal layer (with HTI)
-# - T1: One tilted layer (with TTI)
-# Use synthetic splitting parameters calculated via
+# Explore forwardt calculated splitting parameters for structural anisotropy
+# -----------------------------------------------------------------------------
+# Supported model types
+# - One horizontal layer (with HTI): H1
+# - Two horizontal layer (with HTI): H2
+# - One tilted layer (with TTI): T1
+# Previously calculated synthetic splitting parameters
 # - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
 # - The output MALTAB struct is split into separate structs for the different model types
 # -----------------------------------------------------------------------------
-# Author: Yvonne Fröhlich
-# ORCID: https://orcid.org/0000-0002-8566-0619
-# GitHub: https://github.com/yvonnefroehlich/sws-visualization-and-modeling
-# -----------------------------------------------------------------------------
+# History
 # - Created: 2024/07/09
 # - Continued: 2025/01/07
+# -----------------------------------------------------------------------------
+# Versions
 #   PyGMT v0.14.0 -> https://www.pygmt.org/v0.14.0/ | https://www.pygmt.org/
 #   GMT 6.5.0 -> https://www.generic-mapping-tools.org/
+# -----------------------------------------------------------------------------
+# Contact
+# - Author: Yvonne Fröhlich
+# - ORCID: https://orcid.org/0000-0002-8566-0619
+# - GitHub: https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 # -----------------------------------------------------------------------------
 # Related to
 # - Fröhlich Y. & Ritter J. R. R. (2024)
@@ -67,10 +73,10 @@ box_standard = "+gwhite@30+p0.1p,gray30+r2p"
 
 # Colors based on Fröhlich et al. (2024) GJI
 color_highlight = "255/90/0"  # -> orange
-color_H1 = "127/140/95"  # 1 horizontal layer -> green
-color_H2lower = "178/34/34"  # 2 horizontal layers lower / first layer -> red
-color_H2upper = "24/116/205"  # 2 horizontal layers upper / second layer -> blue
-color_T1 = "218/163/109"  # 1 tiled layer -> brown
+color_H1 = "127/140/95"  # 1 horizontal layer (H1) -> green
+color_H2lower = "178/34/34"  # 2 horizontal layers (H2) lower (first) layer -> red
+color_H2upper = "24/116/205"  # 2 horizontal layers (H2) upper (second) layer -> blue
+color_T1 = "218/163/109"  # 1 tilted layer (T1) -> brown
 
 
 # %%
