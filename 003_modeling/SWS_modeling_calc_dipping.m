@@ -1,5 +1,5 @@
 function [fast_eff, tlag_eff, azi4plot, fast4plot, tlag4plot] = ...
-        SWS_modeling_calc_dipping( incval, dips, downdipdir, thick, dfreq )
+        SWS_modeling_calc_dipping(incval, dips, downdipdir, thick, dfreq)
 
 %==========================================================================
 %% This function
