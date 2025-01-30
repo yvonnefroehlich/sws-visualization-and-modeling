@@ -696,8 +696,6 @@ axes = gca;
 axes.SortMethod = 'ChildOrder';  % for right order of layers in eps / pdf
 
 framem('FLinewidth',2)
-framem('FFaceColor','none')
-framem('FEdgeColor',[0.8 0.8 0.8])
 
 
 %==========================================================================
@@ -1119,20 +1117,13 @@ file_name = [ ...
 % GitHub: https://github.com/altmany/export_fig/releases/tag/v3.15
 
 if vers==2 % MATLAB R2020a and higher
-    exportgraphics( ...
-        f_stereo, [file_path file_name '.png'], 'Resolution',360 ...
-    )
-    % exportgraphics( ...
-    %     f_stereo, [file_path file_name '.eps'], 'ContentType','vector', ...
-    %     'BackgroundColor', 'none' ...
-    % )
-    % exportgraphics( ...
-    %     f_stereo, [file_path file_name '.pdf'], 'ContentType','vector' ...
-    % )
+    exportgraphics(f_stereo, [file_path file_name '.png'], 'Resolution',360)
+    exportgraphics(f_stereo, [file_path file_name '.eps'], 'ContentType','vector')
+    exportgraphics(f_stereo, [file_path file_name '.pdf'], 'ContentType','vector')
 else
     saveas(f_stereo, [file_path file_name '.png'])
-    % saveas(f_stereo, [file_path file_name '.eps'])
-    % saveas(f_stereo, [file_path file_name '.pdf'])
+    saveas(f_stereo, [file_path file_name '.eps'])
+    saveas(f_stereo, [file_path file_name '.pdf'])
 end
 
 % alternatively on Linux systems print as eps and then convert to pdf
