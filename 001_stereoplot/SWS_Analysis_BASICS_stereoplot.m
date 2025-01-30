@@ -164,7 +164,8 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 % What annotation should be plotted?
 status_cb = 'yes'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
 status_leg = 'yes'; %% 'yes', 'no'  % legend - null, delay time reference
-status_sta = 'yes'; %% 'yes', 'no'  % station name - station code
+status_sta_name = 'yes'; %% 'yes', 'no'  % station name - station code
+status_sta_marker = 'yes'; %% 'yes', 'no'  % station marker - invers triangle
 status_baz = 'yes'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
 filename_add = '';  %% additional string added to the filename
 
@@ -195,8 +196,9 @@ linewcirc = 2;
 fontsize_baz = 15;
 
 %--------------------------------------------------------------------------
-% station label
-color_sta = [255 90 0] ./ 256; % orange [0.6350 0.0780 0.1840]; % dark red
+% recording station
+color_sta_name = [255 90 0] ./ 256; % orange [0.6350 0.0780 0.1840]; % dark red
+color_sta_marker = [255 215 0] ./ 256;
 
 %--------------------------------------------------------------------------
 % radial axis & legend & colorbar
@@ -715,11 +717,11 @@ end
 
 %--------------------------------------------------------------------------
 % station name
-if strcmp(status_sta,'yes')
+if strcmp(status_sta_name,'yes')
     text(-0.2, -L+0.01, staname, ...
          'HorizontalAlignment','Center', 'VerticalAlignment','Base', ...
          'FontWeight','bold', 'fontsize',18, ...
-         'color',color_sta)
+         'color',color_sta_name)
 end
 
 %--------------------------------------------------------------------------
@@ -741,6 +743,16 @@ switch plotannot
        text(-0.055,-0.055, '5^\circ', 'fontsize',12, 'color',col_inc)
        text(-0.117,-0.117, '10^\circ', 'fontsize',12, 'color',col_inc)
        text(-0.180,-0.180, '15^\circ', 'fontsize',12, 'color',col_inc)
+end
+
+%--------------------------------------------------------------------------
+% plot recording station
+if strcmp(status_sta_marker, 'yes')
+    plot(0, 0, 'v', ...
+        'MarkerSize',14, ...
+        'MarkerEdgeColor','k', ...
+        'MarkerFaceColor', ...
+        color_sta_marker)
 end
 
 
