@@ -164,8 +164,8 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 % What annotation should be plotted?
 status_cb = 'yes'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
 status_leg = 'yes'; %% 'yes', 'no'  % legend - null, delay time reference
-status_sta_name = 'yes'; %% 'yes', 'no'  % station name - station code
-status_sta_marker = 'yes'; %% 'yes', 'no'  % station marker - invers triangle
+status_sta_label = 'yes'; %% 'yes', 'no'  % station name - station code
+status_sta_marker = 'no'; %% 'yes', 'no'  % station symbol - invers triangle
 status_baz = 'yes'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
 filename_add = '';  %% additional string added to the filename
 
@@ -197,7 +197,7 @@ fontsize_baz = 15;
 
 %--------------------------------------------------------------------------
 % recording station
-color_sta_name = [255 90 0] ./ 256; % orange [0.6350 0.0780 0.1840]; % dark red
+color_sta_label = [255 90 0] ./ 256; % orange [0.6350 0.0780 0.1840]; % dark red
 color_sta_marker = [255 215 0] ./ 256;
 
 %--------------------------------------------------------------------------
@@ -717,11 +717,11 @@ end
 
 %--------------------------------------------------------------------------
 % station name
-if strcmp(status_sta_name,'yes')
+if strcmp(status_sta_label,'yes')
     text(-0.2, -L+0.01, staname, ...
          'HorizontalAlignment','Center', 'VerticalAlignment','Base', ...
          'FontWeight','bold', 'fontsize',18, ...
-         'color',color_sta_name)
+         'color',color_sta_label)
 end
 
 %--------------------------------------------------------------------------
