@@ -74,7 +74,7 @@ cd(curr_dir)
 % measurement quality
 disp(' ')
 if isempty(varargin)
-   SL_quality = input(['Qualities you want to plot (default is all)? \n', ...
+   SL_quality = input(['Qualities you want to plot [Default is all]? \n', ...
                        '   [0] all \n', ...'
                        '   [1] good \n', ...'
                        '   [2] good & fair \n', ...'
@@ -92,7 +92,7 @@ end
 % seismological phase
 disp(' ')
 if isempty(varargin)
-    SL_phase = input(['Seismological phase you want to plot (default all)? \n' ...
+    SL_phase = input(['Seismological phase you want to plot [Default is all]? \n' ...
                       '   [0] all  [1] SKS  [2] SKKS  [3] PKS    | ']);
     if ~exist('SL_phase','var')==1  % default
         SL_phase = 0;  % all phases
@@ -105,7 +105,7 @@ end
 % observation type
 disp(' ')
 if isempty(varargin)
-    SL_obs = input(['Observation type you want to plot (default all)? \n' ...
+    SL_obs = input(['Observation type you want to plot [Default is all]? \n' ...
                     '   [0] all  [1] nulls  [2] splits    | ']);
     if ~exist('SL_obs','var')==1  % default
         SL_obs = 0;  % nulls and splits

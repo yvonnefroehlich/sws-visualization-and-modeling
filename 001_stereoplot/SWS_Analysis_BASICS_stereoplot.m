@@ -405,7 +405,7 @@ end
 % - measurement method: 1; 2; 3
 
 disp(' ')
-SL_method = input(['Methode you want to plot (default is SC)? \n' ...
+SL_method = input(['Methode you want to plot [Default is SC]? \n' ...
                    '   [1] SC  [2] RC  [3] EV    | ']);
 
 if ~exist('SL_method','var')==1  % default
@@ -627,7 +627,7 @@ end
 %==========================================================================
 disp(' ')
 plotsector = input(['Plot sector in backazimuth range (takes some time)? \n ' ...
-                    '   Plot no sector: Press "Enter" (Default is used) \n ' ...
+                    '   Plot no sector: Press "Enter" [Default is used] \n ' ...
                     '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
 
 if ~exist('plotsector','var')==1  % default
@@ -653,7 +653,7 @@ end
 %% make query for location of annotation of radial axis
 %==========================================================================
 disp(' ')
-plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
+plotannot = input(['Annotate radial scale [Default is SE]? \n' ...
                    '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
 
 if ~exist('plotannot','var')==1  % default
