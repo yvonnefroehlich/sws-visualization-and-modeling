@@ -165,7 +165,7 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 status_cb = 'yes'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
 status_leg = 'yes'; %% 'yes', 'no'  % legend - null, delay time reference
 status_sta_label = 'yes'; %% 'yes', 'no'  % station name - station code
-status_sta_marker = 'no'; %% 'yes', 'no'  % station symbol - invers triangle
+status_sta_marker = 'no'; %% 'yes', 'no'  % station symbol - inverse triangle
 status_baz = 'yes'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
 filename_add = '';  %% additional string added to the filename
 
