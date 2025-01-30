@@ -332,11 +332,11 @@ else
     % search for input colormap
     %......................................................................
     % Scientific colour maps
-    if idx1==1 && ~isempty(which('CrameriColourMap8.0.mat'))
+    if idx1==1 && ~isempty(which('CrameriColourMaps8.0.1.mat'))
         usecmap = crameri(colmap,181);
         disp(' ')
         disp('>>> Scientific colour maps found! <<<')
-    elseif idx1==1 && isempty(which('CrameriColourMaps8.0.mat'))
+    elseif idx1==1 && isempty(which('CrameriColourMaps8.0.1.mat'))
         warning('Scientific colour maps not found!')
         return
     %......................................................................
