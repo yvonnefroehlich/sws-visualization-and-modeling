@@ -1,5 +1,6 @@
-% function SWS_Analysis_BASICS_stereoplot(colmap)
-function SWS_Analysis_BASICS_stereoplot(colmap, SL_quality, SL_phase, SL_obs, filename_add)
+function SWS_Analysis_BASICS_stereoplot(colmap)
+% function SWS_Analysis_BASICS_stereoplot(colmap, SL_quality, SL_phase, SL_obs)
+
 
 %==========================================================================
 %% This function
@@ -116,7 +117,7 @@ function SWS_Analysis_BASICS_stereoplot(colmap, SL_quality, SL_phase, SL_obs, fi
 %    * good & fair
 %    * fair & poor
 %    * poor
-% - seismolgical phase (see SWS_Analysis_BASICS_read_SLresults.m)
+% - seismological phase (see SWS_Analysis_BASICS_read_SLresults.m)
 %    * all
 %    * SKS
 %    * SKKS
@@ -161,11 +162,11 @@ vers = SWS_Analysis_BASICS_check_matlab_version;
 
 %--------------------------------------------------------------------------
 % What annotation should be plotted?
-status_cb = 'no'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
-status_leg = 'no'; %% 'yes', 'no'  % legend - null, delay time reference
-status_sta = 'no'; %% 'yes', 'no'  % station name - station code
-status_baz = 'no'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
-filename_add = ['_noall_' filename_add];  %% additional string added to the filename
+status_cb = 'yes'; %% 'yes', 'no'  % colorbar - phi color-coding of bars
+status_leg = 'yes'; %% 'yes', 'no'  % legend - null, delay time reference
+status_sta = 'yes'; %% 'yes', 'no'  % station name - station code
+status_baz = 'yes'; %% 'yes', 'no'  % angle axis - BAZ - N(orth), E(ast)
+filename_add = '';  %% additional string added to the filename
 
 
 %--------------------------------------------------------------------------
@@ -207,9 +208,13 @@ fontsize_cb = 9;
 %--------------------------------------------------------------------------
 % no phi color-coding (default colors of MATLAB)
 splitcol = [0.3 0.3 0.3]; % dark grey
+nullcol = [0.8500 0.3250 0.0980]; % red-orange
 multicol_stack = [0 0.4470 0.7410]; % dark blue
 multicol_simw = [0.3010 0.7450 0.9330]; % light blue
-nullcol = [0.8500 0.3250 0.0980]; % red-orange
+
+color_SKS = [216.75 82.875 24.990] / 255; % SKS
+color_SKKS = [236.895 176.97 31.875] / 255; % SKKS
+color_PKS = [238 238 0] / 255; % PKS
 
 
 
@@ -270,7 +275,7 @@ if ~exist('colmap','var') || strcmp(colmap,'parula')
     usecmap = flipud(usecmap);
     colmap = 'parulaflip';
     fast_col = 1;
-elseif strcmp('none',colmap)
+elseif strcmp(colmap,'none')
     fast_col = 0;
 else
     fast_col = 1;
@@ -376,12 +381,14 @@ close all
 %--------------------------------------------------------------------------
 % Make queries for
 % - measurement quality: 0; 1; 2; 3; 4; 5
-% - seismolgical phase: 0; 1; 2; 3
+% - seismological phase: 0; 1; 2; 3
 % - observation type: 0; 1; 2
 
 % give numbers directly here, then no queries occur
+% [RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = ...
+%     SWS_Analysis_BASICS_read_SLresults(SL_quality, SL_phase, SL_obs);
 [RES_split, RES_nulls, SL_qualtiy, SL_phase, SL_obs] = ...
-    SWS_Analysis_BASICS_read_SLresults(SL_quality, SL_phase, SL_obs);
+    SWS_Analysis_BASICS_read_SLresults();
 
 % corresponding to numbers in queries before
 quality_str = {'all'; 'good'; 'goodfair'; 'fairpoor'; 'fair'; 'poor'};
@@ -397,9 +404,9 @@ end
 % Make query for
 % - measurement method: 1; 2; 3
 
-% disp(' ')
-% SL_method = input(['Methode you want to plot (default is SC)? \n' ...
-%                    '   [1] SC  [2] RC  [3] EV    | ']);
+disp(' ')
+SL_method = input(['Methode you want to plot (default is SC)? \n' ...
+                   '   [1] SC  [2] RC  [3] EV    | ']);
 
 if ~exist('SL_method','var')==1  % default
     SL_method = 1; % SC
@@ -423,30 +430,47 @@ multi_string = {''; 'stack'; 'SIMWNN'; 'stackSIMWNN'};
 
 dir_res_multi = dir('*_stackresults.mat');
 
-% if ~isempty(dir_res_multi)
-%     disp(' ')
-%     plot_multi = input(['Plot multi-event-analysis results' ...
-%                         ' (if available)? \n' ...
-%                         '  [0] no  [1] stack  [2] SIMW(NN)' ...
-%                         '  [3] stack & SIMW(NN)   | ']);
-%     if plot_multi>0
-%         RES_multi = SWS_Analysis_BASICS_read_SSresults(...
-%                         dir_res_multi, 1, plot_multi);
-%     end
-%
-%     if plot_multi==1 && isempty(RES_multi)
-%         error('No stack results in struct!')
-%     elseif plot_multi==2 && isempty(RES_multi)
-%         error('No simw results contained in struct!')
-%     end
-%
-% end
+if ~isempty(dir_res_multi)
+    disp(' ')
+    plot_multi = input(['Plot multi-event-analysis results' ...
+                        ' (if available)? \n' ...
+                        '  [0] no  [1] stack  [2] SIMW(NN)' ...
+                        '  [3] stack & SIMW(NN)   | ']);
+    if plot_multi>0
+        RES_multi = SWS_Analysis_BASICS_read_SSresults(...
+                        dir_res_multi, 1, plot_multi);
+    end
+
+    if plot_multi==1 && isempty(RES_multi)
+        error('No stack results in struct!')
+    elseif plot_multi==2 && isempty(RES_multi)
+        error('No simw results contained in struct!')
+    end
+
+end
 
 if ~exist('plot_multi','var')==1  % default
     plot_multi = 0;  % no multi-event analysis results
 end
 
 
+%==========================================================================
+%% Adjust colors for bars based on phases
+%==========================================================================
+
+if strcmp(colmap, 'none') && plot_multi == 0
+    switch SL_phase
+        case 1
+            splitcol = color_SKS;
+            nullcol = color_SKS;
+        case 2
+            splitcol = color_SKKS;
+            nullcol = color_SKKS;
+        case 3
+            splitcol = color_PKS;
+            nullcol = color_PKS;
+    end
+end
 
 
 %==========================================================================
@@ -483,7 +507,7 @@ end
 % error in case not SWSMs of the selected qualities are available at this station
 if isempty(station_check)
     error(['>>> No shear wave splitting measurements are available ' ...
-        'for the selected qualities at this station! <<<'])
+           'for the selected qualities at this station! <<<'])
 end
 
 
@@ -601,10 +625,10 @@ end
 %==========================================================================
 %% make query for sector plotting
 %==========================================================================
-% disp(' ')
-% plotsector = input(['Plot sector in backazimuth range (takes some time)? \n ' ...
-%                     '   Plot no sector: Press "Enter" (Default is used) \n ' ...
-%                     '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
+disp(' ')
+plotsector = input(['Plot sector in backazimuth range (takes some time)? \n ' ...
+                    '   Plot no sector: Press "Enter" (Default is used) \n ' ...
+                    '   Plot a sector: Pass a vector, e.g., [0,210]    | ']);
 
 if ~exist('plotsector','var')==1  % default
     plotsector = [];  % BAZ range 0°-360°
@@ -628,9 +652,9 @@ end
 %==========================================================================
 %% make query for location of annotation of radial axis
 %==========================================================================
-% disp(' ')
-% plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
-%                    '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
+disp(' ')
+plotannot = input(['Annotate radial scale (Default is SE)? \n' ...
+                   '   [0] no  [1] NE  [2] SE  [3] SW  [4] NW    | ']);
 
 if ~exist('plotannot','var')==1  % default
     plotannot = 2;  % no
@@ -937,9 +961,9 @@ if strcmp(status_leg,'yes')
 %--------------------------------------------------------------------------
     % null
 
-    if fast_col==0
+    if fast_col==0 && SL_phase==0
         col_leg_null = nullcol;
-    elseif fast_col==1
+    elseif fast_col==1 || fast_col==0 && SL_phase~=0
         col_leg_null = col_leg;
     end
 
@@ -977,7 +1001,8 @@ if strcmp(status_cb,'yes')
     % colorbar for phi
     % phi color-coding and for null stations
 
-    if ~isempty(RES_split) && fast_col==1 || isempty(RES_split)
+    % if ~isempty(RES_split) && fast_col==1 || isempty(RES_split) && fast_col==1
+    if fast_col==1
 
         cb = colorbar('location','north');
         zlab = get(cb,'xlabel');
@@ -1074,10 +1099,6 @@ set(f_stereo, 'PaperSize',[14 14]); % set paper size
 
 %--------------------------------------------------------------------------
 file_path = [];
-file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_URG/';
-file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SEDI/';
-file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_YSA/';
-file_path = '/home/yfroe/Documents/D_Matlab/stereoplots/01_queries_SA/';
 file_name = [ ...
     'Stereo_' staname '_' ...
      quality_str{SL_qualtiy+1} '_' ...
@@ -1102,17 +1123,17 @@ if vers==2 % MATLAB R2020a and higher
     exportgraphics( ...
         f_stereo, [file_path file_name '.png'], 'Resolution',360 ...
     )
-    exportgraphics( ...
-        f_stereo, [file_path file_name '.eps'], 'ContentType','vector', ...
-        'BackgroundColor', 'none' ...
-    )
+    % exportgraphics( ...
+    %     f_stereo, [file_path file_name '.eps'], 'ContentType','vector', ...
+    %     'BackgroundColor', 'none' ...
+    % )
     % exportgraphics( ...
     %     f_stereo, [file_path file_name '.pdf'], 'ContentType','vector' ...
     % )
 else
     saveas(f_stereo, [file_path file_name '.png'])
-    saveas(f_stereo, [file_path file_name '.eps'])
-    saveas(f_stereo, [file_path file_name '.pdf'])
+    % saveas(f_stereo, [file_path file_name '.eps'])
+    % saveas(f_stereo, [file_path file_name '.pdf'])
 end
 
 % alternatively on Linux systems print as eps and then convert to pdf
