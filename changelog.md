@@ -13,7 +13,7 @@
    - Allow plotting recording station in the center of the stereoplot ([PR #33](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/33))
    - Update to R2024a ([PR #21](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/21))
    - Update regarding crameri v1.09 ([PR #15](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/15))
-   - Use function "crameri.m" instead of struct "CrameriColourMaps*.mat" to check existence of SCM ([PR #32}(https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/32))
+   - Use function "crameri.m" instead of struct "CrameriColourMaps*.mat" to check existence of SCM ([PR #32](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/32))
 
 - [002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)
    - Add loading function for datasets on RADAR4KIT in MATLAB, Python, and R ([PR #24](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/24))
