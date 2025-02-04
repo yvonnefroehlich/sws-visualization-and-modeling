@@ -126,7 +126,7 @@ if strcmp(cmap_phi_str,'phino')
     % make query use phi color-coding and which colormap
     disp(' ')
     cmap_phi_ind = input(['Color-coding based on phi in stereoplot?: \n' ...
-                          '    [1] parula(fliped)  [2] phase    | ']);
+                          '    [1] parula(flipped)  [2] phase    | ']);
 
     %......................................................................
     % select phi colormap and set string for file name
