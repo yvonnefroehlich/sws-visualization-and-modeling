@@ -36,7 +36,8 @@ function SWS_modeling_precomp_models_main()
 %--------------------------------------------------------------------------
 % LICENSE
 %
-% Copyright (C) 2020  Michael Grund
+% Copyright (C) 2022  Yvonne Fröhlich & Michael Grund (up on v1.0)
+% Copyright (C) 2020  Michael Grund (sws_tools)
 %
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -45,7 +46,7 @@ function SWS_modeling_precomp_models_main()
 %
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
 %
 % You should have received a copy of the GNU General Public License
@@ -56,6 +57,11 @@ function SWS_modeling_precomp_models_main()
 % The modeling routines are provided "as is" and without any warranty.
 % The author cannot be held responsible for anything that happens to you
 % or your equipment. Use it at your own risk.
+%--------------------------------------------------------------------------
+% CONTRIBUTING
+%
+% Feel free to modify/adjust the code for your needs. Submit improvements
+% and report bugs by opening a "New issue" in the GitHub repository (:
 %==========================================================================
 
 

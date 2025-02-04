@@ -31,7 +31,8 @@ function SWS_modeling_plot_stereo_synthetic( ...
 %--------------------------------------------------------------------------
 % LICENSE
 %
-% Copyright (C) 2020  Michael Grund
+% Copyright (C) 2022  Yvonne Fröhlich & Michael Grund (up on v1.0)
+% Copyright (C) 2020  Michael Grund (sws_tools)
 %
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
