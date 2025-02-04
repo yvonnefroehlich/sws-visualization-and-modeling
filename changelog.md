@@ -9,7 +9,7 @@
    - Move "Contents" section to separate READMEs & introduce "_image folder ([PR #31](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/31))
 
 - [001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)
-   - Add selection / querries for phase and observation type ([PR #23](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/23))
+   - Add queries for phase and observation type ([PR #23](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/23))
    - Allow plotting recording station in the center of the stereoplot ([PR #33](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/33))
    - Update to R2024a ([PR #21](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/21))
    - Update regarding crameri v1.09 ([PR #15](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/15))
@@ -19,11 +19,11 @@
    - Add loading function for datasets on RADAR4KIT in MATLAB, Python, and R ([PR #24](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/24))
 
 - [003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)
-    - Fixes regarding colormap and colorbar for phi ([PR #13](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/13))
-    - Fix query for plotting not considered BAZ range in gray ([PR #14](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/14))
-    - Improve visualization of stats regarding the model type ([PR #22](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/22))
-    - Save structs for model types separately ([PR #16](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/16))
-    - Update table for required disc space in modeling README ([PR #17](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/17))
+   - Fixes regarding colormap and colorbar for phi ([PR #13](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/13))
+   - Fix query for plotting not considered BAZ range in gray ([PR #14](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/14))
+   - Improve visualization of stats regarding the model type ([PR #22](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/22))
+   - Save structs for model types separately ([PR #16](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/16))
+   - Update table for required disc space in modeling README ([PR #17](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/17))
 
 
 
