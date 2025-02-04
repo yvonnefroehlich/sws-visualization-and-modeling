@@ -46,7 +46,6 @@ function RES_out = SWS_Analysis_BASICS_read_SSresults( ...
 % TERMS OF USE
 %
 % The plotting routines are provided "as is" and without any warranty.
-
 % The author cannot be held responsible for anything that happens to you
 % or your equipment. Use it at your own risk.
 %--------------------------------------------------------------------------

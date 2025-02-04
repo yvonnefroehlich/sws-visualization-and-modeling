@@ -43,7 +43,7 @@
 %--------------------------------------------------------------------------
 % TERMS OF USE
 %
-% The modeling routines are provided "as is" and without any warranty.
+% The loading routines are provided "as is" and without any warranty.
 % The author cannot be held responsible for anything that happens to you
 % or your equipment. Use it at your own risk.
 %--------------------------------------------------------------------------
