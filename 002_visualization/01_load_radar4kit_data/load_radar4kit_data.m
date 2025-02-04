@@ -1,12 +1,12 @@
-%==========================================================================
+% ==========================================================================
 % Load CSV files with shear wave splitting measurements (SWSMs)
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % Datasets are available from RADAR4KIT
 % - Upper Rhine Graben area: https://dx.doi.org/10.35097/685
 %   related to Fröhlich et al. (2024)
 % - Blackforest Observatory: https://dx.doi.org/10.35097/684
 %   related to Ritter et al. (2022)
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % Related to the publications
 % - Fröhlich Y., Grund M. & Ritter J. R. R. (2024).
 %   Lateral and vertical variations of seismic anisotropy in the
@@ -19,11 +19,11 @@
 %   Germany – implications for the determination of anisotropic structures.
 %   Journal of Seismology, 26, 1137-1156.
 %   https://doi.org/10.1007/s10950-022-10112-w.
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % Created: 2024/07/08
 % Author: Yvonne Fröhlich
 % Contact: https://orcid.org/0000-0002-8566-0619
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % LICENSE
 %
 % Copyright (C) 2024  Yvonne Fröhlich (up on v2.0)
@@ -40,18 +40,18 @@
 %
 % You should have received a copy of the GNU General Public License
 % along with this program. If not, see <http://www.gnu.org/licenses/>.
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % TERMS OF USE
 %
 % The loading routines are provided "as is" and without any warranty.
 % The author cannot be held responsible for anything that happens to you
 % or your equipment. Use it at your own risk.
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % CONTRIBUTING
 %
 % Feel free to modify/adjust the code for your needs. Submit improvements
 % and report bugs by opening a "New issue" in the GitHub repository (:
-%==========================================================================
+% ==========================================================================
 
 
 
