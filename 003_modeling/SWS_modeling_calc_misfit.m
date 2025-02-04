@@ -228,7 +228,7 @@ end
 %--------------------------------------------------------------------------
 % make query use phi color-coding and which colormap
 disp(' ')
-cmap_rms_ind = input(['Color-coding based on RMSE (default no)?: \n' ...
+cmap_rms_ind = input(['Color-coding based on RMSE [Default is no]?: \n' ...
                       '    [0] no  [1] gray  [2] grayC    | ']);
 
 % warning if colormap name contains upper-case letters
@@ -285,8 +285,8 @@ end
 %--------------------------------------------------------------------------
 % make query use phi color-coding and which colormap
 disp(' ')
-cmap_phi_ind = input(['Color-coding based on phi (default no)?: \n' ...
-                      '    [0] no  [1] parula(fliped)  [2] phase    | ']);
+cmap_phi_ind = input(['Color-coding based on phi [Default is no]?: \n' ...
+                      '    [0] no  [1] parula(flipped)  [2] phase    | ']);
 
 % select phi colormap and set string for file name
 if cmap_phi_ind==0
@@ -305,7 +305,7 @@ end
 %--------------------------------------------------------------------------
 % make query plot phi colorbar
 disp(' ')
-cbar_phi_ind = input(['Add colorbar for phi (default no)?: \n' ...
+cbar_phi_ind = input(['Add colorbar for phi [Default is no]?: \n' ...
                       '    [0] no  [1] yes    | ']);
 
 % set phi colorbar string for file name
@@ -335,7 +335,7 @@ end
 % make query which fitting method
 
 disp(' ')
-whichfit = input(['Fitting method (default joint)?: \n' ...
+whichfit = input(['Fitting method [Default is joint]?: \n' ...
                   '    [1] only phi  [2] joint phi & dt   | ']);
 
 %--------------------------------------------------------------------------
