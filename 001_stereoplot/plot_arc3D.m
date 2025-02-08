@@ -37,7 +37,9 @@ function P = plot_arc3D(a, b, h, k, r, colfill, coledge, facealphafill)
 % LICENSE
 %
 % Copyright (C) 2022  Yvonne Fröhlich & Michael Grund (up on v1.0)
+% https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 % Copyright (C) 2020  Michael Grund (sws_tools)
+% https://github.com/michaelgrund/sws_tools
 %
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by

@@ -27,6 +27,7 @@
 # LICENSE
 #
 # Copyright (C) 2024  Yvonne Fröhlich (up on v2.0)
+# https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
