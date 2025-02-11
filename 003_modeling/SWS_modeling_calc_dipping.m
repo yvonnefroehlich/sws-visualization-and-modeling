@@ -1,17 +1,17 @@
 function [fast_eff, tlag_eff, azi4plot, fast4plot, tlag4plot] = ...
         SWS_modeling_calc_dipping(incval, dips, downdipdir, thick, dfreq)
 
-%==========================================================================
+% ==========================================================================
 %% This function
-%==========================================================================
+% ==========================================================================
 % calculates synthetic apparent (effective) splitting parameters for
 %   dipping one-layer models
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % >>> requires the MSAT package by Walker & Wookey (2012) <<<
 % please download it from (last access 2022 June 21)
 % - https://www1.gly.bris.ac.uk/MSAT/
 % - https://github.com/andreww/MSAT
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % is
 % - based on: >>> split_model.m <<< function of MSAT
 %   Walker & Wookey (2012) Computers & Geosciences
@@ -28,7 +28,7 @@ function [fast_eff, tlag_eff, azi4plot, fast4plot, tlag4plot] = ...
 %   https://doi.org/10.1007/s10950-022-10112-w
 %   Fröhlich, Grund & Ritter (2024) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggae245
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % LICENSE
 %
 % Copyright (C) 2022  Yvonne Fröhlich & Michael Grund (up on v1.0)
@@ -48,18 +48,18 @@ function [fast_eff, tlag_eff, azi4plot, fast4plot, tlag4plot] = ...
 %
 % You should have received a copy of the GNU General Public License
 % along with this program. If not, see <http://www.gnu.org/licenses/>.
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % TERMS OF USE
 %
 % The modeling routines are provided "as is" and without any warranty.
 % The author cannot be held responsible for anything that happens to you
 % or your equipment. Use it at your own risk.
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % CONTRIBUTING
 %
 % Feel free to modify/adjust the code for your needs. Submit improvements
 % and report bugs by opening a "New issue" in the GitHub repository (:
-%==========================================================================
+% ==========================================================================
 
 
 

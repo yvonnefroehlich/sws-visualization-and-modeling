@@ -2,18 +2,18 @@ function modout = SWS_modeling_precomp_dippinglayer( ...
     dfreq, stepdddir, stepdips, stepthick ...
 )
 
-%==========================================================================
+% ==========================================================================
 %% This function
-%==========================================================================
+% ==========================================================================
 % generates synthetic apparent (effective) splitting parameters for
 %   dipping one-layer models
 % outputs corresponding MATLAB struct
 % >>> for small step sizes < stepdddir >, < stepdips >, < stepthick >
 % computation time and struct size increases significantly <<<
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % uses the provided MATLAB function
 % - SWS_modeling_calc_dipping
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % is
 % - created: Michael Grund (ORCID 0000-0001-8759-2018)
 %   https://github.com/michaelgrund/sws_tools
@@ -27,7 +27,7 @@ function modout = SWS_modeling_precomp_dippinglayer( ...
 %   https://doi.org/10.1007/s10950-022-10112-w
 %   Fröhlich, Grund & Ritter (2024) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggae245
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % LICENSE
 %
 % Copyright (C) 2022  Yvonne Fröhlich & Michael Grund (up on v1.0)
@@ -47,18 +47,18 @@ function modout = SWS_modeling_precomp_dippinglayer( ...
 %
 % You should have received a copy of the GNU General Public License
 % along with this program. If not, see <http://www.gnu.org/licenses/>.
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % TERMS OF USE
 %
 % The modeling routines are provided "as is" and without any warranty.
 % The author cannot be held responsible for anything that happens to you
 % or your equipment. Use it at your own risk.
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % CONTRIBUTING
 %
 % Feel free to modify/adjust the code for your needs. Submit improvements
 % and report bugs by opening a "New issue" in the GitHub repository (:
-%==========================================================================
+% ==========================================================================
 
 
 
