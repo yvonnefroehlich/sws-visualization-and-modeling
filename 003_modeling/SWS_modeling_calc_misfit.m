@@ -6,21 +6,21 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
     domper ...
 )
 
-%==========================================================================
+% ==========================================================================
 %% This function
-%==========================================================================
+% ==========================================================================
 % fits synthetic structural anisotropy models to observed splitting
 % parameters (fast polarization direction phi and delay time dt)
 % - one layer with horizontal symmetry axis (H1)
 % - two layers with horizontal symmetry axes (H2)
 % - one layer with tilted symmetry axis (T1)
 % based on the minimum root mean square error (RMSE)
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % uses the provided MATLAB functions
 % - SWS_modeling_read_data.m
 % - SWS_modeling_plot_results.m
 % - SWS_modeling_plot_stereo_synthetic.m
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % is
 % - created: Michael Grund (ORCID 0000-0001-8759-2018)
 %   https://github.com/michaelgrund/sws_tools
@@ -34,7 +34,7 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 %   https://doi.org/10.1007/s10950-022-10112-w
 %   Fröhlich, Grund & Ritter (2024) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggae245
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % INPUT
 %
 % - modelsin | str
@@ -72,7 +72,7 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 %   dominant period in sec used in the forward calculation of the splitting
 %   parameter for the synthetic anisotropy models (e. g. domper = 8;)
 %
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % EXAMPLE using the test data set provided via the download package
 %
 % 1) change to directory .../testdata
@@ -95,10 +95,13 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
                        datasplit, datanull, datastack, datasimw, ...
                        domper );
 %}
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % LICENSE
 %
-% Copyright (C) 2020  Michael Grund
+% Copyright (C) 2022  Yvonne Fröhlich & Michael Grund (up on v1.0)
+% https://github.com/yvonnefroehlich/sws-visualization-and-modeling
+% Copyright (C) 2020  Michael Grund (sws_tools)
+% https://github.com/michaelgrund/sws_tools
 %
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -112,18 +115,18 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 %
 % You should have received a copy of the GNU General Public License
 % along with this program. If not, see <http://www.gnu.org/licenses/>.
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % TERMS OF USE
 %
 % The modeling routines are provided "as is" and without any warranty.
 % The author cannot be held responsible for anything that happens to you
 % or your equipment. Use it at your own risk.
-%--------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % CONTRIBUTING
 %
 % Feel free to modify/adjust the code for your needs. Submit improvements
 % and report bugs by opening a "New issue" in the GitHub repository (:
-%==========================================================================
+% ==========================================================================
 
 
 
@@ -228,7 +231,7 @@ end
 %--------------------------------------------------------------------------
 % make query use phi color-coding and which colormap
 disp(' ')
-cmap_rms_ind = input(['Color-coding based on RMSE (default no)?: \n' ...
+cmap_rms_ind = input(['Color-coding based on RMSE [Default is no]?: \n' ...
                       '    [0] no  [1] gray  [2] grayC    | ']);
 
 % warning if colormap name contains upper-case letters
@@ -285,8 +288,8 @@ end
 %--------------------------------------------------------------------------
 % make query use phi color-coding and which colormap
 disp(' ')
-cmap_phi_ind = input(['Color-coding based on phi (default no)?: \n' ...
-                      '    [0] no  [1] parula(fliped)  [2] phase    | ']);
+cmap_phi_ind = input(['Color-coding based on phi [Default is no]?: \n' ...
+                      '    [0] no  [1] parula(flipped)  [2] phase    | ']);
 
 % select phi colormap and set string for file name
 if cmap_phi_ind==0
@@ -305,7 +308,7 @@ end
 %--------------------------------------------------------------------------
 % make query plot phi colorbar
 disp(' ')
-cbar_phi_ind = input(['Add colorbar for phi (default no)?: \n' ...
+cbar_phi_ind = input(['Add colorbar for phi [Default is no]?: \n' ...
                       '    [0] no  [1] yes    | ']);
 
 % set phi colorbar string for file name
@@ -335,7 +338,7 @@ end
 % make query which fitting method
 
 disp(' ')
-whichfit = input(['Fitting method (default joint)?: \n' ...
+whichfit = input(['Fitting method [Default is joint]?: \n' ...
                   '    [1] only phi  [2] joint phi & dt   | ']);
 
 %--------------------------------------------------------------------------
