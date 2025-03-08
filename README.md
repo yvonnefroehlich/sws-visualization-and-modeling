@@ -18,7 +18,7 @@ If you make use of this material, please acknowledge the relating publications i
 **Peer-reviewed journal article**
 - [**_Fröhlich Y., Grund M., Ritter J. R. R. (2024)_**](https://doi.org/10.1093/gji/ggae245).
   Lateral and vertical variations of seismic anisotropy in the lithosphere-asthenosphere system underneath Central Europe from long-term splitting measurements.
-  *Geophysical Journal International*. 239(1), 112-135.
+  *Geophysical Journal International*, 239(1), 112-135.
   https://doi.org/10.1093/gji/ggae245.
 - [**_Ritter J. R. R., Fröhlich Y., Sanz Alonso Y. & Grund M. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w).
   Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures.
@@ -48,6 +48,7 @@ _Example figures_: Generated with the provided test data
 - **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
 ![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/000_repo_readme_image.png)
+
 
 
 ## Requirements
