@@ -11,15 +11,11 @@ _MATLAB_ functions for visualization and modeling of shear wave splitting observ
 
 ## Citation
 
-_Zenodo DOI for all / latest version_: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
+_Zenodo DOI for all versions (latest version)_: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
 
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
 
-- [**_Fröhlich Y. & Ritter J. R. R. (2024)_**](http://dx.doi.org/10.5281/zenodo.14510993).
-  Vertical and Small-scale Lateral Varying Seismic Anisotropy in the Upper Mantle Underneath the Upper Rhine Graben, Central Europe.
-  *Annual Meeting of the American Geophysical Union*,
-  Division Session Exploring Innovations and New Directions in Seismic Anisotropy and Attenuation: Observations, Models, and Experiments I Oral,
-  DI21A-02. [Abstract ID 1578275](https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1578275). http://dx.doi.org/10.5281/zenodo.14510993.
+**Peer-reviewed journal article**
 - [**_Fröhlich Y., Grund M. & Ritter J. R. R. (2024)_**](https://doi.org/10.1093/gji/ggae245).
   Lateral and vertical variations of seismic anisotropy in the lithosphere-asthenosphere system underneath Central Europe from long-term splitting measurements.
   *Geophysical Journal International*, 239(1), 112-135.
@@ -27,11 +23,19 @@ If you make use of this material, please acknowledge the relating publications i
 - [**_Ritter J. R. R., Fröhlich Y., Sanz Alonso Y. & Grund M. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w).
   Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures.
   *Journal of Seismology*, 26, 1137-1156.
-  https://doi.org/10.1007/s10950-022-10112-w. https://doi.org/10.1007/s10950-023-10136-w.
+  https://doi.org/10.1007/s10950-022-10112-w, correction https://doi.org/10.1007/s10950-023-10136-w.
 - [**_Grund M. & Ritter J. R. R. (2020)_**](https://doi.org/10.1093/gji/ggaa388).
   Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy.
   *Geophysical Journal International*, 223(3), 1525-1547.
   https://doi.org/10.1093/gji/ggaa388.
+
+**Presentations**
+- [**_Fröhlich Y. & Ritter J. R. R. (2024)_**](http://dx.doi.org/10.5281/zenodo.14510993).
+  Vertical and Small-scale Lateral Varying Seismic Anisotropy in the Upper Mantle Underneath the Upper Rhine Graben, Central Europe.
+  *Annual Meeting of the American Geophysical Union*, Washington D.C..
+  Division Session Exploring Innovations and New Directions in Seismic Anisotropy and Attenuation: Observations, Models, and Experiments I Oral, DI21A-02.
+  [Abstract ID 1578275](https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1578275).
+  http://dx.doi.org/10.5281/zenodo.14510993.
 
 
 
@@ -44,6 +48,7 @@ _Example figures_: Generated with the provided test data
 - **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
 ![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/000_repo_readme_image.png)
+
 
 
 ## Requirements
