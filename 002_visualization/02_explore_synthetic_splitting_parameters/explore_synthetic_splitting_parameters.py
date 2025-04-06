@@ -51,6 +51,10 @@ from scipy import io
 path_in = "01_in_data"
 path_out = "02_out_figs"
 
+status_cb = True #True  ## True, False
+status_per = True # True  ## True, False
+font_size = 8  # in points
+
 dom_per = 8  ## 6, 8, 10  # in seconds
 model_type = "H1"  ## H1, H2, T1
 print(f"Dominant period {dom_per} s - Model type {model_type}")
@@ -61,9 +65,9 @@ N_models = len(models_mat["model_out"][0])
 print(f"Data loaded - {N_models} models!\nStarting with making plots!")
 
 # -----------------------------------------------------------------------------
-model_start = 1
+model_start = 0
 model_end = N_models
-model_step = 10
+model_step = 5
 
 baz_step = 1
 baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
@@ -127,7 +131,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
-    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray85", FONT="6.5p")
+    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray85", FONT="8p")  # FONT="6.5p"
 
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
@@ -173,7 +177,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig.plot(x=baz, y=dt_a, pen="0.1p")
     fig.plot(x=baz, y=dt_a, style="c0.07c", fill=phi_a, cmap=True)
 
-    fig.shift_origin(xshift="+w+1c", yshift="4.5c")
+    fig.shift_origin(xshift="+w+1.5c", yshift="4.5c")
 
 # .............................................................................
     # Top Right: model parameter of anisotropy model
@@ -239,7 +243,8 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
     fig.legend(position="jTC+w3.9c+o0c/0.05c", box=box_standard)
 
-    fig.shift_origin(yshift="-h-1c")
+    # fig.shift_origin(yshift="-h-1c")
+    fig.shift_origin(xshift="-0.5c", yshift="-h-0.7c")
 
 # .............................................................................
     # Bottom Right: Stereoplot for splitting parameter
@@ -291,24 +296,29 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
 # -----------------------------------------------------------------------------
     # Add colorbar for fast polarization direction
-    with pygmt.config(FONT="11p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"):
-        fig.colorbar(
-            position="jCT+w3.5c/0.15c+o-0.1c/-0.9c+h",
-            frame=["xa30f10", "y+l@~f@~@-a@- / N@.E"],
+    if status_cb == True:
+        with pygmt.config(FONT="13p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"):
+            fig.colorbar(
+                # position="jCT+w3.5c/0.15c+o-0.1c/-0.9c+h",
+                position="jCT+w4c/0.2c+o-2.33c/-4.69c+v+ml",
+                # frame=["xa30f10+l@~f@~@-a@- / N@.E"],
+                # white space as y label to move circle symbol down
+                frame=["xa30f10+lapp. fast pol. dir. @~f@~@-a@- / N@.E", "y+l "],
         )
 
     # Add label for dominant period
-    fig.text(
-        text=f"{dom_per} s",
-        position="TL",
-        justify="MC",
-        offset="-0.45c/0.73c",
-        font=f"7.5p,{color_highlight}",
-        fill="white@30",
-        pen="0.01p,black",
-        clearance="0.08c/0.08c+tO",
-        no_clip=True,
-    )
+    if status_per == True:
+        fig.text(
+            text=f"{dom_per} s",
+            position="TL",
+            justify="MC",
+            offset="-0.35c/0c",
+            font=f"7.5p,{color_highlight}",
+            fill="white@30",
+            pen="0.01p,black",
+            clearance="0.08c/0.08c+tO",
+            no_clip=True,
+        )
 
 # -----------------------------------------------------------------------------
     fig.show()
@@ -321,6 +331,6 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig_name_add = f"_{phi_1}deg_{phi_2}deg_{dt_1}s_{dt_2}s"
         case "T1":
             fig_name_add = f"_d{thick}km_dip{dip}deg_ddd{downdipdir}deg"
-    for ext in ["png"]: #, "pdf", "eps"]:
-        fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}{fig_name_add}.{ext}")
+    for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
+        fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}{fig_name_add}.{ext}", dpi=720)
     print(f"{fig_name}{fig_name_add}")
