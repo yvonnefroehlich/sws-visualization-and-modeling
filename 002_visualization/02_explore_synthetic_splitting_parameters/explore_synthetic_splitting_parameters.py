@@ -339,7 +339,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         case "H2":
             fig_name_mt = f"{phi_1}deg_{phi_2}deg_{dt_1}s_{dt_2}s"
         case "T1":
-            fig_name_mt = f"d{thick}km_dip{dip}deg_ddd{downdipdir}deg"
+            fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
     fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
     for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
