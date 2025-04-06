@@ -321,15 +321,25 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
 # -----------------------------------------------------------------------------
     fig.show()
-    fig_name = f"forwardt_syn_sp_period{dom_per}s_{model_type}"
-    fig_name_add = ""
+    fig_name_basic = f"forwardt_syn_sp_period{dom_per}s_{model_type}"
+
+    str_cb = ""
+    if status_cb == False:
+        str_cb = "NO"
+    str_per = ""
+    if status_per == False:
+        str_per = "NO"
+
+    fig_name_mt =  ""
     match model_type:
         case "H1":
-            fig_name_add = f"_phi{phi}deg_dt{dt}s"
+            fig_name_mt = f"phi{phi}deg_dt{dt}s"
         case "H2":
-            fig_name_add = f"_{phi_1}deg_{phi_2}deg_{dt_1}s_{dt_2}s"
+            fig_name_mt = f"{phi_1}deg_{phi_2}deg_{dt_1}s_{dt_2}s"
         case "T1":
-            fig_name_add = f"_d{thick}km_dip{dip}deg_ddd{downdipdir}deg"
+            fig_name_mt = f"d{thick}km_dip{dip}deg_ddd{downdipdir}deg"
+
+    fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
     for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
-        fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}{fig_name_add}.{ext}", dpi=720)
-    print(f"{fig_name}{fig_name_add}")
+        fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
+    print(fig_name)
