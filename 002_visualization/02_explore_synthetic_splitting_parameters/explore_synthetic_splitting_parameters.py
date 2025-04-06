@@ -57,7 +57,7 @@ status_per = True # True  ## True, False
 font_size = 8  # in points
 
 dom_per = 8  ## 6, 8, 10  # in seconds
-model_type = "H1"  ## H1, H2, T1
+model_type = "H2"  ## H1, H2, T1
 print(f"Dominant period {dom_per} s - Model type {model_type}")
 
 models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
@@ -74,7 +74,7 @@ baz_step = 1
 baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
 
 # -----------------------------------------------------------------------------
-box_standard = "+gwhite@30+p0.1p,gray30+r2p"
+box_standard = "+glightgray@30+p0.1p,gray30+r1p"
 
 # Colors based on Fröhlich et al. (2024) GJI
 color_highlight = "255/90/0"  # -> orange
@@ -195,7 +195,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         fig.plot(x=[-size, size], y=[0] * 2, pen="0.5p")
         fig.plot(x=[0] * 2, y=[-size, size], pen="0.5p")
 
-    args_leg_bar = {"x": 4, "y": 4, "style": "j0/0.5/0.05"}
+    args_leg_bar = {"x": 4, "y": 4, "style": "j0/0.5/0.1"}
     match model_type:
         case "H1":
             bar_H1 = f"j{phi_gmt}/{dt}/0.1"
@@ -203,18 +203,20 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
             fig.plot(x=0, y=0, style=bar_H1, fill=color_H1, pen="0.5p")
 
-            fig.plot(fill=color_H1, label=label_H1, **args_leg_bar)
+            fig.plot(fill=color_H1, label=label_H1, pen="0.1p", **args_leg_bar)
         case "H2":
             bar_H2lower = f"j{phi_1_gmt}/{dt_1}/0.1"
             bar_H2upper = f"j{phi_2_gmt}/{dt_2}/0.1"
             label_H2lower = f"lower: {phi_1} N°E | {dt_1} s"
             label_H2upper = f"upper: {phi_2} N°E | {dt_2} s"
 
+            # Note order in main plot: stacking approach -> lower then upper layer
             fig.plot(x=0, y=0, style=bar_H2lower, fill=color_H2lower, pen="0.5p")
             fig.plot(x=0, y=0, style=bar_H2upper, fill=color_H2upper, pen="0.5p,white")
 
-            fig.plot(fill=color_H2upper, label=label_H2upper, **args_leg_bar)
-            fig.plot(fill=color_H2lower, label=label_H2lower, **args_leg_bar)
+            # Not order in legend: from top to bottom -> upper then lower layer
+            fig.plot(fill=color_H2upper, label=label_H2upper, pen="0.1p,white", **args_leg_bar)
+            fig.plot(fill=color_H2lower, label=label_H2lower, pen="0.1p", **args_leg_bar)
         case "T1":
             bar_T1 = f"j{strike_gmt}/1/0.1"
             vec_T1_ddd = ([downdipdir_gmt], [1])  # Input for vector must be a list
@@ -240,9 +242,9 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig.plot(x=0, y=0.23, style="i0.4c", fill="gold", pen="0.2p,black")
             fig.plot(x=[-1, 1], y=[0] * 2, pen="2.25p,black")
 
-            fig.plot(fill=color_T1, label=label_T1, **args_leg_bar)
+            fig.plot(fill=color_T1, label=label_T1, pen="0.1p", **args_leg_bar)
 
-    fig.legend(position="jTC+w3.9c+o0c/0.05c", box=box_standard)
+    fig.legend(position="jTC+w3.8c+o0c/0.1c", box=box_standard)
 
     # fig.shift_origin(yshift="-h-1c")
     fig.shift_origin(xshift="-0.5c", yshift="-h-0.7c")
