@@ -7,11 +7,12 @@
 # - One tilted layer (with TTI): T1
 # Previously calculated synthetic splitting parameters
 # - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
-# - The output MALTAB struct is split into separate structs for the different model types
+# - The output MATLAB struct is split into separate structs for the different model types
 # -----------------------------------------------------------------------------
 # History
 # - Created: 2024/07/09
 # - Continued: 2025/01/07
+# - Continued: 2025/04/06
 # -----------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.14.0 -> https://www.pygmt.org/v0.14.0/ | https://www.pygmt.org/
@@ -131,7 +132,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
-    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray85", FONT="8p")  # FONT="6.5p"
+    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray85", FONT=f"{font_size}p")
 
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
@@ -299,10 +300,8 @@ for i_model in range(model_start, model_end + model_step, model_step):
     if status_cb == True:
         with pygmt.config(FONT="13p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"):
             fig.colorbar(
-                # position="jCT+w3.5c/0.15c+o-0.1c/-0.9c+h",
                 position="jCT+w4c/0.2c+o-2.33c/-4.69c+v+ml",
-                # frame=["xa30f10+l@~f@~@-a@- / N@.E"],
-                # white space as y label to move circle symbol down
+                # white space as y label to move cyclic arrow symbole down
                 frame=["xa30f10+lapp. fast pol. dir. @~f@~@-a@- / N@.E", "y+l "],
         )
 
