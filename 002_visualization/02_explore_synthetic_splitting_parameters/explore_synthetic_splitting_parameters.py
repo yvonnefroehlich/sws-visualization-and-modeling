@@ -132,7 +132,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
-    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray80", FONT=f"{font_size}p")
+    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray85", FONT=f"{font_size}p")
 
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
