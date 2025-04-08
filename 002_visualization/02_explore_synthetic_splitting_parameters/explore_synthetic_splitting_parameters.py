@@ -337,7 +337,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         case "H1":
             fig_name_mt = f"phi{phi}deg_dt{dt}s"
         case "H2":
-            fig_name_mt = f"{phi_1}deg_{phi_2}deg_{dt_1}s_{dt_2}s"
+            fig_name_mt = f"phi1{phi_1}deg_phi2{phi_2}deg_dt1{dt_1}s_dt2{dt_2}s"
         case "T1":
             fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
