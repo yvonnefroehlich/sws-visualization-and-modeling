@@ -52,8 +52,8 @@ from scipy import io
 path_in = "01_in_data"
 path_out = "02_out_figs"
 
-status_cb = True #True  ## True, False
-status_per = True # True  ## True, False
+status_cb = False #True  ## True, False
+status_per = False # True  ## True, False
 font_size = 8  # in points
 
 dom_per = 8  ## 6, 8, 10  # in seconds
@@ -68,7 +68,7 @@ print(f"Data loaded - {N_models} models!\nStarting with making plots!")
 # -----------------------------------------------------------------------------
 model_start = 0
 model_end = N_models
-model_step = 5
+model_step = 1
 
 baz_step = 1
 baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
@@ -322,7 +322,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         )
 
 # -----------------------------------------------------------------------------
-    fig.show()
+    # fig.show()
     fig_name_basic = f"forwardt_syn_sp_period{dom_per}s_{model_type}"
 
     str_cb = ""
@@ -342,6 +342,6 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
     fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
-    # for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
-    #     fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
+    for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
+        fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
     print(fig_name)
