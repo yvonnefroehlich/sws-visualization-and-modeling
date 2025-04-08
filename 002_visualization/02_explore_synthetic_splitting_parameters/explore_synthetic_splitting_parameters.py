@@ -322,7 +322,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         )
 
 # -----------------------------------------------------------------------------
-    # fig.show()
+    fig.show()
     fig_name_basic = f"forwardt_syn_sp_period{dom_per}s_{model_type}"
 
     str_cb = ""
@@ -343,6 +343,6 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
     fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
-    for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
-        fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
-    print(fig_name)
+    # for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
+    #     fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
+    print(f"{i_model} | {fig_name}")
