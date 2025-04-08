@@ -132,7 +132,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
-    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray85", FONT=f"{font_size}p")
+    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray80", FONT=f"{font_size}p")
 
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
@@ -201,9 +201,9 @@ for i_model in range(model_start, model_end + model_step, model_step):
             bar_H1 = f"j{phi_gmt}/{dt}/0.1"
             label_H1 = f"{phi} N°E | {dt} s"
 
-            fig.plot(x=0, y=0, style=bar_H1, fill=color_H1, pen="0.5p")
+            fig.plot(x=0, y=0, style=bar_H1, fill=color_H1)
 
-            fig.plot(fill=color_H1, label=label_H1, pen="0.1p", **args_leg_bar)
+            fig.plot(fill=color_H1, label=label_H1, **args_leg_bar)
         case "H2":
             bar_H2lower = f"j{phi_1_gmt}/{dt_1}/0.1"
             bar_H2upper = f"j{phi_2_gmt}/{dt_2}/0.1"
