@@ -12,7 +12,7 @@
 # History
 # - Created: 2024/07/09
 # - Continued: 2025/01/07
-# - Continued: 2025/04/06
+# - Continued: 2025/04/06-08
 # -----------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.14.0 -> https://www.pygmt.org/v0.14.0/ | https://www.pygmt.org/
@@ -52,8 +52,8 @@ from scipy import io
 path_in = "01_in_data"
 path_out = "02_out_figs"
 
-status_cb = False #True  ## True, False
-status_per = False # True  ## True, False
+status_cb = True  ## True, False
+status_per = True  ## True, False
 font_size = 8  # in points
 
 dom_per = 8  ## 6, 8, 10  # in seconds
@@ -343,6 +343,6 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
     fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
-    # for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
-    #     fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
+    for ext in ["png"]: #, "pdf", "eps"]:
+        fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
     print(f"{i_model} | {fig_name}")
