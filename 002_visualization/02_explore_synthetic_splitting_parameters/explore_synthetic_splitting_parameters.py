@@ -57,7 +57,7 @@ status_per = True # True  ## True, False
 font_size = 8  # in points
 
 dom_per = 8  ## 6, 8, 10  # in seconds
-model_type = "H2"  ## H1, H2, T1
+model_type = "H1"  ## H1, H2, T1
 print(f"Dominant period {dom_per} s - Model type {model_type}")
 
 models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
@@ -283,7 +283,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         case "H1":
             phi = int(phi)
             baz_nulls = np.array([phi, phi + 90, phi + 180, phi + 270])
-            fig.plot(x=baz_nulls, y=[rho] * 4, style="c0.1c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls, y=[rho] * 4, style="c0.15c", fill="white", pen="0.7p")
         # TODO case "H2":
         # Arrow showing strike / down dip direction
         case "T1":
@@ -342,6 +342,6 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
     fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
-    for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
-        fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
+    # for ext in ["png", "pdf", "eps"]: #, "pdf", "eps"]:
+    #     fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
     print(fig_name)
