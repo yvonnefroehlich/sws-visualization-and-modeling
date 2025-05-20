@@ -52,8 +52,8 @@ from scipy import io
 path_in = "01_in_data"
 path_out = "02_out_figs"
 
-status_cb = True  ## True, False
-status_per = True  ## True, False
+status_cb = False  ## True, False
+status_per = False  ## True, False
 font_size = 8  # in points
 
 dom_per = 8  ## 6, 8, 10  # in seconds
@@ -104,6 +104,14 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 phi_gmt = 90 - float(phi)
             else:
                 phi_gmt = 90 + (-float(phi))
+            phi = int(phi)
+            baz_nulls_neg = np.array([phi, phi + 90, phi + 180, phi + 270])
+            baz_nulls = []
+            for baz_null in baz_nulls_neg:
+                baz_null_pos = baz_null
+                if baz_null < 0:
+                    baz_null_pos = 360 + baz_null
+                baz_nulls.append(baz_null_pos)
         case "H2":
             phi_1 = str(model_out[2][0])[1:-1]
             phi_2 = str(model_out[2][1])[1:-1]
@@ -129,6 +137,14 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 phi = float(downdipdir) - 180
             elif float(downdipdir) > 270:
                 phi = -(360 - float(downdipdir))
+
+    # dt_lim = 3
+    # if float(dt_1) != 1.5 or float(dt_2) != 0.75:
+    #     print(f"Too large dt_1={dt_1}s or dt_2={dt_2}s; larger then {dt_lim}s. Skipping!")
+    #     continue
+    # if float(dt_2) != 1.5 or float(phi_1) != 40 or float(phi_2) != -30:
+    #    print("model parameters out of range!")
+    #    continue
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
@@ -158,6 +174,9 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_T1},dashed", no_clip=True)
     fig.plot(x=baz, y=phi_a, pen="0.1p")
     fig.plot(x=baz, y=phi_a, style="c0.07c", fill=phi_a, cmap=True)
+    if model_type == "H1":
+        fig.plot(x=baz_nulls, y=[phi] * 4, style="c0.15c", fill="white", pen="0.7p")
+
 
     fig.shift_origin(yshift="-h-0.5c")
 
@@ -177,6 +196,8 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig.plot(x=x_hline, y=[dt_2] * 2, pen=f"1p,{color_H2upper},dashed", no_clip=True)
     fig.plot(x=baz, y=dt_a, pen="0.1p")
     fig.plot(x=baz, y=dt_a, style="c0.07c", fill=phi_a, cmap=True)
+    if model_type == "H1":
+        fig.plot(x=baz_nulls, y=[dt] * 4, style="c0.15c", fill="white", pen="0.7p")
 
     fig.shift_origin(xshift="+w+1.5c", yshift="4.5c")
 
@@ -281,8 +302,6 @@ for i_model in range(model_start, model_end + model_step, model_step):
     match model_type:
         # Mark theoretical null directions
         case "H1":
-            phi = int(phi)
-            baz_nulls = np.array([phi, phi + 90, phi + 180, phi + 270])
             fig.plot(x=baz_nulls, y=[rho] * 4, style="c0.15c", fill="white", pen="0.7p")
         # TODO case "H2":
         # Arrow showing strike / down dip direction
@@ -322,7 +341,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         )
 
 # -----------------------------------------------------------------------------
-    fig.show()
+    # fig.show()
     fig_name_basic = f"forwardt_syn_sp_period{dom_per}s_{model_type}"
 
     str_cb = ""
@@ -338,11 +357,13 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig_name_mt = f"phi{phi}deg_dt{dt}s"
         case "H2":
             fig_name_mt = f"phil{phi_1}deg_phiu{phi_2}deg_dtl{dt_1}s_dtu{dt_2}s"
-            fig_name_mt = f"phi{phi_1}deg_phi{phi_2}deg_dt{dt_1}s_dt{dt_2}s"
+            # fig_name_mt = f"phi{phi_1}deg_phi{phi_2}deg_dt{dt_1}s_dt{dt_2}s"
         case "T1":
             fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
-    fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
-    for ext in ["png"]: #, "pdf", "eps"]:
+    for ext in ["eps", "png"]: #, "pdf", "eps"]:
+        fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
+        if ext == "png":
+            fig_name = f"{i_model}_{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
         fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
-    print(f"{i_model} | {fig_name}")
+    print(f"{i_model}_{fig_name}")
