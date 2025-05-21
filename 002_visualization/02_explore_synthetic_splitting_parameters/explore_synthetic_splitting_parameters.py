@@ -54,10 +54,10 @@ path_out = "02_out_figs"
 
 status_cb = False  ## True, False
 status_per = False  ## True, False
-font_size = 8  # in points
+font_size = 9  # in points
 
 dom_per = 8  ## 6, 8, 10  # in seconds
-model_type = "H1"  ## H1, H2, T1
+model_type = "T1"  ## H1, H2, T1
 print(f"Dominant period {dom_per} s - Model type {model_type}")
 
 models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
@@ -104,13 +104,15 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 phi_gmt = 90 - float(phi)
             else:
                 phi_gmt = 90 + (-float(phi))
+
+            # nulls in steps of 90°
             phi = int(phi)
             baz_nulls_neg = np.array([phi, phi + 90, phi + 180, phi + 270])
             baz_nulls = []
             for baz_null in baz_nulls_neg:
                 baz_null_pos = baz_null
                 if baz_null < 0:
-                    baz_null_pos = 360 + baz_null
+                    baz_null_pos = 360 + baz_null  # -90 to 90
                 baz_nulls.append(baz_null_pos)
         case "H2":
             phi_1 = str(model_out[2][0])[1:-1]
@@ -125,6 +127,28 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 phi_2_gmt = 90 - float(phi_2)
             else:
                 phi_2_gmt = 90 + (-float(phi_2))
+
+            # nulls
+            diff_phi_null = abs(phi_a[1:359] - phi_a[0:358])
+            diff_phi_max_null = np.floor(max(abs(phi_a[1:359] - phi_a[0:358])))
+            ind_diff_phi_max_null = np.argmax(diff_phi_null)
+            baz_nulls = [
+                ind_diff_phi_max_null - 270,
+                ind_diff_phi_max_null - 180,
+                ind_diff_phi_max_null - 90,
+                ind_diff_phi_max_null,
+                ind_diff_phi_max_null + 90,
+                ind_diff_phi_max_null + 180,
+                ind_diff_phi_max_null + 270,
+            ]
+            phi_a_null = max(phi_a)
+            if phi_a_null > 85: phi_a_null = 85
+            dt_a_null = max(dt_a)
+            if dt_a_null > 3.9: dt_a_null = 3.9
+            phi_nulls = [phi_a_null] * len(baz_nulls)
+            dt_nulls = [dt_a_null] * len(baz_nulls)
+            # phi_nulls = [0] * len(baz_nulls)
+            # dt_nulls = [2] * len(baz_nulls)
         case "T1":
             downdipdir = str(model_out[2][0])[1:-1]
             dip = str(model_out[3][0])[1:-1]
@@ -137,14 +161,77 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 phi = float(downdipdir) - 180
             elif float(downdipdir) > 270:
                 phi = -(360 - float(downdipdir))
+            downdipdir = int(downdipdir)
+
+            # nulls in the down-dip direction
+            baz_nulls_neg = np.array([downdipdir, downdipdir + 180])
+            baz_nulls = []
+            for baz_null in baz_nulls_neg:
+                baz_null_pos = baz_null
+                if baz_null > 360:
+                    baz_null_pos = baz_null - 360  # 0 to 360
+                baz_nulls.append(baz_null_pos)
+            dt_a_nulls_1 = [
+                dt_a[int(np.floor(baz_nulls[0]))],
+                dt_a[int(np.floor(baz_nulls[1]))],
+            ]
+            # nulls for with down-dip direction orthogoanal to backazimuth
+            if downdipdir < 90:
+                null_1_ortho = phi_a + 90
+                null_1 = min(null_1_ortho)
+                null_2_ortho = phi_a - 90
+                null_2 = max(null_2_ortho)
+            elif downdipdir > 90 and downdipdir < 180:
+                null_1_ortho = phi_a + 90
+                null_1 = max(null_1_ortho)
+                null_2_ortho = phi_a - 90
+                null_2 = min(null_2_ortho)
+            elif downdipdir > 270:
+                null_1_ortho = phi_a - 90
+                null_1 = max(null_1_ortho)
+                null_2_ortho = phi_a + 90
+                null_2 = min(null_2_ortho)
+            elif downdipdir > 180 and downdipdir < 270:
+                null_1_ortho = phi_a + 90
+                null_1 = max(null_1_ortho)
+                null_2_ortho = phi_a - 90
+                null_2 = min(null_2_ortho)
+            else:
+                null_1_ortho = phi_a + 90
+                null_1 = max(null_1_ortho)
+                null_2_ortho = phi_a - 90
+                null_2 = min(null_2_ortho)
+
+            if np.abs(null_2 - null_1) < 3:
+                null_1 = null_1 + 180
+            if np.abs(null_2 - null_1) < 3:
+                null_2 = null_2 - 180
+            baz_nulls_2 = [null_1, null_2]
+
+            if null_1 < 0:
+                null_1 = 360 + null_1
+            if null_2 < 0:
+                null_2 = 360 + null_2
+            baz_nulls_2_cath = [null_1, null_2]
+            phi_a_nulls = [
+                phi_a[int(np.floor(null_1))], phi_a[int(np.floor(null_2))]
+            ]
+            dt_a_nulls_2 = [
+                dt_a[int(np.floor(null_1))], dt_a[int(np.floor(null_2))]
+            ]
 
     # dt_lim = 3
     # if float(dt_1) != 1.5 or float(dt_2) != 0.75:
     #     print(f"Too large dt_1={dt_1}s or dt_2={dt_2}s; larger then {dt_lim}s. Skipping!")
     #     continue
     # if float(dt_2) != 1.5 or float(phi_1) != 40 or float(phi_2) != -30:
-    #    print("model parameters out of range!")
-    #    continue
+    #   print("model parameters out of range!")
+    #   continue
+    # if float(downdipdir) != 230:
+    # if float(dip) != 40:
+    if float(thick) != 150:
+        print(f"Not needed model")
+        continue
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
@@ -174,9 +261,14 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_T1},dashed", no_clip=True)
     fig.plot(x=baz, y=phi_a, pen="0.1p")
     fig.plot(x=baz, y=phi_a, style="c0.07c", fill=phi_a, cmap=True)
-    if model_type == "H1":
-        fig.plot(x=baz_nulls, y=[phi] * 4, style="c0.15c", fill="white", pen="0.7p")
-
+    match model_type:
+        case "H1":
+            fig.plot(x=baz_nulls, y=[phi] * 4, style="c0.15c", fill="white", pen="0.7p")
+        case "H2":
+            fig.plot(x=baz_nulls, y=phi_nulls, style="c0.15c", fill="white", pen="0.7p")
+        case "T1":
+            fig.plot(x=baz_nulls, y=[phi] * 2, style="c0.15c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls_2_cath, y=phi_a_nulls, style="c0.15c", fill="white", pen="0.7p")
 
     fig.shift_origin(yshift="-h-0.5c")
 
@@ -196,8 +288,14 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig.plot(x=x_hline, y=[dt_2] * 2, pen=f"1p,{color_H2upper},dashed", no_clip=True)
     fig.plot(x=baz, y=dt_a, pen="0.1p")
     fig.plot(x=baz, y=dt_a, style="c0.07c", fill=phi_a, cmap=True)
-    if model_type == "H1":
-        fig.plot(x=baz_nulls, y=[dt] * 4, style="c0.15c", fill="white", pen="0.7p")
+    match model_type:
+        case "H1":
+            fig.plot(x=baz_nulls, y=[dt] * 4, style="c0.15c", fill="white", pen="0.7p")
+        case "H2":
+           fig.plot(x=baz_nulls, y=dt_nulls, style="c0.15c", fill="white", pen="0.7p")
+        case "T1":
+            fig.plot(x=baz_nulls, y=dt_a_nulls_1, style="c0.15c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls_2_cath, y=dt_a_nulls_2, style="c0.15c", fill="white", pen="0.7p")
 
     fig.shift_origin(xshift="+w+1.5c", yshift="4.5c")
 
@@ -242,7 +340,8 @@ for i_model in range(model_start, model_end + model_step, model_step):
             bar_T1 = f"j{strike_gmt}/1/0.1"
             vec_T1_ddd = ([downdipdir_gmt], [1])  # Input for vector must be a list
             vec_T1_dip = ([-float(dip)], [1.5])
-            label_T1 = f"{downdipdir} N°E | {dip} ° | {thick} km"
+            # label_T1 = f"{downdipdir} N°E | {dip} ° | {thick} km"
+            label_T1 = f"{dip} ° | {downdipdir} N°E | {thick} km"
 
             fig.plot(
                 x=-0.25,
@@ -265,7 +364,8 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
             fig.plot(fill=color_T1, label=label_T1, pen="0.1p", **args_leg_bar)
 
-    fig.legend(position="jTC+w3.8c+o0c/0.1c", box=box_standard)
+    with pygmt.config(FONT="8p"):
+        fig.legend(position="jTC+w3.8c+o0c/0.1c", box=box_standard)
 
     # fig.shift_origin(yshift="-h-1c")
     fig.shift_origin(xshift="-0.5c", yshift="-h-0.7c")
@@ -304,8 +404,12 @@ for i_model in range(model_start, model_end + model_step, model_step):
         case "H1":
             fig.plot(x=baz_nulls, y=[rho] * 4, style="c0.15c", fill="white", pen="0.7p")
         # TODO case "H2":
+        case "H2":
+            fig.plot(x=baz_nulls, y=[rho] * 7, style="c0.15c", fill="white", pen="0.7p")
         # Arrow showing strike / down dip direction
         case "T1":
+            fig.plot(x=baz_nulls, y=[rho] * 2, style="c0.15c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls_2, y=[rho] * 2, style="c0.15c", fill="white", pen="0.7p")
             fig.plot(
                 x=0,
                 y=0,
@@ -319,7 +423,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
 # -----------------------------------------------------------------------------
     # Add colorbar for fast polarization direction
     if status_cb == True:
-        with pygmt.config(FONT="13p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"):
+        with pygmt.config(FONT="16p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"):
             fig.colorbar(
                 position="jCT+w4c/0.2c+o-2.33c/-4.69c+v+ml",
                 # white space as y label to move cyclic arrow symbole down
@@ -341,7 +445,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         )
 
 # -----------------------------------------------------------------------------
-    # fig.show()
+    fig.show()
     fig_name_basic = f"forwardt_syn_sp_period{dom_per}s_{model_type}"
 
     str_cb = ""
@@ -361,7 +465,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         case "T1":
             fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
-    for ext in ["eps", "png"]: #, "pdf", "eps"]:
+    for ext in ["eps"]: #, "pdf", "eps"]:
         fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
         if ext == "png":
             fig_name = f"{i_model}_{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
