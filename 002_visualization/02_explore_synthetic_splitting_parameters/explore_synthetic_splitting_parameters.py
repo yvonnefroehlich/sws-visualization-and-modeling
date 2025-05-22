@@ -52,7 +52,7 @@ from scipy import io
 path_in = "01_in_data"
 path_out = "02_out_figs"
 
-status_cb = False  ## True, False
+status_cb = True  ## True, False
 status_per = False  ## True, False
 font_size = 9  # in points
 
@@ -82,6 +82,8 @@ color_H1 = "127/140/95"  # 1 horizontal layer (H1) -> green
 color_H2lower = "178/34/34"  # 2 horizontal layers (H2) lower (first) layer -> red
 color_H2upper = "24/116/205"  # 2 horizontal layers (H2) upper (second) layer -> blue
 color_T1 = "218/163/109"  # 1 tilted layer (T1) -> brown
+
+args_nulls = {"style": "c0.15c", "fill": "white", "pen": "0.7p"}
 
 
 # %%
@@ -132,6 +134,8 @@ for i_model in range(model_start, model_end + model_step, model_step):
             diff_phi_null = abs(phi_a[1:359] - phi_a[0:358])
             diff_phi_max_null = np.floor(max(abs(phi_a[1:359] - phi_a[0:358])))
             ind_diff_phi_max_null = np.argmax(diff_phi_null)
+            phi_a_null = phi_a[ind_diff_phi_max_null]
+            dt_a_null = dt_a[ind_diff_phi_max_null]
             baz_nulls = [
                 ind_diff_phi_max_null - 270,
                 ind_diff_phi_max_null - 180,
@@ -141,14 +145,16 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 ind_diff_phi_max_null + 180,
                 ind_diff_phi_max_null + 270,
             ]
-            phi_a_null = max(phi_a)
-            if phi_a_null > 85: phi_a_null = 85
-            dt_a_null = max(dt_a)
-            if dt_a_null > 3.9: dt_a_null = 3.9
             phi_nulls = [phi_a_null] * len(baz_nulls)
             dt_nulls = [dt_a_null] * len(baz_nulls)
-            # phi_nulls = [0] * len(baz_nulls)
-            # dt_nulls = [2] * len(baz_nulls)
+
+            baz_nulls_cath = []
+            for i_null in range(len(baz_nulls)):
+                if baz_nulls[i_null] > 0 and baz_nulls[i_null] < 360:  # noclip
+                    baz_nulls_cath.append(baz_nulls[i_null])
+            phi_nulls_cath = [phi_a_null] * len(baz_nulls_cath)
+            dt_nulls_cath = [dt_a_null] * len(baz_nulls_cath)
+
         case "T1":
             downdipdir = str(model_out[2][0])[1:-1]
             dip = str(model_out[3][0])[1:-1]
@@ -224,14 +230,14 @@ for i_model in range(model_start, model_end + model_step, model_step):
     # if float(dt_1) != 1.5 or float(dt_2) != 0.75:
     #     print(f"Too large dt_1={dt_1}s or dt_2={dt_2}s; larger then {dt_lim}s. Skipping!")
     #     continue
-    # if float(dt_2) != 1.5 or float(phi_1) != 40 or float(phi_2) != -30:
+    # if float(dt_1) != 1.5 or float(dt_2) != 1.5 or float(phi_2) != 40:
     #   print("model parameters out of range!")
     #   continue
     # if float(downdipdir) != 230:
     # if float(dip) != 40:
     if float(thick) != 150:
-        print(f"Not needed model")
-        continue
+       print(f"Not needed model")
+       continue
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
@@ -263,12 +269,12 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig.plot(x=baz, y=phi_a, style="c0.07c", fill=phi_a, cmap=True)
     match model_type:
         case "H1":
-            fig.plot(x=baz_nulls, y=[phi] * 4, style="c0.15c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls, y=[phi] * 4, no_clip=True, **args_nulls)
         case "H2":
-            fig.plot(x=baz_nulls, y=phi_nulls, style="c0.15c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls_cath, y=phi_nulls_cath, no_clip=True, **args_nulls)
         case "T1":
-            fig.plot(x=baz_nulls, y=[phi] * 2, style="c0.15c", fill="white", pen="0.7p")
-            fig.plot(x=baz_nulls_2_cath, y=phi_a_nulls, style="c0.15c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls, y=[phi] * 2, no_clip=True, **args_nulls)
+            fig.plot(x=baz_nulls_2_cath, y=phi_a_nulls, no_clip=True, **args_nulls)
 
     fig.shift_origin(yshift="-h-0.5c")
 
@@ -402,14 +408,14 @@ for i_model in range(model_start, model_end + model_step, model_step):
     match model_type:
         # Mark theoretical null directions
         case "H1":
-            fig.plot(x=baz_nulls, y=[rho] * 4, style="c0.15c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls, y=[rho] * 4, no_clip=True, **args_nulls)
         # TODO case "H2":
         case "H2":
-            fig.plot(x=baz_nulls, y=[rho] * 7, style="c0.15c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls, y=[rho] * 7, no_clip=True, **args_nulls)
         # Arrow showing strike / down dip direction
         case "T1":
-            fig.plot(x=baz_nulls, y=[rho] * 2, style="c0.15c", fill="white", pen="0.7p")
-            fig.plot(x=baz_nulls_2, y=[rho] * 2, style="c0.15c", fill="white", pen="0.7p")
+            fig.plot(x=baz_nulls, y=[rho] * 2, no_clip=True, **args_nulls)
+            fig.plot(x=baz_nulls_2, y=[rho] * 2, no_clip=True, **args_nulls)
             fig.plot(
                 x=0,
                 y=0,
