@@ -30,12 +30,12 @@ If you make use of this material, please acknowledge the relating publications i
   https://doi.org/10.1093/gji/ggaa388.
 
 **Presentations**
-- [**_Fröhlich Y. & Ritter J. R. R. (2024)_**](http://dx.doi.org/10.5281/zenodo.14510993).
+- [**_Fröhlich Y. & Ritter J. R. R. (2024)_**](https://dx.doi.org/10.5281/zenodo.14510993).
   Vertical and Small-scale Lateral Varying Seismic Anisotropy in the Upper Mantle Underneath the Upper Rhine Graben, Central Europe.
   *Annual Meeting of the American Geophysical Union*, Washington D.C..
   Division Session Exploring Innovations and New Directions in Seismic Anisotropy and Attenuation: Observations, Models, and Experiments I Oral, DI21A-02.
   [Abstract ID 1578275](https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1578275).
-  http://dx.doi.org/10.5281/zenodo.14510993.
+  https://dx.doi.org/10.5281/zenodo.14510993.
 
 
 
@@ -68,7 +68,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
   - [crameri perceptually uniform scientific colormaps](https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps)\
     version v1.09, MATLAB File Exchange, last access 2023 April 10; based on [**_Crameri (2021)_**](https://zenodo.org/record/5501399)
   - [cmocean perceptually-uniform colormaps](https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps)\
-    version v2.02, MATLAB File Exchange, last access 2022 June 18; based on [**_Thyng et al. (2016)_**](http://dx.doi.org/10.5670/oceanog.2016.66)
+    version v2.02, MATLAB File Exchange, last access 2022 June 18; based on [**_Thyng et al. (2016)_**](https://dx.doi.org/10.5670/oceanog.2016.66)
 
 
 
@@ -120,7 +120,7 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   *Geophysical Journal International*, volume 88, issue 1, pages 25-41.
   https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
 - [**_Crameri, F. (2021)_**](https://zenodo.org/record/5501399).
-  Scientific colour maps, version 7.0.1. *Zenodo*. http://www.fabiocrameri.ch/colourmaps.php. https://zenodo.org/record/5501399.
+  Scientific colour maps, version 7.0.1. *Zenodo*. https://www.fabiocrameri.ch/colourmaps.php. https://zenodo.org/record/5501399.
 - [**_Grund, M. (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015).
   StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab.
   *Computers & Geosciences*, volume 105, pages 43-50.
@@ -141,10 +141,10 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   Shear wave splitting and subcontinental mantle deformation.
   *Journal of Geophysical Research*, volume 96, issue B10, pages 16429-16454.
   https://doi.org/10.1029/91JB00899.
-- [**_Thyng, K. M., Greene, C. A., Hetland, R. D., Zimmerle, H. M. & DiMarco, S. F. (2016)_**](http://dx.doi.org/10.5670/oceanog.2016.66).
+- [**_Thyng, K. M., Greene, C. A., Hetland, R. D., Zimmerle, H. M. & DiMarco, S. F. (2016)_**](https://dx.doi.org/10.5670/oceanog.2016.66).
   True colors of oceanography: Guidelines for effective and accurate colormap selection.
   *Oceanography*, volume 29, issue 3, pages 9-13.
-  http://dx.doi.org/10.5670/oceanog.2016.66.
+  https://dx.doi.org/10.5670/oceanog.2016.66.
 - [**_Walker, A. M. & Wookey, J. (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031).
   MSAT — A new toolkit for the analysis of elastic and seismic anisotropy.
   *Computer & Geosciences*, volume 49, pages 81-90.
@@ -158,7 +158,7 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   SplitLab: A shear-wave splitting environment in Matlab.
   *Computers & Geosciences*, volume 34, issue 5, pages 515-528.
   https://doi.org/10.1016/j.cageo.2007.08.002.
-  version 1.0.5 **was** available at http://splitting.gm.univ-montp2.fr, version 1.9.0 is available at https://github.com/IPGP/splitlab.
+  version 1.0.5 *should be* available at https://splitting.gm.univ-montp2.fr, version 1.9.0 is available at https://github.com/IPGP/splitlab.
 
 
 
