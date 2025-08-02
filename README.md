@@ -15,7 +15,7 @@ _Zenodo DOI for all versions (latest version)_: [![DOI](https://zenodo.org/badge
 
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
 
-**Peer-reviewed journal article**
+**Peer-reviewed journal articles**
 - [**_Fröhlich Y., Grund M. & Ritter J. R. R. (2024)_**](https://doi.org/10.1093/gji/ggae245).
   Lateral and vertical variations of seismic anisotropy in the lithosphere-asthenosphere system underneath Central Europe from long-term splitting measurements.
   *Geophysical Journal International*, 239(1), 112-135.
@@ -29,7 +29,7 @@ If you make use of this material, please acknowledge the relating publications i
   *Geophysical Journal International*, 223(3), 1525-1547.
   https://doi.org/10.1093/gji/ggaa388.
 
-**Presentations**
+**Presentation**
 - [**_Fröhlich Y. & Ritter J. R. R. (2024)_**](https://dx.doi.org/10.5281/zenodo.14510993).
   Vertical and Small-scale Lateral Varying Seismic Anisotropy in the Upper Mantle Underneath the Upper Rhine Graben, Central Europe.
   *Annual Meeting of the American Geophysical Union*, Washington D.C..
