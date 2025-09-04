@@ -24,20 +24,12 @@ If you make use of this material, please acknowledge the relating publications i
   Short-scale laterally varying SK(K)S shear wave splitting at BFO, Germany – implications for the determination of anisotropic structures.
   *Journal of Seismology*, 26:1137-1156.
   https://doi.org/10.1007/s10950-022-10112-w, correction https://doi.org/10.1007/s10950-023-10136-w.
-- [**_Grund M, Ritter J R R (2020)_**](https://doi.org/10.1093/gji/ggaa388).
-  Shear-wave splitting beneath Fennoscandia – evidence for dipping structures and laterally varying multilayer anisotropy.
-  *Geophysical Journal International*, 223(3):1525-1547.
-  https://doi.org/10.1093/gji/ggaa388.
 
 **Doctoral studies**
 - [**_Fröhlich Y (2025)_**](https://doi.org/10.5445/IR/1000183786).
   Shear wave splitting analysis of long-term data: Anisotropy studies in the Upper Rhine Graben area, Central Europe.
   Dissertation, *Karlsruhe Institute of Technology, Geophysical Institute*.
   https://doi.org/10.5445/IR/1000183786.
-- [**_Grund M (2019)_**](https://doi.org/10.5445/IR/1000091425).
-  Exploring geodynamics at different depths with shear wave splitting.
-  Dissertation, *Karlsruhe Institute of Technology, Geophysical Institute*.
-  https://doi.org/10.5445/IR/1000091425.
 
 **Presentation**
 - [**_Fröhlich Y, Ritter J R R (2024)_**](https://dx.doi.org/10.5281/zenodo.14510993).
