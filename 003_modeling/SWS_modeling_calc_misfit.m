@@ -218,8 +218,8 @@ end
 
 % >>> colormap grayC is part of the Scientific colour maps <<<
 % F. Crameri (2021) Zenodo.
-% http://doi.org/10.5281/zenodo.1243862
-% http://www.fabiocrameri.ch/colourmaps.php
+% https://doi.org/10.5281/zenodo.1243862
+% https://www.fabiocrameri.ch/colourmaps.php
 %    - MATLAB: v1.08 https://de.mathworks.com/matlabcentral/fileexchange/68546-crameri-perceptually-uniform-scientific-colormaps
 %    (last access 2022 June 25)
 %    >>> v1.08: bug in >crameri.m<. To fix it uncomment line 97 of this
@@ -281,7 +281,7 @@ end
 %==========================================================================
 % >>> colormap phase it part of the cmocean colormaps <<<
 % Thyng et al. (2016) Oceanography 29(3):9–13.
-% http://dx.doi.org/10.5670/oceanog.2016.66
+% https://dx.doi.org/10.5670/oceanog.2016.66
 % - MATLAB: v2.02 https://de.mathworks.com/matlabcentral/fileexchange/57773-cmocean-perceptually-uniform-colormaps
 %   (last access 2022 June 18)
 
