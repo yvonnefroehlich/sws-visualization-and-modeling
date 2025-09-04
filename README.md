@@ -8,7 +8,6 @@ MATLAB (mainly) and Python (upcoming) functions for visualization and modeling o
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
 
-
 ## Citation
 
 _Zenodo DOI for all versions (latest version)_: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
@@ -40,7 +39,6 @@ If you make use of this material, please acknowledge the relating publications i
   https://dx.doi.org/10.5281/zenodo.14510993.
 
 
-
 ## Content
 
 _Example figures_: Generated with the provided test data
@@ -50,7 +48,6 @@ _Example figures_: Generated with the provided test data
 - **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)**
 
 ![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/000_repo_readme_image.png)
-
 
 
 ## Requirements
@@ -73,7 +70,6 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
     version v2.02, MATLAB File Exchange, last access 2022 June 18; based on [**_Thyng et al. (2016)_**](https://dx.doi.org/10.5670/oceanog.2016.66)
 
 
-
 ## Releases
 
 | Release | Zenodo DOI | Publication | RADAR4KIT dataset |
@@ -86,14 +82,12 @@ For details of the individual releases as well as for changes and differences co
 by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md).
 
 
-
 ## Known Issues
 
 - Modeling of multi-event analysis: Only using either STACK or SIMW results is supported
 - Model parameter distribution for T1: Under development, not fully tested
 - Synthetic stereoplot for T1 and H2: Backazimuths of predicted nulls are partly wrong
 - Synthetic stereoplot for T1: Gray arrow is partly not exactly placed in the center
-
 
 
 ## Contributing
@@ -103,7 +97,6 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
 [GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main).
 
 
-
 ## Related topics
 
 | Software | Language | Description | Author |
@@ -111,7 +104,6 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
 | [MSAT](https://github.com/andreww/MSAT) | MATLAB | A new toolkit for the analysis of elastic and seismic anisotropy | Andrew M. Walker, James Wookey |
 | [PyDRex](https://github.com/seismic-anisotropy/PyDRex) | Python | Simulate crystallographic preferred orientation evolution in polycrystals | Leon Bilton, Thomas Duvernay |
 | [PyRaysum](https://github.com/paudetseis/PyRaysum) | Python | Software for modeling ray-theoretical body-wave propagation | Wasja Bloch, Pascal Audet |
-
 
 
 ## References
@@ -160,7 +152,6 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   *Computers & Geosciences*, 34(5):515-528.
   https://doi.org/10.1016/j.cageo.2007.08.002.
   version 1.0.5 *should be* available at https://splitting.gm.univ-montp2.fr, version 1.9.0 is available at https://github.com/IPGP/splitlab.
-
 
 
 ## Funding
