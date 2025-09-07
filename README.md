@@ -3,7 +3,7 @@
 MATLAB (mainly) and Python (upcoming) functions for visualization and modeling of shear wave splitting observations:
 
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. (2008)_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and
-  [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
+  [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
 - The modeling routine is applicable for the _energy minimization_ method ([**_Silver, Chan (1991)_**](https://doi.org/10.1029/91JB00899)).
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
@@ -101,7 +101,7 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
 
 | Software | Language | Description | Author |
 | --- | --- | --- | --- |
-| [MSAT](https://github.com/andreww/MSAT) | MATLAB | A new toolkit for the analysis of elastic and seismic anisotropy | Andrew M. Walker, James Wookey |
+| [MSAT](https://github.com/andreww/MSAT) | MATLAB | A new toolkit for the analysis of elastic and seismic anisotropy | Andrew M Walker, James Wookey |
 | [PyDRex](https://github.com/seismic-anisotropy/PyDRex) | Python | Simulate crystallographic preferred orientation evolution in polycrystals | Leon Bilton, Thomas Duvernay |
 | [PyRaysum](https://github.com/paudetseis/PyRaysum) | Python | Software for modeling ray-theoretical body-wave propagation | Wasja Bloch, Pascal Audet |
 
