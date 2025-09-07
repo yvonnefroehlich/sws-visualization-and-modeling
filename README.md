@@ -1,16 +1,15 @@
-# Visualization and Modeling of Shear Wave Splitting [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
+# Visualization and Modeling of Shear Wave Splitting
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
 
 MATLAB (mainly) and Python (upcoming) functions for visualization and modeling of shear wave splitting observations:
 
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. (2008)_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and
-  [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
+  [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
 - The modeling routine is applicable for the _energy minimization_ method ([**_Silver, Chan (1991)_**](https://doi.org/10.1029/91JB00899)).
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
 
 ## Citation
-
-_Zenodo DOI for all versions (latest version)_: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
 
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
 
@@ -101,9 +100,9 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
 
 | Software | Language | Description | Author |
 | --- | --- | --- | --- |
-| [MSAT](https://github.com/andreww/MSAT) | MATLAB | A new toolkit for the analysis of elastic and seismic anisotropy | Andrew M. Walker, James Wookey |
-| [PyDRex](https://github.com/seismic-anisotropy/PyDRex) | Python | Simulate crystallographic preferred orientation evolution in polycrystals | Leon Bilton, Thomas Duvernay |
-| [PyRaysum](https://github.com/paudetseis/PyRaysum) | Python | Software for modeling ray-theoretical body-wave propagation | Wasja Bloch, Pascal Audet |
+| [MSAT](https://github.com/andreww/MSAT)                | MATLAB | Toolkit for the analysis of elastic and seismic anisotropy                | A M Walker, J Wookey |
+| [PyDRex](https://github.com/seismic-anisotropy/PyDRex) | Python | Simulate crystallographic preferred orientation evolution in polycrystals | L Bilton, T Duvernay |
+| [PyRaysum](https://github.com/paudetseis/PyRaysum)     | Python | Software for modeling ray-theoretical body-wave propagation               | W Bloch, P Audet     |
 
 
 ## References
@@ -118,8 +117,6 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab.
   *Computers & Geosciences*, 105:43-50.
   https://doi.org/10.1016/j.cageo.2017.04.015.
-  versions [1.0](https://doi.org/10.5281/zenodo.464385), [2.0](https://doi.org/10.5281/zenodo.7118716), and [3.0](https://doi.org/10.5281/zenodo.5802051)
-  available at https://github.com/michaelgrund/stacksplit.
 - **_Porritt R W (2014)_**. SplitLab version 1.2.1.
   available at https://robporritt.wordpress.com/software/.
 - [**_Restivo A, Helffrich G (1999)_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x).
@@ -151,7 +148,6 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   SplitLab: A shear-wave splitting environment in Matlab.
   *Computers & Geosciences*, 34(5):515-528.
   https://doi.org/10.1016/j.cageo.2007.08.002.
-  version 1.0.5 *should be* available at https://splitting.gm.univ-montp2.fr, version 1.9.0 is available at https://github.com/IPGP/splitlab.
 
 
 ## Funding
