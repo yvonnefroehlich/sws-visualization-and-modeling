@@ -11,8 +11,6 @@ MATLAB (mainly) and Python (upcoming) functions for visualization and modeling o
 
 ## Citation
 
-_Zenodo DOI for all versions (latest version)_: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
-
 If you make use of this material, please acknowledge the relating publications in which framework these functions were implemented:
 
 **Peer-reviewed journal articles**
