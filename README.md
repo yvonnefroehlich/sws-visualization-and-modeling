@@ -100,7 +100,7 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
 
 | Software | Language | Description | Author |
 | --- | --- | --- | --- |
-| [MSAT](https://github.com/andreww/MSAT)                | MATLAB | Toolkit for the analysis of elastic and seismic anisotropy                | A M Walker, J Wookey |
+| [MSAT](https://github.com/andreww/MSAT)                | MATLAB | Toolkit for the analysis of elastic and seismic anisotropy                | A M Walker,&nbsp;J&nbsp;Wookey |
 | [PyDRex](https://github.com/seismic-anisotropy/PyDRex) | Python | Simulate crystallographic preferred orientation evolution in polycrystals | L Bilton, T Duvernay |
 | [PyRaysum](https://github.com/paudetseis/PyRaysum)     | Python | Software for modeling ray-theoretical body-wave propagation               | W Bloch, P Audet     |
 
