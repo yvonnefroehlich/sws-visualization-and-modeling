@@ -3,9 +3,9 @@
 
 MATLAB (mainly) and Python (upcoming) functions for visualization and modeling of shear wave splitting observations:
 
-- Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. (2008)_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and
-  [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
-- The modeling routine is applicable for the _energy minimization_ method ([**_Silver, Chan (1991)_**](https://doi.org/10.1029/91JB00899)).
+- Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and
+  [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
+- The modeling routine is applicable for the _energy minimization_ method ([**_Silver, Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
 
@@ -56,10 +56,10 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 - **_MATLAB_**: Forward calculation
   - Deep Learning Toolbox
   - Mapping Toolbox
-  - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker, Wookey (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031))
+  - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker, Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
-  - Output *.txt files (_nulls_, _splits_) of _SplitLab_ version 1.5.0 ([**_Wüstefeld et al. (2008)_**](https://doi.org/10.1016/j.cageo.2007.08.002)) or 1.2.1 (**_Porritt 2014_**)
-  - Output *.mat structure and *.txt files (STACK, SIMW) of _StackSplit_ ([**_Grund (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015))
+  - Output *.txt files (_nulls_, _splits_) of _SplitLab_ version 1.5.0 ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) or 1.2.1 (**_Porritt 2014_**)
+  - Output *.mat structure and *.txt files (STACK, SIMW) of _StackSplit_ ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015))
 - **Colormaps** (optional): Color-coding of the fast polarization direction and the root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)\
     version v2.1.3, MATLAB File Exchange, last access 2022 June 26
