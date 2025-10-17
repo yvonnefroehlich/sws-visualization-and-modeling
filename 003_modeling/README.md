@@ -1,6 +1,6 @@
 # 003_modeling
 
-_See also_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [**_Grund & Ritter (2020)_**](https://doi.org/10.1093/gji/ggaa388)
+_See also_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [**_Grund, Ritter (2020)_**](https://doi.org/10.1093/gji/ggaa388)
 
 
 
@@ -10,12 +10,12 @@ _See also_: [Supporting Information](https://academic.oup.com/gji/article/223/3/
   - Transverse isotropy
   - Structural anisotropy: one horizontal layer (H1), one dipping layer (T1), two horizontal layers (H2)
 - **Forward calculation**
-  - Synthetic splitting parameters based on the _energy minimization_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - Synthetic splitting parameters based on the _energy minimization_ method ([**_Silver, Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - Ray theory reference frame
 - **Observation** (output of _SplitLab_ and _StackSplit_)
-  - Single-event analysis: _energy minimization_ method ([**_Silver & Chan 1991_**](https://doi.org/10.1029/91JB00899))
+  - Single-event analysis: _energy minimization_ method ([**_Silver, Chan 1991_**](https://doi.org/10.1029/91JB00899))
   - Multi-event analysis:
-    stacking of error surfaces (STACK; [**_Wolfe & Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo & Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x)),
+    stacking of error surfaces (STACK; [**_Wolfe, Silver 1998_**](https://doi.org/10.1029/97JB02023), [**_Restivo, Helffrich 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x)),
     _simultaneous inversion of multiple waveforms_ (SIMW; [**_Roy et al. 2017_**](https://doi.org/10.1029/91JB00899))
 - **Comparison of forward calculation and observation**
   - Calculation and minimizing the root mean square error regarding the splitting parameters
@@ -41,13 +41,13 @@ _See also_: [Supporting Information](https://academic.oup.com/gji/article/223/3/
   - Deep Learning Toolbox
   - Mapping Toolbox
 
-- _MATLAB Seismic Anisotropy Toolkit_ (MSAT) by [Walker & Wookey (2012)](https://doi.org/10.1016/j.cageo.2012.05.031)
+- _MATLAB Seismic Anisotropy Toolkit_ (MSAT) by [**_Walker, Wookey (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031)
   - Download MSAT from https://www1.gly.bris.ac.uk/MSAT/ or https://github.com/andreww/MSAT (last access 2022/07/05).
   - Add the whole MSAT package to your _MATLAB_ path.
-  - If you want to get familiar with the modeling in MSAT and the behavior of different settings
-  change to the directory `MSAT/examples/splitting_model/` in which the script `split_model.m` is located.
-  This script is described in the publication [Walker & Wookey (2012)](https://doi.org/10.1016/j.cageo.2012.05.031).
-  You can play around with different parameters and see how these affect the splitting parameters.
+  - If you want to get familiar with the modeling in MSAT and the behavior of different settings change to the directory
+    `MSAT/examples/splitting_model/` in which the script `split_model.m` is located. This script is described in the
+    publication mentioned above. You can play around with different parameters and see how these affect the splitting
+    parameters.
 
 
 ### Forward Calculation
