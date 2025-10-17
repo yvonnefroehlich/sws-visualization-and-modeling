@@ -3,9 +3,9 @@
 
 MATLAB (mainly) and Python (upcoming) functions for visualization and modeling of shear wave splitting observations:
 
-- Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. (2008)_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and
-  [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
-- The modeling routine is applicable for the _energy minimization_ method ([**_Silver, Chan (1991)_**](https://doi.org/10.1029/91JB00899)).
+- Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and
+  [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
+- The modeling routine is applicable for the _energy minimization_ method ([**_Silver, Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
 
@@ -56,10 +56,10 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 - **_MATLAB_**: Forward calculation
   - Deep Learning Toolbox
   - Mapping Toolbox
-  - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker, Wookey (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031))
+  - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker, Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
 - **Data**: Shear wave splitting observations
-  - Output *.txt files (_nulls_, _splits_) of _SplitLab_ version 1.5.0 ([**_Wüstefeld et al. (2008)_**](https://doi.org/10.1016/j.cageo.2007.08.002)) or 1.2.1 (**_Porritt 2014_**)
-  - Output *.mat structure and *.txt files (STACK, SIMW) of _StackSplit_ ([**_Grund (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015))
+  - Output *.txt files (_nulls_, _splits_) of _SplitLab_ version 1.5.0 ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) or 1.2.1 (**_Porritt 2014_**)
+  - Output *.mat structure and *.txt files (STACK, SIMW) of _StackSplit_ ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015))
 - **Colormaps** (optional): Color-coding of the fast polarization direction and the root mean square error
   - [MatPlotLib Perceptually Uniform Colormaps](https://de.mathworks.com/matlabcentral/fileexchange/62729-matplotlib-perceptually-uniform-colormaps)\
     version v2.1.3, MATLAB File Exchange, last access 2022 June 26
@@ -100,7 +100,7 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
 
 | Software | Language | Description | Author |
 | --- | --- | --- | --- |
-| [MSAT](https://github.com/andreww/MSAT)                | MATLAB | Toolkit for the analysis of elastic and seismic anisotropy                | A M Walker, J Wookey |
+| [MSAT](https://github.com/andreww/MSAT)                | MATLAB | Toolkit for the analysis of elastic and seismic anisotropy                | A&nbsp;M&nbsp;Walker,&nbsp;J&nbsp;Wookey |
 | [PyDRex](https://github.com/seismic-anisotropy/PyDRex) | Python | Simulate crystallographic preferred orientation evolution in polycrystals | L Bilton, T Duvernay |
 | [PyRaysum](https://github.com/paudetseis/PyRaysum)     | Python | Software for modeling ray-theoretical body-wave propagation               | W Bloch, P Audet     |
 
@@ -156,5 +156,5 @@ The presented research and YF received support from various sources:
 
 - [Graduate Funding from the German States](https://www.khys.kit.edu/english/graduate_funding.php) (scholarship)
 - [NSF grant EAR-1948602](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1948602) (travel support for AGU24)
-- [DFG grant RI1133/14-1](https://gepris.dfg.de/gepris/projekt/521545943?language=en) within the
-  [DFG Priority Program 2404 DeepDyn](https://www.geo.lmu.de/deepdyn/en/) (research assistant)
+- [DFG project 521545943](https://gepris.dfg.de/gepris/projekt/521545943?language=en) within the
+  [DFG Priority Program DeepDyn SPP 2404 – 500707704](https://www.geo.lmu.de/deepdyn/en/) (research assistant)
