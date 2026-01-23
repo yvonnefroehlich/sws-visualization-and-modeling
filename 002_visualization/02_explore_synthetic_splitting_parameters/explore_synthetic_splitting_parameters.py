@@ -42,6 +42,7 @@
 
 import numpy as np
 import pygmt
+from pygmt.params import Position
 from scipy import io
 
 
@@ -514,8 +515,13 @@ for i_model in range(model_start, model_end + model_step, model_step):
     if status_cb == True:
         with pygmt.config(FONT="16p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"):
             fig.colorbar(
-                position="jCT+w4c/0.2c+o-2.33c/-4.69c+v+ml",
-                # white space as y label to move cyclic arrow symbole down
+                # position="jCT+w4c/0.2c+o-2.33c/-4.69c+v+ml",
+                position=Position("CT", cstype="inside", offset=("-2.33c", "-4.69c")),
+                length="4c",
+                width="0.2c",
+                orientation="vertical",
+                move_text="label",
+                # white space as y-label to move cyclic arrow symbol down
                 frame=["xa30f10+lapp. fast pol. dir. @~f@~@-a@- / N@.E", "y+l "],
         )
 
@@ -554,9 +560,9 @@ for i_model in range(model_start, model_end + model_step, model_step):
         case "T1":
             fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
-    for ext in ["eps"]: #, "pdf", "eps"]:
+    for ext in ["png", "pdf", "eps"]:
         fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
         if ext == "png":
             fig_name = f"{i_model}_{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
-        fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
+        # fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
     print(f"{i_model}_{fig_name}")
