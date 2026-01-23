@@ -13,10 +13,11 @@
 # - Created: 2024/07/09
 # - Continued: 2025/01/07
 # - Continued: 2025/04/06-08
+# - Continued: 2025/01/23 - Use PyGMT v0.18.0 with GMT 6.6.0
 # -----------------------------------------------------------------------------
 # Versions
-#   PyGMT v0.14.0 -> https://www.pygmt.org/v0.14.0/ | https://www.pygmt.org/
-#   GMT 6.5.0 -> https://www.generic-mapping-tools.org/
+#   PyGMT v0.18.0 -> https://www.pygmt.org/v0.14.0 | https://www.pygmt.org
+#   GMT 6.6.0 -> https://www.generic-mapping-tools.org
 # -----------------------------------------------------------------------------
 # Contact
 # - Author: Yvonne Fröhlich
