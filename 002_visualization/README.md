@@ -1,7 +1,5 @@
 # 002_visualization
 
-_How to use_: _Under development_
-
 
 
 ## Overview
