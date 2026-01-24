@@ -26,14 +26,13 @@
    - Save structs for model types separately ([PR #16](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/16))
    - Update table for required disc space in modeling README ([PR #17](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/17))
 
-
-
 **Contributors**: [Yvonne Fröhlich](https://github.com/yvonnefroehlich)
 
 For changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see
 the [changelog entry for release v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md#release-v10-20221016-)
 
 
+---
 ## Release v1.0 (2022/10/16) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157)
 
 Changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund):
