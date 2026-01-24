@@ -62,7 +62,7 @@ status_cb = True  ## True, False
 status_per = False  ## True, False
 font_size = 9  # in points
 
-path_in = "01_in_data/TEST_data_syn_split_para"
+path_in = "TEST_data_syn_split_para"
 path_out = "02_out_figs"
 
 # -----------------------------------------------------------------------------
