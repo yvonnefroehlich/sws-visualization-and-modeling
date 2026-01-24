@@ -1,6 +1,6 @@
 # 002_visualization
 
- _How to use_:
+ _How to use_: [Header of script `explore_syn_split_para`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization//02_explore_syn_split_para/explore_syn_split_para.py)
 
 
 
