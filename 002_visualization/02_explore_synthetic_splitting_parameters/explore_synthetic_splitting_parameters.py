@@ -16,7 +16,7 @@
 # - Continued: 2025/01/23 - Use PyGMT v0.18.0 with GMT 6.6.0
 # -----------------------------------------------------------------------------
 # Versions
-#   PyGMT v0.18.0 -> https://www.pygmt.org/v0.14.0 | https://www.pygmt.org
+#   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
 #   GMT 6.6.0 -> https://www.generic-mapping-tools.org
 # -----------------------------------------------------------------------------
 # Contact
@@ -25,18 +25,22 @@
 # - GitHub: https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 # -----------------------------------------------------------------------------
 # Related to
-# - Fröhlich Y. & Ritter J. R. R. (2024)
-#   Vertical and Small-scale Lateral Varying Seismic Anisotropy in the Upper Mantle
-#   Underneath the Upper Rhine Graben, Central Europe.
-#   Annual Meeting of the American Geophysical Union,
-#   Division Session Exploring Innovations and New Directions in Seismic Anisotropy and
-#   Attenuation: Observations, Models, and Experiments I Oral, DI21A-02.
-#   Abstract ID 1578275, https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1578275.
+# - Fröhlich Y (2025)
+#   Shear wave splitting analysis of long-term data: Anisotropy studies in the
+#   Upper Rhine Graben area, Central Europe. Dissertation, Karlsruhe Institute
+#   of Technology, Geophysical Institute.
+#   https://doi.org/10.5445/IR/1000183786.
+# - Fröhlich Y, Ritter J R R (2024)
+#   Vertical and Small-scale Lateral Varying Seismic Anisotropy in the Upper
+#   Mantle Underneath the Upper Rhine Graben, Central Europe. Annual Meeting of
+#   the American Geophysical Union, Division Session Exploring Innovations and
+#   New Directions in Seismic Anisotropy and Attenuation: Observations, Models,
+#   and Experiments I Oral, DI21A-02. Abstract ID 1578275.
 #   http://dx.doi.org/10.5281/zenodo.14510993.
-# - Fröhlich Y., Grund M. & Ritter J. R. R. (2024)
-#   Lateral and vertical variations of seismic anisotropy in the lithosphere-asthenosphere
-#   system underneath Central Europe from long-term splitting measurements.
-#   Geophysical Journal International, 239(1), 112-135.
+# - Fröhlich Y, Grund M, Ritter J R R (2024)
+#   Lateral and vertical variations of seismic anisotropy in the lithosphere-
+#   asthenosphere system underneath Central Europe from long-term splitting
+#   measurements. Geophysical Journal International, 239(1), 112-135.
 #   https://doi.org/10.1093/gji/ggae245.
 # #############################################################################
 
