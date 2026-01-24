@@ -53,25 +53,49 @@ from scipy import io
 
 # %%
 # -----------------------------------------------------------------------------
-# General stuff
+# Adjust for your needs
 # -----------------------------------------------------------------------------
-path_in = "01_in_data"
-path_out = "02_out_figs"
+dom_per = 8  ## 6, 8, 10  # in seconds
+model_type = "H1"  ## H1, H2, T1
 
 status_cb = True  ## True, False
 status_per = False  ## True, False
 font_size = 9  # in points
 
-dom_per = 8  ## 6, 8, 10  # in seconds
-model_type = "H1"  ## H1, H2, T1
-print(f"Dominant period {dom_per} s - Model type {model_type}")
+path_in = "01_in_data"  # /TEST_data_syn_split_para
+path_out = "02_out_figs"
 
+# -----------------------------------------------------------------------------
+# Limits for model parameters
+# H1
+phi_min = -90
+phi_max = 90
+dt_min = 0
+dt_max = 4
+# H2
+phi1_min = -90
+phi1_max = 90
+phi2_min = -90
+phi2_max = 90
+dt1_min = 0
+dt1_max = 4
+dt2_min = 0
+dt2_max = 4
+# T1
+dip_min = 0
+dip_max = 80
+thick_min = 0
+thick_max = 400
+downdipdir_min = 0
+downdipdir_max = 360
+
+# -----------------------------------------------------------------------------
+print(f"Dominant period {dom_per} s - Model type {model_type}")
 models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
 models_mat = io.loadmat(f"{path_in}/{models}")
 N_models = len(models_mat["model_out"][0])
 print(f"Data loaded - {N_models} models!\nStarting with making plots!")
 
-# -----------------------------------------------------------------------------
 model_start = 0
 model_end = N_models
 model_step = 1
@@ -79,6 +103,10 @@ model_step = 1
 baz_step = 1
 baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
 
+
+# %%
+# -----------------------------------------------------------------------------
+# General stuff
 # -----------------------------------------------------------------------------
 box_standard = "+glightgray@30+p0.1p,gray30+r1p"
 
@@ -94,6 +122,7 @@ args_nulls_cath = {"style": "c0.07c", "fill": "white", "pen": "0.5p"}
 phi_ys = np.arange(-90, 90 + 10, 10)
 dt_ys = np.arange(0, 4 + 0.1, 0.2)
 baz_null_add = 5
+
 
 
 # %%
@@ -192,7 +221,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 dt_a[int(np.floor(baz_nulls[0]))],
                 dt_a[int(np.floor(baz_nulls[1]))],
             ]
-            # nulls for with down-dip direction orthogoanal to backazimuth
+            # nulls for with down-dip direction orthogonal to backazimuth
             if downdipdir < 90:
                 null_1_ortho = phi_a + 90
                 null_1 = min(null_1_ortho)
@@ -237,18 +266,25 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 dt_a[int(np.floor(null_1))], dt_a[int(np.floor(null_2))]
             ]
 
-    # dt_lim = 3
-    # if float(dt_1) != 1.5 or float(dt_2) != 0.75:
-    #     print(f"Too large dt_1={dt_1}s or dt_2={dt_2}s; larger then {dt_lim}s. Skipping!")
-    #     continue
-    # if float(phi_1) != 40 or float(phi_2) != -30 or float(dt_2) != 1.5:
-    #   print("model parameters out of range!")
-    #   continue
-    # if float(dip) != 40:
-    # if float(downdipdir) != 230:
-    #if float(thick) != 150:
-    #   print(f"Not needed model")
-    #   continue
+    match model_type:
+        case "H1":
+            if phi_min > float(phi) or phi_max < float(phi) or \
+               dt_min > float(dt) or dt_max < float(dt):
+                print("Model parameters out of desired range.")
+                continue
+        case "H2":
+            if phi1_min > float(phi_1) or phi1_max < float(phi_1) or \
+               phi2_min > float(phi_2) or phi2_max < float(phi_2) or \
+               dt1_min > float(dt_1) or dt1_max < float(dt_1) or \
+               dt2_min > float(dt_2) or dt2_max < float(dt_2):
+                print("Model parameters out of desired range.")
+                continue
+        case "T1":
+            if dip_min > float(dip) or dip_max < float(dip) or \
+               thick_min > float(thick) or thick_max < float(thick) or \
+               downdipdir_min > float(downdipdir) or downdipdir_max < float(downdipdir):
+                print("Model parameters out of desired range.")
+                continue
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
