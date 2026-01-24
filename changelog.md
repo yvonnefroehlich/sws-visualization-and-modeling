@@ -6,7 +6,7 @@
    - Improve checks for input SWSMs data ([PR #11](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/11))
    - Improve coding style ([PR #27](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/27))
    - Add section "Related topics" to main README ([PR #25](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/25))
-   - Move "Contents" section to separate READMEs & introduce "_image folder ([PR #31](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/31))
+   - Move "Contents" section to separate READMEs and introduce "_image folder" ([PR #31](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/31))
 
 - [001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)
    - Add queries for phase and observation type ([PR #23](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/23))
@@ -17,6 +17,7 @@
 
 - [002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)
    - Add loading function for datasets on RADAR4KIT in MATLAB, Python, and R ([PR #24](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/24))
+   - Add script the explore forward calculated synthetic splitting parameter in Python using PyGMT ([PR #30](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/30))
 
 - [003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)
    - Fixes regarding colormap and colorbar for phi ([PR #13](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/13))
