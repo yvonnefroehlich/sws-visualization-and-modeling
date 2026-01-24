@@ -634,7 +634,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
 # -----------------------------------------------------------------------------
     # Add colorbar for fast polarization direction
-    if status_cb == True:
+    if status_cb:
         with pygmt.config(
             FONT="16p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"
         ):
@@ -649,7 +649,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
             )
 
     # Add label for dominant period
-    if status_per == True:
+    if status_per:
         fig.text(
             text=f"{dom_per} s",
             position="TL",
@@ -667,10 +667,10 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig_name_basic = f"forwardt_syn_sp_period{dom_per}s_{model_type}"
 
     str_cb = ""
-    if status_cb == False:
+    if not status_cb:
         str_cb = "NO"
     str_per = ""
-    if status_per == False:
+    if not status_per:
         str_per = "NO"
 
     fig_name_mt = ""
