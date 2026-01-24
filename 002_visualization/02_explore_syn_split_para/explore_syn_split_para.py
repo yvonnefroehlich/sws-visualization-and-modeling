@@ -14,6 +14,7 @@
 # - Continued: 2025/01/07
 # - Continued: 2025/04/06-08
 # - Continued: 2025/01/23 - Use PyGMT v0.18.0 with GMT 6.6.0
+# - Continued: 2025/01/24 - Allow setting ranges for model parameters
 # -----------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
@@ -72,7 +73,7 @@ phi_min = -90
 phi_max = 90
 dt_min = 0
 dt_max = 4
-# H2
+# H2 (index 1 lower layer, index 2 upper layer)
 phi1_min = -90
 phi1_max = 90
 phi2_min = -90
@@ -137,6 +138,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     phi_a = np.squeeze(model_out[0])
     dt_a = np.squeeze(model_out[1])
 
+    # Prepare values for plotting
     match model_type:
         case "H1":
             phi = str(model_out[2][0])[1:-1]
@@ -266,23 +268,24 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 dt_a[int(np.floor(null_1))], dt_a[int(np.floor(null_2))]
             ]
 
+    # Only plot models with model parameters in the selected ranges
     match model_type:
         case "H1":
-            if phi_min > float(phi) or phi_max < float(phi) or \
-               dt_min > float(dt) or dt_max < float(dt):
+            if phi_min >= float(phi) or phi_max <= float(phi) or \
+               dt_min >= float(dt) or dt_max <= float(dt):
                 print("Model parameters out of desired range.")
                 continue
         case "H2":
-            if phi1_min > float(phi_1) or phi1_max < float(phi_1) or \
-               phi2_min > float(phi_2) or phi2_max < float(phi_2) or \
-               dt1_min > float(dt_1) or dt1_max < float(dt_1) or \
-               dt2_min > float(dt_2) or dt2_max < float(dt_2):
+            if phi1_min >= float(phi_1) or phi1_max <= float(phi_1) or \
+               phi2_min >= float(phi_2) or phi2_max <= float(phi_2) or \
+               dt1_min >= float(dt_1) or dt1_max <= float(dt_1) or \
+               dt2_min >= float(dt_2) or dt2_max <= float(dt_2):
                 print("Model parameters out of desired range.")
                 continue
         case "T1":
-            if dip_min > float(dip) or dip_max < float(dip) or \
-               thick_min > float(thick) or thick_max < float(thick) or \
-               downdipdir_min > float(downdipdir) or downdipdir_max < float(downdipdir):
+            if dip_min >= float(dip) or dip_max <= float(dip) or \
+               thick_min >= float(thick) or thick_max <= float(thick) or \
+               downdipdir_min >= float(downdipdir) or downdipdir_max <= float(downdipdir):
                 print("Model parameters out of desired range.")
                 continue
 
