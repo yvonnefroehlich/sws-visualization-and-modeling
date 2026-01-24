@@ -213,7 +213,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
             for baz_null in baz_nulls_neg:
                 baz_null_pos = baz_null
                 if baz_null > 360:
-                    baz_null_pos = baz_null - 360  # 0 to 360
+                    baz_null_pos = baz_null - 360  # 0-360 deg
                 baz_nulls.append(baz_null_pos)
             dt_a_nulls_1 = [
                 dt_a[int(np.floor(baz_nulls[0]))],
@@ -303,7 +303,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
 # .............................................................................
-    # Left: Cartesian plots of splitting parameters
+# Left: Cartesian plots of splitting parameters
 # .............................................................................
     x_hline = [-10, 360]
     proj_stereo = "X10c/4c"
@@ -507,7 +507,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig.shift_origin(xshift="+w+1.5c", yshift="4.5c")
 
 # .............................................................................
-    # Top Right: model parameter of anisotropy model
+# Top Right: model parameter of anisotropy model
 # .............................................................................
     size = 2
     region_mp = [-size, size] * 2
@@ -583,7 +583,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig.shift_origin(xshift="-0.5c", yshift="-h-0.7c")
 
 # .............................................................................
-    # Bottom Right: Stereoplot for splitting parameter
+# Bottom Right: Stereoplot for splitting parameter
 # .............................................................................
     rho = 0.6
     step = 3
@@ -591,7 +591,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     phi_a_stereo = phi_a[0::step]
     dt_a_stereo = dt_a[0::step]
 
-    with pygmt.config(FORMAT_GEO_MAP="+D"):  # 0°-360°
+    with pygmt.config(FORMAT_GEO_MAP="+D"):  # 0-360 deg
         fig.basemap(region=[0, 360, 0, 1], projection="P4c+a", frame="xa30f10g30")
 
     for i_bar in range(len(baz_stereo)):
