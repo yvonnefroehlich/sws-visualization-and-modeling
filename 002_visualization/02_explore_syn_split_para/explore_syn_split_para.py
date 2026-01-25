@@ -53,7 +53,6 @@ import pygmt
 from pygmt.params import Position
 from scipy import io
 
-
 # %%
 # -----------------------------------------------------------------------------
 # Adjust for your needs
@@ -99,7 +98,6 @@ model_end = "NaN"  # total number of models
 model_step = 1
 
 
-
 # %%
 # -----------------------------------------------------------------------------
 # General stuff
@@ -118,7 +116,6 @@ args_nulls_cath = {"style": "c0.07c", "fill": "white", "pen": "0.5p"}
 phi_ys = np.arange(-90, 90 + 10, 10)
 dt_ys = np.arange(0, 4 + 0.1, 0.2)
 baz_null_add = 5
-
 
 
 # %%
@@ -153,7 +150,7 @@ for i_model in range(N_total):
         case "H1":
             phi_in_temp = int(str(models_df_raw["phi_in"][i_model][0][0]))
             dt_in_temp = int(str(models_df_raw["dt_in"][i_model][0][0]))
-            phi_in.append((phi_in_temp))
+            phi_in.append(phi_in_temp)
             dt_in.append(dt_in_temp)
             if phi_in_temp > 0:
                 phi_gmt_temp = 90 - phi_in_temp
@@ -219,30 +216,30 @@ match model_type:
 match model_type:
     case "H1":
         models_df_select = models_df.loc[
-            (models_df["phi_in"] >= phi_min) &
-            (models_df["phi_in"] <= phi_max) &
-            (models_df["dt_in"] >= dt_min) &
-            (models_df["dt_in"] <= dt_max)
+            (models_df["phi_in"] >= phi_min)
+            & (models_df["phi_in"] <= phi_max)
+            & (models_df["dt_in"] >= dt_min)
+            & (models_df["dt_in"] <= dt_max)
         ]
     case "H2":
         models_df_select = models_df.loc[
-            (models_df["phi1_in"] >= phi1_min) &
-            (models_df["phi1_in"] <= phi1_max) &
-            (models_df["dt1_in"] >= dt1_min) &
-            (models_df["dt1_in"] <= dt1_max) &
-            (models_df["phi2_in"] >= phi2_min) &
-            (models_df["phi2_in"] <= phi2_max) &
-            (models_df["dt2_in"] >= dt2_min) &
-            (models_df["dt2_in"] <= dt2_max)
+            (models_df["phi1_in"] >= phi1_min)
+            & (models_df["phi1_in"] <= phi1_max)
+            & (models_df["dt1_in"] >= dt1_min)
+            & (models_df["dt1_in"] <= dt1_max)
+            & (models_df["phi2_in"] >= phi2_min)
+            & (models_df["phi2_in"] <= phi2_max)
+            & (models_df["dt2_in"] >= dt2_min)
+            & (models_df["dt2_in"] <= dt2_max)
         ]
     case "T1":
         models_df_select = models_df.loc[
-            (models_df["dip_in"] >= dip_min) &
-            (models_df["dip_in"] <= dip_max) &
-            (models_df["thick_in"] >= thick_min) &
-            (models_df["thick_in"] <= thick_max) &
-            (models_df["thick_in"] >= downdipdir_min) &
-            (models_df["thick_in"] <= downdipdir_max)
+            (models_df["dip_in"] >= dip_min)
+            & (models_df["dip_in"] <= dip_max)
+            & (models_df["thick_in"] >= thick_min)
+            & (models_df["thick_in"] <= thick_max)
+            & (models_df["thick_in"] >= downdipdir_min)
+            & (models_df["thick_in"] <= downdipdir_max)
         ]
 
 # -----------------------------------------------------------------------------
@@ -261,13 +258,11 @@ if N_select == 0:
     print("No models select!")
 
 
-
 # %%
 # -----------------------------------------------------------------------------
 # Make plots of anisotropy models
 # -----------------------------------------------------------------------------
 for i_model in range(model_start, model_end, model_step):
-
     model_out = models_df_select[models_df_select["i_select"] == i_model]
     i_total = int(model_out["i_total"].iloc[0])
 
@@ -382,12 +377,8 @@ for i_model in range(model_start, model_end, model_step):
             if null_2 < 0:
                 null_2 = 360 + null_2
             baz_nulls_2_cath = [null_1, null_2]
-            phi_a_nulls = [
-                phi_a[int(np.floor(null_1))], phi_a[int(np.floor(null_2))]
-            ]
-            dt_a_nulls_2 = [
-                dt_a[int(np.floor(null_1))], dt_a[int(np.floor(null_2))]
-            ]
+            phi_a_nulls = [phi_a[int(np.floor(null_1))], phi_a[int(np.floor(null_2))]]
+            dt_a_nulls_2 = [dt_a[int(np.floor(null_1))], dt_a[int(np.floor(null_2))]]
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
@@ -401,7 +392,7 @@ for i_model in range(model_start, model_end, model_step):
     x_hline = [-10, 360]
     proj_stereo = "X10c/4c"
     args_nulls_fill = {"y": [-90, -90, 90, 90, -90], "fill": "gray80@50"}
-    args_nulls_line = {"y":[-90, 90], "pen": "1p,gray30,2_4"}
+    args_nulls_line = {"y": [-90, 90], "pen": "1p,gray30,2_4"}
 
     match model_type:
         case "H1":
@@ -410,7 +401,10 @@ for i_model in range(model_start, model_end, model_step):
             baz_nulls_used = baz_nulls_cath
         case "T1":
             baz_nulls_used = [
-                baz_nulls[0], baz_nulls[1], baz_nulls_2_cath[0], baz_nulls_2_cath[1]
+                baz_nulls[0],
+                baz_nulls[1],
+                baz_nulls_2_cath[0],
+                baz_nulls_2_cath[1],
             ]
 
     # Top Left: fast polarization direction
@@ -427,8 +421,12 @@ for i_model in range(model_start, model_end, model_step):
         case "H1":
             fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_H1},dashed", no_clip=True)
         case "H2":
-            fig.plot(x=x_hline, y=[phi_1] * 2, pen=f"1p,{color_H2l},dashed", no_clip=True)
-            fig.plot(x=x_hline, y=[phi_2] * 2, pen=f"1p,{color_H2u},dashed", no_clip=True)
+            fig.plot(
+                x=x_hline, y=[phi_1] * 2, pen=f"1p,{color_H2l},dashed", no_clip=True
+            )
+            fig.plot(
+                x=x_hline, y=[phi_2] * 2, pen=f"1p,{color_H2u},dashed", no_clip=True
+            )
         case "T1":
             fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_T1},dashed", no_clip=True)
 
@@ -446,9 +444,7 @@ for i_model in range(model_start, model_end, model_step):
             ],
             **args_nulls_fill,
         )
-        fig.plot(
-            x=[baz_nulls_used[i_null], baz_nulls_used[i_null]], **args_nulls_line
-        )
+        fig.plot(x=[baz_nulls_used[i_null], baz_nulls_used[i_null]], **args_nulls_line)
 
     fig.shift_origin(yshift="-h-0.5c")
 
@@ -466,8 +462,12 @@ for i_model in range(model_start, model_end, model_step):
         case "H1":
             fig.plot(x=x_hline, y=[dt] * 2, pen=f"1p,{color_H1},dashed", no_clip=True)
         case "H2":
-            fig.plot(x=x_hline, y=[dt_1] * 2, pen=f"1p,{color_H2l},dashed", no_clip=True)
-            fig.plot(x=x_hline, y=[dt_2] * 2, pen=f"1p,{color_H2u},dashed", no_clip=True)
+            fig.plot(
+                x=x_hline, y=[dt_1] * 2, pen=f"1p,{color_H2l},dashed", no_clip=True
+            )
+            fig.plot(
+                x=x_hline, y=[dt_2] * 2, pen=f"1p,{color_H2u},dashed", no_clip=True
+            )
 
     fig.plot(x=baz, y=dt_a, pen="0.1p")
     fig.plot(x=baz, y=dt_a, style="c0.07c", fill=phi_a, cmap=True)
@@ -483,9 +483,7 @@ for i_model in range(model_start, model_end, model_step):
             ],
             **args_nulls_fill,
         )
-        fig.plot(
-            x=[baz_nulls_used[i_null], baz_nulls_used[i_null]], **args_nulls_line
-        )
+        fig.plot(x=[baz_nulls_used[i_null], baz_nulls_used[i_null]], **args_nulls_line)
 
     fig.shift_origin(xshift="+w+1.5c", yshift="4.5c")
 
