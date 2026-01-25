@@ -139,16 +139,25 @@ dt2_in = []
 dip_in = []
 thick_in = []
 downdipdir_in = []
+phi_gmt = []
+phi1_gmt = []
+phi2_gmt = []
+phi_t1 = []
 for i_model in range(N_total):
     match model_type:
         case "H1":
-            phi_in_temp = float(str(models_df_raw["phi_in"][i_model][0][0]))
-            dt_in_temp = float(str(models_df_raw["dt_in"][i_model][0][0]))
-            phi_in.append(phi_in_temp)
+            phi_in_temp = int(str(models_df_raw["phi_in"][i_model][0][0]))
+            dt_in_temp = int(str(models_df_raw["dt_in"][i_model][0][0]))
+            phi_in.append((phi_in_temp))
             dt_in.append(dt_in_temp)
+            if phi_in_temp > 0:
+                phi_gmt_temp = 90 - phi_in_temp
+            else:
+                phi_gmt_temp = 90 + (-phi_in_temp)
+            phi_gmt.append(phi_gmt_temp)
         case "H2":
-            phis_in = np.squeeze(models_df_raw["phis_in"][0])
-            dts_in = np.squeeze(models_df_raw["dts_in"][0])
+            phis_in = np.squeeze(models_df_raw["phis_in"][i_model])
+            dts_in = np.squeeze(models_df_raw["dts_in"][i_model])
             phi1_in_temp = phis_in[0]
             phi2_in_temp = phis_in[1]
             dt1_in_temp = dts_in[0]
@@ -157,27 +166,48 @@ for i_model in range(N_total):
             phi2_in.append(phi2_in_temp)
             dt1_in.append(dt1_in_temp)
             dt2_in.append(dt2_in_temp)
+            if phi1_in_temp > 0:
+                phi1_gmt_temp = 90 - phi1_in_temp
+            else:
+                phi1_gmt_temp = 90 + (-phi1_in_temp)
+            if phi2_in_temp > 0:
+                phi2_gmt_temp = 90 - phi2_in_temp
+            else:
+                phi2_gmt_temp = 90 + (-phi2_in_temp)
+            phi1_gmt.append(phi1_gmt_temp)
+            phi2_gmt.append(phi2_gmt_temp)
         case "T1":
-            dip_in_temp = float(str(models_df_raw["dip_in"][i_model][0][0]))
-            thick_in_temp = float(str(models_df_raw["thick_in"][i_model][0][0]))
-            downdipdir_in_temp = float(str(models_df_raw["downdipdir_in"][i_model][0][0]))
+            dip_in_temp = int(str(models_df_raw["dip_in"][i_model][0][0]))
+            thick_in_temp = int(str(models_df_raw["thick_in"][i_model][0][0]))
+            downdipdir_in_temp = int(str(models_df_raw["downdipdir_in"][i_model][0][0]))
             dip_in.append(dip_in_temp)
             thick_in.append(thick_in_temp)
             downdipdir_in.append(downdipdir_in_temp)
+            if downdipdir_in_temp <= 90:
+                phi_t1_temp = downdipdir_in_temp
+            elif downdipdir_in_temp > 90 and downdipdir_in_temp <= 270:
+                phi_t1_temp = downdipdir_in_temp - 180
+            elif downdipdir_in_temp > 270:
+                phi_t1_temp = -(360 - downdipdir_in_temp)
+            phi_t1.append(phi_t1_temp)
 
 match model_type:
     case "H1":
         models_df["phi_in"] = phi_in
         models_df["dt_in"] = dt_in
+        models_df["phi_gmt"] = phi_gmt_temp
     case "H2":
         models_df["phi1_in"] = phi1_in
         models_df["phi2_in"] = phi2_in
         models_df["dt1_in"] = dt1_in
         models_df["dt2_in"] = dt2_in
+        models_df["phi1_gmt"] = phi1_gmt
+        models_df["phi2_gmt"] = phi2_gmt
     case "T1":
         models_df["dip_in"] = dip_in
         models_df["thick_in"] = thick_in
         models_df["downdipdir_in"] = downdipdir_in
+        models_df["phi_t1"] = phi_t1
 
 # -----------------------------------------------------------------------------
 # Only plot models with model parameters in the selected ranges
@@ -236,19 +266,18 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
     model_out = models_df_select[models_df_select["i_select"] == i_model]
 
+    # Apparent splitting parameters
     phi_a = np.squeeze(model_out["phi_eff"])[0]
     dt_a = np.squeeze(model_out["dt_eff"])[0]
 
     match model_type:
         case "H1":
+            # model parameters
             phi = model_out["phi_in"][i_model]
             dt = model_out["dt_in"][i_model]
-            if phi > 0:
-                phi_gmt = 90 - phi
-            else:
-                phi_gmt = 90 + (-phi)
+            phi_gmt = model_out["phi_gmt"][i_model]
 
-            # nulls in steps of 90°
+            # nulls (occur in steps of 90 deg)
             baz_nulls_neg = np.array([phi, phi + 90, phi + 180, phi + 270])
             baz_nulls = []
             for baz_null in baz_nulls_neg:
@@ -257,23 +286,15 @@ for i_model in range(model_start, model_end + model_step, model_step):
                     baz_null_pos = 360 + baz_null  # -90 to 90
                 baz_nulls.append(baz_null_pos)
         case "H2":
+            # model parameters
             phi_1 = model_out["phi1_in"][i_model]
             phi_2 = model_out["phi2_in"][i_model]
             dt_1 = model_out["dt1_in"][i_model]
             dt_2 = model_out["dt2_in"][i_model]
-            if phi_1 > 0:
-                phi_1_gmt = 90 - phi_1
-            else:
-                phi_1_gmt = 90 + (-phi_1)
-            if phi_2 > 0:
-                phi_2_gmt = 90 - phi_2
-            else:
-                phi_2_gmt = 90 + (-phi_2)
+            phi_1_gmt = model_out["phi1_gmt"][i_model]
+            phi_2_gmt = model_out["phi2_gmt"][i_model]
 
-            # nulls
-            # diff_phi_null = abs(phi_a[1:359] - phi_a[0:358])
-            # diff_phi_max_null = np.floor(max(abs(phi_a[1:359] - phi_a[0:358])))
-            # ind_diff_phi_max_null = np.argmax(diff_phi_null)
+            # nulls (occur in steps of 90 deg)
             ind_diff_phi_max_null = np.argmax(dt_a)
             phi_a_null = phi_a[ind_diff_phi_max_null]
             dt_a_null = dt_a[ind_diff_phi_max_null]
@@ -297,19 +318,16 @@ for i_model in range(model_start, model_end + model_step, model_step):
             dt_nulls_cath = [dt_a_null] * len(baz_nulls_cath)
 
         case "T1":
+            # model parameters
             downdipdir = model_out["downdipdir_in"][i_model]
             dip = model_out["dip_in"][i_model]
             thick = model_out["thick_in"][i_model]
+            phi = model_out["phi_t1"][i_model]
             downdipdir_gmt = 90 - downdipdir
             strike_gmt = downdipdir_gmt + 90
-            if downdipdir <= 90:
-                phi = downdipdir
-            elif downdipdir > 90 and downdipdir <= 270:
-                phi = downdipdir - 180
-            elif downdipdir > 270:
-                phi = -(360 - downdipdir)
 
-            # nulls in the down-dip direction
+            # nulls (occur NOT in steps of 90 deg)
+            # in the down-dip direction
             baz_nulls_neg = np.array([downdipdir, downdipdir + 180])
             baz_nulls = []
             for baz_null in baz_nulls_neg:
@@ -321,7 +339,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 dt_a[int(np.floor(baz_nulls[0]))],
                 dt_a[int(np.floor(baz_nulls[1]))],
             ]
-            # nulls for with down-dip direction orthogonal to backazimuth
+            # for down-dip direction orthogonal to backazimuth
             if downdipdir < 90:
                 null_1_ortho = phi_a + 90
                 null_1 = min(null_1_ortho)
@@ -377,6 +395,8 @@ for i_model in range(model_start, model_end + model_step, model_step):
 # .............................................................................
     x_hline = [-10, 360]
     proj_stereo = "X10c/4c"
+    args_nulls_fill = {"y": [-90, -90, 90, 90, -90], "fill": "gray80@50"}
+    args_nulls_line = {"y":[-90, 90], "pen": "1p,gray30,2_4"}
 
     # Top Left: fast polarization direction
     label_phi = "app. fast pol. dir. @~f@~@-a@- / N°E"
@@ -387,6 +407,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         projection=proj_stereo,
         frame=["WSne", "xf10g30", f"ya30f10g30+l{label_phi}"],
     )
+
     match model_type:
         case "H1":
             fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_H1},dashed", no_clip=True)
@@ -395,11 +416,12 @@ for i_model in range(model_start, model_end + model_step, model_step):
             fig.plot(x=x_hline, y=[phi_2] * 2, pen=f"1p,{color_H2u},dashed", no_clip=True)
         case "T1":
             fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_T1},dashed", no_clip=True)
+
     fig.plot(x=baz, y=phi_a, pen="0.1p")
     fig.plot(x=baz, y=phi_a, style="c0.07c", fill=phi_a, cmap=True)
+
     match model_type:
         case "H1":
-            # fig.plot(x=baz_nulls, y=[phi] * 4, no_clip=True, **args_nulls)
             for i_null in range(4):
                 fig.plot(
                     x=[
@@ -409,16 +431,10 @@ for i_model in range(model_start, model_end + model_step, model_step):
                         baz_nulls[i_null] - baz_null_add,
                         baz_nulls[i_null] - baz_null_add,
                     ],
-                    y=[-90, -90, 90, 90, -90],
-                    fill="gray80@50",
+                    **args_nulls_fill,
                 )
-                fig.plot(
-                    x=[baz_nulls[i_null], baz_nulls[i_null]],
-                    y=[-90, 90],
-                    pen="1p,gray30,2_4",
-                )
+                fig.plot(x=[baz_nulls[i_null], baz_nulls[i_null]], **args_nulls_line)
         case "H2":
-            # fig.plot(x=baz_nulls_cath, y=phi_nulls_cath, no_clip=True, **args_nulls)
             for i_null in range(4):
                 fig.plot(
                     x=[
@@ -428,17 +444,13 @@ for i_model in range(model_start, model_end + model_step, model_step):
                         baz_nulls_cath[i_null] - baz_null_add,
                         baz_nulls_cath[i_null] - baz_null_add,
                     ],
-                    y=[-90, -90, 90, 90, -90],
-                    fill="gray80@50",
+                    **args_nulls_fill,
                 )
                 fig.plot(
                     x=[baz_nulls_cath[i_null], baz_nulls_cath[i_null]],
-                    y=[-90, 90],
-                    pen="1p,gray30,2_4",
+                    **args_nulls_line,
                 )
         case "T1":
-            # fig.plot(x=baz_nulls, y=[phi] * 2, no_clip=True, **args_nulls)
-            # fig.plot(x=baz_nulls_2_cath, y=phi_a_nulls, no_clip=True, **args_nulls)
             for i_null in range(2):
                 fig.plot(
                     x=[
@@ -448,14 +460,9 @@ for i_model in range(model_start, model_end + model_step, model_step):
                         baz_nulls[i_null] - baz_null_add,
                         baz_nulls[i_null] - baz_null_add,
                     ],
-                    y=[-90, -90, 90, 90, -90],
-                    fill="gray80@50",
+                    **args_nulls_fill,
                 )
-                fig.plot(
-                    x=[baz_nulls[i_null], baz_nulls[i_null]],
-                    y=[-90, 90],
-                    pen="1p,gray30,2_4",
-                )
+                fig.plot(x=[baz_nulls[i_null], baz_nulls[i_null]], **args_nulls_line)
             for i_null in range(2):
                 fig.plot(
                     x=[
@@ -465,13 +472,11 @@ for i_model in range(model_start, model_end + model_step, model_step):
                         baz_nulls_2_cath[i_null] - baz_null_add,
                         baz_nulls_2_cath[i_null] - baz_null_add,
                     ],
-                    y=[-90, -90, 90, 90, -90],
-                    fill="gray80@50",
+                    **args_nulls_fill,
                 )
                 fig.plot(
                     x=[baz_nulls_2_cath[i_null], baz_nulls_2_cath[i_null]],
-                    y=[-90, 90],
-                    pen="1p,gray30,2_4",
+                    **args_nulls_line,
                 )
 
     fig.shift_origin(yshift="-h-0.5c")
@@ -489,17 +494,19 @@ for i_model in range(model_start, model_end + model_step, model_step):
             f"ya1f0.25g0.5+l{label_dt}",
         ],
     )
+
     match model_type:
         case "H1":
             fig.plot(x=x_hline, y=[dt] * 2, pen=f"1p,{color_H1},dashed", no_clip=True)
         case "H2":
             fig.plot(x=x_hline, y=[dt_1] * 2, pen=f"1p,{color_H2l},dashed", no_clip=True)
             fig.plot(x=x_hline, y=[dt_2] * 2, pen=f"1p,{color_H2u},dashed", no_clip=True)
+
     fig.plot(x=baz, y=dt_a, pen="0.1p")
     fig.plot(x=baz, y=dt_a, style="c0.07c", fill=phi_a, cmap=True)
+
     match model_type:
         case "H1":
-            # fig.plot(x=baz_nulls, y=[dt] * 4, style="c0.15c", fill="white", pen="0.7p")
             for i_null in range(4):
                 fig.plot(
                     x=[
@@ -509,16 +516,10 @@ for i_model in range(model_start, model_end + model_step, model_step):
                         baz_nulls[i_null] - baz_null_add,
                         baz_nulls[i_null] - baz_null_add,
                     ],
-                    y=[-90, -90, 90, 90, -90],
-                    fill="gray80@50",
+                    **args_nulls_fill,
                 )
-                fig.plot(
-                    x=[baz_nulls[i_null], baz_nulls[i_null]],
-                    y=[-90, 90],
-                    pen="1p,gray30,2_4",
-                )
+                fig.plot(x=[baz_nulls[i_null], baz_nulls[i_null]], **args_nulls_line)
         case "H2":
-            # fig.plot(x=baz_nulls, y=dt_nulls, style="c0.15c", fill="white", pen="0.7p")
             for i_null in range(4):
                 fig.plot(
                     x=[
@@ -528,17 +529,13 @@ for i_model in range(model_start, model_end + model_step, model_step):
                         baz_nulls_cath[i_null] - baz_null_add,
                         baz_nulls_cath[i_null] - baz_null_add,
                     ],
-                    y=[-90, -90, 90, 90, -90],
-                    fill="gray80@50",
+                    **args_nulls_fill,
                 )
                 fig.plot(
                     x=[baz_nulls_cath[i_null], baz_nulls_cath[i_null]],
-                    y=[-90, 90],
-                    pen="1p,gray30,2_4",
+                    **args_nulls_line,
                 )
         case "T1":
-            # fig.plot(x=baz_nulls, y=dt_a_nulls_1, style="c0.15c", fill="white", pen="0.7p")
-            # fig.plot(x=baz_nulls_2_cath, y=dt_a_nulls_2, style="c0.15c", fill="white", pen="0.7p")
             for i_null in range(2):
                 fig.plot(
                     x=[
@@ -548,13 +545,10 @@ for i_model in range(model_start, model_end + model_step, model_step):
                         baz_nulls[i_null] - baz_null_add,
                         baz_nulls[i_null] - baz_null_add,
                     ],
-                    y=[-90, -90, 90, 90, -90],
-                    fill="gray80@50",
+                    **args_nulls_fill,
                 )
                 fig.plot(
-                    x=[baz_nulls[i_null], baz_nulls[i_null]],
-                    y=[-90, 90],
-                    pen="1p,gray30,2_4",
+                    x=[baz_nulls[i_null], baz_nulls[i_null]], **args_nulls_line
                 )
             for i_null in range(2):
                 fig.plot(
@@ -565,13 +559,11 @@ for i_model in range(model_start, model_end + model_step, model_step):
                         baz_nulls_2_cath[i_null] - baz_null_add,
                         baz_nulls_2_cath[i_null] - baz_null_add,
                     ],
-                    y=[-90, -90, 90, 90, -90],
-                    fill="gray80@50",
+                    **args_nulls_fill,
                 )
                 fig.plot(
                     x=[baz_nulls_2_cath[i_null], baz_nulls_2_cath[i_null]],
-                    y=[-90, 90],
-                    pen="1p,gray30,2_4",
+                    **args_nulls_line,
                 )
 
     fig.shift_origin(xshift="+w+1.5c", yshift="4.5c")
@@ -621,8 +613,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         case "T1":
             bar_T1 = f"j{strike_gmt}/1/0.1"
             vec_T1_ddd = ([downdipdir_gmt], [1])  # Input for vector must be a list
-            vec_T1_dip = ([-float(dip)], [1.5])
-            # label_T1 = f"{downdipdir} N°E | {dip} ° | {thick} km"
+            vec_T1_dip = ([-dip], [1.5])
             label_T1 = f"{dip} ° | {downdipdir} N°E | {thick} km"
 
             fig.plot(
@@ -685,7 +676,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
         # Mark theoretical null directions
         case "H1":
             fig.plot(x=baz_nulls, y=[rho] * 4, no_clip=True, **args_nulls)
-        # TODO case "H2":
+        # Mark theoretical null directions
         case "H2":
             fig.plot(x=baz_nulls, y=[rho] * 7, no_clip=True, **args_nulls)
         # Arrow showing strike / down dip direction
