@@ -391,6 +391,7 @@ for i_model in range(model_start, model_end, model_step):
 # .............................................................................
     x_hline = [-10, 360]
     proj_stereo = "X10c/4c"
+    args_mp_line = {"x": x_hline, "no_clip": True}
     args_nulls_fill = {"y": [-90, -90, 90, 90, -90], "fill": "gray80@50"}
     args_nulls_line = {"y": [-90, 90], "pen": "1p,gray30,2_4"}
 
@@ -419,16 +420,12 @@ for i_model in range(model_start, model_end, model_step):
 
     match model_type:
         case "H1":
-            fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_H1},dashed", no_clip=True)
+            fig.plot(y=[phi] * 2, pen=f"1p,{color_H1},dashed", **args_mp_line)
         case "H2":
-            fig.plot(
-                x=x_hline, y=[phi_1] * 2, pen=f"1p,{color_H2l},dashed", no_clip=True
-            )
-            fig.plot(
-                x=x_hline, y=[phi_2] * 2, pen=f"1p,{color_H2u},dashed", no_clip=True
-            )
+            fig.plot(y=[phi_1] * 2, pen=f"1p,{color_H2l},dashed", **args_mp_line)
+            fig.plot(y=[phi_2] * 2, pen=f"1p,{color_H2u},dashed", **args_mp_line)
         case "T1":
-            fig.plot(x=x_hline, y=[phi] * 2, pen=f"1p,{color_T1},dashed", no_clip=True)
+            fig.plot(y=[phi] * 2, pen=f"1p,{color_T1},dashed", **args_mp_line)
 
     fig.plot(x=baz, y=phi_a, pen="0.1p")
     fig.plot(x=baz, y=phi_a, style="c0.07c", fill=phi_a, cmap=True)
@@ -460,14 +457,10 @@ for i_model in range(model_start, model_end, model_step):
 
     match model_type:
         case "H1":
-            fig.plot(x=x_hline, y=[dt] * 2, pen=f"1p,{color_H1},dashed", no_clip=True)
+            fig.plot(y=[dt] * 2, pen=f"1p,{color_H1},dashed", **args_mp_line)
         case "H2":
-            fig.plot(
-                x=x_hline, y=[dt_1] * 2, pen=f"1p,{color_H2l},dashed", no_clip=True
-            )
-            fig.plot(
-                x=x_hline, y=[dt_2] * 2, pen=f"1p,{color_H2u},dashed", no_clip=True
-            )
+            fig.plot(y=[dt_1] * 2, pen=f"1p,{color_H2l},dashed", **args_mp_line)
+            fig.plot(y=[dt_2] * 2, pen=f"1p,{color_H2u},dashed", **args_mp_line)
 
     fig.plot(x=baz, y=dt_a, pen="0.1p")
     fig.plot(x=baz, y=dt_a, style="c0.07c", fill=phi_a, cmap=True)
