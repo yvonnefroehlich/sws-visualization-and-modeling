@@ -14,7 +14,8 @@
 # - Continued: 2025/01/07
 # - Continued: 2025/04/06-08
 # - Continued: 2025/01/23 - Use PyGMT v0.18.0 with GMT 6.6.0
-# - Continued: 2025/01/24 - Allow setting ranges for model parameters
+# - Continued: 2026/01/24 - Allow setting ranges for model parameters
+# - Updated: 2026/01/25 - Improve data preperation, used pandas DataFrame
 # -----------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
@@ -47,16 +48,19 @@
 
 
 import numpy as np
+import pandas as pd
 import pygmt
 from pygmt.params import Position
 from scipy import io
+import time
+
 
 # %%
 # -----------------------------------------------------------------------------
 # Adjust for your needs
 # -----------------------------------------------------------------------------
 dom_per = 8  ## 6, 8, 10  # in seconds
-model_type = "H2"  ## H1, H2, T1
+model_type = "H1"  ## H1, H2, T1
 
 status_cb = True  ## True, False
 status_per = False  ## True, False
@@ -89,19 +93,6 @@ thick_max = 400
 downdipdir_min = 0
 downdipdir_max = 360
 
-# -----------------------------------------------------------------------------
-print(f"Dominant period {dom_per} s - Model type {model_type}")
-models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
-models_mat = io.loadmat(f"{path_in}/{models}")
-N_models = len(models_mat["model_out"][0])
-print(f"Data loaded - {N_models} models!\nStarting with making plots!")
-
-model_start = 0
-model_end = N_models
-model_step = 1
-
-baz_step = 1
-baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
 
 
 # %%
@@ -124,28 +115,140 @@ dt_ys = np.arange(0, 4 + 0.1, 0.2)
 baz_null_add = 5
 
 
+
+# %%
+# -----------------------------------------------------------------------------
+# Prepare data
+# -----------------------------------------------------------------------------
+print(f"Dominant period {dom_per} s - Model type {model_type}")
+models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
+models_mat = io.loadmat(f"{path_in}/{models}")
+models_dict = models_mat["model_out"][0]
+models_df_raw = pd.DataFrame(models_dict)
+N_total = len(models_df_raw)
+models_df_raw["i_total"] = np.arange(N_total)
+
+# -----------------------------------------------------------------------------
+models_df = models_df_raw
+phi_in = []
+dt_in = []
+phi1_in = []
+phi2_in = []
+dt1_in = []
+dt2_in = []
+dip_in = []
+thick_in = []
+downdipdir_in = []
+for i_model in range(N_total):
+    match model_type:
+        case "H1":
+            phi_in_temp = float(str(models_df_raw["phi_in"][i_model][0][0]))
+            dt_in_temp = float(str(models_df_raw["dt_in"][i_model][0][0]))
+            phi_in.append(phi_in_temp)
+            dt_in.append(dt_in_temp)
+        case "H2":
+            phis_in = np.squeeze(models_df_raw["phis_in"][0])
+            dts_in = np.squeeze(models_df_raw["dts_in"][0])
+            phi1_in_temp = phis_in[0]
+            phi2_in_temp = phis_in[1]
+            dt1_in_temp = dts_in[0]
+            dt2_in_temp = dts_in[1]
+            phi1_in.append(phi1_in_temp)
+            phi2_in.append(phi2_in_temp)
+            dt1_in.append(dt1_in_temp)
+            dt2_in.append(dt2_in_temp)
+        case "T1":
+            dip_in_temp = float(str(models_df_raw["dip_in"][i_model][0][0]))
+            thick_in_temp = float(str(models_df_raw["thick_in"][i_model][0][0]))
+            downdipdir_in_temp = float(str(models_df_raw["downdipdir_in"][i_model][0][0]))
+            dip_in.append(dip_in_temp)
+            thick_in.append(thick_in_temp)
+            downdipdir_in.append(downdipdir_in_temp)
+
+match model_type:
+    case "H1":
+        models_df["phi_in"] = phi_in
+        models_df["dt_in"] = dt_in
+    case "H2":
+        models_df["phi1_in"] = phi1_in
+        models_df["phi2_in"] = phi2_in
+        models_df["dt1_in"] = dt1_in
+        models_df["dt2_in"] = dt2_in
+    case "T1":
+        models_df["dip_in"] = dip_in
+        models_df["thick_in"] = thick_in
+        models_df["downdipdir_in"] = downdipdir_in
+
+# -----------------------------------------------------------------------------
+# Only plot models with model parameters in the selected ranges
+match model_type:
+    case "H1":
+        models_df_select = models_df.loc[
+            (models_df["phi_in"] >= phi_min) &
+            (models_df["phi_in"] <= phi_max) &
+            (models_df["dt_in"] >= dt_min) &
+            (models_df["dt_in"] <= dt_max)
+        ]
+    case "H2":
+        models_df_select = models_df.loc[
+            (models_df["phi1_in"] >= phi1_min) &
+            (models_df["phi1_in"] <= phi1_max) &
+            (models_df["dt1_in"] >= dt1_min) &
+            (models_df["dt1_in"] <= dt1_max) &
+            (models_df["phi2_in"] >= phi2_min) &
+            (models_df["phi2_in"] <= phi2_max) &
+            (models_df["dt2_in"] >= dt2_min) &
+            (models_df["dt2_in"] <= dt2_max)
+        ]
+    case "T1":
+        models_df_select = models_df.loc[
+            (models_df["dip_in"] >= dip_min) &
+            (models_df["dip_in"] <= dip_max) &
+            (models_df["thick_in"] >= thick_min) &
+            (models_df["thick_in"] <= thick_max) &
+            (models_df["thick_in"] >= downdipdir_min) &
+            (models_df["thick_in"] <= downdipdir_max)
+        ]
+
+# -----------------------------------------------------------------------------
+N_select = len(models_df_select)
+models_df_select["i_select"] = np.arange(N_select)
+
+print(f"Data loaded: in total {N_total} models, selected {N_select} models.")
+
+model_start = 0
+model_end = N_select
+model_step = 1
+
+baz_step = 1
+baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
+
+
+
 # %%
 # -----------------------------------------------------------------------------
 # Make plots of anisotropy models
 # -----------------------------------------------------------------------------
 for i_model in range(model_start, model_end + model_step, model_step):
-    model_out = models_mat["model_out"][0][i_model]
 
-    phi_a = np.squeeze(model_out[0])
-    dt_a = np.squeeze(model_out[1])
+    # Save timestamp
+    start = time.time()
 
-    # Prepare values for plotting
+    model_out = models_df_select[models_df_select["i_select"] == i_model]
+
+    phi_a = np.squeeze(model_out["phi_eff"])[0]
+    dt_a = np.squeeze(model_out["dt_eff"])[0]
+
     match model_type:
         case "H1":
-            phi = str(model_out[2][0])[1:-1]
-            dt = str(model_out[3][0])[1:-1]
-            if float(phi) > 0:
-                phi_gmt = 90 - float(phi)
+            phi = model_out["phi_in"][i_model]
+            dt = model_out["dt_in"][i_model]
+            if phi > 0:
+                phi_gmt = 90 - phi
             else:
-                phi_gmt = 90 + (-float(phi))
+                phi_gmt = 90 + (-phi)
 
             # nulls in steps of 90°
-            phi = int(phi)
             baz_nulls_neg = np.array([phi, phi + 90, phi + 180, phi + 270])
             baz_nulls = []
             for baz_null in baz_nulls_neg:
@@ -154,18 +257,18 @@ for i_model in range(model_start, model_end + model_step, model_step):
                     baz_null_pos = 360 + baz_null  # -90 to 90
                 baz_nulls.append(baz_null_pos)
         case "H2":
-            phi_1 = str(model_out[2][0])[1:-1]
-            phi_2 = str(model_out[2][1])[1:-1]
-            dt_1 = str(model_out[3][0])[1:-1]
-            dt_2 = str(model_out[3][1])[1:-1]
-            if float(phi_1) > 0:
-                phi_1_gmt = 90 - float(phi_1)
+            phi_1 = model_out["phi1_in"][i_model]
+            phi_2 = model_out["phi2_in"][i_model]
+            dt_1 = model_out["dt1_in"][i_model]
+            dt_2 = model_out["dt2_in"][i_model]
+            if phi_1 > 0:
+                phi_1_gmt = 90 - phi_1
             else:
-                phi_1_gmt = 90 + (-float(phi_1))
-            if float(phi_2) > 0:
-                phi_2_gmt = 90 - float(phi_2)
+                phi_1_gmt = 90 + (-phi_1)
+            if phi_2 > 0:
+                phi_2_gmt = 90 - phi_2
             else:
-                phi_2_gmt = 90 + (-float(phi_2))
+                phi_2_gmt = 90 + (-phi_2)
 
             # nulls
             # diff_phi_null = abs(phi_a[1:359] - phi_a[0:358])
@@ -194,18 +297,17 @@ for i_model in range(model_start, model_end + model_step, model_step):
             dt_nulls_cath = [dt_a_null] * len(baz_nulls_cath)
 
         case "T1":
-            downdipdir = str(model_out[2][0])[1:-1]
-            dip = str(model_out[3][0])[1:-1]
-            thick = str(model_out[4][0])[1:-1]
-            downdipdir_gmt = 90 - float(downdipdir)
+            downdipdir = model_out["downdipdir_in"][i_model]
+            dip = model_out["dip_in"][i_model]
+            thick = model_out["thick_in"][i_model]
+            downdipdir_gmt = 90 - downdipdir
             strike_gmt = downdipdir_gmt + 90
-            if float(downdipdir) <= 90:
-                phi = float(downdipdir)
-            elif float(downdipdir) > 90 and float(downdipdir) <= 270:
-                phi = float(downdipdir) - 180
-            elif float(downdipdir) > 270:
-                phi = -(360 - float(downdipdir))
-            downdipdir = int(downdipdir)
+            if downdipdir <= 90:
+                phi = downdipdir
+            elif downdipdir > 90 and downdipdir <= 270:
+                phi = downdipdir - 180
+            elif downdipdir > 270:
+                phi = -(360 - downdipdir)
 
             # nulls in the down-dip direction
             baz_nulls_neg = np.array([downdipdir, downdipdir + 180])
@@ -213,7 +315,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
             for baz_null in baz_nulls_neg:
                 baz_null_pos = baz_null
                 if baz_null > 360:
-                    baz_null_pos = baz_null - 360  # 0-360 deg
+                    baz_null_pos = baz_null - 360  # 0 to 360
                 baz_nulls.append(baz_null_pos)
             dt_a_nulls_1 = [
                 dt_a[int(np.floor(baz_nulls[0]))],
@@ -257,44 +359,12 @@ for i_model in range(model_start, model_end + model_step, model_step):
             if null_2 < 0:
                 null_2 = 360 + null_2
             baz_nulls_2_cath = [null_1, null_2]
-            phi_a_nulls = [phi_a[int(np.floor(null_1))], phi_a[int(np.floor(null_2))]]
-            dt_a_nulls_2 = [dt_a[int(np.floor(null_1))], dt_a[int(np.floor(null_2))]]
-
-    # Only plot models with model parameters in the selected ranges
-    match model_type:
-        case "H1":
-            if (
-                phi_min > float(phi)
-                or phi_max < float(phi)
-                or dt_min > float(dt)
-                or dt_max < float(dt)
-            ):
-                print("Model parameters out of desired range.")
-                continue
-        case "H2":
-            if (
-                phi1_min > float(phi_1)
-                or phi1_max < float(phi_1)
-                or phi2_min > float(phi_2)
-                or phi2_max < float(phi_2)
-                or dt1_min > float(dt_1)
-                or dt1_max < float(dt_1)
-                or dt2_min > float(dt_2)
-                or dt2_max < float(dt_2)
-            ):
-                print("Model parameters out of desired range.")
-                continue
-        case "T1":
-            if (
-                dip_min > float(dip)
-                or dip_max < float(dip)
-                or thick_min > float(thick)
-                or thick_max < float(thick)
-                or downdipdir_min > float(downdipdir)
-                or downdipdir_max < float(downdipdir)
-            ):
-                print("Model parameters out of desired range.")
-                continue
+            phi_a_nulls = [
+                phi_a[int(np.floor(null_1))], phi_a[int(np.floor(null_2))]
+            ]
+            dt_a_nulls_2 = [
+                dt_a[int(np.floor(null_1))], dt_a[int(np.floor(null_2))]
+            ]
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
@@ -676,12 +746,12 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig_name_mt = ""
     match model_type:
         case "H1":
-            fig_name_mt = f"phi{phi}deg_dt{dt}s"
+            fig_name_mt = f"phi{int(phi)}deg_dt{int(dt)}s"
         case "H2":
-            fig_name_mt = f"phil{phi_1}deg_phiu{phi_2}deg_dtl{dt_1}s_dtu{dt_2}s"
-            # fig_name_mt = f"phi{phi_1}deg_phi{phi_2}deg_dt{dt_1}s_dt{dt_2}s"
+            fig_name_mt = f"phil{int(phi_1)}deg_phiu{int(phi_2)}deg_dtl{int(dt_1)}s_dtu{int(dt_2)}s"
+            # fig_name_mt = f"phi{int(phi_1)}deg_phi{int(phi_2)}deg_dt{int(dt_1)}s_dt{int(dt_2)}s"
         case "T1":
-            fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
+            fig_name_mt = f"thick{int(thick)}km_dip{int(dip)}deg_ddd{int(downdipdir)}deg"
 
     for ext in ["png", "pdf", "eps"]:
         fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
@@ -690,4 +760,8 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 f"{i_model}_{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
             )
         # fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
-    print(f"{i_model}_{fig_name}")
+
+    # Save timestamp
+    end = time.time()
+
+    print(f"{i_model}_{fig_name}  |  {end - start}")
