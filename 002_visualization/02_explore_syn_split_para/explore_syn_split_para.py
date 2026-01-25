@@ -211,7 +211,7 @@ match model_type:
         models_df["phi_t1"] = phi_t1
 
 # -----------------------------------------------------------------------------
-# Only plot models with model parameters in the selected ranges
+# Select models with model parameters in the selected ranges
 match model_type:
     case "H1":
         models_df_select = models_df.loc[
@@ -399,6 +399,16 @@ for i_model in range(model_start, model_end + model_step, model_step):
     args_nulls_fill = {"y": [-90, -90, 90, 90, -90], "fill": "gray80@50"}
     args_nulls_line = {"y":[-90, 90], "pen": "1p,gray30,2_4"}
 
+    match model_type:
+        case "H1":
+            baz_nulls_used = baz_nulls
+        case "H2":
+            baz_nulls_used = baz_nulls_cath
+        case "T1":
+            baz_nulls_used = [
+                baz_nulls[0], baz_nulls[1], baz_nulls_2_cath[0], baz_nulls_2_cath[1]
+            ]
+
     # Top Left: fast polarization direction
     label_phi = "app. fast pol. dir. @~f@~@-a@- / N°E"
     if model_type == "H1":
@@ -421,64 +431,20 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig.plot(x=baz, y=phi_a, pen="0.1p")
     fig.plot(x=baz, y=phi_a, style="c0.07c", fill=phi_a, cmap=True)
 
-    match model_type:
-        case "H1":
-            for i_null in range(4):
-                fig.plot(
-                    x=[
-                        baz_nulls[i_null] - baz_null_add,
-                        baz_nulls[i_null] + baz_null_add,
-                        baz_nulls[i_null] + baz_null_add,
-                        baz_nulls[i_null] - baz_null_add,
-                        baz_nulls[i_null] - baz_null_add,
-                    ],
-                    **args_nulls_fill,
-                )
-                fig.plot(x=[baz_nulls[i_null], baz_nulls[i_null]], **args_nulls_line)
-        case "H2":
-            for i_null in range(4):
-                fig.plot(
-                    x=[
-                        baz_nulls_cath[i_null] - baz_null_add,
-                        baz_nulls_cath[i_null] + baz_null_add,
-                        baz_nulls_cath[i_null] + baz_null_add,
-                        baz_nulls_cath[i_null] - baz_null_add,
-                        baz_nulls_cath[i_null] - baz_null_add,
-                    ],
-                    **args_nulls_fill,
-                )
-                fig.plot(
-                    x=[baz_nulls_cath[i_null], baz_nulls_cath[i_null]],
-                    **args_nulls_line,
-                )
-        case "T1":
-            for i_null in range(2):
-                fig.plot(
-                    x=[
-                        baz_nulls[i_null] - baz_null_add,
-                        baz_nulls[i_null] + baz_null_add,
-                        baz_nulls[i_null] + baz_null_add,
-                        baz_nulls[i_null] - baz_null_add,
-                        baz_nulls[i_null] - baz_null_add,
-                    ],
-                    **args_nulls_fill,
-                )
-                fig.plot(x=[baz_nulls[i_null], baz_nulls[i_null]], **args_nulls_line)
-            for i_null in range(2):
-                fig.plot(
-                    x=[
-                        baz_nulls_2_cath[i_null] - baz_null_add,
-                        baz_nulls_2_cath[i_null] + baz_null_add,
-                        baz_nulls_2_cath[i_null] + baz_null_add,
-                        baz_nulls_2_cath[i_null] - baz_null_add,
-                        baz_nulls_2_cath[i_null] - baz_null_add,
-                    ],
-                    **args_nulls_fill,
-                )
-                fig.plot(
-                    x=[baz_nulls_2_cath[i_null], baz_nulls_2_cath[i_null]],
-                    **args_nulls_line,
-                )
+    for i_null in range(len(baz_nulls_used)):
+        fig.plot(
+            x=[
+                baz_nulls_used[i_null] - baz_null_add,
+                baz_nulls_used[i_null] + baz_null_add,
+                baz_nulls_used[i_null] + baz_null_add,
+                baz_nulls_used[i_null] - baz_null_add,
+                baz_nulls_used[i_null] - baz_null_add,
+            ],
+            **args_nulls_fill,
+        )
+        fig.plot(
+            x=[baz_nulls_used[i_null], baz_nulls_used[i_null]], **args_nulls_line
+        )
 
     fig.shift_origin(yshift="-h-0.5c")
 
@@ -489,11 +455,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig.basemap(
         region=[0, 360, 0, 4],
         projection=proj_stereo,
-        frame=[
-            "WSne",
-            "xa30f10g30+lbackazimuth / °",
-            f"ya1f0.25g0.5+l{label_dt}",
-        ],
+        frame=["WSne", "xa30f10g30+lbackazimuth / °", f"ya1f0.25g0.5+l{label_dt}"],
     )
 
     match model_type:
@@ -506,66 +468,20 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig.plot(x=baz, y=dt_a, pen="0.1p")
     fig.plot(x=baz, y=dt_a, style="c0.07c", fill=phi_a, cmap=True)
 
-    match model_type:
-        case "H1":
-            for i_null in range(4):
-                fig.plot(
-                    x=[
-                        baz_nulls[i_null] - baz_null_add,
-                        baz_nulls[i_null] + baz_null_add,
-                        baz_nulls[i_null] + baz_null_add,
-                        baz_nulls[i_null] - baz_null_add,
-                        baz_nulls[i_null] - baz_null_add,
-                    ],
-                    **args_nulls_fill,
-                )
-                fig.plot(x=[baz_nulls[i_null], baz_nulls[i_null]], **args_nulls_line)
-        case "H2":
-            for i_null in range(4):
-                fig.plot(
-                    x=[
-                        baz_nulls_cath[i_null] - baz_null_add,
-                        baz_nulls_cath[i_null] + baz_null_add,
-                        baz_nulls_cath[i_null] + baz_null_add,
-                        baz_nulls_cath[i_null] - baz_null_add,
-                        baz_nulls_cath[i_null] - baz_null_add,
-                    ],
-                    **args_nulls_fill,
-                )
-                fig.plot(
-                    x=[baz_nulls_cath[i_null], baz_nulls_cath[i_null]],
-                    **args_nulls_line,
-                )
-        case "T1":
-            for i_null in range(2):
-                fig.plot(
-                    x=[
-                        baz_nulls[i_null] - baz_null_add,
-                        baz_nulls[i_null] + baz_null_add,
-                        baz_nulls[i_null] + baz_null_add,
-                        baz_nulls[i_null] - baz_null_add,
-                        baz_nulls[i_null] - baz_null_add,
-                    ],
-                    **args_nulls_fill,
-                )
-                fig.plot(
-                    x=[baz_nulls[i_null], baz_nulls[i_null]], **args_nulls_line
-                )
-            for i_null in range(2):
-                fig.plot(
-                    x=[
-                        baz_nulls_2_cath[i_null] - baz_null_add,
-                        baz_nulls_2_cath[i_null] + baz_null_add,
-                        baz_nulls_2_cath[i_null] + baz_null_add,
-                        baz_nulls_2_cath[i_null] - baz_null_add,
-                        baz_nulls_2_cath[i_null] - baz_null_add,
-                    ],
-                    **args_nulls_fill,
-                )
-                fig.plot(
-                    x=[baz_nulls_2_cath[i_null], baz_nulls_2_cath[i_null]],
-                    **args_nulls_line,
-                )
+    for i_null in range(len(baz_nulls_used)):
+        fig.plot(
+            x=[
+                baz_nulls_used[i_null] - baz_null_add,
+                baz_nulls_used[i_null] + baz_null_add,
+                baz_nulls_used[i_null] + baz_null_add,
+                baz_nulls_used[i_null] - baz_null_add,
+                baz_nulls_used[i_null] - baz_null_add,
+            ],
+            **args_nulls_fill,
+        )
+        fig.plot(
+            x=[baz_nulls_used[i_null], baz_nulls_used[i_null]], **args_nulls_line
+        )
 
     fig.shift_origin(xshift="+w+1.5c", yshift="4.5c")
 
@@ -653,7 +569,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     phi_a_stereo = phi_a[0::step]
     dt_a_stereo = dt_a[0::step]
 
-    with pygmt.config(FORMAT_GEO_MAP="+D"):  # 0-360 deg
+    with pygmt.config(FORMAT_GEO_MAP="+D"):  # 0 to 360 deg
         fig.basemap(region=[0, 360, 0, 1], projection="P4c+a", frame="xa30f10g30")
 
     for i_bar in range(len(baz_stereo)):
