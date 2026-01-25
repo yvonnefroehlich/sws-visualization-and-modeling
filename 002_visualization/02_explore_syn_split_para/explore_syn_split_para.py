@@ -94,6 +94,10 @@ thick_max = 400
 downdipdir_min = 0
 downdipdir_max = 360
 
+# -----------------------------------------------------------------------------
+model_start = 0
+model_end = "NaN"  # total number of models
+model_step = 1
 
 
 # %%
@@ -247,13 +251,11 @@ models_df_select["i_select"] = np.arange(N_select)
 
 print(f"Data loaded: in total {N_total} models, selected {N_select} models.")
 
-model_start = 0
-model_end = N_select
-model_step = 1
-
 baz_step = 1
 baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
 
+if model_end == "NaN":
+    model_end = N_select
 
 
 # %%
