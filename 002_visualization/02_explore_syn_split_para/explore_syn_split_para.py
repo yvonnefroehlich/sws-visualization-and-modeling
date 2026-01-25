@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 # Supported model types
 # - One horizontal layer (with HTI): H1
-# - Two horizontal layer (with HTI): H2
+# - Two horizontal layers (with HTI): H2
 # - One tilted layer (with TTI): T1
 # Previously calculated synthetic splitting parameters
 # - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
@@ -15,7 +15,7 @@
 # - Continued: 2025/04/06-08
 # - Continued: 2025/01/23 - Use PyGMT v0.18.0 with GMT 6.6.0
 # - Continued: 2026/01/24 - Allow setting ranges for model parameters
-# - Updated: 2026/01/25 - Improve data preperation, shorten codes for nulls
+# - Updated: 2026/01/25 - Improve data preparation, shorten codes for nulls
 # -----------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
@@ -52,7 +52,6 @@ import pandas as pd
 import pygmt
 from pygmt.params import Position
 from scipy import io
-import time
 
 
 # %%
@@ -88,7 +87,7 @@ dt2_min = 0
 dt2_max = 4
 # T1
 dip_min = 0
-dip_max = 80
+dip_max = 70
 thick_min = 0
 thick_max = 400
 downdipdir_min = 0
@@ -268,9 +267,6 @@ if N_select == 0:
 # Make plots of anisotropy models
 # -----------------------------------------------------------------------------
 for i_model in range(model_start, model_end, model_step):
-
-    # Save timestamp
-    start = time.time()
 
     model_out = models_df_select[models_df_select["i_select"] == i_model]
     i_total = int(model_out["i_total"].iloc[0])
@@ -677,7 +673,4 @@ for i_model in range(model_start, model_end, model_step):
             )
         # fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
 
-    # Save timestamp
-    end = time.time()
-
-    print(f"{i_total}_{fig_name}  |  {end - start}")
+    print(f"{i_total}_{fig_name}")
