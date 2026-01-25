@@ -131,7 +131,7 @@ models_mat = io.loadmat(f"{path_in}/{models}")
 models_dict = models_mat["model_out"][0]
 models_df_raw = pd.DataFrame(models_dict)
 N_total = len(models_df_raw)
-models_df_raw["i_total"] = np.arange(N_total)
+models_df_raw["i_total"] = np.arange(N_total).tolist()
 
 # -----------------------------------------------------------------------------
 models_df = models_df_raw
@@ -247,7 +247,7 @@ match model_type:
 
 # -----------------------------------------------------------------------------
 N_select = len(models_df_select)
-models_df_select["i_select"] = np.arange(N_select)
+models_df_select["i_select"] = np.arange(N_select).tolist()
 
 print(f"Data loaded: in total {N_total} models, selected {N_select} models.")
 
@@ -257,28 +257,34 @@ baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to 
 if model_end == "NaN":
     model_end = N_select
 
+if N_select == 0:
+    print("No models select!")
+
+
+
 
 # %%
 # -----------------------------------------------------------------------------
 # Make plots of anisotropy models
 # -----------------------------------------------------------------------------
-for i_model in range(model_start, model_end + model_step, model_step):
+for i_model in range(model_start, model_end, model_step):
 
     # Save timestamp
     start = time.time()
 
     model_out = models_df_select[models_df_select["i_select"] == i_model]
+    i_total = int(model_out["i_total"].iloc[0])
 
     # Apparent splitting parameters
-    phi_a = np.squeeze(model_out["phi_eff"])[0]
-    dt_a = np.squeeze(model_out["dt_eff"])[0]
+    phi_a = np.squeeze(np.squeeze(model_out["phi_eff"]))
+    dt_a = np.squeeze(np.squeeze(model_out["dt_eff"]))
 
     match model_type:
         case "H1":
             # model parameters
-            phi = model_out["phi_in"][i_model]
-            dt = model_out["dt_in"][i_model]
-            phi_gmt = model_out["phi_gmt"][i_model]
+            phi = model_out["phi_in"][i_total]
+            dt = model_out["dt_in"][i_total]
+            phi_gmt = model_out["phi_gmt"][i_total]
 
             # nulls (occur in steps of 90 deg)
             baz_nulls_neg = np.array([phi, phi + 90, phi + 180, phi + 270])
@@ -290,12 +296,12 @@ for i_model in range(model_start, model_end + model_step, model_step):
                 baz_nulls.append(baz_null_pos)
         case "H2":
             # model parameters
-            phi_1 = model_out["phi1_in"][i_model]
-            phi_2 = model_out["phi2_in"][i_model]
-            dt_1 = model_out["dt1_in"][i_model]
-            dt_2 = model_out["dt2_in"][i_model]
-            phi_1_gmt = model_out["phi1_gmt"][i_model]
-            phi_2_gmt = model_out["phi2_gmt"][i_model]
+            phi_1 = model_out["phi1_in"][i_total]
+            phi_2 = model_out["phi2_in"][i_total]
+            dt_1 = model_out["dt1_in"][i_total]
+            dt_2 = model_out["dt2_in"][i_total]
+            phi_1_gmt = model_out["phi1_gmt"][i_total]
+            phi_2_gmt = model_out["phi2_gmt"][i_total]
 
             # nulls (occur in steps of 90 deg)
             ind_diff_phi_max_null = np.argmax(dt_a)
@@ -322,10 +328,10 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
         case "T1":
             # model parameters
-            downdipdir = model_out["downdipdir_in"][i_model]
-            dip = model_out["dip_in"][i_model]
-            thick = model_out["thick_in"][i_model]
-            phi = model_out["phi_t1"][i_model]
+            downdipdir = model_out["downdipdir_in"][i_total]
+            dip = model_out["dip_in"][i_total]
+            thick = model_out["thick_in"][i_total]
+            phi = model_out["phi_t1"][i_total]
             downdipdir_gmt = 90 - downdipdir
             strike_gmt = downdipdir_gmt + 90
 
@@ -667,11 +673,11 @@ for i_model in range(model_start, model_end + model_step, model_step):
         fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
         if ext == "png":
             fig_name = (
-                f"{i_model}_{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
+                f"{i_total}_{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
             )
         # fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
 
     # Save timestamp
     end = time.time()
 
-    print(f"{i_model}_{fig_name}  |  {end - start}")
+    print(f"{i_total}_{fig_name}  |  {end - start}")
