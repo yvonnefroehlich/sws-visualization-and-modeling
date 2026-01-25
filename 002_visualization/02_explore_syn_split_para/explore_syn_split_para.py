@@ -737,12 +737,12 @@ for i_model in range(model_start, model_end + model_step, model_step):
     fig_name_mt = ""
     match model_type:
         case "H1":
-            fig_name_mt = f"phi{int(phi)}deg_dt{int(dt)}s"
+            fig_name_mt = f"phi{phi}deg_dt{dt}s"
         case "H2":
-            fig_name_mt = f"phil{int(phi_1)}deg_phiu{int(phi_2)}deg_dtl{int(dt_1)}s_dtu{int(dt_2)}s"
-            # fig_name_mt = f"phi{int(phi_1)}deg_phi{int(phi_2)}deg_dt{int(dt_1)}s_dt{int(dt_2)}s"
+            fig_name_mt = f"phil{phi_1}deg_phiu{phi_2}deg_dtl{dt_1}s_dtu{dt_2}s"
+            # fig_name_mt = f"phi{phi_1}deg_phi{phi_2}deg_dt{dt_1}s_dt{dt_2}s"
         case "T1":
-            fig_name_mt = f"thick{int(thick)}km_dip{int(dip)}deg_ddd{int(downdipdir)}deg"
+            fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
     for ext in ["png", "pdf", "eps"]:
         fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
