@@ -59,12 +59,13 @@ import time
 # -----------------------------------------------------------------------------
 # Adjust for your needs
 # -----------------------------------------------------------------------------
-dom_per = 8  ## 6, 8, 10  # in seconds
-model_type = "H1"  ## H1, H2, T1
+dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
+model_type = "H1"  ## H1 | H2 | T1
 
-status_cb = True  ## True, False
-status_per = False  ## True, False
-font_size = 9  # in points
+status_cb = True  ## True | False
+status_per = False  ## True | False
+font_map = 9  # in points
+font_cb = 14.5  # in points
 
 path_in = "TEST_data_syn_split_para"
 path_out = "02_out_figs"
@@ -283,7 +284,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
             for baz_null in baz_nulls_neg:
                 baz_null_pos = baz_null
                 if baz_null < 0:
-                    baz_null_pos = 360 + baz_null  # -90 to 90
+                    baz_null_pos = 360 + baz_null  # -90 to 90 deg
                 baz_nulls.append(baz_null_pos)
         case "H2":
             # model parameters
@@ -333,7 +334,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
             for baz_null in baz_nulls_neg:
                 baz_null_pos = baz_null
                 if baz_null > 360:
-                    baz_null_pos = baz_null - 360  # 0 to 360
+                    baz_null_pos = baz_null - 360  # 0 to 360 deg
                 baz_nulls.append(baz_null_pos)
             dt_a_nulls_1 = [
                 dt_a[int(np.floor(baz_nulls[0]))],
@@ -386,7 +387,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
-    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray80", FONT=f"{font_size}p")
+    pygmt.config(MAP_GRID_PEN_PRIMARY="0.01p,gray80", FONT=f"{font_map}p")
 
     pygmt.makecpt(cmap="phase", series=[-90, 90], cyclic=True)
 
@@ -697,7 +698,7 @@ for i_model in range(model_start, model_end + model_step, model_step):
     # Add colorbar for fast polarization direction
     if status_cb:
         with pygmt.config(
-            FONT="16p", MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"
+            FONT=font_cb, MAP_TICK_LENGTH_PRIMARY="4p", MAP_FRAME_PEN="0.5p"
         ):
             fig.colorbar(
                 position=Position("CT", cstype="inside", offset=("-2.33c", "-4.69c")),
