@@ -378,7 +378,7 @@ for i_model in range(model_start, model_end, model_step):
     model_out = models_df_select[models_df_select["i_select"] == i_model]
     i_total = int(model_out["i_total"].iloc[0])
 
-    # Apparent splitting parameters
+    # apparent splitting parameters
     phi_a = np.squeeze(np.squeeze(model_out["phi_eff"]))
     dt_a = np.squeeze(np.squeeze(model_out["dt_eff"]))
 
