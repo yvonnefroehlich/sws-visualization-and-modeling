@@ -149,7 +149,7 @@ for i_model in range(N_total):
     match model_type:
         case "H1":
             phi_in_temp = int(str(models_df_raw["phi_in"][i_model][0][0]))
-            dt_in_temp = int(str(models_df_raw["dt_in"][i_model][0][0]))
+            dt_in_temp = float(str(models_df_raw["dt_in"][i_model][0][0]))
             phi_in.append(phi_in_temp)
             dt_in.append(dt_in_temp)
             if phi_in_temp > 0:
