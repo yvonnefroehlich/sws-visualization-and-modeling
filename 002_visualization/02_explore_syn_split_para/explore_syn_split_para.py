@@ -238,8 +238,8 @@ match model_type:
             & (models_df["dip_in"] <= dip_max)
             & (models_df["thick_in"] >= thick_min)
             & (models_df["thick_in"] <= thick_max)
-            & (models_df["thick_in"] >= downdipdir_min)
-            & (models_df["thick_in"] <= downdipdir_max)
+            & (models_df["downdipdir_in"] >= downdipdir_min)
+            & (models_df["downdipdir_in"] <= downdipdir_max)
         ]
 
 # -----------------------------------------------------------------------------
