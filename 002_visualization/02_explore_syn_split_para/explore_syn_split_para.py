@@ -59,7 +59,7 @@ from scipy import io
 # Adjust for your needs
 # -----------------------------------------------------------------------------
 dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
-model_type = "H1"  ## H1 | H2 | T1
+model_type = "T1"  ## H1 | H2 | T1
 
 status_cb = True  ## True | False
 status_per = False  ## True | False
@@ -236,6 +236,7 @@ for i_model in range(N_total):
             phi_t1.append(phi_t1_temp)
 
             # nulls (occur NOT in steps of 90 deg)
+            phi_a = np.squeeze(np.squeeze(models_df_raw["phi_eff"][i_model]))
             # in the down-dip direction
             baz_nulls_neg = np.array([downdipdir_in_temp, downdipdir_in_temp + 180])
             baz_nulls_1 = []
@@ -244,9 +245,7 @@ for i_model in range(N_total):
                 if baz_null > 360:
                     baz_null_pos = baz_null - 360  # 0 to 360 deg
                 baz_nulls_1.append(baz_null_pos)
-
             # for down-dip direction orthogonal to backazimuth
-            phi_a = np.squeeze(np.squeeze(models_df_raw["phi_eff"][i_model]))
             if downdipdir_in_temp < 90:
                 null_1_ortho = phi_a + 90
                 null_1 = min(null_1_ortho)
@@ -279,9 +278,14 @@ for i_model in range(N_total):
                 null_2 = 360 + null_2
             baz_nulls_2 = [null_1, null_2]
 
+            # Strange special case nulls at 90, 270, 180, 180+delta deg
+            if abs(baz_nulls_2[1] - baz_nulls_2[0]) < 1:
+                baz_nulls_2[1] = 0
+
             baz_nulls_temp = [
                 baz_nulls_1[0], baz_nulls_1[1], baz_nulls_2[0], baz_nulls_2[1]
             ]
+
 # .............................................................................
     baz_nulls_temp = sorted(baz_nulls_temp)
     baz_nulls[i_model] = baz_nulls_temp
