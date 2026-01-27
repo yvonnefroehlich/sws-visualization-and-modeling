@@ -238,7 +238,7 @@ for i_model in range(N_total):
             # nulls (occur NOT in steps of 90 deg)
             phi_a = np.squeeze(np.squeeze(models_df_raw["phi_eff"][i_model]))
             # in the down-dip direction
-            baz_nulls_neg = np.array([downdipdir_in_temp, downdipdir_in_temp + 180])
+            baz_nulls_neg = [downdipdir_in_temp, downdipdir_in_temp + 180]
             baz_nulls_1 = []
             for baz_null in baz_nulls_neg:
                 baz_null_pos = baz_null
