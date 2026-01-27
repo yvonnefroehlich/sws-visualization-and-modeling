@@ -17,7 +17,7 @@
 
 - [002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization)
    - Add loading function for datasets on RADAR4KIT in MATLAB, Python, and R ([PR #24](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/24))
-   - Add script the explore forward calculated synthetic splitting parameter in Python using PyGMT ([PR #30](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/30), [PR #39](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/39))
+   - Add script the explore forward calculated synthetic splitting parameter in Python using PyGMT ([PR #30](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/30), [PR #39](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/39), [PR #40](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/40))
 
 - [003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling)
    - Fixes regarding colormap and colorbar for phi ([PR #13](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/13))
