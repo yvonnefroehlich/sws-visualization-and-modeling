@@ -145,7 +145,7 @@ downdipdir_in = []
 phi_gmt = []
 phi1_gmt = []
 phi2_gmt = []
-phi_t1 = []
+phi_T1 = []
 baz_nulls = [0] * N_total
 baz_null1 = []
 baz_null2 = []
@@ -228,12 +228,12 @@ for i_model in range(N_total):
             downdipdir_in.append(downdipdir_in_temp)
 
             if downdipdir_in_temp <= 90:
-                phi_t1_temp = downdipdir_in_temp
+                phi_T1_temp = downdipdir_in_temp
             elif downdipdir_in_temp > 90 and downdipdir_in_temp <= 270:
-                phi_t1_temp = downdipdir_in_temp - 180
+                phi_T1_temp = downdipdir_in_temp - 180
             elif downdipdir_in_temp > 270:
-                phi_t1_temp = -(360 - downdipdir_in_temp)
-            phi_t1.append(phi_t1_temp)
+                phi_T1_temp = -(360 - downdipdir_in_temp)
+            phi_T1.append(phi_T1_temp)
 
             # nulls (occur NOT in steps of 90 deg)
             phi_a = np.squeeze(np.squeeze(models_df_raw["phi_eff"][i_model]))
@@ -311,7 +311,7 @@ match model_type:
         models_df["dip_in"] = dip_in
         models_df["thick_in"] = thick_in
         models_df["downdipdir_in"] = downdipdir_in
-        models_df["phi_t1"] = phi_t1
+        models_df["phi_T1"] = phi_T1
 
 models_df["baz_nulls"] = baz_nulls
 models_df["baz_null1"] = baz_null1
@@ -404,7 +404,7 @@ for i_model in range(model_start, model_end, model_step):
             thick = model_out["thick_in"][i_total]
             downdipdir_gmt = 90 - downdipdir
             strike_gmt = downdipdir_gmt + 90
-            phi_T1 = model_out["phi_t1"][i_total]
+            phi_T1 = model_out["phi_T1"][i_total]
 
 # -----------------------------------------------------------------------------
     fig = pygmt.Figure()
