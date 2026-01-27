@@ -15,8 +15,8 @@
 # - Continued: 2025/04/06-08
 # - Continued: 2025/01/23 - Use PyGMT v0.18.0 with GMT 6.6.0
 # - Continued: 2026/01/24 - Allow setting ranges for model parameters
-# - Updated: 2026/01/25 - Improve data preparation, shorten codes for nulls
-# - Updated: 2026/01/27 - Move nulls calculation out of plotting loop
+# - Updated: 2026/01/25 - Improve data preparation, shorten code for plotting nulls
+# - Updated: 2026/01/27 - Imporve calculation of nulls
 # -----------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
@@ -153,6 +153,7 @@ baz_null3 = []
 baz_null4 = []
 
 for i_model in range(N_total):
+
     match model_type:
 # .............................................................................
         case "H1":
@@ -177,12 +178,6 @@ for i_model in range(N_total):
                 if baz_null < 0:
                     baz_null_pos = 360 + baz_null  # -90 to 90 deg
                 baz_nulls_temp.append(baz_null_pos)
-            baz_nulls_temp = sorted(baz_nulls_temp)
-            baz_nulls[i_model] = baz_nulls_temp
-            baz_null1.append(baz_nulls_temp[0])
-            baz_null2.append(baz_nulls_temp[1])
-            baz_null3.append(baz_nulls_temp[2])
-            baz_null4.append(baz_nulls_temp[3])
 # .............................................................................
         case "H2":
             phis_in = np.squeeze(models_df_raw["phis_in"][i_model])
@@ -223,12 +218,6 @@ for i_model in range(N_total):
             for i_null in range(len(baz_nulls_theo)):
                 if baz_nulls_theo[i_null] >= 0 and baz_nulls_theo[i_null] <= 360:
                     baz_nulls_temp.append(baz_nulls_theo[i_null])
-            baz_nulls_temp = sorted(baz_nulls_temp)
-            baz_nulls[i_model] = baz_nulls_temp
-            baz_null1.append(baz_nulls_temp[0])
-            baz_null2.append(baz_nulls_temp[1])
-            baz_null3.append(baz_nulls_temp[2])
-            baz_null4.append(baz_nulls_temp[3])
 # .............................................................................
         case "T1":
             dip_in_temp = int(str(models_df_raw["dip_in"][i_model][0][0]))
@@ -247,7 +236,6 @@ for i_model in range(N_total):
             phi_t1.append(phi_t1_temp)
 
             # nulls (occur NOT in steps of 90 deg)
-            phi_a = np.squeeze(np.squeeze(models_df_raw["phi_eff"][i_model]))
             # in the down-dip direction
             baz_nulls_neg = np.array([downdipdir_in_temp, downdipdir_in_temp + 180])
             baz_nulls_1 = []
@@ -256,7 +244,9 @@ for i_model in range(N_total):
                 if baz_null > 360:
                     baz_null_pos = baz_null - 360  # 0 to 360 deg
                 baz_nulls_1.append(baz_null_pos)
+
             # for down-dip direction orthogonal to backazimuth
+            phi_a = np.squeeze(np.squeeze(models_df_raw["phi_eff"][i_model]))
             if downdipdir_in_temp < 90:
                 null_1_ortho = phi_a + 90
                 null_1 = min(null_1_ortho)
@@ -283,30 +273,22 @@ for i_model in range(N_total):
                 null_2_ortho = phi_a - 90
                 null_2 = min(null_2_ortho)
 
-            if np.abs(null_2 - null_1) < 3:
-                null_1 = null_1 + 180
-            if np.abs(null_2 - null_1) < 3:
-                null_2 = null_2 - 180
-            baz_nulls_2 = [null_1, null_2]
-
             if null_1 < 0:
                 null_1 = 360 + null_1
             if null_2 < 0:
                 null_2 = 360 + null_2
-            baz_nulls_2_cath = [null_1, null_2]
+            baz_nulls_2 = [null_1, null_2]
 
             baz_nulls_temp = [
-                baz_nulls_1[0],
-                baz_nulls_1[1],
-                baz_nulls_2_cath[0],
-                baz_nulls_2_cath[1],
+                baz_nulls_1[0], baz_nulls_1[1], baz_nulls_2[0], baz_nulls_2[1]
             ]
-            baz_nulls_temp = sorted(baz_nulls_temp)
-            baz_nulls[i_model] = baz_nulls_temp
-            baz_null1.append(baz_nulls_temp[0])
-            baz_null2.append(baz_nulls_temp[1])
-            baz_null3.append(baz_nulls_temp[2])
-            baz_null4.append(baz_nulls_temp[3])
+# .............................................................................
+    baz_nulls_temp = sorted(baz_nulls_temp)
+    baz_nulls[i_model] = baz_nulls_temp
+    baz_null1.append(baz_nulls_temp[0])
+    baz_null2.append(baz_nulls_temp[1])
+    baz_null3.append(baz_nulls_temp[2])
+    baz_null4.append(baz_nulls_temp[3])
 
 # -----------------------------------------------------------------------------
 match model_type:
