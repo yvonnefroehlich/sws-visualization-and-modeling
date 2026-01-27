@@ -7,7 +7,7 @@
 # - One tilted layer (with TTI): T1
 # Previously calculated synthetic splitting parameters
 # - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
-# - The output MATLAB struct is split into separate structs for the different model types
+# - The output MATLAB struct is split into separate structs for the three model types
 # -----------------------------------------------------------------------------
 # History
 # - Created: 2024/07/09
@@ -314,11 +314,6 @@ match model_type:
         models_df["phi_in"] = phi_in
         models_df["dt_in"] = dt_in
         models_df["phi_gmt"] = phi_gmt_temp
-        models_df["baz_nulls"] = baz_nulls
-        models_df["baz_null1"] = baz_null1
-        models_df["baz_null2"] = baz_null2
-        models_df["baz_null3"] = baz_null3
-        models_df["baz_null4"] = baz_null4
     case "H2":
         models_df["phi1_in"] = phi1_in
         models_df["phi2_in"] = phi2_in
@@ -326,21 +321,17 @@ match model_type:
         models_df["dt2_in"] = dt2_in
         models_df["phi1_gmt"] = phi1_gmt
         models_df["phi2_gmt"] = phi2_gmt
-        models_df["baz_nulls"] = baz_nulls
-        models_df["baz_null1"] = baz_null1
-        models_df["baz_null2"] = baz_null2
-        models_df["baz_null3"] = baz_null3
-        models_df["baz_null4"] = baz_null4
     case "T1":
         models_df["dip_in"] = dip_in
         models_df["thick_in"] = thick_in
         models_df["downdipdir_in"] = downdipdir_in
         models_df["phi_t1"] = phi_t1
-        models_df["baz_nulls"] = baz_nulls
-        models_df["baz_null1"] = baz_null1
-        models_df["baz_null2"] = baz_null2
-        models_df["baz_null3"] = baz_null3
-        models_df["baz_null4"] = baz_null4
+
+models_df["baz_nulls"] = baz_nulls
+models_df["baz_null1"] = baz_null1
+models_df["baz_null2"] = baz_null2
+models_df["baz_null3"] = baz_null3
+models_df["baz_null4"] = baz_null4
 
 
 # %%
@@ -680,16 +671,13 @@ for i_model in range(model_start, model_end, model_step):
             fig_name_mt = f"phi{phi}deg_dt{dt}s"
         case "H2":
             fig_name_mt = f"phil{phi_1}deg_phiu{phi_2}deg_dtl{dt_1}s_dtu{dt_2}s"
-            # fig_name_mt = f"phi{phi_1}deg_phi{phi_2}deg_dt{dt_1}s_dt{dt_2}s"
         case "T1":
             fig_name_mt = f"thick{thick}km_dip{dip}deg_ddd{downdipdir}deg"
 
     for ext in ["png", "pdf", "eps"]:
         fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
         if ext == "png":
-            fig_name = (
-                f"{i_total}_{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
-            )
+            fig_name = f"{i_total}_{fig_name}"
         # fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
 
     print(f"{i_total}_{fig_name}")
