@@ -59,7 +59,7 @@ from scipy import io
 # Adjust for your needs
 # -----------------------------------------------------------------------------
 dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
-model_type = "T1"  ## H1 | H2 | T1
+model_type = "H1"  ## H1 | H2 | T1
 
 status_cb = True  ## True | False
 status_per = False  ## True | False
@@ -86,9 +86,9 @@ dt1_max = 4
 dt2_min = 0
 dt2_max = 4
 # T1
-dip_min = 30
+dip_min = 0
 dip_max = 70
-thick_min = 100
+thick_min = 0
 thick_max = 400
 downdipdir_min = 0
 downdipdir_max = 360
