@@ -86,9 +86,9 @@ dt1_max = 4
 dt2_min = 0
 dt2_max = 4
 # T1
-dip_min = 0
+dip_min = 30
 dip_max = 70
-thick_min = 0
+thick_min = 100
 thick_max = 400
 downdipdir_min = 0
 downdipdir_max = 360
@@ -349,8 +349,8 @@ match model_type:
             & (models_df["dip_in"] <= dip_max)
             & (models_df["thick_in"] >= thick_min)
             & (models_df["thick_in"] <= thick_max)
-            & (models_df["thick_in"] >= downdipdir_min)
-            & (models_df["thick_in"] <= downdipdir_max)
+            & (models_df["downdipdir_in"] >= downdipdir_min)
+            & (models_df["downdipdir_in"] <= downdipdir_max)
         ]
 
 # -----------------------------------------------------------------------------
