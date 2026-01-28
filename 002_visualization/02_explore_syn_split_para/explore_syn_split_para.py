@@ -49,27 +49,19 @@
 
 
 import numpy as np
-import pandas as pd
 import pygmt
 from pygmt.params import Position
-from scipy import io
+
+from load_models import load_models
+
 
 # %%
 # -----------------------------------------------------------------------------
 # Adjust for your needs
 # -----------------------------------------------------------------------------
+model_type = "T1"  # "H1" | "H2" | "T1"
 dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
-model_type = "H1"  ## H1 | H2 | T1
 
-status_cb = True  ## True | False
-status_per = False  ## True | False
-font_map = 9  # in points
-font_cb = 14.5  # in points
-
-path_in = "TEST_data_syn_split_para"
-path_out = "02_out_figs"
-
-# -----------------------------------------------------------------------------
 # Limits for model parameters
 # H1
 phi_min = -90
@@ -93,10 +85,54 @@ thick_max = 400
 downdipdir_min = 0
 downdipdir_max = 360
 
+path_in = "TEST_data_syn_split_para"
+path_out = "02_out_figs"
+
 # -----------------------------------------------------------------------------
+status_cb = True  ## True | False
+status_per = False  ## True | False
+font_map = 9  # in points
+font_cb = 14.5  # in points
+
 model_start = 0
 model_end = "NaN"  # total number of models
 model_step = 1
+
+
+# %%
+# -----------------------------------------------------------------------------
+# Load anisotropy models
+# -----------------------------------------------------------------------------
+models_df, models_df_select, model_type, dom_per, N_total, N_select = load_models(
+    model_type=model_type,
+    dom_per=dom_per,
+    phi_min=phi_min,
+    phi_max=phi_max,
+    dt_min=dt_min,
+    dt_max=dt_max,
+    phi1_min=phi1_min,
+    phi1_max=phi1_max,
+    phi2_min=phi2_min,
+    phi2_max=phi2_max,
+    dt1_min=dt1_min,
+    dt1_max=dt1_max,
+    dt2_min=dt2_min,
+    dt2_max=dt2_max,
+    dip_min=dip_min,
+    dip_max=dip_max,
+    thick_min=thick_min,
+    thick_max=thick_max,
+    downdipdir_min=downdipdir_min,
+    downdipdir_max=downdipdir_max,
+    path_in=path_in,
+    path_out=path_out,
+)
+
+baz_step = 1
+baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
+
+if model_end == "NaN":
+    model_end = N_select
 
 
 # %%
@@ -117,256 +153,6 @@ args_nulls_cath = {"style": "c0.07c", "fill": "white", "pen": "0.5p"}
 phi_ys = np.arange(-90, 90 + 10, 10)
 dt_ys = np.arange(0, 4 + 0.1, 0.2)
 baz_null_add = 5
-
-
-# %%
-# -----------------------------------------------------------------------------
-# Prepare data
-# -----------------------------------------------------------------------------
-print(f"Dominant period {dom_per} s - Model type {model_type}")
-models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
-models_mat = io.loadmat(f"{path_in}/{models}")
-models_dict = models_mat["model_out"][0]
-models_df_raw = pd.DataFrame(models_dict)
-N_total = len(models_df_raw)
-models_df_raw["i_total"] = np.arange(N_total).tolist()
-
-# -----------------------------------------------------------------------------
-models_df = models_df_raw
-phi_in = []
-dt_in = []
-phi1_in = []
-phi2_in = []
-dt1_in = []
-dt2_in = []
-dip_in = []
-thick_in = []
-downdipdir_in = []
-phi_gmt = []
-phi1_gmt = []
-phi2_gmt = []
-phi_T1 = []
-baz_nulls = [0] * N_total
-baz_null1 = []
-baz_null2 = []
-baz_null3 = []
-baz_null4 = []
-
-for i_model in range(N_total):
-
-    match model_type:
-# .............................................................................
-        case "H1":
-            phi_in_temp = int(str(models_df_raw["phi_in"][i_model][0][0]))
-            dt_in_temp = float(str(models_df_raw["dt_in"][i_model][0][0]))
-            phi_in.append(phi_in_temp)
-            dt_in.append(dt_in_temp)
-
-            if phi_in_temp > 0:
-                phi_gmt_temp = 90 - phi_in_temp
-            else:
-                phi_gmt_temp = 90 + (-phi_in_temp)
-            phi_gmt.append(phi_gmt_temp)
-
-            # nulls (occur in steps of 90 deg)
-            baz_nulls_neg = [
-                phi_in_temp, phi_in_temp + 90, phi_in_temp + 180, phi_in_temp + 270
-            ]
-            baz_nulls_temp = []
-            for baz_null in baz_nulls_neg:
-                baz_null_pos = baz_null
-                if baz_null < 0:
-                    baz_null_pos = 360 + baz_null  # -90 to 90 deg
-                baz_nulls_temp.append(baz_null_pos)
-# .............................................................................
-        case "H2":
-            phis_in = np.squeeze(models_df_raw["phis_in"][i_model])
-            dts_in = np.squeeze(models_df_raw["dts_in"][i_model])
-            phi1_in_temp = phis_in[0]
-            phi2_in_temp = phis_in[1]
-            dt1_in_temp = dts_in[0]
-            dt2_in_temp = dts_in[1]
-            phi1_in.append(phi1_in_temp)
-            phi2_in.append(phi2_in_temp)
-            dt1_in.append(dt1_in_temp)
-            dt2_in.append(dt2_in_temp)
-
-            if phi1_in_temp > 0:
-                phi1_gmt_temp = 90 - phi1_in_temp
-            else:
-                phi1_gmt_temp = 90 + (-phi1_in_temp)
-            if phi2_in_temp > 0:
-                phi2_gmt_temp = 90 - phi2_in_temp
-            else:
-                phi2_gmt_temp = 90 + (-phi2_in_temp)
-            phi1_gmt.append(phi1_gmt_temp)
-            phi2_gmt.append(phi2_gmt_temp)
-
-            # nulls (occur in steps of 90 deg)
-            dt_a = np.squeeze(np.squeeze(models_df_raw["dt_eff"][i_model]))
-            ind_dt_max_null = np.argmax(dt_a)
-            baz_nulls_theo = [
-                ind_dt_max_null - 270,
-                ind_dt_max_null - 180,
-                ind_dt_max_null - 90,
-                ind_dt_max_null,
-                ind_dt_max_null + 90,
-                ind_dt_max_null + 180,
-                ind_dt_max_null + 270,
-            ]
-            baz_nulls_temp = []
-            for i_null in range(len(baz_nulls_theo)):
-                if baz_nulls_theo[i_null] >= 0 and baz_nulls_theo[i_null] <= 360:
-                    baz_nulls_temp.append(baz_nulls_theo[i_null])
-# .............................................................................
-        case "T1":
-            dip_in_temp = int(str(models_df_raw["dip_in"][i_model][0][0]))
-            thick_in_temp = int(str(models_df_raw["thick_in"][i_model][0][0]))
-            downdipdir_in_temp = int(str(models_df_raw["downdipdir_in"][i_model][0][0]))
-            dip_in.append(dip_in_temp)
-            thick_in.append(thick_in_temp)
-            downdipdir_in.append(downdipdir_in_temp)
-
-            if downdipdir_in_temp <= 90:
-                phi_T1_temp = downdipdir_in_temp
-            elif downdipdir_in_temp > 90 and downdipdir_in_temp <= 270:
-                phi_T1_temp = downdipdir_in_temp - 180
-            elif downdipdir_in_temp > 270:
-                phi_T1_temp = -(360 - downdipdir_in_temp)
-            phi_T1.append(phi_T1_temp)
-
-            # nulls (occur NOT in steps of 90 deg)
-            phi_a = np.squeeze(np.squeeze(models_df_raw["phi_eff"][i_model]))
-            # in the down-dip direction
-            baz_nulls_neg = [downdipdir_in_temp, downdipdir_in_temp + 180]
-            baz_nulls_1 = []
-            for baz_null in baz_nulls_neg:
-                baz_null_pos = baz_null
-                if baz_null > 360:
-                    baz_null_pos = baz_null - 360  # 0 to 360 deg
-                baz_nulls_1.append(baz_null_pos)
-            # for down-dip direction orthogonal to backazimuth
-            if downdipdir_in_temp < 90:
-                null_1_ortho = phi_a + 90
-                null_1 = min(null_1_ortho)
-                null_2_ortho = phi_a - 90
-                null_2 = max(null_2_ortho)
-            elif downdipdir_in_temp > 90 and downdipdir_in_temp < 180:
-                null_1_ortho = phi_a + 90
-                null_1 = max(null_1_ortho)
-                null_2_ortho = phi_a - 90
-                null_2 = min(null_2_ortho)
-            elif downdipdir_in_temp > 270:
-                null_1_ortho = phi_a - 90
-                null_1 = max(null_1_ortho)
-                null_2_ortho = phi_a + 90
-                null_2 = min(null_2_ortho)
-            elif downdipdir_in_temp > 180 and downdipdir_in_temp < 270:
-                null_1_ortho = phi_a + 90
-                null_1 = max(null_1_ortho)
-                null_2_ortho = phi_a - 90
-                null_2 = min(null_2_ortho)
-            else:
-                null_1_ortho = phi_a + 90
-                null_1 = max(null_1_ortho)
-                null_2_ortho = phi_a - 90
-                null_2 = min(null_2_ortho)
-
-            if null_1 < 0:
-                null_1 = 360 + null_1
-            if null_2 < 0:
-                null_2 = 360 + null_2
-            baz_nulls_2 = [null_1, null_2]
-
-            # Strange special case nulls at 90, 270, 180, 180+delta deg
-            if abs(baz_nulls_2[1] - baz_nulls_2[0]) < 1:
-                baz_nulls_2[1] = 0
-
-            baz_nulls_temp = [
-                baz_nulls_1[0], baz_nulls_1[1], baz_nulls_2[0], baz_nulls_2[1]
-            ]
-
-# .............................................................................
-    baz_nulls_temp = sorted(baz_nulls_temp)
-    baz_nulls[i_model] = baz_nulls_temp
-    baz_null1.append(baz_nulls_temp[0])
-    baz_null2.append(baz_nulls_temp[1])
-    baz_null3.append(baz_nulls_temp[2])
-    baz_null4.append(baz_nulls_temp[3])
-
-# -----------------------------------------------------------------------------
-match model_type:
-    case "H1":
-        models_df["phi_in"] = phi_in
-        models_df["dt_in"] = dt_in
-        models_df["phi_gmt"] = phi_gmt_temp
-    case "H2":
-        models_df["phi1_in"] = phi1_in
-        models_df["phi2_in"] = phi2_in
-        models_df["dt1_in"] = dt1_in
-        models_df["dt2_in"] = dt2_in
-        models_df["phi1_gmt"] = phi1_gmt
-        models_df["phi2_gmt"] = phi2_gmt
-    case "T1":
-        models_df["dip_in"] = dip_in
-        models_df["thick_in"] = thick_in
-        models_df["downdipdir_in"] = downdipdir_in
-        models_df["phi_T1"] = phi_T1
-
-models_df["baz_nulls"] = baz_nulls
-models_df["baz_null1"] = baz_null1
-models_df["baz_null2"] = baz_null2
-models_df["baz_null3"] = baz_null3
-models_df["baz_null4"] = baz_null4
-
-
-# %%
-# -----------------------------------------------------------------------------
-# Select models with model parameters in the selected ranges
-# -----------------------------------------------------------------------------
-match model_type:
-    case "H1":
-        models_df_select = models_df.loc[
-            (models_df["phi_in"] >= phi_min)
-            & (models_df["phi_in"] <= phi_max)
-            & (models_df["dt_in"] >= dt_min)
-            & (models_df["dt_in"] <= dt_max)
-        ]
-    case "H2":
-        models_df_select = models_df.loc[
-            (models_df["phi1_in"] >= phi1_min)
-            & (models_df["phi1_in"] <= phi1_max)
-            & (models_df["dt1_in"] >= dt1_min)
-            & (models_df["dt1_in"] <= dt1_max)
-            & (models_df["phi2_in"] >= phi2_min)
-            & (models_df["phi2_in"] <= phi2_max)
-            & (models_df["dt2_in"] >= dt2_min)
-            & (models_df["dt2_in"] <= dt2_max)
-        ]
-    case "T1":
-        models_df_select = models_df.loc[
-            (models_df["dip_in"] >= dip_min)
-            & (models_df["dip_in"] <= dip_max)
-            & (models_df["thick_in"] >= thick_min)
-            & (models_df["thick_in"] <= thick_max)
-            & (models_df["downdipdir_in"] >= downdipdir_min)
-            & (models_df["downdipdir_in"] <= downdipdir_max)
-        ]
-
-# -----------------------------------------------------------------------------
-N_select = len(models_df_select)
-models_df_select["i_select"] = np.arange(N_select).tolist()
-
-print(f"Data loaded: in total {N_total} models, selected {N_select} models.")
-
-baz_step = 1
-baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
-
-if model_end == "NaN":
-    model_end = N_select
-
-if N_select == 0:
-    print("No models select!")
 
 
 # %%
