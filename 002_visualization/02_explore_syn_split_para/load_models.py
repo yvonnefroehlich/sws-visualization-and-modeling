@@ -50,6 +50,7 @@ from scipy import io
 def load_models(
     model_type,  ## H1 | H2 | T1
     dom_per=8,  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
+    path_models="TEST_data_syn_split_para",
 # -----------------------------------------------------------------------------
     # Limits for model parameters
     # H1
@@ -73,9 +74,6 @@ def load_models(
     thick_max=700,
     downdipdir_min=0,
     downdipdir_max=360,
-# -----------------------------------------------------------------------------
-    path_in="TEST_data_syn_split_para",
-    path_out="02_out_figs",
 ):
 
 
@@ -85,7 +83,7 @@ def load_models(
 # -----------------------------------------------------------------------------
     print(f"Dominant period {dom_per} s - Model type {model_type}")
     models = f"sws_modout_domper{dom_per}s_{model_type}.mat"
-    models_mat = io.loadmat(f"{path_in}/{models}")
+    models_mat = io.loadmat(f"{path_models}/{models}")
     models_dict = models_mat["model_out"][0]
     models_df_raw = pd.DataFrame(models_dict)
     N_total = len(models_df_raw)

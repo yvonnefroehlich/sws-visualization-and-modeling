@@ -59,9 +59,12 @@ from load_models import load_models
 # -----------------------------------------------------------------------------
 # Adjust for your needs
 # -----------------------------------------------------------------------------
-model_type = "T1"  # "H1" | "H2" | "T1"
+model_type = "H1"  # "H1" | "H2" | "T1"
 dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
+path_models = "TEST_data_syn_split_para"
+path_out = "02_out_figs"
 
+# -----------------------------------------------------------------------------
 # Limits for model parameters
 # H1
 phi_min = -90
@@ -85,18 +88,11 @@ thick_max = 400
 downdipdir_min = 0
 downdipdir_max = 360
 
-path_in = "TEST_data_syn_split_para"
-path_out = "02_out_figs"
-
 # -----------------------------------------------------------------------------
 status_cb = True  ## True | False
 status_per = False  ## True | False
 font_map = 9  # in points
 font_cb = 14.5  # in points
-
-model_start = 0
-model_end = "NaN"  # total number of models
-model_step = 1
 
 
 # %%
@@ -106,6 +102,7 @@ model_step = 1
 models_df, models_df_select, model_type, dom_per, N_total, N_select = load_models(
     model_type=model_type,
     dom_per=dom_per,
+    path_models=path_models,
     phi_min=phi_min,
     phi_max=phi_max,
     dt_min=dt_min,
@@ -124,15 +121,19 @@ models_df, models_df_select, model_type, dom_per, N_total, N_select = load_model
     thick_max=thick_max,
     downdipdir_min=downdipdir_min,
     downdipdir_max=downdipdir_max,
-    path_in=path_in,
-    path_out=path_out,
 )
 
-baz_step = 1
-baz = np.arange(0, 360 + baz_step, baz_step)  # backazimuth in degrees North to East
+# -----------------------------------------------------------------------------
+model_start = 0
+model_end = "NaN"  # total number of models
+model_step = 1
 
 if model_end == "NaN":
     model_end = N_select
+
+# backazimuth in degrees North to East
+baz_step = 1
+baz = np.arange(0, 360 + baz_step, baz_step)
 
 
 # %%
