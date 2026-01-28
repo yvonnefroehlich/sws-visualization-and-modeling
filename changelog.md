@@ -7,6 +7,7 @@
    - Improve coding style ([PR #27](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/27))
    - Add section "Related topics" to main README ([PR #25](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/25))
    - Move "Contents" section to separate READMEs and introduce "_image folder" ([PR #31](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/31))
+   - Add ".gitignore" file ([Commit 40bf76d](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/commit/40bf76daec02622c8cd013e717aafc8aa86a126c))
 
 - [001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)
    - Add queries for phase and observation type ([PR #23](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/23))
