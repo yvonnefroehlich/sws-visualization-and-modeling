@@ -13,10 +13,11 @@
 # - Created: 2024/07/09
 # - Continued: 2025/01/07
 # - Continued: 2025/04/06-08
-# - Continued: 2025/01/23 - Use PyGMT v0.18.0 with GMT 6.6.0
+# - Continued: 2026/01/23 - Use PyGMT v0.18.0 with GMT 6.6.0
 # - Continued: 2026/01/24 - Allow setting ranges for model parameters
 # - Updated: 2026/01/25 - Improve data preparation, shorten code for plotting nulls
 # - Updated: 2026/01/27 - Improve determination of null directions
+# - Updated: 2026/01/18 - Move loading anisotropy model to separate function
 # -----------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
