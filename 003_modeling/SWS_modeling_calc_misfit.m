@@ -22,18 +22,20 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 % - SWS_modeling_plot_stereo_synthetic.m
 % --------------------------------------------------------------------------
 % is
-% - created: Michael Grund (ORCID 0000-0001-8759-2018)
-%   https://github.com/michaelgrund/sws_tools
-%   Grund (2019) Dissertation
-%   https://doi.org/10.5445/IR/1000091425
-%   Grund & Ritter (2020) Geophysical Journal International
-%   https://doi.org/10.1093/gji/ggaa388
 % - modified: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
-%   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
-%   https://doi.org/10.1007/s10950-022-10112-w
-%   Fröhlich, Grund & Ritter (2024) Geophysical Journal International
+%   Fröhlich (2025) Dissertation
+%   https://doi.org/10.5445/IR/1000183786
+%   Fröhlich, Grund, Ritter (2024) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggae245
+%   Ritter, Fröhlich, Sanz Alonso, Grund (2022) Journal of Seismology
+%   https://doi.org/10.1007/s10950-022-10112-w
+% - created: Michael Grund (ORCID 0000-0001-8759-2018)
+%   https://github.com/michaelgrund/sws_tools
+%   Grund, Ritter (2020) Geophysical Journal International
+%   https://doi.org/10.1093/gji/ggaa388
+%   Grund (2019) Dissertation
+%   https://doi.org/10.5445/IR/1000091425
 % --------------------------------------------------------------------------
 % INPUT
 %
@@ -98,7 +100,8 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 % --------------------------------------------------------------------------
 % LICENSE
 %
-% Copyright (C) 2022  Yvonne Fröhlich & Michael Grund (up on v1.0)
+% Copyright (C) 2026  Yvonne Fröhlich, Michael Grund (v2.0)
+% Copyright (C) 2022  Yvonne Fröhlich, Michael Grund (v1.0)
 % https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 % Copyright (C) 2020  Michael Grund (sws_tools)
 % https://github.com/michaelgrund/sws_tools
@@ -110,7 +113,7 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 %
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 % GNU General Public License for more details.
 %
 % You should have received a copy of the GNU General Public License
@@ -148,8 +151,8 @@ model_out = models.splitmods;
 % mainly for later plotting etc.
 
 % maximum XX best models for finale figures
-plot_mod_max = 20; % keep only XX best models of ALL model types
-keep_mods = 500; % keep only XX best models of ALL model types
+plot_mod_max = 20;  % keep only XX best models of ALL model types
+keep_mods = 500;  % keep only XX best models of ALL model types
 keep_mods_sep = plot_mod_max; % keep only XX best models of EACH model type
 
 %--------------------------------------------------------------------------

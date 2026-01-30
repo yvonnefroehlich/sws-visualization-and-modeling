@@ -1,5 +1,5 @@
-# #############################################################################
-# Load forwardt calculated splitting parameters for structural anisotropy
+# ==========================================================================
+# Load forward calculated splitting parameters for structural anisotropy
 # -----------------------------------------------------------------------------
 # Supported model types
 # - One horizontal layer (with HTI): H1
@@ -22,24 +22,43 @@
 # - GitHub: https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 # -----------------------------------------------------------------------------
 # Related to
-# - Fröhlich Y (2025)
-#   Shear wave splitting analysis of long-term data: Anisotropy studies in the
-#   Upper Rhine Graben area, Central Europe. Dissertation, Karlsruhe Institute
-#   of Technology, Geophysical Institute.
-#   https://doi.org/10.5445/IR/1000183786.
-# - Fröhlich Y, Ritter J R R (2024)
-#   Vertical and Small-scale Lateral Varying Seismic Anisotropy in the Upper
-#   Mantle Underneath the Upper Rhine Graben, Central Europe. Annual Meeting of
-#   the American Geophysical Union, Division Session Exploring Innovations and
-#   New Directions in Seismic Anisotropy and Attenuation: Observations, Models,
-#   and Experiments I Oral, DI21A-02. Abstract ID 1578275.
-#   http://dx.doi.org/10.5281/zenodo.14510993.
-# - Fröhlich Y, Grund M, Ritter J R R (2024)
-#   Lateral and vertical variations of seismic anisotropy in the lithosphere-
-#   asthenosphere system underneath Central Europe from long-term splitting
-#   measurements. Geophysical Journal International, 239(1), 112-135.
-#   https://doi.org/10.1093/gji/ggae245.
-# #############################################################################
+# - Fröhlich (2025) Dissertation
+#   https://doi.org/10.5445/IR/1000183786
+# - Fröhlich, Ritter (2024) Annual Meeting of the American Geophysical Union
+#   http://dx.doi.org/10.5281/zenodo.14510993
+# - Fröhlich, Grund, Ritter (2024) Geophysical Journal International
+#   https://doi.org/10.1093/gji/ggae245
+# -----------------------------------------------------------------------------
+# LICENSE
+#
+# Copyright (C) 2026  Yvonne Fröhlich (v2.0)
+# https://github.com/yvonnefroehlich/sws-visualization-and-modeling
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+# --------------------------------------------------------------------------
+# TERMS OF USE
+#
+# The loading routines are provided "as is" and without any warranty.
+# The author cannot be held responsible for anything that happens to you
+# or your equipment. Use it at your own risk.
+# --------------------------------------------------------------------------
+# CONTRIBUTING
+#
+# Feel free to modify/adjust the code for your needs. Submit improvements
+# and report bugs by opening a "New issue" in the GitHub repository (:
+# ==========================================================================
+
 
 
 import numpy as np
