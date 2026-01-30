@@ -2,6 +2,7 @@
 
  _How to use_: [Header of script `explore_syn_split_para.py`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization//02_explore_syn_split_para/explore_syn_split_para.py)
 
+_Test data_: Use files from [000_test data](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/000_test_data)
 
 
 ## Overview
