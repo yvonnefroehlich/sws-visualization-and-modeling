@@ -9,6 +9,9 @@
    - Move "Contents" section to separate READMEs and introduce "_image folder" ([PR #31](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/31))
    - Add ".gitignore" file ([Commit 40bf76d](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/commit/40bf76daec02622c8cd013e717aafc8aa86a126c))
 
+- [000_test_data](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/000_test_data)
+   - Add common folder for test data ([PR #44](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/44))
+
 - [001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot)
    - Add queries for phase and observation type ([PR #23](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/23))
    - Allow plotting recording station in the center of the stereoplot ([PR #33](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/33))
