@@ -4,21 +4,16 @@
 % Datasets are available from RADAR4KIT
 % - Upper Rhine Graben area: https://dx.doi.org/10.35097/685
 %   related to Fröhlich et al. (2024)
-% - Blackforest Observatory: https://dx.doi.org/10.35097/684
+% - Black Forest Observatory: https://dx.doi.org/10.35097/684
 %   related to Ritter et al. (2022)
 % --------------------------------------------------------------------------
 % Related to the publications
-% - Fröhlich Y., Grund M. & Ritter J. R. R. (2024).
-%   Lateral and vertical variations of seismic anisotropy in the
-%   lithosphere-asthenosphere system underneath Central Europe from
-%   long-term splitting measurements.
-%   Geophysical Journal International, 239(1), 112-135.
-%   https://doi.org/10.1093/gji/ggae245.
-% - Ritter J. R. R., Fröhlich Y., Sanz Alonso Y. & Grund M. (2022).
-%   Short-scale laterally varying SK(K)S shear wave splitting at BFO,
-%   Germany – implications for the determination of anisotropic structures.
-%   Journal of Seismology, 26, 1137-1156.
-%   https://doi.org/10.1007/s10950-022-10112-w.
+% - Fröhlich (2025) Dissertation
+%   https://doi.org/10.5445/IR/1000183786
+% - Fröhlich, Grund, Ritter (2024) Geophysical Journal International
+%   https://doi.org/10.1093/gji/ggae245
+% - Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
+%   https://doi.org/10.1007/s10950-022-10112-w
 % --------------------------------------------------------------------------
 % Created: 2024/07/08
 % Author: Yvonne Fröhlich
@@ -26,7 +21,7 @@
 % --------------------------------------------------------------------------
 % LICENSE
 %
-% Copyright (C) 2024  Yvonne Fröhlich (up on v2.0)
+% Copyright (C) 2026  Yvonne Fröhlich (v2.0)
 % https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 %
 % This program is free software: you can redistribute it and/or modify
