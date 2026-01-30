@@ -328,7 +328,7 @@ for mt = 1:1:length(modtyp_str_all)
     %......................................................................
     % single splits and stack splits or simw splits
     sizeSC = size(meas_phiSC);
-    for FF = 1:sizeSC
+    for FF = 1:1:sizeSC(1)
         if cmap_phi_ind==0 % no color-coding based on phi
             %h1(FF) =
             errorbar(meas_BAZ_floor(FF), meas_phiSC(FF,2), ...
@@ -513,7 +513,7 @@ for mt = 1:1:length(modtyp_str_all)
     %......................................................................
     % plot measured values
     % single splits and stack splits or simw splits
-    for FF = 1:1:sizeSC
+    for FF = 1:1:sizeSC(1)
         if cmap_phi_ind==0 % no color-coding based on phi
             %h2(FF) =
             errorbar(meas_BAZ_floor(FF),meas_dtSC(FF,2), ...
