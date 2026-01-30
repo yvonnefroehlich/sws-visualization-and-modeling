@@ -12,7 +12,7 @@
 #   https://doi.org/10.5445/IR/1000183786
 # - Fröhlich, Grund, Ritter (2024) Geophysical Journal International
 #   https://doi.org/10.1093/gji/ggae245
-# - Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
+# - Ritter, Fröhlich, Sanz Alonso, Grund (2022) Journal of Seismology
 #   https://doi.org/10.1007/s10950-022-10112-w
 # --------------------------------------------------------------------------
 # Created: 2024/07/08
@@ -31,7 +31,7 @@
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
@@ -43,7 +43,7 @@
 # The author cannot be held responsible for anything that happens to you
 # or your equipment. Use it at your own risk.
 # --------------------------------------------------------------------------
-#  CONTRIBUTING
+# CONTRIBUTING
 #
 # Feel free to modify/adjust the code for your needs. Submit improvements
 # and report bugs by opening a "New issue" in the GitHub repository (:

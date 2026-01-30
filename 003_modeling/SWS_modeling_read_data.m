@@ -24,7 +24,7 @@ function [RES_split, RES_null, RES_stack, RES_simw_split, RES_simw_null] = ...
 %   https://doi.org/10.5445/IR/1000183786
 %   Fröhlich, Grund, Ritter (2024) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggae245
-%   Ritter, Fröhlich, Sanz Alonso & Grund (2022) Journal of Seismology
+%   Ritter, Fröhlich, Sanz Alonso, Grund (2022) Journal of Seismology
 %   https://doi.org/10.1007/s10950-022-10112-w
 % - created: Michael Grund (ORCID 0000-0001-8759-2018)
 %   https://github.com/michaelgrund/sws_tools
@@ -35,8 +35,8 @@ function [RES_split, RES_null, RES_stack, RES_simw_split, RES_simw_null] = ...
 % --------------------------------------------------------------------------
 % LICENSE
 %
-% Copyright (C) 2026  Yvonne Fröhlich & Michael Grund (v2.0)
-% Copyright (C) 2022  Yvonne Fröhlich & Michael Grund (v1.0)
+% Copyright (C) 2026  Yvonne Fröhlich, Michael Grund (v2.0)
+% Copyright (C) 2022  Yvonne Fröhlich, Michael Grund (v1.0)
 % https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 % Copyright (C) 2020  Michael Grund (sws_tools)
 % https://github.com/michaelgrund/sws_tools
@@ -48,7 +48,7 @@ function [RES_split, RES_null, RES_stack, RES_simw_split, RES_simw_null] = ...
 %
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 % GNU General Public License for more details.
 %
 % You should have received a copy of the GNU General Public License
