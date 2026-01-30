@@ -11,7 +11,7 @@ MATLAB (mainly) and Python (upcoming) functions for visualization and modeling o
 
 ## Content
 
-_Example figures_: Generated with the provided test data
+_Example figures_: Generated with the provided [test data](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/000_test_data)
 
 - **[001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot#001_stereoplot)**
 - **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization#002_visualization)**
