@@ -2,6 +2,7 @@
 
 _See also_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [**_Grund, Ritter (2020)_**](https://doi.org/10.1093/gji/ggaa388)
 
+_Test data_: Use files from [000_test data](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/000_test_data)
 
 
 ## Overview
@@ -54,11 +55,11 @@ _See also_: [Supporting Information](https://academic.oup.com/gji/article/223/3/
 
 _Please note_: For small step sizes, computation time and structure size increase significantly
 
-- Precompute splitting parameters for the different model types: **`SWS_modeling_precomp_models_main.m`**
+- Pre-compute splitting parameters for the different model types: **`SWS_modeling_precomp_models_main.m`**
 
 | phi / deg | dt / s | dip angle / deg | down-dip direction / deg | thickness / km | size / GB | publication |
 |---|---|---|---|---|---|---|
-| [-45:45:90] | [1:1:4]       | [15:15:75] | [0:45:315] | [250:250:500] | 0.008 | [TEST_data_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/TEST_data_modeling) |
+| [-45:45:90] | [1:1:4]       | [15:15:75] | [0:45:315] | [250:250:500] | 0.008 | [sws_modout_domper8s.mat](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/000_test_data) |
 | [-85:5:90]  | [0.2:0.2:4]   | [5:5:75]   | [0:5:355]  | [5:5:250]     | 5.9   | [Fröhlich et al. (2024)](https://doi.org/10.1093/gji/ggae245) |
 | [-85:5:90]  | [0.25:0.25:4] | [5:5:75]   | [0:5:355]  | [5:5:250]     | 4.2   | [Ritter et al. (2022)](https://doi.org/10.1007/s10950-022-10112-w) |
 | [-90:5:90]  | [0.2:0.2:4]   | [5:5:75]   | [0:5:360]  | [5:25:500]    | 5.7   | [Grund & Ritter (2020)](https://doi.org/10.1093/gji/ggaa388) |
