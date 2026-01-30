@@ -62,7 +62,8 @@ from load_models import load_models
 # -----------------------------------------------------------------------------
 model_type = "H1"  # "H1" | "H2" | "T1"
 dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
-path_models = "TEST_data_syn_split_para"
+root_path = ""
+path_models = f"{root_path}/sws-visualization-and-modeling/000_test_data"
 path_out = "02_out_figs"
 
 # -----------------------------------------------------------------------------
