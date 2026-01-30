@@ -2,6 +2,7 @@
 
 _See also_: [Supporting Information](https://academic.oup.com/gji/article/223/3/1525/5893297#supplementary-data) of [**_Grund, Ritter (2020)_**](https://doi.org/10.1093/gji/ggaa388)
 
+_Test data_: Use files from [000_test data](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/000_test_data)
 
 
 ## Overview
