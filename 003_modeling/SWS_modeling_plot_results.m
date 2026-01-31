@@ -331,7 +331,7 @@ for mt = 1:1:length(modtyp_str_all)
     %......................................................................
     % single splits and stack splits or simw splits
     sizeSC = size(meas_phiSC);
-    for FF = 1:1:sizeSC(1)
+    for FF = 1:sizeSC(1)
 
         if cmap_phi_ind==0 % no color-coding based on phi
             %h1(FF) =
@@ -517,7 +517,7 @@ for mt = 1:1:length(modtyp_str_all)
     %......................................................................
     % plot measured values
     % single splits and stack splits or simw splits
-    for FF = 1:1:sizeSC(1)
+    for FF = 1:sizeSC(1)
 
         if cmap_phi_ind==0 % no color-coding based on phi
             %h2(FF) =
