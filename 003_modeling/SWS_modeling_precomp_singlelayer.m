@@ -73,7 +73,7 @@ comb_vecs = combvec(phi, dt);
 N = length(comb_vecs);
 
 disp(' ')
-disp('Total number of single-layer models to generate: ' + num2str(N))
+disp(['Total number of single-layer models to generate: ' num2str(N)])
 disp('Generate models...')
 
 

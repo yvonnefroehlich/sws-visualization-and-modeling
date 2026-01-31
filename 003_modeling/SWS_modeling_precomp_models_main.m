@@ -100,10 +100,10 @@ stepthick = 100; % in km
 %==========================================================================
 
 % merge models
-mat_name = 'sws_modout_domper' + num2str(domper) + 's.mat';
+mat_name = ['sws_modout_domper' num2str(domper) 's.mat'];
 disp(' ')
-disp('Merge models and save into file ')
-disp('"' + mat_name + '"')
+disp('Merge models and save into file')
+disp(['"' mat_name '".'])
 disp('For small step sizes this can the some time.')
 splitmods = vertcat(modout1, modout2, modout3);
 

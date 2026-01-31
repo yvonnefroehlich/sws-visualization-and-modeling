@@ -86,7 +86,7 @@ comb_vecs = combvec(phi1,phi2,dt1,dt2);
 N = length(comb_vecs);
 
 disp(' ')
-disp('Total number of two-layer models to generate: ' + num2str(N))
+disp(['Total number of two-layer models to generate: ' num2str(N)])
 disp('Generate models...')
 
 
