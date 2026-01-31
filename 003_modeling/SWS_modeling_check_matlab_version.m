@@ -5,7 +5,7 @@ function vers_out = SWS_modeling_check_matlab_version()
 % ==========================================================================
 % checks the MATLAB version available on your system
 % --------------------------------------------------------------------------
-% is 
+% is
 % - modified: Yvonne Fröhlich (ORCID 0000-0002-8566-0619)
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling
 %   Fröhlich (2025) Dissertation
