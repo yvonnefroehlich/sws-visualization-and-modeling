@@ -72,10 +72,10 @@ function SWS_modeling_precomp_models_main()
 
 
 %==========================================================================
-%% set stepsizes
+%% set step sizes
 %==========================================================================
 % >>> adjust for your needs <<<
-% >>> for small stepsizes computation time and struct size increases
+% >>> for small step sizes computation time and struct size increases
 % significantly <<<
 
 % dominant period of shear wave
@@ -101,8 +101,8 @@ stepthick = 100; % in km
 %==========================================================================
 
 disp(' ')
-disp(['Model setup for shear-wave splitting modeling using \n' ...
-      'single-layer, two-layer and dipping layer models!'])
+disp('Model setup for shear-wave splitting modeling using ')
+disp('single-layer, two-layer and dipping layer models!')
 
 modout1 = SWS_modeling_precomp_singlelayer(stepphis, stepdts);
 modout2 = SWS_modeling_precomp_twolayers(1/domper, stepphim, stepdtm);

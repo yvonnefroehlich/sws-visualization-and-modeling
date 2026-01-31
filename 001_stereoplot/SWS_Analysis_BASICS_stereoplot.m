@@ -1,7 +1,6 @@
 function SWS_Analysis_BASICS_stereoplot(colmap)
 % function SWS_Analysis_BASICS_stereoplot(colmap, SL_quality, SL_phase, SL_obs)
 
-
 % ==========================================================================
 %% This function
 % ==========================================================================
