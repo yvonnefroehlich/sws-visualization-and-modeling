@@ -135,7 +135,7 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 
 %==========================================================================
 % loading preprocessed synthetic models
-disp(['Loading model file >' modelsin '<...'])
+disp('Loading model file ' + modelsin + ' ...')
 
 % struct with field splitmods
 models = load(modelsin);
@@ -151,8 +151,8 @@ model_out = models.splitmods;
 % mainly for later plotting etc.
 
 % maximum XX best models for finale figures
-plot_mod_max = 20;  % keep only XX best models of ALL model types
-keep_mods = 500;  % keep only XX best models of ALL model types
+plot_mod_max = 15;  % 20; % keep only XX best models of ALL model types
+keep_mods = 100;  % 500; % keep only XX best models of ALL model types
 keep_mods_sep = plot_mod_max; % keep only XX best models of EACH model type
 
 %--------------------------------------------------------------------------

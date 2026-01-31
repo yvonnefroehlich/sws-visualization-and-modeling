@@ -331,7 +331,7 @@ for mt = 1:1:length(modtyp_str_all)
     %......................................................................
     % single splits and stack splits or simw splits
     sizeSC = size(meas_phiSC);
-    for FF = 1:sizeSC
+    for FF = 1:sizeSC(1)
 
         if cmap_phi_ind==0 % no color-coding based on phi
             %h1(FF) =
@@ -365,9 +365,9 @@ for mt = 1:1:length(modtyp_str_all)
                     symbol_method, ...
                     'MarkerEdgeColor',coledge(meas_phiSC(FF,4),:))
             colormap(cmap_phi);
-            caxis([-90 90])
+            clim([-90 90])
             if any( strcmp(station_shift,staname_split) )
-                caxis([0 180])
+                clim([0 180])
             end
         end
     end % FF
@@ -517,7 +517,7 @@ for mt = 1:1:length(modtyp_str_all)
     %......................................................................
     % plot measured values
     % single splits and stack splits or simw splits
-    for FF = 1:sizeSC
+    for FF = 1:sizeSC(1)
 
         if cmap_phi_ind==0 % no color-coding based on phi
             %h2(FF) =
@@ -551,9 +551,9 @@ for mt = 1:1:length(modtyp_str_all)
                     symbol_method, ...
                     'MarkerEdgeColor',coledge(meas_phiSC(FF,4),:))
             colormap(cmap_phi);
-            caxis([-90 90])
+            clim([-90 90])
             if any( strcmp(station_shift,staname_split) )
-                caxis([0 180])
+                clim([0 180])
             end
         end
     end
@@ -1178,7 +1178,7 @@ fig_H1 = figure('visible','off'); % one layer
         cb.Label.Position = [0.70 -0.2 0]; % below vertical colorbar
         cb.Label.Rotation = 0; % horizontal
         colormap(cmap_rms_sel)
-        caxis([0 plot_mod_max])
+        clim([0 plot_mod_max])
 
         % highlight best-fit model
         plot(dt_H1(1),phi_H1(1), 'o', ...
@@ -1340,7 +1340,7 @@ fig_H2 = figure('visible','off'); % two layers
         cb.Label.Position = [0.70 -0.2 0];
         cb.Label.Rotation = 0; % horizontal
         colormap(cmap_rms_sel)
-        caxis([0 plot_mod_max])
+        clim([0 plot_mod_max])
 
         % highlight best-fit model
         plot(dt_H2(1,1),phi_H2(1,1), 's', ...
@@ -1502,7 +1502,7 @@ fig_T1 = figure('visible','off'); % one dipping layer
         cb.Label.Position = [0.70 -0.2 0]; % below vertical colorbar
         cb.Label.Rotation = 0; % horizontal
         colormap(cmap_rms_sel)
-        caxis([0 plot_mod_max])
+        clim([0 plot_mod_max])
 
         % highlight best-fit model
         plot(downdipdir_T1(1),dip_T1(1), 'o', ...
