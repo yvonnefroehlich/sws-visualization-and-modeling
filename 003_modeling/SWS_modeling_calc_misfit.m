@@ -135,7 +135,7 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 
 %==========================================================================
 % loading preprocessed synthetic models
-disp('Loading model file ' + modelsin + ' ...')
+disp(['Loading model file "' modelsin '" ...'])
 
 % struct with field splitmods
 models = load(modelsin);
