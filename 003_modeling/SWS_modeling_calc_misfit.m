@@ -254,12 +254,12 @@ if cmap_rms_ind==0
     cmap_rms_str = 'rmsno';
 elseif cmap_rms_ind==1
     % built-in MATLAB
-    cmap_rms = flipud( gray(30) );
+    cmap_rms = flipud( gray(plot_mod_max + 10) );
     cmap_rms_str = 'rmsgray';
 elseif cmap_rms_ind==2
     % grayC of Scientific Colormaps version 7.0.1 by Crameri 2021
     % Flip colormap by using '-' before the colormap name
-    cmap_rms = crameri('-grayC', 30);
+    cmap_rms = crameri('-grayC', plot_mod_max + 10);
     cmap_rms_str = 'rmsgrayC';
 end
 
