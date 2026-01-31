@@ -108,12 +108,14 @@ modout2 = SWS_modeling_precomp_twolayers(1/domper, stepphim, stepdtm);
 modout3 = SWS_modeling_precomp_dippinglayer(1/domper, stepdddir, ...
                                             stepdips, stepthick);
 
-% merge models
 mat_name = ['sws_modout_domper' num2str(domper) 's.mat'];
+
 disp(' ')
 disp('Merge models and save into file')
 disp(['"' mat_name '".'])
 disp('For small step sizes this can the some time.')
+
+% merge models
 splitmods = vertcat(modout1, modout2, modout3);
 
 % save to mat-file
