@@ -105,8 +105,9 @@ disp('single-layer, two-layer and dipping layer models!')
 
 modout1 = SWS_modeling_precomp_singlelayer(stepphis, stepdts);
 modout2 = SWS_modeling_precomp_twolayers(1/domper, stepphim, stepdtm);
-modout3 = SWS_modeling_precomp_dippinglayer(1/domper, stepdddir, ...
-                                            stepdips, stepthick);
+modout3 = SWS_modeling_precomp_dippinglayer( ...
+    1/domper, stepdddir, stepdips, stepthick ...
+);
 
 mat_name = ['sws_modout_domper' num2str(domper) 's.mat'];
 
