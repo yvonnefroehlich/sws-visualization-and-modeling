@@ -120,6 +120,7 @@ for ii = 1:N
     modout(ii).mod_paras.counter = 1;
     modout(ii).type = 'two_layers';
 
+    % note: when parfor used the number of remaining models is shown
     if rem(ii/5000, 1) == 0 % whole number
         disp([num2str(ii) ' / ' num2str(N) ' models done.'])
     end

@@ -126,6 +126,7 @@ for ii = 1:N
      modout(ii).mod_paras.dt4plot = tlag4plot;
      modout(ii).type = 'dipping';
 
+    % note: when parfor used the number of remaining models is shown
     if rem(ii/1000, 1) == 0 % whole number
         disp([num2str(ii) ' / ' num2str(N) ' models done.'])
     end
