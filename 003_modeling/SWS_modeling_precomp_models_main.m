@@ -103,6 +103,7 @@ stepthick = 100; % in km
 disp(' ')
 disp('Model setup for shear-wave splitting modeling using ')
 disp('single-layer, two-layer and dipping layer models!')
+disp('For small step sizes the finally saved struct can be quite large (several GB!)')
 
 modout1 = SWS_modeling_precomp_singlelayer(stepphis, stepdts);
 modout2 = SWS_modeling_precomp_twolayers(1/domper, stepphim, stepdtm);
@@ -112,6 +113,7 @@ modout3 = SWS_modeling_precomp_dippinglayer(1/domper, stepdddir, ...
 % merge models
 disp(' ')
 disp('Merge models and save into file...')
+disp('For small step sizes this can the some time.')
 splitmods = vertcat(modout1, modout2, modout3);
 
 % save to mat-file
