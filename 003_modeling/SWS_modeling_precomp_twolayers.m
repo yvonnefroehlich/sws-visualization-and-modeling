@@ -119,8 +119,8 @@ parfor ii = 1:N
     modout(ii).mod_paras.counter = 1;
     modout(ii).type = 'two_layers';
 
-    if rem(ii/5000,1)==0 % whole number
-        disp([num2str(ii) ' models done.'])
+    if rem(ii/5000, 1) == 0 % whole number
+        disp([num2str(N - ii) ' / ' num2str(N) ' models done.'])
     end
 
 end
