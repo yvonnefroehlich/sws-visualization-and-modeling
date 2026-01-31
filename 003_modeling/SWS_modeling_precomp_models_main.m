@@ -99,6 +99,15 @@ stepthick = 100; % in km
 %% pre-compute models
 %==========================================================================
 
+disp(' ')
+disp('Model setup for shear-wave splitting modeling using')
+disp('single-layer, two-layer and dipping layer models!')
+
+modout1 = SWS_modeling_precomp_singlelayer(stepphis, stepdts);
+modout2 = SWS_modeling_precomp_twolayers(1/domper, stepphim, stepdtm);
+modout3 = SWS_modeling_precomp_dippinglayer(1/domper, stepdddir, ...
+                                            stepdips, stepthick);
+
 % merge models
 mat_name = ['sws_modout_domper' num2str(domper) 's.mat'];
 disp(' ')
