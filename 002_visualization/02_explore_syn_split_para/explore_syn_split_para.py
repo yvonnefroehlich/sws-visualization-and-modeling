@@ -82,10 +82,10 @@ from load_models import load_models
 # -----------------------------------------------------------------------------
 model_type = "H1"  # "H1" | "H2" | "T1"
 dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
-root_path = ""  # Adjust for your file sturcture
+root_path = ""  # Adjust for your file structure
 path_models = f"{root_path}/sws-visualization-and-modeling/000_test_data"
 # "test": provided test data
-# "default": naming structur from forwardt calculation
+# "default": naming structure from forwardt calculation
 # <your_model_name>: user defined name
 file_models = "test"
 path_out = "02_out_figs"
@@ -129,6 +129,7 @@ models_df, models_df_select, model_type, dom_per, N_total, N_select = load_model
     model_type=model_type,
     dom_per=dom_per,
     path_models=path_models,
+    file_models=file_models,
     phi_min=phi_min,
     phi_max=phi_max,
     dt_min=dt_min,
