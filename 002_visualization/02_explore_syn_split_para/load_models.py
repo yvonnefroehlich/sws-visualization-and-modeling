@@ -70,6 +70,7 @@ def load_models(
     model_type,  ## H1 | H2 | T1
     dom_per=8,  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
     path_models="TEST_data_syn_split_para",
+    file_models=None,
 # -----------------------------------------------------------------------------
     # Limits for model parameters
     # H1
@@ -94,6 +95,14 @@ def load_models(
     downdipdir_min=0,
     downdipdir_max=360,
 ):
+
+
+# %%
+# -----------------------------------------------------------------------------
+# General stuff
+# -----------------------------------------------------------------------------
+    if file_models == None:
+        file_models = f"sws_modout_domper{dom_per}s_{model_type}_TEST.mat"
 
 
 # %%
