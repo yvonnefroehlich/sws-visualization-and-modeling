@@ -79,7 +79,7 @@ from load_models import load_models
 # -----------------------------------------------------------------------------
 # Adjust for your needs
 # -----------------------------------------------------------------------------
-model_type = "H2"  # "H1" | "H2" | "T1"
+model_type = "H1"  # "H1" | "H2" | "T1"
 dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
 root_path = ""  # Adjust for your file sturcture
 path_models = f"{root_path}/sws-visualization-and-modeling/000_test_data"
