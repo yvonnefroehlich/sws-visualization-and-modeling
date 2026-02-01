@@ -18,6 +18,7 @@
 # - Updated: 2026/01/25 - Improve data preparation, shorten code for plotting nulls
 # - Updated: 2026/01/27 - Improve determination of null directions
 # - Updated: 2026/01/18 - Move loading anisotropy model to separate function
+# - Updated: 2026/01/02 - Improve usage of test data
 # -----------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
@@ -81,8 +82,12 @@ from load_models import load_models
 # -----------------------------------------------------------------------------
 model_type = "H1"  # "H1" | "H2" | "T1"
 dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
-root_path = ""
+root_path = ""  # Adjust for your file structure
 path_models = f"{root_path}/sws-visualization-and-modeling/000_test_data"
+# "test": provided test data
+# "default": naming structure from forwardt calculation
+# <your_model_name>: user defined name
+file_models = "test"
 path_out = "02_out_figs"
 
 # -----------------------------------------------------------------------------
@@ -124,6 +129,7 @@ models_df, models_df_select, model_type, dom_per, N_total, N_select = load_model
     model_type=model_type,
     dom_per=dom_per,
     path_models=path_models,
+    file_models=file_models,
     phi_min=phi_min,
     phi_max=phi_max,
     dt_min=dt_min,

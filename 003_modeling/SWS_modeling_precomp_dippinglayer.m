@@ -69,20 +69,23 @@ function modout = SWS_modeling_precomp_dippinglayer( ...
 %% model set up
 %==========================================================================
 
+%--------------------------------------------------------------------------
 % define incidence angle that should be used
 inc = 10; % deg
 
+%--------------------------------------------------------------------------
 % set up parameters
 downdipdir = 0:stepdddir:(360-stepdddir);
 dips = stepdips:stepdips:75; % avoid horizontal layer
 thickness = stepthick:stepthick:250; % avoid layer of zero thickness
 
+%--------------------------------------------------------------------------
 % get all possible combinations
 comb_vecs = combvec(downdipdir, dips, thickness);
+N = length(comb_vecs);
 
 disp(' ')
-disp(['Total number of dipping-layer models to generate: ' ...
-      num2str(length(comb_vecs))])
+disp(['Total number of dipping-layer models to generate: ' num2str(N)])
 disp('Generate models...')
 
 
@@ -90,8 +93,6 @@ disp('Generate models...')
 %==========================================================================
 %% generate models
 %==========================================================================
-
-N = length(comb_vecs);
 
 modout = repmat(struct('phi_eff',zeros(1,360), ...
                        'dt_eff',zeros(1,360), ...
@@ -103,7 +104,9 @@ modout = repmat(struct('phi_eff',zeros(1,360), ...
                 N, 1);
 
 
-parfor ii = 1:N % if problems occur, replace parfor by standard for loop
+% if problems occur, replace parfor by standard for loop
+% parfor ii = 1:N
+for ii = 1:N
 
     currmod = comb_vecs(:,ii);
     downdipdir = currmod(1,:);
@@ -123,13 +126,14 @@ parfor ii = 1:N % if problems occur, replace parfor by standard for loop
      modout(ii).mod_paras.dt4plot = tlag4plot;
      modout(ii).type = 'dipping';
 
-    if rem(ii/1000,1)==0 % whole number
-     disp([num2str(ii) ' models done.'])
+    % note: when parfor used the number of remaining models is shown
+    if rem(ii/1000, 1) == 0 % whole number
+        disp([num2str(ii) ' / ' num2str(N) ' models done.'])
     end
 
 end
 
-% save(['sws_modout_domper_dipping_' ...
+% save(['sws_modout_domper_dippinglayer_' ...
 %    num2str(1/dfreq) 's_' ...
 %    num2str(stepdddir) 'deg_' num2str(stepdips) 'deg_' num2str(stepthick) 'km.mat'], ...
 %    'modout', '-v7.3')

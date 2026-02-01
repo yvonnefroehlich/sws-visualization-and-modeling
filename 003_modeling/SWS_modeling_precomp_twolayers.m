@@ -83,18 +83,17 @@ dt2 = stepdt:stepdt:4; % in sec; avoid dt=0 sec
 %--------------------------------------------------------------------------
 % get all possible combinations
 comb_vecs = combvec(phi1,phi2,dt1,dt2);
+N = length(comb_vecs);
 
 disp(' ')
-disp(['Total number of two-layer models to generate: ' ...
-      num2str(length(comb_vecs))])
+disp(['Total number of two-layer models to generate: ' num2str(N)])
 disp('Generate models...')
+
 
 
 %==========================================================================
 %% generate models
 %==========================================================================
-
-N = length(comb_vecs);
 
 % preallocate structs
 modout = repmat(struct('phi_eff',zeros(1,360), ...
@@ -105,7 +104,9 @@ modout = repmat(struct('phi_eff',zeros(1,360), ...
                        'type', zeros(1,1)), ...
                 N, 1);
 
-parfor ii = 1:N
+% if problems occur, replace parfor by standard for loop
+% parfor ii = 1:N
+for ii = 1:N
 
     currmod_in = comb_vecs(:,ii);
     modphis = currmod_in(1:length(currmod_in)/2,:);
@@ -119,13 +120,14 @@ parfor ii = 1:N
     modout(ii).mod_paras.counter = 1;
     modout(ii).type = 'two_layers';
 
-    if rem(ii/5000,1)==0 % whole number
-        disp([num2str(ii) ' models done.'])
+    % note: when parfor used the number of remaining models is shown
+    if rem(ii/5000, 1) == 0 % whole number
+        disp([num2str(ii) ' / ' num2str(N) ' models done.'])
     end
 
 end
 
-% save(['sws_modout_domper_two_layers_' ...
+% save(['sws_modout_domper_twolayers_' ...
 %    num2str(1/dfreq) 's_' ...
 %    num2str(stepphi) 'deg_' num2str(stepdt) 's.mat'], ...
 %    'modout', '-v7.3')

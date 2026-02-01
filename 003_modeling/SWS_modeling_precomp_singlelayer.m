@@ -92,7 +92,7 @@ modout = repmat(struct('phi_eff',zeros(1,360), ...
                 N, 1);
 
 
-for ii = 1:1:N
+for ii = 1:N
 
     currmod = comb_vecs(:,ii);
     modphis = currmod(1:length(currmod)/2,:);
@@ -105,13 +105,13 @@ for ii = 1:1:N
     modout(ii).mod_paras.counter = 1;
     modout(ii).type = 'single_layer';
 
-    if rem(ii/1000,1)==0 % whole number
-     disp([num2str(ii) ' models done.'])
+    if rem(ii/1000, 1) == 0 % whole number
+        disp([num2str(ii) ' / ' num2str(N) ' models done.'])
     end
 
 end
 
-% save(['sws_modout_domper_single_layer_' ...
+% save(['sws_modout_domper_singlelayer_' ...
 %    num2str(stepphi) 'deg_' num2str(stepdt) 's.mat'], ...
 %    'modout', '-v7.3')
 

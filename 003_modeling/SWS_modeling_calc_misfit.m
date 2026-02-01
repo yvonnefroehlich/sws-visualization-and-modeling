@@ -135,7 +135,8 @@ function modsall_sort = SWS_modeling_calc_misfit( ...
 
 %==========================================================================
 % loading preprocessed synthetic models
-disp(['Loading model file >' modelsin '<...'])
+disp('Loading model file')
+disp(modelsin)
 
 % struct with field splitmods
 models = load(modelsin);
@@ -151,8 +152,8 @@ model_out = models.splitmods;
 % mainly for later plotting etc.
 
 % maximum XX best models for finale figures
-plot_mod_max = 20;  % keep only XX best models of ALL model types
-keep_mods = 500;  % keep only XX best models of ALL model types
+plot_mod_max = 15;  % 20; % keep only XX best models of ALL model types
+keep_mods = 100;  % 500; % keep only XX best models of ALL model types
 keep_mods_sep = plot_mod_max; % keep only XX best models of EACH model type
 
 %--------------------------------------------------------------------------
@@ -254,12 +255,12 @@ if cmap_rms_ind==0
     cmap_rms_str = 'rmsno';
 elseif cmap_rms_ind==1
     % built-in MATLAB
-    cmap_rms = flipud( gray(30) );
+    cmap_rms = flipud( gray(plot_mod_max + 10) );
     cmap_rms_str = 'rmsgray';
 elseif cmap_rms_ind==2
     % grayC of Scientific Colormaps version 7.0.1 by Crameri 2021
     % Flip colormap by using '-' before the colormap name
-    cmap_rms = crameri('-grayC', 30);
+    cmap_rms = crameri('-grayC', plot_mod_max + 10);
     cmap_rms_str = 'rmsgrayC';
 end
 
