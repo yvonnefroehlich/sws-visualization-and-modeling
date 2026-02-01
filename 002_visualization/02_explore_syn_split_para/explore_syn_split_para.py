@@ -18,6 +18,7 @@
 # - Updated: 2026/01/25 - Improve data preparation, shorten code for plotting nulls
 # - Updated: 2026/01/27 - Improve determination of null directions
 # - Updated: 2026/01/18 - Move loading anisotropy model to separate function
+# - Updated: 2026/01/02 - Improve usage of test data
 # -----------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
