@@ -81,9 +81,12 @@ from load_models import load_models
 # -----------------------------------------------------------------------------
 model_type = "H2"  # "H1" | "H2" | "T1"
 dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
-root_path = "C:/Users/Admin/C2/008_github_repos/github_sws"  # Adjust for your file sturcture
+root_path = ""  # Adjust for your file sturcture
 path_models = f"{root_path}/sws-visualization-and-modeling/000_test_data"
-file_models = "default"
+# "test": provided test data
+# "default": naming structur from forwardt calculation
+# <your_model_name>: user defined name
+file_models = "test"
 path_out = "02_out_figs"
 
 # -----------------------------------------------------------------------------

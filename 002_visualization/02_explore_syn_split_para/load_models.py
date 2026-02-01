@@ -72,7 +72,7 @@ def load_models(
     path_models="000_test_data",
     # "test": provided test data
     # "default": naming structur from forwardt calculation
-    # <model_name>: user defined name
+    # <your_model_name>: user defined name
     file_models="test",
 # -----------------------------------------------------------------------------
     # Limits for model parameters
