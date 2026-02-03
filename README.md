@@ -47,7 +47,7 @@ If you make use of this material, please acknowledge the relating publications i
   Division Session Exploring Innovations and New Directions in Seismic Anisotropy and Attenuation: Observations, Models, and Experiments I Oral, DI21A-02.
   [Abstract ID 1578275](https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1578275).
   https://dx.doi.org/10.5281/zenodo.14510993.
-- [**_Fröhlich Y_**](<add URL Zenodo-DOI>).
+- [**_Fröhlich Y (2026)_**](<add URL Zenodo-DOI>).
   Modeling shear wave splitting observations: Long-term data have the better idea.
   *Annual Meeting of the German Geophysical Society*, Münster, Germany.
   <add URL Zenodo-DOI>.
