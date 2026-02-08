@@ -21,7 +21,7 @@
 # - Updated: 2026/01/02 - Improve usage of test data
 # -----------------------------------------------------------------------------
 # Versions
-#   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
+#   PyGMT v0.18.0 -> https://www.pygmt.org
 #   GMT 6.6.0 -> https://www.generic-mapping-tools.org
 # -----------------------------------------------------------------------------
 # Contact
@@ -170,7 +170,7 @@ baz = np.arange(0, 360 + baz_step, baz_step)
 box_standard = "+glightgray@30+p0.1p,gray30+r1p"
 
 # Colors based on Fröhlich et al. (2024) GJI
-color_highlight = "255/90/0"  # -> orange
+color_hl= "255/90/0"  # highlight -> orange
 color_H1 = "127/140/95"  # 1 horizontal layer (H1) -> green
 color_H2l = "178/34/34"  # 2 horizontal layers (H2) lower (first) layer -> red
 color_H2u = "24/116/205"  # 2 horizontal layers (H2) upper (second) layer -> blue
@@ -447,7 +447,7 @@ for i_model in range(model_start, model_end, model_step):
             position="TL",
             justify="MC",
             offset="-0.35c/0c",
-            font=f"7.5p,{color_highlight}",
+            font=f"7.5p,{color_hl}",
             fill="white@30",
             pen="0.01p,black",
             clearance="0.08c/0.08c+tO",
