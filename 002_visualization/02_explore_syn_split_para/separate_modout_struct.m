@@ -1,6 +1,6 @@
 % ==========================================================================
 % Explore forward calculated splitting parameters for structural anisotropy
-% -----------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % Supported model types
 % - One horizontal layer (with HTI): H1
 % - Two horizontal layer (with HTI): H2
@@ -8,18 +8,18 @@
 % Previously calculated synthetic splitting parameters
 % - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
 % - The output MATLAB struct is split into separate structs for the different model types
-% -----------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % History
 % - Created: 2025/04/08
-% -----------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % Versions
 %   MATLAB R2024b
-% -----------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % Contact
 % - Author: Yvonne Fröhlich
 % - ORCID: https://orcid.org/0000-0002-8566-0619
 % - GitHub: https://github.com/yvonnefroehlich/sws-visualization-and-modeling
-% -----------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % Related to
 % - Fröhlich (2025) Dissertation
 %   https://doi.org/10.5445/IR/1000183786
@@ -27,11 +27,12 @@
 %   http://dx.doi.org/10.5281/zenodo.14510993
 % - Fröhlich, Grund, Ritter (2024) Geophysical Journal International
 %   https://doi.org/10.1093/gji/ggae245
-% -----------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 % LICENSE
 %
 % Copyright (C) 2026  Yvonne Fröhlich (v2.0)
 % https://github.com/yvonnefroehlich/sws-visualization-and-modeling
+% https://doi.org/10.5281/zenodo.7213156
 %
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -60,7 +61,7 @@
 
 
 
-% -----------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 %%
 clear all
 close all
@@ -70,7 +71,7 @@ name_struct = 'sws_modout_domper8s';
 models_all = load([folder_data '/' name_struct '.mat']);
 
 
-% -----------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 %%
 models_all_split = models_all.splitmods;
 
@@ -97,7 +98,7 @@ models_T1_in_dip = [models_T1_in.dip];
 models_T1_in_thick = [models_T1_in.thick];
 
 
-% -----------------------------------------------------------------------------
+% --------------------------------------------------------------------------
 %%
 clear model_out
 for i_mod = 1:1:length(models_H1)
