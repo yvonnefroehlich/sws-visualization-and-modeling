@@ -34,6 +34,7 @@
 #
 # Copyright (C) 2026  Yvonne Fröhlich (v2.0)
 # https://github.com/yvonnefroehlich/sws-visualization-and-modeling
+# https://doi.org/10.5281/zenodo.7213156
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
