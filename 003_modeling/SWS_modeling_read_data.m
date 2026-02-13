@@ -38,6 +38,7 @@ function [RES_split, RES_null, RES_stack, RES_simw_split, RES_simw_null] = ...
 % Copyright (C) 2026  Yvonne Fröhlich, Michael Grund (v2.0)
 % Copyright (C) 2022  Yvonne Fröhlich, Michael Grund (v1.0)
 % https://github.com/yvonnefroehlich/sws-visualization-and-modeling
+% https://doi.org/10.5281/zenodo.7213156
 % Copyright (C) 2020  Michael Grund (sws_tools)
 % https://github.com/michaelgrund/sws_tools
 %
