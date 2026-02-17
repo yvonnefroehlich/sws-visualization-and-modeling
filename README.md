@@ -51,7 +51,7 @@ If you make use of this material, please acknowledge the relating publications i
   *Zenodo*. https://doi.org/10.5281/zenodo.15641349.
 
 **Presentation**
-- [**_Fröhlich Y (2026)_**](https://doi.org/10.5281/zenodo.18524090).
+- [**_Fröhlich Y (2026b)_**](https://doi.org/10.5281/zenodo.18524090).
   Modeling shear wave splitting observations: Long-term data have the better idea.
   *Annual Meeting of the German Geophysical Society*, Münster, Germany.
   https://doi.org/10.5281/zenodo.18524090.
