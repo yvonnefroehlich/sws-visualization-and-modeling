@@ -35,12 +35,20 @@ If you make use of this material, please acknowledge the relating publications i
   https://doi.org/10.1007/s10950-022-10112-w, correction https://doi.org/10.1007/s10950-023-10136-w.
 
 **Doctoral studies**
-- [**_Fröhlich Y (2025)_**](https://doi.org/10.5445/IR/1000183786).
+- [**_Fröhlich Y (2025a)_**](https://doi.org/10.5445/IR/1000183786).
   Shear wave splitting analysis of long-term data: Anisotropy studies in the Upper Rhine Graben area, Central Europe.
   Dissertation, *Karlsruhe Institute of Technology, Geophysical Institute*.
   https://doi.org/10.5445/IR/1000183786.
-- [**_Fröhlich Y (2026)_**](https://doi.org/10.5281/zenodo.15836683). Geophysical Visualizations. *Zenodo*. https://doi.org/10.5281/zenodo.15836683.
-- [**_Fröhlich Y (2026)_**](https://doi.org/10.5281/zenodo.15641349). Geophysical Annimations. *Zenodo*. https://doi.org/10.5281/zenodo.15641349.
+- [**_Fröhlich Y (2025b)_**](https://doi.org/10.5281/zenodo.15982581).
+  Shear wave splitting analysis of long-term data: Anisotropy studies in the Upper Rhine Graben area, Central Europe.
+  Disputation, *Karlsruhe Institute of Technology, Geophysical Institute*.
+  https://doi.org/10.5281/zenodo.15982581.
+- [**_Fröhlich Y (2025c)_**](https://doi.org/10.5281/zenodo.15836683).
+  Geophysical Visualizations.
+  *Zenodo*. https://doi.org/10.5281/zenodo.15836683.
+- [**_Fröhlich Y (2025d)_**](https://doi.org/10.5281/zenodo.15641349).
+  Geophysical Animations.
+  *Zenodo*. https://doi.org/10.5281/zenodo.15641349.
 
 **Presentation**
 - [**_Fröhlich Y (2026)_**](https://doi.org/10.5281/zenodo.18524090).
