@@ -86,7 +86,7 @@ dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
 root_path = ""  # Adjust for your file structure
 path_models = f"{root_path}/sws-visualization-and-modeling/000_test_data"
 # "test": provided test data
-# "default": naming structure from forwardt calculation
+# "default": naming structure from forward calculation
 # <your_model_name>: user defined name
 file_models = "test"
 path_out = "02_out_figs"
@@ -457,7 +457,7 @@ for i_model in range(model_start, model_end, model_step):
 
 # -----------------------------------------------------------------------------
     fig.show()
-    fig_name_basic = f"forwardt_syn_sp_period{dom_per}s_{model_type}"
+    fig_name_basic = f"forward_syn_sp_period{dom_per}s_{model_type}"
 
     str_cb = ""
     if not status_cb:

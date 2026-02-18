@@ -73,7 +73,7 @@ def load_models(
     dom_per=8,  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
     path_models="000_test_data",
     # "test": provided test data
-    # "default": naming structur from forwardt calculation
+    # "default": naming structur from forward calculation
     # <your_model_name>: user defined name
     file_models="test",
 # -----------------------------------------------------------------------------
