@@ -291,7 +291,7 @@ def load_models(
         case "H1":
             models_df["phi_in"] = phi_in
             models_df["dt_in"] = dt_in
-            models_df["phi_gmt"] = phi_gmt_temp
+            models_df["phi_gmt"] = phi_gmt
         case "H2":
             models_df["phi1_in"] = phi1_in
             models_df["phi2_in"] = phi2_in
