@@ -14,7 +14,7 @@
 # - Updated: 2026/01/02 - Improve usage of test data
 # -----------------------------------------------------------------------------
 # Versions
-#   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
+#   PyGMT v0.18.0 -> https://www.pygmt.org
 #   GMT 6.6.0 -> https://www.generic-mapping-tools.org
 # -----------------------------------------------------------------------------
 # Contact
@@ -73,7 +73,7 @@ def load_models(
     dom_per=8,  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
     path_models="000_test_data",
     # "test": provided test data
-    # "default": naming structur from forwardt calculation
+    # "default": naming structur from forward calculation
     # <your_model_name>: user defined name
     file_models="test",
 # -----------------------------------------------------------------------------
