@@ -39,28 +39,28 @@ If you make use of this material, please acknowledge the relating publications i
   Shear wave splitting analysis of long-term data: Anisotropy studies in the Upper Rhine Graben area, Central Europe.
   Dissertation, *Karlsruhe Institute of Technology, Geophysical Institute*.
   https://doi.org/10.5445/IR/1000183786.
-- [**_Fröhlich Y (2025b)_**](https://doi.org/10.5281/zenodo.15982581).
+- [**_Fröhlich Y (2025b)_**](https://doi.org/10.5281/zenodo.15982580).
   Shear wave splitting analysis of long-term data: Anisotropy studies in the Upper Rhine Graben area, Central Europe.
   Disputation, *Karlsruhe Institute of Technology, Geophysical Institute*.
-  https://doi.org/10.5281/zenodo.15982581.
+  https://doi.org/10.5281/zenodo.15982580.
 - [**_Fröhlich Y (2025c)_**](https://doi.org/10.5281/zenodo.15836682).
-  Geophysical Visualizations.
-  *Zenodo*. https://doi.org/10.5281/zenodo.15836682.
+  Geophysical Visualizations. *Zenodo*.
+  https://doi.org/10.5281/zenodo.15836682.
 - [**_Fröhlich Y (2025d)_**](https://doi.org/10.5281/zenodo.15641348).
-  Geophysical Animations.
-  *Zenodo*. https://doi.org/10.5281/zenodo.15641348.
+  Geophysical Animations. *Zenodo*.
+  https://doi.org/10.5281/zenodo.15641348.
 
 **Presentation**
-- [**_Fröhlich Y (2026b)_**](https://doi.org/10.5281/zenodo.18524090).
+- [**_Fröhlich Y (2026b)_**](https://doi.org/10.5281/zenodo.18524089).
   Modeling shear wave splitting observations: Long-term data have the better idea.
   *Annual Meeting of the German Geophysical Society*, Münster, Germany.
-  https://doi.org/10.5281/zenodo.18524090.
-- [**_Fröhlich Y, Ritter J R R (2024)_**](https://doi.org/10.5281/zenodo.14510993).
+  https://doi.org/10.5281/zenodo.18524089.
+- [**_Fröhlich Y, Ritter J R R (2024)_**](https://doi.org/10.5281/zenodo.14510992).
   Vertical and Small-scale Lateral Varying Seismic Anisotropy in the Upper Mantle Underneath the Upper Rhine Graben, Central Europe.
   *Annual Meeting of the American Geophysical Union*, Washington D.C..
   Division Session Exploring Innovations and New Directions in Seismic Anisotropy and Attenuation: Observations, Models, and Experiments I Oral, DI21A-02.
   [Abstract ID 1578275](https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1578275).
-  https://doi.org/10.5281/zenodo.14510993.
+  https://doi.org/10.5281/zenodo.14510992.
 
 
 ## Requirements
