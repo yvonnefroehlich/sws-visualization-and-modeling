@@ -1,7 +1,7 @@
 # Visualization and Modeling of Shear Wave Splitting
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
 
-MATLAB (mainly) and Python functions for visualization and modeling of shear wave splitting observations:
+MATLAB and Python code for visualization and modeling of shear wave splitting observations:
 
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and
   [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
@@ -14,7 +14,7 @@ MATLAB (mainly) and Python functions for visualization and modeling of shear wav
 _Example figures_: Generated with the provided [test data](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/000_test_data)
 
 - **[001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot#001_stereoplot)** (MATLAB)
-- **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization#002_visualization)** (Python)
+- **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization#002_visualization)** (mainly Python, MATLAB)
 - **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling#003_modeling)** (MATLAB)
 
 ![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/000_repo_readme_image.png)
