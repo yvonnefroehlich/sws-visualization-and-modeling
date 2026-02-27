@@ -43,15 +43,15 @@ If you make use of this material, please acknowledge the relating publications i
   Shear wave splitting analysis of long-term data: Anisotropy studies in the Upper Rhine Graben area, Central Europe.
   Disputation, *Karlsruhe Institute of Technology, Geophysical Institute*.
   https://doi.org/10.5281/zenodo.15982580.
-- [**_Fröhlich Y (2025c)_**](https://doi.org/10.5281/zenodo.15836682).
+- [**_Fröhlich Y (2026a)_**](https://doi.org/10.5281/zenodo.15836682).
   Geophysical Visualizations. *Zenodo*.
   https://doi.org/10.5281/zenodo.15836682.
-- [**_Fröhlich Y (2025d)_**](https://doi.org/10.5281/zenodo.15641348).
+- [**_Fröhlich Y (2026b)_**](https://doi.org/10.5281/zenodo.15641348).
   Geophysical Animations. *Zenodo*.
   https://doi.org/10.5281/zenodo.15641348.
 
 **Presentation**
-- [**_Fröhlich Y (2026b)_**](https://doi.org/10.5281/zenodo.18524089).
+- [**_Fröhlich Y (2026d)_**](https://doi.org/10.5281/zenodo.18524089).
   Modeling shear wave splitting observations: Long-term data have the better idea.
   *Annual Meeting of the German Geophysical Society*, Münster, Germany.
   https://doi.org/10.5281/zenodo.18524089.
