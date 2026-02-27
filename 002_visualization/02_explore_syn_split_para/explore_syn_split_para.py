@@ -1,6 +1,9 @@
 # ==========================================================================
-# Explore forward calculated splitting parameters for structural anisotropy 
-# models
+# Plot forward calculated splitting parameters for structural anisotropy models
+# Creats suplot:
+# - LEFT: Cartesian plots of splitting parameters (fast pol. dir., delay time)
+# - RIGHT TOP: Model parameter of anisotropy model
+# - RIGHT BOTTOM: Stereoplot for splitting parameter
 # --------------------------------------------------------------------------
 # Supported model types
 # - One horizontal layer (with HTI): H1
@@ -192,7 +195,7 @@ baz_null_add = 5
 
 # %%
 # -----------------------------------------------------------------------------
-# Make plots of anisotropy models
+# Make plots
 # -----------------------------------------------------------------------------
 for i_model in range(model_start, model_end, model_step):
 
@@ -315,7 +318,7 @@ for i_model in range(model_start, model_end, model_step):
     fig.shift_origin(xshift="+w+1.5c", yshift="4.5c")
 
 # .............................................................................
-# Top Right: model parameter of anisotropy model
+# Top Right: Model parameter of anisotropy model
 # .............................................................................
     size = 2
     region_mp = [-size, size] * 2
