@@ -17,7 +17,7 @@
 # - Continued: 2026/01/24 - Allow setting ranges for model parameters
 # - Updated: 2026/01/25 - Improve data preparation, shorten code for plotting nulls
 # - Updated: 2026/01/27 - Improve determination of null directions
-# - Updated: 2026/01/18 - Move loading anisotropy model to separate function
+# - Updated: 2026/01/18 - Move loading anisotropy models to separate function
 # - Updated: 2026/01/02 - Improve usage of test data
 # -----------------------------------------------------------------------------
 # Versions
@@ -109,9 +109,9 @@ dt2_min = 0
 dt2_max = 4
 # T1
 dip_min = 0
-dip_max = 70
+dip_max = 90
 thick_min = 0
-thick_max = 400
+thick_max = 700
 downdipdir_min = 0
 downdipdir_max = 360
 
@@ -479,6 +479,6 @@ for i_model in range(model_start, model_end, model_step):
         fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
         if ext == "png":
             fig_name = f"{i_total}_{fig_name}"
-        # fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
+        # fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=360)
 
     print(f"{i_total}_{fig_name}")
