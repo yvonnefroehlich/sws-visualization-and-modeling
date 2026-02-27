@@ -1,30 +1,32 @@
 # ==========================================================================
-# Load forward calculated splitting parameters for structural anisotropy models
-# -----------------------------------------------------------------------------
+# Function to load forward calculated splitting parameters for structural
+# anisotropy models
+# --------------------------------------------------------------------------
 # Supported model types
 # - One horizontal layer (with HTI): H1
 # - Two horizontal layers (with HTI): H2
 # - One tilted layer (with TTI): T1
-# -----------------------------------------------------------------------------
-# Previously
+# Used in explore_syn_split_para.py
+# --------------------------------------------------------------------------
+# Previous steps
 # - Forward calculation of synthetic splitting parameters for structural anisotropy models
 #   https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/SWS_modeling_precomp_models_main.m
 # - Split MATLAB struct into separate structs for the different model types
 #   https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization/02_explore_syn_split_para/separate_modout_struct.m
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # History
 # - Created: 2026/01/28
 # - Updated: 2026/01/02 - Improve usage of test data
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.18.0 -> https://www.pygmt.org
 #   GMT 6.6.0 -> https://www.generic-mapping-tools.org
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # Contact
 # - Author: Yvonne Fröhlich
 # - ORCID: https://orcid.org/0000-0002-8566-0619
 # - GitHub: https://github.com/yvonnefroehlich/sws-visualization-and-modeling
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # Related to
 # - Fröhlich (2025) Dissertation
 #   https://doi.org/10.5445/IR/1000183786
@@ -32,7 +34,7 @@
 #   http://dx.doi.org/10.5281/zenodo.14510993
 # - Fröhlich, Grund, Ritter (2024) Geophysical Journal International
 #   https://doi.org/10.1093/gji/ggae245
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # LICENSE
 #
 # Copyright (C) 2026  Yvonne Fröhlich (v2.0)
