@@ -1,5 +1,6 @@
 # ==========================================================================
 # Plot forward calculated splitting parameters for structural anisotropy models
+# --------------------------------------------------------------------------
 # Creats suplot:
 # - LEFT: Cartesian plots of splitting parameters (fast pol. dir., delay time)
 # - RIGHT TOP: Model parameter of anisotropy model
@@ -9,7 +10,9 @@
 # - One horizontal layer (with HTI): H1
 # - Two horizontal layers (with HTI): H2
 # - One tilted layer (with TTI): T1
-# Uses 002_visualization/02_explore_syn_split_para/load_models.py
+# --------------------------------------------------------------------------
+# Uses 
+#   002_visualization/02_explore_syn_split_para/load_models.py
 # --------------------------------------------------------------------------
 # Previous steps
 # - Forward calculation of synthetic splitting parameters for structural

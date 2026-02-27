@@ -6,7 +6,9 @@
 # - One horizontal layer (with HTI): H1
 # - Two horizontal layers (with HTI): H2
 # - One tilted layer (with TTI): T1
-# Used in 002_visualization/02_explore_syn_split_para/explore_syn_split_para.py
+# --------------------------------------------------------------------------
+# Used in 
+#   002_visualization/02_explore_syn_split_para/explore_syn_split_para.py
 # --------------------------------------------------------------------------
 # Previous steps
 # - Forward calculation of synthetic splitting parameters for structural
