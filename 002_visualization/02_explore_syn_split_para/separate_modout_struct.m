@@ -1,5 +1,5 @@
 % ==========================================================================
-% Explore forward calculated splitting parameters for structural anisotropy
+% Split MATLAB struct into separate structs for the different model types
 % --------------------------------------------------------------------------
 % Supported model types
 % - One horizontal layer (with HTI): H1
