@@ -32,19 +32,18 @@ _See also_: Chapter 5 of [**_Fröhlich (2025)_**](https://doi.org/10.5445/IR/100
 ![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/003_modeling_readme_image.png)
 
 
-
 ## Instruction: How to perform a modeling run for a single seismological recording station
 
 
 ### Requirements
 
-- Official _MATLAB_ Toolboxes
+- Official MATLAB Toolboxes
   - Deep Learning Toolbox
   - Mapping Toolbox
 
 - _MATLAB Seismic Anisotropy Toolkit_ (MSAT) by [**_Walker, Wookey (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031)
   - Download MSAT from https://www1.gly.bris.ac.uk/MSAT/ or https://github.com/andreww/MSAT (last access 2022/07/05).
-  - Add the whole MSAT package to your _MATLAB_ path.
+  - Add the whole MSAT package to your MATLAB path.
   - If you want to get familiar with the modeling in MSAT and the behavior of different settings change to the directory
     `MSAT/examples/splitting_model/` in which the script `split_model.m` is located. This script is described in the
     publication mentioned above. You can play around with different parameters and see how these affect the splitting
@@ -64,7 +63,7 @@ _Please note_: For small step sizes, computation time and structure size increas
 | [-85:5:90]  | [0.25:0.25:4] | [5:5:75]   | [0:5:355]  | [5:5:250]     | 4.2   | [**_Ritter et al. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w) |
 | [-90:5:90]  | [0.2:0.2:4]   | [5:5:75]   | [0:5:360]  | [5:25:500]    | 5.7   | [**_Grund & Ritter (2020)_**](https://doi.org/10.1093/gji/ggaa388) |
 
-- All models of all model types are merged in a single nested _MATLAB_ structure with fields:
+- All models of all model types are merged in a single nested MATLAB structure with fields:
   - 1 | `modout.phi_eff`: effective or apparent phi values over backazimuth
   - 2 | `modout.dt_eff`: effective or apparent dt values over backazimuth
   - 3 | `modout.mod_paras`: model parameters depending on the model type

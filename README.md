@@ -1,7 +1,7 @@
 # Visualization and Modeling of Shear Wave Splitting
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
 
-MATLAB (mainly) and Python (upcoming) functions for visualization and modeling of shear wave splitting observations:
+MATLAB (mainly) and Python functions for visualization and modeling of shear wave splitting observations:
 
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and
   [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
@@ -67,7 +67,7 @@ If you make use of this material, please acknowledge the relating publications i
 
 _Tested with_: R2022a, R2021a,b under Linux and Windows
 
-- **_MATLAB_**: Forward calculation
+- **MATLAB**: Forward calculation
   - Deep Learning Toolbox
   - Mapping Toolbox
   - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker, Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
