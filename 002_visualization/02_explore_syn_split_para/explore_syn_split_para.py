@@ -1,7 +1,7 @@
 # ==========================================================================
 # Plot forward calculated splitting parameters for structural anisotropy models
 # --------------------------------------------------------------------------
-# Creats suplot
+# Creates suplot
 # - LEFT: Cartesian plots of splitting parameters (fast pol. dir., delay time)
 # - RIGHT TOP: Model parameter of anisotropy model
 # - RIGHT BOTTOM: Stereoplot for splitting parameter
