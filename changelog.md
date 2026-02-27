@@ -1,6 +1,6 @@
 # Changelog
 
-## Release v2.0 (2024/MM/DD) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13799086.svg)](https://doi.org/10.5281/zenodo.13799086)
+## Release v2.0 (2026/02/27) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13799086.svg)](https://doi.org/10.5281/zenodo.13799086)
 
 - General
    - Improve checks for input SWSMs data ([PR #11](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/11))
@@ -31,9 +31,6 @@
    - Update table for required disc space in modeling README ([PR #17](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/17))
 
 **Contributors**: [Yvonne Fröhlich](https://github.com/yvonnefroehlich)
-
-For changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund) see
-the [changelog entry for release v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/changelog.md#release-v10-20221016-)
 
 
 ---
