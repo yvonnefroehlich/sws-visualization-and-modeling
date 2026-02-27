@@ -88,7 +88,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 | Release | Zenodo DOI | Publication | RADAR4KIT dataset |
 | --- | --- | --- | --- |
 | dev <br> [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main) |  |  |  |
-| [v2.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v2.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13799086.svg)](https://doi.org/10.5281/zenodo.13799086) | [**_Fröhlich et al. (2024)_**](https://doi.org/10.1093/gji/ggae245), <br> [**_Fröhlich (2025)_**](https://doi.org/10.5445/IR/1000183786) | https://dx.doi.org/10.35097/685 |
+| [v2.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v2.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13799086.svg)](https://doi.org/10.5281/zenodo.13799086) | [**_Fröhlich (2025)_**](https://doi.org/10.5445/IR/1000183786), <br> [**_Fröhlich et al. (2024)_**](https://doi.org/10.1093/gji/ggae245) | https://dx.doi.org/10.35097/685 |
 | [v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v1.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157) | [**_Ritter et al. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w) | https://dx.doi.org/10.35097/684 |
 
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools)
@@ -132,7 +132,7 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   *Computers & Geosciences*, 105:43-50.
   https://doi.org/10.1016/j.cageo.2017.04.015.
 - **_Porritt R W (2014)_**. SplitLab version 1.2.1.
-  available at https://robporritt.wordpress.com/software/.
+  available at https://robporritt.wordpress.com/software.
 - [**_Restivo A, Helffrich G (1999)_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x).
   Teleseismic shear wave splitting measurements in noisy environments.
   *Geophysical Journal International*, 137:821-830.
