@@ -1,6 +1,6 @@
 # Changelog
 
-## Release v2.0 (2026/02/27) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13799086.svg)](https://doi.org/10.5281/zenodo.13799086)
+## Release v2.0 (2026/02/28) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13799086.svg)](https://doi.org/10.5281/zenodo.13799086)
 
 - General
    - Improve checks for input SWSMs data ([PR #11](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pull/11))
