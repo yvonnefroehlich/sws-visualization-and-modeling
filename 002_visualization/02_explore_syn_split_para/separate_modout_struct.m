@@ -9,7 +9,7 @@
 % Previous steps
 % - Forward calculation of synthetic splitting parameters for structural
 %   anisotropy models
-%   https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/SWS_modeling_precomp_models_main.m
+%   https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/SWS_modeling_precomp_models_main.m
 % --------------------------------------------------------------------------
 % History
 % - Created: 2025/04/08
