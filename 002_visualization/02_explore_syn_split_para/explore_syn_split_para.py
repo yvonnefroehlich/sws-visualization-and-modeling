@@ -1,5 +1,5 @@
 # ==========================================================================
-# Explore forward calculated splitting parameters for structural anisotropy
+# Explore forward calculated splitting parameters for structural anisotropy models
 # -----------------------------------------------------------------------------
 # Supported model types
 # - One horizontal layer (with HTI): H1

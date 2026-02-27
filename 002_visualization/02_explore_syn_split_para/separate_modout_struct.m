@@ -5,9 +5,10 @@
 % - One horizontal layer (with HTI): H1
 % - Two horizontal layer (with HTI): H2
 % - One tilted layer (with TTI): T1
-% Previously calculated synthetic splitting parameters
-% - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
-% - The output MATLAB struct is split into separate structs for the different model types
+% --------------------------------------------------------------------------
+% Previously
+% - Forward calculation of synthetic splitting parameters for structural anisotropy models
+%   https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/SWS_modeling_precomp_models_main.m
 % --------------------------------------------------------------------------
 % History
 % - Created: 2025/04/08
