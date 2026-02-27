@@ -6,8 +6,9 @@
 % - Two horizontal layer (with HTI): H2
 % - One tilted layer (with TTI): T1
 % --------------------------------------------------------------------------
-% Previously
-% - Forward calculation of synthetic splitting parameters for structural anisotropy models
+% Previous steps
+% - Forward calculation of synthetic splitting parameters for structural
+%   anisotropy models
 %   https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/003_modeling/SWS_modeling_precomp_models_main.m
 % --------------------------------------------------------------------------
 % History

@@ -9,7 +9,8 @@
 # Used in explore_syn_split_para.py
 # --------------------------------------------------------------------------
 # Previous steps
-# - Forward calculation of synthetic splitting parameters for structural anisotropy models
+# - Forward calculation of synthetic splitting parameters for structural
+#   anisotropy models
 #   https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling/SWS_modeling_precomp_models_main.m
 # - Split MATLAB struct into separate structs for the different model types
 #   https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization/02_explore_syn_split_para/separate_modout_struct.m
