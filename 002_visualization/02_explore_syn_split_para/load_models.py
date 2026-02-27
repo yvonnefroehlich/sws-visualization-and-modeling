@@ -14,7 +14,7 @@
 # - Updated: 2026/01/02 - Improve usage of test data
 # -----------------------------------------------------------------------------
 # Versions
-#   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
+#   PyGMT v0.18.0 -> https://www.pygmt.org
 #   GMT 6.6.0 -> https://www.generic-mapping-tools.org
 # -----------------------------------------------------------------------------
 # Contact
@@ -73,7 +73,7 @@ def load_models(
     dom_per=8,  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
     path_models="000_test_data",
     # "test": provided test data
-    # "default": naming structur from forwardt calculation
+    # "default": naming structure from forward calculation
     # <your_model_name>: user defined name
     file_models="test",
 # -----------------------------------------------------------------------------
@@ -318,14 +318,14 @@ def load_models(
 # -----------------------------------------------------------------------------
     match model_type:
         case "H1":
-            models_df_select = models_df.loc[
+            models_df_select_temp = models_df.loc[
                 (models_df["phi_in"] >= phi_min)
                 & (models_df["phi_in"] <= phi_max)
                 & (models_df["dt_in"] >= dt_min)
                 & (models_df["dt_in"] <= dt_max)
             ]
         case "H2":
-            models_df_select = models_df.loc[
+            models_df_select_temp = models_df.loc[
                 (models_df["phi1_in"] >= phi1_min)
                 & (models_df["phi1_in"] <= phi1_max)
                 & (models_df["dt1_in"] >= dt1_min)
@@ -336,7 +336,7 @@ def load_models(
                 & (models_df["dt2_in"] <= dt2_max)
             ]
         case "T1":
-            models_df_select = models_df.loc[
+            models_df_select_temp = models_df.loc[
                 (models_df["dip_in"] >= dip_min)
                 & (models_df["dip_in"] <= dip_max)
                 & (models_df["thick_in"] >= thick_min)
@@ -346,8 +346,9 @@ def load_models(
             ]
 
 # -----------------------------------------------------------------------------
-    N_select = len(models_df_select)
-    models_df_select["i_select"] = np.arange(N_select).tolist()
+    N_select = len(models_df_select_temp)
+    models_df_select = models_df_select_temp.copy()
+    models_df_select["i_select"] = list(range(N_select))
 
     print(f"Data loaded: in total {N_total} models, selected {N_select} models.")
     if N_select == 0:

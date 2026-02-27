@@ -17,11 +17,11 @@
 # - Continued: 2026/01/24 - Allow setting ranges for model parameters
 # - Updated: 2026/01/25 - Improve data preparation, shorten code for plotting nulls
 # - Updated: 2026/01/27 - Improve determination of null directions
-# - Updated: 2026/01/18 - Move loading anisotropy model to separate function
+# - Updated: 2026/01/18 - Move loading anisotropy models to separate function
 # - Updated: 2026/01/02 - Improve usage of test data
 # -----------------------------------------------------------------------------
 # Versions
-#   PyGMT v0.18.0 -> https://www.pygmt.org/v0.18.0 | https://www.pygmt.org
+#   PyGMT v0.18.0 -> https://www.pygmt.org
 #   GMT 6.6.0 -> https://www.generic-mapping-tools.org
 # -----------------------------------------------------------------------------
 # Contact
@@ -86,7 +86,7 @@ dom_per = 8  ## 6 | 8 | 10  # in seconds  (TEST data provided for 8 s)
 root_path = ""  # Adjust for your file structure
 path_models = f"{root_path}/sws-visualization-and-modeling/000_test_data"
 # "test": provided test data
-# "default": naming structure from forwardt calculation
+# "default": naming structure from forward calculation
 # <your_model_name>: user defined name
 file_models = "test"
 path_out = "02_out_figs"
@@ -109,9 +109,9 @@ dt2_min = 0
 dt2_max = 4
 # T1
 dip_min = 0
-dip_max = 70
+dip_max = 90
 thick_min = 0
-thick_max = 400
+thick_max = 700
 downdipdir_min = 0
 downdipdir_max = 360
 
@@ -171,7 +171,7 @@ baz = np.arange(0, 360 + baz_step, baz_step)
 box_standard = "+glightgray@30+p0.1p,gray30+r1p"
 
 # Colors based on Fröhlich et al. (2024) GJI
-color_highlight = "255/90/0"  # -> orange
+color_hl= "255/90/0"  # highlight -> orange
 color_H1 = "127/140/95"  # 1 horizontal layer (H1) -> green
 color_H2l = "178/34/34"  # 2 horizontal layers (H2) lower (first) layer -> red
 color_H2u = "24/116/205"  # 2 horizontal layers (H2) upper (second) layer -> blue
@@ -448,7 +448,7 @@ for i_model in range(model_start, model_end, model_step):
             position="TL",
             justify="MC",
             offset="-0.35c/0c",
-            font=f"7.5p,{color_highlight}",
+            font=f"7.5p,{color_hl}",
             fill="white@30",
             pen="0.01p,black",
             clearance="0.08c/0.08c+tO",
@@ -457,7 +457,7 @@ for i_model in range(model_start, model_end, model_step):
 
 # -----------------------------------------------------------------------------
     fig.show()
-    fig_name_basic = f"forwardt_syn_sp_period{dom_per}s_{model_type}"
+    fig_name_basic = f"forward_syn_sp_period{dom_per}s_{model_type}"
 
     str_cb = ""
     if not status_cb:
@@ -479,6 +479,6 @@ for i_model in range(model_start, model_end, model_step):
         fig_name = f"{fig_name_basic}_{fig_name_mt}_cb{str_cb}_per{str_per}"
         if ext == "png":
             fig_name = f"{i_total}_{fig_name}"
-        # fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=720)
+        # fig.savefig(fname=f"{path_out}/{model_type}/{fig_name}.{ext}", dpi=360)
 
     print(f"{i_total}_{fig_name}")
