@@ -1,6 +1,6 @@
 # 001_stereoplot
 
- _How to use_: [Header of function `SWS_Analysis_BASICS_stereoplot.m`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/001_stereoplot/SWS_Analysis_BASICS_stereoplot.m)
+ _How to use_: Header of script [`SWS_Analysis_BASICS_stereoplot.m`](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/blob/main/001_stereoplot/SWS_Analysis_BASICS_stereoplot.m)
 
 _Test data_: Use files from [000_test data](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/000_test_data)
 
