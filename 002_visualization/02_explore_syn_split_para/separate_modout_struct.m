@@ -1,13 +1,15 @@
 % ==========================================================================
-% Explore forward calculated splitting parameters for structural anisotropy
+% Split MATLAB struct into separate structs for the different model types
 % --------------------------------------------------------------------------
 % Supported model types
 % - One horizontal layer (with HTI): H1
 % - Two horizontal layer (with HTI): H2
 % - One tilted layer (with TTI): T1
-% Previously calculated synthetic splitting parameters
-% - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
-% - The output MATLAB struct is split into separate structs for the different model types
+% --------------------------------------------------------------------------
+% Previous steps
+% - Forward calculation of synthetic splitting parameters for structural
+%   anisotropy models
+%   003_modeling/SWS_modeling_precomp_models_main.m
 % --------------------------------------------------------------------------
 % History
 % - Created: 2025/04/08

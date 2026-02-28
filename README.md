@@ -1,7 +1,7 @@
 # Visualization and Modeling of Shear Wave Splitting
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213156.svg)](https://doi.org/10.5281/zenodo.7213156)
 
-MATLAB (mainly) and Python (upcoming) functions for visualization and modeling of shear wave splitting observations:
+MATLAB and Python code for visualization and modeling of shear wave splitting observations:
 
 - Optimized for the output of _SplitLab_ ([**_Wüstefeld et al. 2008_**](https://doi.org/10.1016/j.cageo.2007.08.002)) and
   [_StackSplit_](https://github.com/michaelgrund/stacksplit) ([**_Grund 2017_**](https://doi.org/10.1016/j.cageo.2017.04.015)).
@@ -13,9 +13,9 @@ MATLAB (mainly) and Python (upcoming) functions for visualization and modeling o
 
 _Example figures_: Generated with the provided [test data](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/000_test_data)
 
-- **[001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot#001_stereoplot)**
-- **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization#002_visualization)**
-- **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling#003_modeling)**
+- **[001_stereoplot](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/001_stereoplot#001_stereoplot)** (MATLAB)
+- **[002_visualization](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/002_visualization#002_visualization)** (mainly Python, MATLAB)
+- **[003_modeling](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling#003_modeling)** (MATLAB)
 
 ![](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/raw/main/_images/000_repo_readme_image.png)
 
@@ -43,15 +43,15 @@ If you make use of this material, please acknowledge the relating publications i
   Shear wave splitting analysis of long-term data: Anisotropy studies in the Upper Rhine Graben area, Central Europe.
   Disputation, *Karlsruhe Institute of Technology, Geophysical Institute*.
   https://doi.org/10.5281/zenodo.15982580.
-- [**_Fröhlich Y (2025c)_**](https://doi.org/10.5281/zenodo.15836682).
+- [**_Fröhlich Y (2026a)_**](https://doi.org/10.5281/zenodo.15836682).
   Geophysical Visualizations. *Zenodo*.
   https://doi.org/10.5281/zenodo.15836682.
-- [**_Fröhlich Y (2025d)_**](https://doi.org/10.5281/zenodo.15641348).
+- [**_Fröhlich Y (2026b)_**](https://doi.org/10.5281/zenodo.15641348).
   Geophysical Animations. *Zenodo*.
   https://doi.org/10.5281/zenodo.15641348.
 
 **Presentation**
-- [**_Fröhlich Y (2026b)_**](https://doi.org/10.5281/zenodo.18524089).
+- [**_Fröhlich Y (2026d)_**](https://doi.org/10.5281/zenodo.18524089).
   Modeling shear wave splitting observations: Long-term data have the better idea.
   *Annual Meeting of the German Geophysical Society*, Münster, Germany.
   https://doi.org/10.5281/zenodo.18524089.
@@ -67,7 +67,7 @@ If you make use of this material, please acknowledge the relating publications i
 
 _Tested with_: R2022a, R2021a,b under Linux and Windows
 
-- **_MATLAB_**: Forward calculation
+- **MATLAB**: Forward calculation
   - Deep Learning Toolbox
   - Mapping Toolbox
   - [_MATLAB Seismic Anisotropy Toolkit_ (MSAT)](https://www1.gly.bris.ac.uk/MSAT/) ([**_Walker, Wookey 2012_**](https://doi.org/10.1016/j.cageo.2012.05.031))
@@ -88,7 +88,7 @@ _Tested with_: R2022a, R2021a,b under Linux and Windows
 | Release | Zenodo DOI | Publication | RADAR4KIT dataset |
 | --- | --- | --- | --- |
 | dev <br> [main branch](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main) |  |  |  |
-| [v2.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v2.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13799086.svg)](https://doi.org/10.5281/zenodo.13799086) | [**_Fröhlich et al. (2024)_**](https://doi.org/10.1093/gji/ggae245), <br> [**_Fröhlich (2025)_**](https://doi.org/10.5445/IR/1000183786) | https://dx.doi.org/10.35097/685 |
+| [v2.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v2.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13799086.svg)](https://doi.org/10.5281/zenodo.13799086) | [**_Fröhlich (2025a)_**](https://doi.org/10.5445/IR/1000183786), <br> [**_Fröhlich et al. (2024)_**](https://doi.org/10.1093/gji/ggae245) | https://dx.doi.org/10.35097/685 |
 | [v1.0](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/releases/tag/v1.0) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7213157.svg)](https://doi.org/10.5281/zenodo.7213157) | [**_Ritter et al. (2022)_**](https://doi.org/10.1007/s10950-022-10112-w) | https://dx.doi.org/10.35097/684 |
 
 For details of the individual releases as well as for changes and differences compared to [sws_tools](https://github.com/michaelgrund/sws_tools)
@@ -132,7 +132,7 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   *Computers & Geosciences*, 105:43-50.
   https://doi.org/10.1016/j.cageo.2017.04.015.
 - **_Porritt R W (2014)_**. SplitLab version 1.2.1.
-  available at https://robporritt.wordpress.com/software/.
+  available at https://robporritt.wordpress.com/software.
 - [**_Restivo A, Helffrich G (1999)_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x).
   Teleseismic shear wave splitting measurements in noisy environments.
   *Geophysical Journal International*, 137:821-830.

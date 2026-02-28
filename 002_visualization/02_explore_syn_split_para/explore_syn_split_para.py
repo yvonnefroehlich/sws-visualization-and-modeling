@@ -1,14 +1,26 @@
 # ==========================================================================
-# Explore forward calculated splitting parameters for structural anisotropy
-# -----------------------------------------------------------------------------
+# Plot forward calculated splitting parameters for structural anisotropy models
+# --------------------------------------------------------------------------
+# Creates suplot
+# - LEFT: Cartesian plots of splitting parameters (fast pol. dir., delay time)
+# - RIGHT TOP: Model parameter of anisotropy model
+# - RIGHT BOTTOM: Stereoplot for splitting parameter
+# --------------------------------------------------------------------------
 # Supported model types
 # - One horizontal layer (with HTI): H1
 # - Two horizontal layers (with HTI): H2
 # - One tilted layer (with TTI): T1
-# Previously calculated synthetic splitting parameters
-# - https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main/003_modeling
-# - The output MATLAB struct is split into separate structs for the three model types
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
+# Uses 
+#   002_visualization/02_explore_syn_split_para/load_models.py
+# --------------------------------------------------------------------------
+# Previous steps
+# - Forward calculation of synthetic splitting parameters for structural
+#   anisotropy models
+#   003_modeling/SWS_modeling_precomp_models_main.m
+# - Split MATLAB struct into separate structs for the different model types
+#   002_visualization/02_explore_syn_split_para/separate_modout_struct.m
+# --------------------------------------------------------------------------
 # History
 # - Created: 2024/07/09
 # - Continued: 2025/01/07
@@ -19,16 +31,16 @@
 # - Updated: 2026/01/27 - Improve determination of null directions
 # - Updated: 2026/01/18 - Move loading anisotropy models to separate function
 # - Updated: 2026/01/02 - Improve usage of test data
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # Versions
 #   PyGMT v0.18.0 -> https://www.pygmt.org
 #   GMT 6.6.0 -> https://www.generic-mapping-tools.org
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # Contact
 # - Author: Yvonne Fröhlich
 # - ORCID: https://orcid.org/0000-0002-8566-0619
 # - GitHub: https://github.com/yvonnefroehlich/sws-visualization-and-modeling
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # Related to
 # - Fröhlich (2025) Dissertation
 #   https://doi.org/10.5445/IR/1000183786
@@ -36,7 +48,7 @@
 #   http://dx.doi.org/10.5281/zenodo.14510993
 # - Fröhlich, Grund, Ritter (2024) Geophysical Journal International
 #   https://doi.org/10.1093/gji/ggae245
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # LICENSE
 #
 # Copyright (C) 2026  Yvonne Fröhlich (v2.0)
@@ -186,7 +198,7 @@ baz_null_add = 5
 
 # %%
 # -----------------------------------------------------------------------------
-# Make plots of anisotropy models
+# Make plots
 # -----------------------------------------------------------------------------
 for i_model in range(model_start, model_end, model_step):
 
@@ -309,7 +321,7 @@ for i_model in range(model_start, model_end, model_step):
     fig.shift_origin(xshift="+w+1.5c", yshift="4.5c")
 
 # .............................................................................
-# Top Right: model parameter of anisotropy model
+# Top Right: Model parameter of anisotropy model
 # .............................................................................
     size = 2
     region_mp = [-size, size] * 2
