@@ -169,6 +169,6 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
 The presented research and YF received support from various sources:
 
 - [Graduate Funding from the German States](https://www.khys.kit.edu/english/graduate_funding.php) (scholarship)
-- [NSF grant EAR-1948602](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1948602) (travel support for AGU24)
+- [NSF grant EAR-1948602](https://www.nsf.gov/awardsearch/show-award/?AWD_ID=1948602) (travel support for AGU24)
 - [DFG project 521545943](https://gepris.dfg.de/gepris/projekt/521545943?language=en) within the
   [DFG Priority Program DeepDyn SPP 2404 – 500707704](https://www.geo.lmu.de/deepdyn/en/) (research assistant)
