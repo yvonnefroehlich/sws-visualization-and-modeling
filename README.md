@@ -51,6 +51,10 @@ If you make use of this material, please acknowledge the relating publications i
   https://doi.org/10.5281/zenodo.15641348.
 
 **Presentation**
+- [**_Fröhlich Y (2026d)_**](https://doi.org/10.5281/zenodo.20441410).
+  Resolving upper mantle anisotropy in 3-D from long-term data: A case study in the Upper Rhine Graben area, Central Europe.
+  *Workshop Integrating Seismic Anisotropy, Geodynamics, and Rock Deformation*, St. Louis.
+  https://doi.org/10.5281/zenodo.20441410.
 - [**_Fröhlich Y (2026d)_**](https://doi.org/10.5281/zenodo.18524089).
   Modeling shear wave splitting observations: Long-term data have the better idea.
   *Annual Meeting of the German Geophysical Society*, Münster, Germany.
