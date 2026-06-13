@@ -1,5 +1,5 @@
 # Visualization and Modeling of Shear Wave Splitting
-[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.7213156-blue](https://doi.org/10.5281/zenodo.7213156)
+[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.7213156-blue)](https://doi.org/10.5281/zenodo.7213156)
 
 MATLAB and Python code for visualization and modeling of shear wave splitting observations:
 
