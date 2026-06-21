@@ -429,7 +429,7 @@ end
 % - measurement method: 1; 2; 3
 
 disp(' ')
-SL_method = input(['Methode you want to plot [Default is SC]? \n' ...
+SL_method = input(['Method you want to plot [Default is SC]? \n' ...
                    '   [1] SC  [2] RC  [3] EV    | ']);
 
 if ~exist('SL_method','var')==1  % default

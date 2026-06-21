@@ -268,7 +268,7 @@ elseif modsall_sort(1).modrange_low > modsall_sort(1).modrange_upp
 
     if modsall_sort(1).modrange_low~=0 || modsall_sort(1).modrange_upp~=360
 
-        % first plot whole range in gray as botom layer
+        % first plot whole range in gray as bottom layer
         startwedge = 0;
         endwedge = 360;
         plot_wedge3D(deg2rad(startwedge-90), deg2rad(endwedge-90), ...
