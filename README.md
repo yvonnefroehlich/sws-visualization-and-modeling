@@ -170,10 +170,6 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
 - [**_Tian D, Leong W J, Fröhlich Y, Grund M, Schlitzer W, Jones M, Toney L, Yao J, Tong J-H, Mage Y, Materna K, Belem A, Newton T, Anant A, Ziebarth M, Quinn J, He X, Uieda L, Wessel P (2024)_**](https://doi.org/10.5281/zenodo.19398871).
   PyGMT: A Python interface for the Generic Mapping Tools, version v0.19.0.
   *Zenodo*. https://doi.org/10.5281/zenodo.19398871 (v0.19.0), https://doi.org/10.5281/zenodo.3781524 (all versions / latest version).
-- [**_Wessel P, Smith W H F, Scharroo R, Luis J F, Wobbe F (2013)_**](https://doi.org/10.1002/2013EO450001).
-  Generic mapping tools: improved version released.
-  *Eos, Transactions American Geophysical Union*, 94(45):409-410.
-  https://doi.org/10.1002/2013EO450001.
 - [**_Wessel P, Luis J F, Uieda L, Scharroo R, Wobbe F, Smith W H F, Tian D (2019)_**](https://doi.org/10.1029/2019GC008515).
   The Generic Mapping Tools version 6.
   *Geochemistry, Geophysics, Geosystems*, 20(11):5556-5564.
