@@ -125,12 +125,11 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
 
 ## References
 
+**Shear wave splitting**
 - [**_Bowman J R, Ando M (1987)_**](https://doi.org/10.1111/j.1365-246X.1987.tb01367.x).
   Shear-wave splitting in the upper-mantle wedge above the Tonga subduction zone.
   *Geophysical Journal International*, 88(1):25-41.
   https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
-- [**_Crameri F (2021)_**](https://zenodo.org/record/5501399).
-  Scientific colour maps, version 7.0.1. *Zenodo*. https://www.fabiocrameri.ch/colourmaps.php. https://zenodo.org/record/5501399.
 - [**_Grund M (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015).
   StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab.
   *Computers & Geosciences*, 105:43-50.
@@ -149,10 +148,6 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   Shear wave splitting and subcontinental mantle deformation.
   *Journal of Geophysical Research*, 96(B10):16429-16454.
   https://doi.org/10.1029/91JB00899.
-- [**_Thyng K M, Greene C A, Hetland R D, Zimmerle H M, DiMarco S F (2016)_**](https://dx.doi.org/10.5670/oceanog.2016.66).
-  True colors of oceanography: Guidelines for effective and accurate colormap selection.
-  *Oceanography*, 29(3)9-13.
-  https://dx.doi.org/10.5670/oceanog.2016.66.
 - [**_Walker A M, Wookey J (2012)_**](https://doi.org/10.1016/j.cageo.2012.05.031).
   MSAT — A new toolkit for the analysis of elastic and seismic anisotropy.
   *Computer & Geosciences*, 49:81-90.
@@ -166,6 +161,35 @@ For bug reports, suggestions or recommendations feel free to [open an issue](htt
   SplitLab: A shear-wave splitting environment in Matlab.
   *Computers & Geosciences*, 34(5):515-528.
   https://doi.org/10.1016/j.cageo.2007.08.002.
+
+**PyGMT and GMT**
+- [**_Tian D, Fröhlich Y, Leong W J, Grund M, Schlitzer W, Jones M, Uieda L, Luis J M F (2026)_**](https://doi.org/10.1029/2026GC013105).
+  PyGMT: Bridging Python and the Generic Mapping Tools for Geospatial Visualization and Analysis.
+  *Geochemistry, Geophysics, Geosystems*, 27(7), e2026GC013105.
+  https://doi.org/10.1029/2026GC013105.
+- [**_Tian D, Leong W J, Fröhlich Y, Grund M, Schlitzer W, Jones M, Toney L, Yao J, Tong J-H, Mage Y, Materna K, Belem A, Newton T, Anant A, Ziebarth M, Quinn J, He X, Uieda L, Wessel P (2024)_**](https://doi.org/10.5281/zenodo.19398871).
+  PyGMT: A Python interface for the Generic Mapping Tools, version v0.19.0.
+  *Zenodo*. https://doi.org/10.5281/zenodo.19398871 (v0.19.0), https://doi.org/10.5281/zenodo.3781524 (all versions / latest version).
+- [**_Wessel P, Smith W H F, Scharroo R, Luis J F, Wobbe F (2013)_**](https://doi.org/10.1002/2013EO450001).
+  Generic mapping tools: improved version released.
+  *Eos, Transactions American Geophysical Union*, 94(45):409-410.
+  https://doi.org/10.1002/2013EO450001.
+- [**_Wessel P, Luis J F, Uieda L, Scharroo R, Wobbe F, Smith W H F, Tian D (2019)_**](https://doi.org/10.1029/2019GC008515).
+  The Generic Mapping Tools version 6.
+  *Geochemistry, Geophysics, Geosystems*, 20(11):5556-5564.
+  https://doi.org/10.1029/2019GC008515.
+- [**_Wessel P, Luis J F, Uieda L, Scharroo R, Wobbe F, Smith W H F, Tian D, Jones M, Esteban F, Fröhlich Y (2025)_**](https://doi.org/10.5281/zenodo.16448627).
+  The Generic Mapping Tools, version 6.6.0.
+  *Zenodo*. https://doi.org/10.5281/zenodo.16448627 (6.6.0), https://doi.org/10.5281/zenodo.3407865 (all versions / latest version).
+
+**Colormaps**
+- [**_Crameri F (2021)_**](https://zenodo.org/record/5501399).
+  Scientific colour maps, version 7.0.1. *Zenodo*. https://www.fabiocrameri.ch/colourmaps.php.
+  https://zenodo.org/record/5501399.
+- [**_Thyng K M, Greene C A, Hetland R D, Zimmerle H M, DiMarco S F (2016)_**](https://dx.doi.org/10.5670/oceanog.2016.66).
+  True colors of oceanography: Guidelines for effective and accurate colormap selection.
+  *Oceanography*, 29(3)9-13.
+  https://dx.doi.org/10.5670/oceanog.2016.66.
 
 
 ## Funding
