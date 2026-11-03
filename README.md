@@ -8,6 +8,8 @@ MATLAB and Python code for visualization and modeling of shear wave splitting ob
 - The modeling routine is applicable for the _energy minimization_ method ([**_Silver, Chan 1991_**](https://doi.org/10.1029/91JB00899)).
 - Extended and strongly modified from [sws_tools](https://github.com/michaelgrund/sws_tools) by [Michael Grund](https://github.com/michaelgrund).
 
+_No AI tools or agents are used to develope these contents._
+
 
 ## Content
 
@@ -111,7 +113,7 @@ by [Michael Grund](https://github.com/michaelgrund) see the [changelog](https://
 
 For bug reports, suggestions or recommendations feel free to [open an issue](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/issues) or
 [submit a pull request](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/pulls) directly here on
-[GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main).
+[GitHub](https://github.com/yvonnefroehlich/sws-visualization-and-modeling/tree/main). _Fully AI-generated contents are **not** welcome!_
 
 
 ## Related topics
